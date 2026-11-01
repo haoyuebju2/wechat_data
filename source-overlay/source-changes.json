@@ -388,7 +388,7 @@
     {
       "path": "frontend/components/SettingsDialog.vue",
       "base_sha256": "4faf21e0b0d434b32b7e18ebec1296edff8bbef5391e933f242445749cac1654",
-      "target_sha256": "36025e8176a9c76026bb1a0f71242b9ac72a274df57997195f770e83111b5635",
+      "target_sha256": "7167aaf4a114aebe696fbaf7940eba212506224292cd423676db548b16c88920",
       "edits": [
         {
           "start": 17015,
@@ -396,8 +396,13 @@
           "insert_base64": "ICAgICAgICAgICAgICA8c3Bhbj48c3BhbiBjbGFzcz0iYmxvY2sgdGV4dC1bMTNweF0gZm9udC1tZWRpdW0gdGV4dC1bdmFyKC0tYXBwLXRleHQtcHJpbWFyeSldIj7mnKzmnLrmqKHlnovkuI4gQ2hhdEdQVCDov57mjqU8L3NwYW4+PHNwYW4gY2xhc3M9Im10LTAuNSBibG9jayB0ZXh0LVsxMXB4XSB0ZXh0LVt2YXIoLS1hcHAtdGV4dC1tdXRlZCldIj7phY3nva7mnKzmnLrmqKHlnovvvIzmiJbpooTop4jlubbmjojmnYPkuIDku73otYTmlpnnu5kgQ2hhdEdQVCDlrqLmiLfnq688L3NwYW4+PC9zcGFuPgogICAgICAgICAgICAgIDxzcGFuIGNsYXNzPSJzaHJpbmstMCB0ZXh0LVsxMnB4XSB0ZXh0LVt2YXIoLS1hcHAtYWNjZW50KV0iPuaJk+W8gCBBSSDliqnmiYs8L3NwYW4+Cg=="
         },
         {
-          "start": 42879,
-          "end": 43694,
+          "start": 42038,
+          "end": 42314,
+          "insert_base64": "ICAgICAgICAgICAgICAgICAgICA8ZGl2IGNsYXNzPSJ0ZXh0LVsxM3B4XSBmb250LW1lZGl1bSB0ZXh0LVsjMjIyXSI+6Ieq5Yqo5LyY6YCJ5pys5py66auY5riF5Zu+54mHPC9kaXY+CiAgICAgICAgICAgICAgICAgICAgPGRpdiBjbGFzcz0ibXQtMC41IHRleHQtWzExcHhdIHRleHQtWyM5MDkwOTBdIj7ngrnlvIDlm77niYfml7boh6rliqjph43mlrDmo4Dmn6XmnKzmnLrmlofku7bvvIzkvJjlhYjmmL7npLrlt7LmnInnmoTmnIDmuIXmmbDniYjmnKzjgILljp/lm77lsJrmnKrkuIvovb3ml7bkv53nlZnnjrDmnInlm77niYfvvJvnlLHlvq7kv6HkuIvovb3lkI7vvIzlho3mrKHmiZPlvIDljbPlj6/or4bliKvjgII8L2Rpdj4K"
+        },
+        {
+          "start": 42339,
+          "end": 43650,
           "insert_base64": ""
         },
         {
@@ -411,9 +416,24 @@
           "insert_base64": "ICB7IGtleTogJ2FpJywgbGFiZWw6ICdBSSDliqnmiYsnLCBoaW50OiAn5pys5py65qih5Z6LIC8gQ2hhdEdQVCcgfSwK"
         },
         {
+          "start": 49091,
+          "end": 49161,
+          "insert_base64": ""
+        },
+        {
           "start": 60597,
           "end": 60628,
           "insert_base64": "ICB2b2lkIG5hdmlnYXRlVG8oJy9haScpCg=="
+        },
+        {
+          "start": 97456,
+          "end": 98037,
+          "insert_base64": ""
+        },
+        {
+          "start": 99965,
+          "end": 99993,
+          "insert_base64": ""
         }
       ]
     },
@@ -442,8 +462,38 @@
     {
       "path": "frontend/composables/chat/useChatMessages.js",
       "base_sha256": "3276fe3099e25b56ee9a1b952865f3f76c859035e8a6837ab28b6b72a2245529",
-      "target_sha256": "781b9cab3b796dea2d25dfda36858eec362518c1caf330b58dd7d1d8d5fb200b",
+      "target_sha256": "09e0774aad80ecdc507842a7c03735ad973283da2692fde1e09c3701b580a17e",
       "edits": [
+        {
+          "start": 566,
+          "end": 566,
+          "insert_base64": "aW1wb3J0IHsgbG9jYWxJbWFnZVByZXZpZXdVcmwgfSBmcm9tICd+L2xpYi9jaGF0L2xvY2FsLWltYWdlLXByZXZpZXcnCg=="
+        },
+        {
+          "start": 36429,
+          "end": 36429,
+          "insert_base64": "ICBjb25zdCBzaG93TG9jYWxQcmV2aWV3QXQgPSAoaW5kZXgpID0+IHsKICAgIGNvbnN0IGl0ZW0gPSBwcmV2aWV3SW1hZ2VJdGVtcy52YWx1ZVtpbmRleF0KICAgIGlmICghaXRlbSkgcmV0dXJuCiAgICBjb25zdCBmcmVzaCA9IGxvY2FsSW1hZ2VQcmV2aWV3VXJsKGl0ZW0udXJsKQogICAgcHJldmlld0ltYWdlSXRlbXMudmFsdWVbaW5kZXhdID0geyAuLi5pdGVtLCB1cmw6IGZyZXNoIH0KICAgIHByZXZpZXdJbWFnZVVybC52YWx1ZSA9IGZyZXNoIHx8IG51bGwKICB9Cgo="
+        },
+        {
+          "start": 37456,
+          "end": 37456,
+          "insert_base64": "ICAgIHNob3dMb2NhbFByZXZpZXdBdChwcmV2aWV3SW1hZ2VJbmRleC52YWx1ZSkK"
+        },
+        {
+          "start": 38111,
+          "end": 38177,
+          "insert_base64": "ICAgIHNob3dMb2NhbFByZXZpZXdBdChuZXh0KQo="
+        },
+        {
+          "start": 74312,
+          "end": 74466,
+          "insert_base64": "ICAgIC8vIFByZXNlcnZlIG1lc3NhZ2UgY29udGV4dCBmb3IgbG9jYWwgSUQgcmVzb2x1dGlvbjsgdGhpcyBuZXZlciBlbmFibGVzIENETiBhY2Nlc3MuCg=="
+        },
+        {
+          "start": 74589,
+          "end": 74627,
+          "insert_base64": "ICAgIHF1ZXJ5LnNldCgnZmV0Y2hfcmVtb3RlJywgJ2ZhbHNlJykK"
+        },
         {
           "start": 96527,
           "end": 96679,
@@ -877,6 +927,23 @@
       ]
     },
     {
+      "path": "src/wechat_decrypt_tool/routers/chat_media.py",
+      "base_sha256": "be94bbf74fc87b1acc333f55bc46b950a67e330f8ce858e3bb8f9641579de1f3",
+      "target_sha256": "4ab1f448e0b9bba5a7d7d341494c2ec1a1fc34695924f68f89870440a5429b17",
+      "edits": [
+        {
+          "start": 94610,
+          "end": 94610,
+          "insert_base64": "ICAgICMgTGVnYWN5IFVSTHMgbXVzdCBub3QgcmUtZW5hYmxlIGFueSBDRE4gbG9va3VwIGluIHRoZSBsb2NhbC1vbmx5IGZvcmsuCiAgICBmZXRjaF9yZW1vdGUgPSBGYWxzZQo="
+        },
+        {
+          "start": 101356,
+          "end": 104615,
+          "insert_base64": "ICAgICAgICAjIFRoZSBvZmZsaW5lIGltYWdlIHBhdGggbmV2ZXIgcmVhZHMgQ0ROIGF1dGhvcml6YXRpb24gb3Igc2VuZHMgcmVxdWVzdHMuCiAgICAgICAgcmV0dXJuIE5vbmUK"
+        }
+      ]
+    },
+    {
       "path": "src/wechat_decrypt_tool/runtime_settings.py",
       "base_sha256": "cf3266707c279cb6541da403581187338a3abf91d5bd877020c239fd84d17236",
       "target_sha256": "e446e38f8f52f693354b1c4aad6059697e0d18799ef4951ca89d627546a44418",
@@ -994,8 +1061,16 @@
       "sha256": "fcdc53212d70ad61eacd6988124f5f9f352bcd25ebf19957f6130674fcf33394"
     },
     {
+      "path": "frontend/lib/chat/local-image-preview.js",
+      "sha256": "7d5ff08a41c0f80507e0cbd5a6900440318c66b8fea035bdf41a04489f23e494"
+    },
+    {
       "path": "frontend/tests/offline-ai.test.js",
       "sha256": "1c245afea3944efa9d9c01fbf84f011dcf1350601337edd76aeb523e00227bd4"
+    },
+    {
+      "path": "frontend/tests/offline-image-preview.test.js",
+      "sha256": "584180b06c1e7e4123e41c3fd744c158cf725cf40091b4129e7b7090363afbf1"
     },
     {
       "path": "frontend/tests/offline-snapshot.test.js",
@@ -1068,6 +1143,10 @@
     {
       "path": "tests_offline/test_offline_ai.py",
       "sha256": "acb6169a816425272f6ff9fcd635a4e632ea1798cad0110f4a0d45d9d26dc875"
+    },
+    {
+      "path": "tests_offline/test_offline_images.py",
+      "sha256": "059492f8a5684e7458aa16fa39c37455e0e74c8ebddf39ae6188d8ae75da55da"
     },
     {
       "path": "tests_offline/test_offline_incremental.py",

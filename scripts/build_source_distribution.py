@@ -19,6 +19,7 @@ NEW_FILES = {
     "desktop/tests/offline-renderer-smoke.cjs", "desktop/tests/offline-session.test.cjs",
     "frontend/components/OfflineAiPanel.vue", "frontend/components/chat/OfflineSnapshotBar.vue",
     "frontend/tests/offline-ai.test.js", "frontend/tests/offline-snapshot.test.js",
+    "frontend/lib/chat/local-image-preview.js", "frontend/tests/offline-image-preview.test.js",
     "src/wechat_decrypt_tool/local_key_scan.py", "src/wechat_decrypt_tool/offline_ai.py",
     "src/wechat_decrypt_tool/offline_context_protocol.py", "src/wechat_decrypt_tool/offline_file_watch.py",
     "src/wechat_decrypt_tool/offline_incremental.py", "src/wechat_decrypt_tool/offline_integrity.py",
