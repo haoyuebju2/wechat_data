@@ -49,10 +49,11 @@ app.whenReady().then(async()=>{
   await loadWithRedirect(win,origin+'/chat');
   const chatDeadline=Date.now()+15000;
   while(Date.now()<chatDeadline){
-    if(await win.webContents.executeJavaScript("document.body.innerText.includes('更新最新记录')"))break;
+    if(await win.webContents.executeJavaScript("!!document.querySelector('.chat-page-shell')"))break;
     await new Promise(resolve=>setTimeout(resolve,100));
   }
-  if(!await win.webContents.executeJavaScript("document.body.innerText.includes('更新最新记录')"))throw new Error('Built chat refresh control did not mount');
+  if(!await win.webContents.executeJavaScript("!!document.querySelector('.chat-page-shell')"))throw new Error('Built chat did not mount');
+  if(await win.webContents.executeJavaScript("/正在本地更新|校验完成后更新记录|更新最新记录/.test(document.body.innerText)"))throw new Error('Background update status remains visible');
   await loadWithRedirect(win,origin+'/ai');
   const aiDeadline=Date.now()+10000;
   while(Date.now()<aiDeadline){

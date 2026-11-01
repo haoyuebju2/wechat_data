@@ -130,6 +130,9 @@ def test_native_directory_event_reaches_snapshot_without_manual_refresh(source, 
         while (manager.status("wxid_test").get("checked_at") is None or manager.status("wxid_test")["running"]) and time.monotonic() < deadline:
             time.sleep(.01)
         previous = manager.status("wxid_test")["version"]
+        idle_checked_at = manager.status("wxid_test")["checked_at"]
+        time.sleep(1.25)
+        assert manager.status("wxid_test")["checked_at"] == idle_checked_at, "Idle source started a redundant refresh job"
         conn = sqlite3.connect(original)
         try:
             conn.execute("PRAGMA journal_mode=WAL")

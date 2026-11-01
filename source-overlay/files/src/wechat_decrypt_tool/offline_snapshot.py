@@ -36,6 +36,27 @@ def fingerprint(path: Path) -> list:
     return result
 
 
+def source_databases(source: Path) -> dict:
+    candidates = {}
+    for base in (source, source / "message", source / "session", source / "contact"):
+        if not base.is_dir():
+            continue
+        for path in base.glob("*.db"):
+            if not _FILE.fullmatch(path.name):
+                continue
+            if path.name in candidates:
+                raise ValueError("ambiguous_source")
+            candidates[path.name] = path
+    return candidates
+
+
+def source_signature(source: Path):
+    # Metadata only. Idle reconciliation must not start refresh jobs or decrypt
+    # keys/pages; unrelated source-directory changes do not need a refresh.
+    return tuple((name, tuple(tuple(row) if row else None for row in fingerprint(path)))
+                 for name, path in sorted(source_databases(source).items()))
+
+
 def _read_json(path: Path) -> dict:
     try:
         value = json.loads(path.read_text(encoding="utf-8"))
@@ -77,16 +98,7 @@ def refresh_account(account: str, *, on_publish=None) -> dict:
         state = {"source": identity, "files": {}}
     records = state.setdefault("files", {})
     state_before = json.dumps(state, sort_keys=True)
-    candidates = {}
-    for base in (source, source / "message", source / "session", source / "contact"):
-        if not base.is_dir():
-            continue
-        for path in base.glob("*.db"):
-            if not _FILE.fullmatch(path.name):
-                continue
-            if path.name in candidates:
-                raise ValueError("ambiguous_source")
-            candidates[path.name] = path
+    candidates = source_databases(source)
     if not candidates:
         return {"available": False, "updated": 0, "errors": [], "reason": "no_source_databases"}
     key = None
@@ -240,6 +252,10 @@ class SnapshotManager:
             notification = LocalChangeNotification(source)
         except Exception:
             pass  # one-second reconciliation remains available
+        try:
+            previous_signature = source_signature(source)
+        except Exception:
+            previous_signature = None
         self.request(account)
         reconcile_at = time.monotonic() + 1
         try:
@@ -256,7 +272,13 @@ class SnapshotManager:
                     if changed:
                         # Short bounded coalescing window, not a polling interval.
                         stopped.wait(.05)
-                    self.request(account)
+                    try:
+                        current_signature = source_signature(source)
+                    except Exception:
+                        current_signature = None
+                    if current_signature != previous_signature or self.status(account).get("errors"):
+                        previous_signature = current_signature
+                        self.request(account)
                     reconcile_at = time.monotonic() + 1
         finally:
             if notification is not None:

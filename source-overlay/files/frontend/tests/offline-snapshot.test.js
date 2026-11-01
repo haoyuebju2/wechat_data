@@ -17,6 +17,8 @@ describe('local snapshot updates', () => {
     vi.stubGlobal('$fetch', vi.fn(async () => ({ available: true, version: 0, revision: 0, instance: 'one' })))
     const wrapper = mount(OfflineSnapshotBar, { props: { account: 'first' } })
     await flushPromises()
+    expect(wrapper.text()).toBe('')
+    expect(wrapper.find('button').exists()).toBe(false)
     streams[0].onmessage({ data: JSON.stringify({ available: true, version: 1, revision: 2, instance: 'one' }) })
     await flushPromises()
     expect(wrapper.emitted('updated')).toHaveLength(1)
@@ -47,23 +49,20 @@ describe('local snapshot updates', () => {
     expect(state.allMessages.value['synthetic-friend']).toHaveLength(2)
     wrapper.unmount()
   })
-  it('requests a local refresh and reloads records when its generation changes', async () => {
+  it('keeps fallback updates active without rendering a status bar or requesting refresh jobs', async () => {
     vi.useFakeTimers()
+    vi.stubGlobal('EventSource', undefined)
     let version = 0
-    const fetch = vi.fn(async (url) => url.endsWith('/refresh')
-      ? { available: true, running: true, version }
-      : { available: true, running: false, version, errors: [], checked_at: 2000000000 })
+    const fetch = vi.fn(async () => ({ available: true, running: false, version, errors: [], checked_at: 2000000000 }))
     vi.stubGlobal('$fetch', fetch)
     const wrapper = mount(OfflineSnapshotBar, { props: { account: 'synthetic-account' } })
     await flushPromises()
-    expect(wrapper.text()).toContain('更新最新记录')
-    await wrapper.find('button').trigger('click')
-    await flushPromises()
-    expect(fetch).toHaveBeenCalledWith('/api/offline/snapshot/refresh', { method: 'POST', body: { account: 'synthetic-account' } })
+    expect(wrapper.text()).toBe('')
     version = 1
     await vi.advanceTimersByTimeAsync(3000)
     await flushPromises()
     expect(wrapper.emitted('updated')).toHaveLength(1)
+    expect(fetch.mock.calls.every(([url]) => url === '/api/offline/snapshot/status')).toBe(true)
     wrapper.unmount()
   })
 
@@ -77,7 +76,7 @@ describe('local snapshot updates', () => {
     await flushPromises()
     complete({ available: false, version: 9 })
     await flushPromises()
-    expect(wrapper.find('button').element.disabled).toBe(false)
+    expect(wrapper.find('button').exists()).toBe(false)
     expect(wrapper.emitted('updated')).toBeUndefined()
     wrapper.unmount()
   })

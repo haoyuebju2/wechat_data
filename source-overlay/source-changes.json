@@ -979,7 +979,7 @@
     },
     {
       "path": "desktop/tests/offline-renderer-smoke.cjs",
-      "sha256": "5ebd9908e50feb427182da6c89a849460ce8293e9ada167db95d51a3e63d6a73"
+      "sha256": "03560acc4346fefc20c0bade5eacfd7e71c962428fcda2f213dd0ca227a134aa"
     },
     {
       "path": "desktop/tests/offline-session.test.cjs",
@@ -991,7 +991,7 @@
     },
     {
       "path": "frontend/components/chat/OfflineSnapshotBar.vue",
-      "sha256": "3bbb572c33f89d3a6aa8365a6f928302cbb46c237253237387654f78334b6739"
+      "sha256": "fcdc53212d70ad61eacd6988124f5f9f352bcd25ebf19957f6130674fcf33394"
     },
     {
       "path": "frontend/tests/offline-ai.test.js",
@@ -999,7 +999,7 @@
     },
     {
       "path": "frontend/tests/offline-snapshot.test.js",
-      "sha256": "7585164126db9a63c0def66a6b1033d55052113733e6d79cc778579bb438e9c1"
+      "sha256": "4008d71a00e736c01a66c788d8e30804855665b74e414d4e36991cc7bedff810"
     },
     {
       "path": "offline-requirements.lock",
@@ -1047,7 +1047,7 @@
     },
     {
       "path": "src/wechat_decrypt_tool/offline_snapshot.py",
-      "sha256": "1c5f4022f4b22e04500e99e3bdf1593f5cca1346af7d98c0a5ea8ac8669fd098"
+      "sha256": "8b1aae0d3d02febdf8b002adc54505b1e4cf0b676fc45777863061e5724393e5"
     },
     {
       "path": "src/wechat_decrypt_tool/resources/offline_export_runtime.js",
@@ -1079,7 +1079,7 @@
     },
     {
       "path": "tests_offline/test_offline_snapshot.py",
-      "sha256": "4357230094894071c44b062cfdd3043839c02bd0a67ae79289685e0e5ab52967"
+      "sha256": "9d92c7d387cfa167616633966754c2c518a502570c794b63f9b2dab34a92f2e4"
     },
     {
       "path": "tests_offline/test_original_business.py",
