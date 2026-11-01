@@ -1,0 +1,1089 @@
+{
+  "format": "wechat-local-source-changes/1",
+  "upstream_commit": "64664bef316897b0bca2d391be4a6d2c0c472062",
+  "changes": [
+    {
+      "path": "desktop/package-lock.json",
+      "base_sha256": "69bda9572a7b84c6a13f0951e6b82950e6da448ac69981a9d4dc4fc4b92c5aaf",
+      "target_sha256": "699591c2e4384e894732df984cde567803acf0881fcf8a954a9cc46e7d8b8e5e",
+      "edits": [
+        {
+          "start": 2,
+          "end": 44,
+          "insert_base64": "ICAibmFtZSI6ICJ3ZWNoYXQtZGF0YS1hbmFseXNpcy1vZmZsaW5lLWxvY2FsIiwK"
+        },
+        {
+          "start": 137,
+          "end": 183,
+          "insert_base64": "ICAgICAgIm5hbWUiOiAid2VjaGF0LWRhdGEtYW5hbHlzaXMtb2ZmbGluZS1sb2NhbCIsCg=="
+        },
+        {
+          "start": 210,
+          "end": 315,
+          "insert_base64": ""
+        },
+        {
+          "start": 447,
+          "end": 478,
+          "insert_base64": "ICAgICAgICAiZWxlY3Ryb24iOiAiNDUuMi4xIiwK"
+        },
+        {
+          "start": 603,
+          "end": 884,
+          "insert_base64": "ICAgICJub2RlX21vZHVsZXMvQGVsZWN0cm9uLWludGVybmFsL2V4dHJhY3QtemlwIjogewogICAgICAidmVyc2lvbiI6ICIxLjAuOCIsCiAgICAgICJyZXNvbHZlZCI6ICJodHRwczovL3JlZ2lzdHJ5Lm5wbWpzLm9yZy9AZWxlY3Ryb24taW50ZXJuYWwvZXh0cmFjdC16aXAvLS9leHRyYWN0LXppcC0xLjAuOC50Z3oiLAogICAgICAiaW50ZWdyaXR5IjogInNoYTUxMi04aWFqZUxGYnpOd00wbTNBc1FaU1pnWVJFV2dsQUlteUd2dkZTV1UzNEZnTVc4c0hsemR3ajlRS3Z2OWRnTjdqTVA1OTFFRlVGL3NMT0MzSmw5WUlqUT09IiwKICAgICAgImRldiI6IHRydWUsCg=="
+        },
+        {
+          "start": 908,
+          "end": 1089,
+          "insert_base64": ""
+        },
+        {
+          "start": 1108,
+          "end": 1134,
+          "insert_base64": "ICAgICAgICAibm9kZSI6ICI+PTIyLjEyLjAiCg=="
+        },
+        {
+          "start": 4886,
+          "end": 5112,
+          "insert_base64": "ICAgICAgInZlcnNpb24iOiAiNS4xLjAiLAogICAgICAicmVzb2x2ZWQiOiAiaHR0cHM6Ly9yZWdpc3RyeS5ucG1qcy5vcmcvQGVsZWN0cm9uL2dldC8tL2dldC01LjEuMC50Z3oiLAogICAgICAiaW50ZWdyaXR5IjogInNoYTUxMi0za1NCdEc4T2JjVFZmWGFubTV2Vko2VW5CTEVWbVZzUmsxTSt2R3FDdU1CVitYTENiSll1V1FmdWwreUl5MEdRRHNTbEswa0hFcmlFSG43U1BrNEVuQT09IiwK"
+        },
+        {
+          "start": 5206,
+          "end": 5293,
+          "insert_base64": "ICAgICAgICAiZW52LXBhdGhzIjogIl4zLjAuMCIsCiAgICAgICAgImdyYWNlZnVsLWZzIjogIl40LjIuMTEiLAo="
+        },
+        {
+          "start": 5323,
+          "end": 5351,
+          "insert_base64": "ICAgICAgICAic2VtdmVyIjogIl43LjYuMyIsCg=="
+        },
+        {
+          "start": 5410,
+          "end": 5433,
+          "insert_base64": "ICAgICAgICAibm9kZSI6ICI+PTIyLjEyLjAiCg=="
+        },
+        {
+          "start": 5474,
+          "end": 5507,
+          "insert_base64": "ICAgICAgICAidW5kaWNpIjogIl43LjI0LjQiCiAgICAgIH0KICAgIH0sCiAgICAibm9kZV9tb2R1bGVzL0BlbGVjdHJvbi9nZXQvbm9kZV9tb2R1bGVzL2Vudi1wYXRocyI6IHsKICAgICAgInZlcnNpb24iOiAiMy4wLjAiLAogICAgICAicmVzb2x2ZWQiOiAiaHR0cHM6Ly9yZWdpc3RyeS5ucG1qcy5vcmcvZW52LXBhdGhzLy0vZW52LXBhdGhzLTMuMC4wLnRneiIsCiAgICAgICJpbnRlZ3JpdHkiOiAic2hhNTEyLWR0SlVUZXB6TVczTG0vTlB4UmYzd1A0NjQyVVdoakwyc1F4Yyt5bTJZTWoxbS9IMnpETlFPbGV6YWZ6a0h3bjZzTXN0akhUd0c2aVFRc2N0RFcvYjFBPT0iLAogICAgICAiZGV2IjogdHJ1ZSwKICAgICAgImxpY2Vuc2UiOiAiTUlUIiwKICAgICAgImVuZ2luZXMiOiB7CiAgICAgICAgIm5vZGUiOiAiXjEyLjIwLjAgfHwgXjE0LjEzLjEgfHwgPj0xNi4wLjAiCiAgICAgIH0sCiAgICAgICJmdW5kaW5nIjogewogICAgICAgICJ1cmwiOiAiaHR0cHM6Ly9naXRodWIuY29tL3Nwb25zb3JzL3NpbmRyZXNvcmh1cyIKICAgICAgfQogICAgfSwKICAgICJub2RlX21vZHVsZXMvQGVsZWN0cm9uL2dldC9ub2RlX21vZHVsZXMvdW5kaWNpIjogewogICAgICAidmVyc2lvbiI6ICI3LjMwLjEiLAogICAgICAicmVzb2x2ZWQiOiAiaHR0cHM6Ly9yZWdpc3RyeS5ucG1qcy5vcmcvdW5kaWNpLy0vdW5kaWNpLTcuMzAuMS50Z3oiLAogICAgICAiaW50ZWdyaXR5IjogInNoYTUxMi0wM0tyTWJqSUZEV1FSNVJOUHJTdzNiZDFyMTJKcHlGUWw5L3l4alViSnRxa2ptbGxxQzVsRmpaaDZ1amV1SkNLcjhFT1F2Ulc4NzJPeS9heituTFl4Zz09IiwKICAgICAgImRldiI6IHRydWUsCiAgICAgICJsaWNlbnNlIjogIk1JVCIsCiAgICAgICJvcHRpb25hbCI6IHRydWUsCiAgICAgICJlbmdpbmVzIjogewogICAgICAgICJub2RlIjogIj49MjAuMTguMSIK"
+        },
+        {
+          "start": 26153,
+          "end": 26550,
+          "insert_base64": ""
+        },
+        {
+          "start": 36687,
+          "end": 36687,
+          "insert_base64": "ICAgICAgImRldiI6IHRydWUsCg=="
+        },
+        {
+          "start": 41058,
+          "end": 41426,
+          "insert_base64": ""
+        },
+        {
+          "start": 41692,
+          "end": 41692,
+          "insert_base64": "ICAgICAgImRldiI6IHRydWUsCg=="
+        },
+        {
+          "start": 42589,
+          "end": 43051,
+          "insert_base64": ""
+        },
+        {
+          "start": 46851,
+          "end": 47143,
+          "insert_base64": ""
+        },
+        {
+          "start": 52503,
+          "end": 53015,
+          "insert_base64": ""
+        },
+        {
+          "start": 55802,
+          "end": 55802,
+          "insert_base64": "ICAgICAgImRldiI6IHRydWUsCg=="
+        },
+        {
+          "start": 66609,
+          "end": 66837,
+          "insert_base64": "ICAgICAgInZlcnNpb24iOiAiNDUuMi4xIiwKICAgICAgInJlc29sdmVkIjogImh0dHBzOi8vcmVnaXN0cnkubnBtanMub3JnL2VsZWN0cm9uLy0vZWxlY3Ryb24tNDUuMi4xLnRneiIsCiAgICAgICJpbnRlZ3JpdHkiOiAic2hhNTEyLXQ0MzN5dW84S2g4V0cvbVRTdG5QUlQvTnRwV3c4QStjYU5MSmdlVTB0Uy9GbGZPa2VORW50RnNhYzRWaUxnRHhaT21EZTdCZVNrT0FOVnFycU5IaERBPT0iLAo="
+        },
+        {
+          "start": 66856,
+          "end": 66888,
+          "insert_base64": ""
+        },
+        {
+          "start": 66936,
+          "end": 67037,
+          "insert_base64": "ICAgICAgICAiQGVsZWN0cm9uLWludGVybmFsL2V4dHJhY3QtemlwIjogIl4xLjAuMSIsCiAgICAgICAgIkBlbGVjdHJvbi9nZXQiOiAiXjUuMC4wIiwKICAgICAgICAiQHR5cGVzL25vZGUiOiAiXjI0LjkuMCIK"
+        },
+        {
+          "start": 67061,
+          "end": 67090,
+          "insert_base64": "ICAgICAgICAiZWxlY3Ryb24iOiAiY2xpLmpzIiwKICAgICAgICAiaW5zdGFsbC1lbGVjdHJvbiI6ICJpbnN0YWxsLmpzIgo="
+        },
+        {
+          "start": 67118,
+          "end": 67148,
+          "insert_base64": "ICAgICAgICAibm9kZSI6ICI+PSAyMi4xMi4wIgo="
+        },
+        {
+          "start": 73018,
+          "end": 75397,
+          "insert_base64": ""
+        },
+        {
+          "start": 77561,
+          "end": 77561,
+          "insert_base64": "ICAgICAgImRldiI6IHRydWUsCg=="
+        },
+        {
+          "start": 81215,
+          "end": 81845,
+          "insert_base64": ""
+        },
+        {
+          "start": 82721,
+          "end": 83088,
+          "insert_base64": ""
+        },
+        {
+          "start": 83588,
+          "end": 85051,
+          "insert_base64": ""
+        },
+        {
+          "start": 87181,
+          "end": 87676,
+          "insert_base64": ""
+        },
+        {
+          "start": 93324,
+          "end": 93783,
+          "insert_base64": ""
+        },
+        {
+          "start": 95950,
+          "end": 95950,
+          "insert_base64": "ICAgICAgImRldiI6IHRydWUsCg=="
+        },
+        {
+          "start": 99504,
+          "end": 100214,
+          "insert_base64": ""
+        },
+        {
+          "start": 102025,
+          "end": 102025,
+          "insert_base64": "ICAgICAgImRldiI6IHRydWUsCg=="
+        },
+        {
+          "start": 104634,
+          "end": 104634,
+          "insert_base64": "ICAgICAgImRldiI6IHRydWUsCg=="
+        },
+        {
+          "start": 107193,
+          "end": 107193,
+          "insert_base64": "ICAgICAgImRldiI6IHRydWUsCg=="
+        },
+        {
+          "start": 107491,
+          "end": 108219,
+          "insert_base64": ""
+        },
+        {
+          "start": 113773,
+          "end": 113773,
+          "insert_base64": "ICAgICAgImRldiI6IHRydWUsCg=="
+        },
+        {
+          "start": 114223,
+          "end": 114650,
+          "insert_base64": ""
+        },
+        {
+          "start": 115021,
+          "end": 115456,
+          "insert_base64": ""
+        },
+        {
+          "start": 116600,
+          "end": 117027,
+          "insert_base64": ""
+        },
+        {
+          "start": 120391,
+          "end": 120683,
+          "insert_base64": ""
+        },
+        {
+          "start": 121901,
+          "end": 122195,
+          "insert_base64": ""
+        },
+        {
+          "start": 128004,
+          "end": 128004,
+          "insert_base64": "ICAgICAgImRldiI6IHRydWUsCg=="
+        },
+        {
+          "start": 130997,
+          "end": 131490,
+          "insert_base64": ""
+        },
+        {
+          "start": 135421,
+          "end": 136046,
+          "insert_base64": ""
+        },
+        {
+          "start": 136699,
+          "end": 136699,
+          "insert_base64": "ICAgICAgImRldiI6IHRydWUsCg=="
+        },
+        {
+          "start": 136823,
+          "end": 137045,
+          "insert_base64": "ICAgICAgInZlcnNpb24iOiAiNy44LjUiLAogICAgICAicmVzb2x2ZWQiOiAiaHR0cHM6Ly9yZWdpc3RyeS5ucG1qcy5vcmcvc2VtdmVyLy0vc2VtdmVyLTcuOC41LnRneiIsCiAgICAgICJpbnRlZ3JpdHkiOiAic2hhNTEyLVk3L0tEc2I4TGpvb1pwd2FxR3l1bE82RFFsa3NnQ25jY2hIR2src1pJWTRTQnZVb2NNQkVGSDVVcjFmSTRkVitKdmwwdzZjanZ1Y2FJaTQwcHVSaW9BPT0iLAo="
+        },
+        {
+          "start": 137137,
+          "end": 137137,
+          "insert_base64": "ICAgICAgfSwKICAgICAgImVuZ2luZXMiOiB7CiAgICAgICAgIm5vZGUiOiAiPj0xMCIK"
+        },
+        {
+          "start": 140085,
+          "end": 140530,
+          "insert_base64": ""
+        },
+        {
+          "start": 142019,
+          "end": 142389,
+          "insert_base64": ""
+        },
+        {
+          "start": 148184,
+          "end": 148501,
+          "insert_base64": ""
+        },
+        {
+          "start": 151297,
+          "end": 151586,
+          "insert_base64": ""
+        },
+        {
+          "start": 155106,
+          "end": 155106,
+          "insert_base64": "ICAgICAgImRldiI6IHRydWUsCg=="
+        },
+        {
+          "start": 159006,
+          "end": 159402,
+          "insert_base64": ""
+        }
+      ]
+    },
+    {
+      "path": "desktop/package.json",
+      "base_sha256": "4e3307b38ec55bc32d8644068f68926f4d737288602bc77623794fa2bf1656e8",
+      "target_sha256": "544adb1586bb1fdb68653f7fa04c75b51f3ec67307784882fadf9d86b75f1060",
+      "edits": [
+        {
+          "start": 2,
+          "end": 44,
+          "insert_base64": "ICAibmFtZSI6ICJ3ZWNoYXQtZGF0YS1hbmFseXNpcy1vZmZsaW5lLWxvY2FsIiwK"
+        },
+        {
+          "start": 86,
+          "end": 112,
+          "insert_base64": "ICAibWFpbiI6ICJzcmMvb2ZmbGluZS1tYWluLmNqcyIsCg=="
+        },
+        {
+          "start": 127,
+          "end": 162,
+          "insert_base64": "ICAgICJkZXYiOiAiZWxlY3Ryb24gLiIsCg=="
+        },
+        {
+          "start": 426,
+          "end": 548,
+          "insert_base64": "ICAgICJidWlsZDpiYWNrZW5kIjogIm5vZGUgLWUgXCJ0aHJvdyBuZXcgRXJyb3IoJ1VzZSB0aGUgcmV2aWV3ZWQgb2ZmbGluZSBzZXR1cCB3b3JrZmxvdycpXCIiLAo="
+        },
+        {
+          "start": 1674,
+          "end": 1925,
+          "insert_base64": "ICAgICJkaXN0Om1hYzphcm02NDpyZWxlYXNlIjogIm5wbSBydW4gdmVyaWZ5Om1hYzpuYXRpdmUgJiYgbnBtIHJ1biBidWlsZDp1aSAmJiBucG0gcnVuIGJ1aWxkOmJhY2tlbmQgJiYgbnBtIHJ1biBidWlsZDppY29uICYmIGNyb3NzLWVudiBNQUNPU19ESVNUUklCVVRJT05fQlVJTEQ9MSBlbGVjdHJvbi1idWlsZGVyIC0tbWFjIGRtZyB6aXAgLS1hcm02NCAtLXB1Ymxpc2ggbmV2ZXIgLS1jb25maWcuZm9yY2VDb2RlU2lnbmluZz10cnVlIiwKICAgICJvZmZsaW5lIjogImVsZWN0cm9uIC4iCg=="
+        },
+        {
+          "start": 1930,
+          "end": 2019,
+          "insert_base64": "ICAiZGVwZW5kZW5jaWVzIjoge30sCg=="
+        },
+        {
+          "start": 2538,
+          "end": 3185,
+          "insert_base64": "ICAgICAgInNyYy9vZmZsaW5lLW1haW4uY2pzIiwKICAgICAgInNyYy9vZmZsaW5lLXNlc3Npb24uY2pzIiwKICAgICAgInNyYy9yZW5kZXJlci1zdGFydHVwLmNqcyIsCiAgICAgICJzcmMvcHJlbG9hZC5janMiLAogICAgICAicGFja2FnZS5qc29uIgo="
+        },
+        {
+          "start": 3353,
+          "end": 3816,
+          "insert_base64": ""
+        },
+        {
+          "start": 4865,
+          "end": 5021,
+          "insert_base64": "ICAgICJwdWJsaXNoIjogbnVsbCwK"
+        },
+        {
+          "start": 5451,
+          "end": 5478,
+          "insert_base64": "ICAgICJlbGVjdHJvbiI6ICI0NS4yLjEiLAo="
+        }
+      ]
+    },
+    {
+      "path": "desktop/src/main.cjs",
+      "base_sha256": "384519fcc636f50da16019184fd584ec3322d6222b909454e02746f1efca09d0",
+      "target_sha256": "ae09e29f33baaa02ea30705b520eccc7f6e66ab75ec31db99054261f75a8bcb9",
+      "edits": [
+        {
+          "start": 0,
+          "end": 0,
+          "insert_base64": "dGhyb3cgbmV3IEVycm9yKCJVcHN0cmVhbSBuZXR3b3JrLWNhcGFibGUgZW50cnkgcmV0aXJlZDsgdXNlIG9mZmxpbmUtbWFpbi5janMiKTsK"
+        }
+      ]
+    },
+    {
+      "path": "frontend/app.vue",
+      "base_sha256": "41f0b1bb946b016fb6c1213af9e59ee139e9a2efd5b6c0bf30269c5f60405e6b",
+      "target_sha256": "bfdac5e4486062ddc491c69b54bc5f866dd0326abb28a80c3b63362b500e6a05",
+      "edits": [
+        {
+          "start": 261,
+          "end": 261,
+          "insert_base64": "ICAgICAgPGRpdiBzdHlsZT0icGFkZGluZzo2cHggMTZweDtiYWNrZ3JvdW5kOiNlOWY1ZWQ7Y29sb3I6IzIwNTkzYjtmb250LXNpemU6MTJweCIgcm9sZT0ic3RhdHVzIj7mnKzmnLrnprvnur/niYggwrcg5LiN6Ieq5Yqo5LiK5Lyg5pWw5o2uIMK3IEFJIOS7heWkhOeQhuS9oOaYjuehruaPkOS6pOeahOWGheWuuTwvZGl2Pgo="
+        },
+        {
+          "start": 590,
+          "end": 755,
+          "insert_base64": ""
+        },
+        {
+          "start": 807,
+          "end": 828,
+          "insert_base64": "ICAgICAgPCEtLSBPbmxpbmUgc3Vic2NyaXB0aW9uIFVJIHJlbW92ZWQgaW4gcHJpdmF0ZSBvZmZsaW5lIGZvcmsuIC0tPgo="
+        },
+        {
+          "start": 3320,
+          "end": 3483,
+          "insert_base64": ""
+        }
+      ]
+    },
+    {
+      "path": "frontend/components/SettingsDialog.vue",
+      "base_sha256": "4faf21e0b0d434b32b7e18ebec1296edff8bbef5391e933f242445749cac1654",
+      "target_sha256": "36025e8176a9c76026bb1a0f71242b9ac72a274df57997195f770e83111b5635",
+      "edits": [
+        {
+          "start": 17015,
+          "end": 17358,
+          "insert_base64": "ICAgICAgICAgICAgICA8c3Bhbj48c3BhbiBjbGFzcz0iYmxvY2sgdGV4dC1bMTNweF0gZm9udC1tZWRpdW0gdGV4dC1bdmFyKC0tYXBwLXRleHQtcHJpbWFyeSldIj7mnKzmnLrmqKHlnovkuI4gQ2hhdEdQVCDov57mjqU8L3NwYW4+PHNwYW4gY2xhc3M9Im10LTAuNSBibG9jayB0ZXh0LVsxMXB4XSB0ZXh0LVt2YXIoLS1hcHAtdGV4dC1tdXRlZCldIj7phY3nva7mnKzmnLrmqKHlnovvvIzmiJbpooTop4jlubbmjojmnYPkuIDku73otYTmlpnnu5kgQ2hhdEdQVCDlrqLmiLfnq688L3NwYW4+PC9zcGFuPgogICAgICAgICAgICAgIDxzcGFuIGNsYXNzPSJzaHJpbmstMCB0ZXh0LVsxMnB4XSB0ZXh0LVt2YXIoLS1hcHAtYWNjZW50KV0iPuaJk+W8gCBBSSDliqnmiYs8L3NwYW4+Cg=="
+        },
+        {
+          "start": 42879,
+          "end": 43694,
+          "insert_base64": ""
+        },
+        {
+          "start": 47663,
+          "end": 47785,
+          "insert_base64": ""
+        },
+        {
+          "start": 47891,
+          "end": 47953,
+          "insert_base64": "ICB7IGtleTogJ2FpJywgbGFiZWw6ICdBSSDliqnmiYsnLCBoaW50OiAn5pys5py65qih5Z6LIC8gQ2hhdEdQVCcgfSwK"
+        },
+        {
+          "start": 60597,
+          "end": 60628,
+          "insert_base64": "ICB2b2lkIG5hdmlnYXRlVG8oJy9haScpCg=="
+        }
+      ]
+    },
+    {
+      "path": "frontend/components/SidebarRail.vue",
+      "base_sha256": "65efdfa738009f0dcfe79cfd69d9f3a97e40e3a18aa64dd5633099456a49960e",
+      "target_sha256": "393699f5c4fa70facba79f1895cdf7b28132b9fcf4fa946542d90d1aef63d00d",
+      "edits": [
+        {
+          "start": 4226,
+          "end": 4826,
+          "insert_base64": ""
+        },
+        {
+          "start": 27318,
+          "end": 27384,
+          "insert_base64": ""
+        },
+        {
+          "start": 28551,
+          "end": 28821,
+          "insert_base64": ""
+        }
+      ]
+    },
+    {
+      "path": "frontend/composables/chat/useChatMessages.js",
+      "base_sha256": "3276fe3099e25b56ee9a1b952865f3f76c859035e8a6837ab28b6b72a2245529",
+      "target_sha256": "781b9cab3b796dea2d25dfda36858eec362518c1caf330b58dd7d1d8d5fb200b",
+      "edits": [
+        {
+          "start": 96527,
+          "end": 96679,
+          "insert_base64": "ICBjb25zdCByZWZyZXNoUmVhbHRpbWVJbmNyZW1lbnRhbCA9IGFzeW5jICh7IG9mZmxpbmUgPSBmYWxzZSB9ID0ge30pID0+IHsKICAgIGlmICgoIW9mZmxpbmUgJiYgIXJlYWx0aW1lRW5hYmxlZC52YWx1ZSkgfHwgIXNlbGVjdGVkQWNjb3VudC52YWx1ZSB8fCAhc2VsZWN0ZWRDb250YWN0LnZhbHVlPy51c2VybmFtZSkgcmV0dXJuCg=="
+        },
+        {
+          "start": 96858,
+          "end": 96891,
+          "insert_base64": "ICAgIGlmICghZXhpc3RpbmcubGVuZ3RoKSB7CiAgICAgIGlmIChvZmZsaW5lKSBhd2FpdCByZWZyZXNoU2VsZWN0ZWRNZXNzYWdlcygpCiAgICAgIHJldHVybgogICAgfQogICAgY29uc3QgYWNjb3VudCA9IHNlbGVjdGVkQWNjb3VudC52YWx1ZQo="
+        },
+        {
+          "start": 97183,
+          "end": 97217,
+          "insert_base64": "ICAgICAgc291cmNlOiBvZmZsaW5lID8gJ2RlY3J5cHRlZCcgOiBERUZBVUxUX0NIQVRfU09VUkNFCg=="
+        },
+        {
+          "start": 97732,
+          "end": 97795,
+          "insert_base64": "ICAgICAgaWYgKHNlbGVjdGVkQ29udGFjdC52YWx1ZT8udXNlcm5hbWUgIT09IHVzZXJuYW1lIHx8IHNlbGVjdGVkQWNjb3VudC52YWx1ZSAhPT0gYWNjb3VudCkgcmV0dXJuCg=="
+        },
+        {
+          "start": 98766,
+          "end": 98766,
+          "insert_base64": "CiAgY29uc3QgcmVmcmVzaE9mZmxpbmVNZXNzYWdlcyA9IGFzeW5jICgpID0+IHsKICAgIGNvbnN0IGFjY291bnQgPSBzZWxlY3RlZEFjY291bnQudmFsdWUKICAgIGNvbnN0IHVzZXJuYW1lID0gc2VsZWN0ZWRDb250YWN0LnZhbHVlPy51c2VybmFtZQogICAgLy8gQSBwdWJsaWNhdGlvbiBkdXJpbmcgaW5pdGlhbCBtZXNzYWdlIGxvYWRpbmcgbXVzdCBub3QgYmUgbG9zdC4KICAgIHdoaWxlIChpc0xvYWRpbmdNZXNzYWdlcy52YWx1ZSkgewogICAgICBhd2FpdCBuZXcgUHJvbWlzZShyZXNvbHZlID0+IHNldFRpbWVvdXQocmVzb2x2ZSwgMjUpKQogICAgICBpZiAoc2VsZWN0ZWRBY2NvdW50LnZhbHVlICE9PSBhY2NvdW50IHx8IHNlbGVjdGVkQ29udGFjdC52YWx1ZT8udXNlcm5hbWUgIT09IHVzZXJuYW1lKSByZXR1cm4KICAgIH0KICAgIGF3YWl0IHJlZnJlc2hSZWFsdGltZUluY3JlbWVudGFsKHsgb2ZmbGluZTogdHJ1ZSB9KQogIH0K"
+        },
+        {
+          "start": 129233,
+          "end": 129233,
+          "insert_base64": "ICAgIHJlZnJlc2hPZmZsaW5lTWVzc2FnZXMsCg=="
+        }
+      ]
+    },
+    {
+      "path": "frontend/composables/useApiBase.js",
+      "base_sha256": "4474703c0d4a89285ffc320e29b23863852165979c20076a3783ba7b59c07509",
+      "target_sha256": "dea63adcea1fcb29a2779f4bb4ef7fdd535313e22541c7b31da29c9e553868ec",
+      "edits": [
+        {
+          "start": 0,
+          "end": 1627,
+          "insert_base64": "Ly8gUHJpdmF0ZSBvZmZsaW5lIGZvcms6IHJ1bnRpbWUvZW52aXJvbm1lbnQvc3RvcmFnZSBjYW5ub3Qgc2VsZWN0IGEgcmVtb3RlIEFQSS4KZXhwb3J0IGNvbnN0IHVzZUFwaUJhc2UgPSAoKSA9PiAnL2FwaScKZXhwb3J0IGNvbnN0IGludmFsaWRhdGVBcGlCYXNlQ2FjaGUgPSAoKSA9PiB7fQo="
+        }
+      ]
+    },
+    {
+      "path": "frontend/lib/server-error-logging.js",
+      "base_sha256": "482d0ad7a8bad9d432591d88ddd48f4921705af0fa118ef7168e261c7e13c9b2",
+      "target_sha256": "2ce6682c80e5c4d8cabac42eac51a2ba9dc74f5cdc966e20589b1db4baf429c3",
+      "edits": [
+        {
+          "start": 4152,
+          "end": 6125,
+          "insert_base64": "ZXhwb3J0IGNvbnN0IHJlcG9ydFNlcnZlckVycm9yID0gYXN5bmMgKCkgPT4gZmFsc2UKZXhwb3J0IGNvbnN0IHJlcG9ydFNlcnZlckVycm9yRnJvbUVycm9yID0gYXN5bmMgKCkgPT4gZmFsc2UKZXhwb3J0IGNvbnN0IHJlcG9ydFNlcnZlckVycm9yRnJvbVJlc3BvbnNlID0gYXN5bmMgKCkgPT4gZmFsc2UK"
+        }
+      ]
+    },
+    {
+      "path": "frontend/nuxt.config.ts",
+      "base_sha256": "93dea2ffda29addbe2c6bd31fd6f769f987f700a505d05ad377eaa50fe0e889a",
+      "target_sha256": "476f7c754a0cfd432a77a3181d52b11f4fdb3f27a7ce49eb2a5be8bed180b887",
+      "edits": [
+        {
+          "start": 833,
+          "end": 833,
+          "insert_base64": "ICBzc3I6IGZhbHNlLAogIHRlbGVtZXRyeTogZmFsc2UsCg=="
+        },
+        {
+          "start": 1320,
+          "end": 1379,
+          "insert_base64": "ICAgICAgYXBpQmFzZTogJy9hcGknLAo="
+        }
+      ]
+    },
+    {
+      "path": "frontend/pages/ai.vue",
+      "base_sha256": "1d1a0b9f3af631c1a5284ffaba2e0c03a815c89af4fda3f5d87e3efa901e38f0",
+      "target_sha256": "73ca8f2f53d11637dc10bd95b616eb3a7c058572733c8e78836ef7f23a8c6566",
+      "edits": [
+        {
+          "start": 0,
+          "end": 3808,
+          "insert_base64": "PHRlbXBsYXRlPjxPZmZsaW5lQWlQYW5lbCAvPjwvdGVtcGxhdGU+Cg=="
+        },
+        {
+          "start": 3823,
+          "end": 3942,
+          "insert_base64": "aW1wb3J0IE9mZmxpbmVBaVBhbmVsIGZyb20gJ34vY29tcG9uZW50cy9PZmZsaW5lQWlQYW5lbC52dWUnCg=="
+        },
+        {
+          "start": 4001,
+          "end": 9357,
+          "insert_base64": "PC9zY3JpcHQ+"
+        }
+      ]
+    },
+    {
+      "path": "frontend/pages/chat/[[username]].vue",
+      "base_sha256": "daadabdea0d73db10cf74bf0ce94295a1957e08451d1cbd5956624d08655b179",
+      "target_sha256": "776fd6fb6e34619fe66106d9f5ff42646d8ab4fe789417efb77addb8c285a954",
+      "edits": [
+        {
+          "start": 212,
+          "end": 212,
+          "insert_base64": "ICAgICAgPE9mZmxpbmVTbmFwc2hvdEJhciA6YWNjb3VudD0ic2VsZWN0ZWRBY2NvdW50IHx8ICcnIiBAdXBkYXRlZD0iaGFuZGxlT2ZmbGluZVNuYXBzaG90VXBkYXRlZCIgLz4K"
+        },
+        {
+          "start": 913,
+          "end": 913,
+          "insert_base64": "aW1wb3J0IE9mZmxpbmVTbmFwc2hvdEJhciBmcm9tICd+L2NvbXBvbmVudHMvY2hhdC9PZmZsaW5lU25hcHNob3RCYXIudnVlJwo="
+        },
+        {
+          "start": 6891,
+          "end": 6891,
+          "insert_base64": "ICByZWZyZXNoT2ZmbGluZU1lc3NhZ2VzLAo="
+        },
+        {
+          "start": 34185,
+          "end": 34185,
+          "insert_base64": "bGV0IG9mZmxpbmVSZWZyZXNoRnV0dXJlID0gbnVsbApsZXQgb2ZmbGluZVJlZnJlc2hRdWV1ZWQgPSBmYWxzZQpmdW5jdGlvbiBoYW5kbGVPZmZsaW5lU25hcHNob3RVcGRhdGVkKCkgewogIG9mZmxpbmVSZWZyZXNoUXVldWVkID0gdHJ1ZQogIGlmIChvZmZsaW5lUmVmcmVzaEZ1dHVyZSkgcmV0dXJuIG9mZmxpbmVSZWZyZXNoRnV0dXJlCiAgb2ZmbGluZVJlZnJlc2hGdXR1cmUgPSAoYXN5bmMgKCkgPT4gewogICAgd2hpbGUgKG9mZmxpbmVSZWZyZXNoUXVldWVkKSB7CiAgICAgIG9mZmxpbmVSZWZyZXNoUXVldWVkID0gZmFsc2UKICAgICAgYXdhaXQgUHJvbWlzZS5hbGxTZXR0bGVkKFsKICAgICAgICByZWZyZXNoT2ZmbGluZU1lc3NhZ2VzKCksCiAgICAgICAgcmVmcmVzaFNlc3Npb25zRm9yU2VsZWN0ZWRBY2NvdW50KHsgc291cmNlT3ZlcnJpZGU6ICdkZWNyeXB0ZWQnIH0pCiAgICAgIF0pCiAgICB9CiAgfSkoKS5maW5hbGx5KCgpID0+IHsgb2ZmbGluZVJlZnJlc2hGdXR1cmUgPSBudWxsIH0pCiAgcmV0dXJuIG9mZmxpbmVSZWZyZXNoRnV0dXJlCn0KCg=="
+        }
+      ]
+    },
+    {
+      "path": "src/wechat_decrypt_tool/__init__.py",
+      "base_sha256": "794e6869ea3d5bb8d0676572e21bdf162956ea95dd189e3aea363a0384adf88b",
+      "target_sha256": "a9e5caa6bfd343088a66d9576b82c341f244515cc20adae21cc995ac8a3bcbf3",
+      "edits": [
+        {
+          "start": 94,
+          "end": 94,
+          "insert_base64": "CiMgUHJpdmF0ZSBmb3JrOiBtYW5kYXRvcnkgcG9saWN5IGJlZm9yZSBhbnkgYnVzaW5lc3MgbW9kdWxlIGltcG9ydC4KZnJvbSAub2ZmbGluZV9wb2xpY3kgaW1wb3J0IGluc3RhbGwgYXMgX2luc3RhbGxfb2ZmbGluZV9wb2xpY3kKX2luc3RhbGxfb2ZmbGluZV9wb2xpY3koKQo="
+        }
+      ]
+    },
+    {
+      "path": "src/wechat_decrypt_tool/account_source_policy.py",
+      "base_sha256": "c094a0c2cd808cde9e70c1a6a09fd4e9e0d6762c731f102274e50413f4aeacd9",
+      "target_sha256": "87c35a232c48388e4a1bdb97a8c2f3bd2c211532a168a8c8c43ecfed3a29eb6f",
+      "edits": [
+        {
+          "start": 817,
+          "end": 1259,
+          "insert_base64": "ICAgIHJldHVybiAoYWNjb3VudF9wYXRoIC8gJ3Nlc3Npb24uZGInKS5pc19maWxlKCkgYW5kIChhY2NvdW50X3BhdGggLyAnY29udGFjdC5kYicpLmlzX2ZpbGUoKQo="
+        }
+      ]
+    },
+    {
+      "path": "src/wechat_decrypt_tool/api.py",
+      "base_sha256": "5164540815879c29a6ab0e96f11e748797887c184a0c5959ba7763b4a4e30023",
+      "target_sha256": "5443e68e14a037561a6f6a4179d6c280e3f987cd1cafa2835c6a2ef746a65596",
+      "edits": [
+        {
+          "start": 0,
+          "end": 51,
+          "insert_base64": "IiIi5b6u5L+h6Kej5a+G5bel5YW355qERmFzdEFQSSBXZWLmnI3liqHlmagiIiIK"
+        },
+        {
+          "start": 2598,
+          "end": 2598,
+          "insert_base64": "ICAgIGRvY3NfdXJsPU5vbmUsIHJlZG9jX3VybD1Ob25lLCBvcGVuYXBpX3VybD1Ob25lLAo="
+        },
+        {
+          "start": 3693,
+          "end": 4482,
+          "insert_base64": "ICAgIHJldHVybiBhd2FpdCBjYWxsX25leHQocmVxdWVzdCkK"
+        },
+        {
+          "start": 5390,
+          "end": 5390,
+          "insert_base64": "ZnJvbSAucm91dGVycy5vZmZsaW5lX3dyYXBwZWQgaW1wb3J0IHJvdXRlciBhcyBfb2ZmbGluZV93cmFwcGVkX3JvdXRlcgphcHAuaW5jbHVkZV9yb3V0ZXIoX29mZmxpbmVfd3JhcHBlZF9yb3V0ZXIpCmZyb20gLnJvdXRlcnMub2ZmbGluZV9zbmFwc2hvdCBpbXBvcnQgcm91dGVyIGFzIF9vZmZsaW5lX3NuYXBzaG90X3JvdXRlcgpmcm9tIC5vZmZsaW5lX3NuYXBzaG90IGltcG9ydCBTTkFQU0hPVFMKYXBwLmluY2x1ZGVfcm91dGVyKF9vZmZsaW5lX3NuYXBzaG90X3JvdXRlcikKZnJvbSAucm91dGVycy5vZmZsaW5lX2FpIGltcG9ydCByb3V0ZXIgYXMgX29mZmxpbmVfYWlfcm91dGVyCmFwcC5pbmNsdWRlX3JvdXRlcihfb2ZmbGluZV9haV9yb3V0ZXIpCg=="
+        },
+        {
+          "start": 9460,
+          "end": 9606,
+          "insert_base64": "ICAgIHJldHVybiBOb25lCg=="
+        },
+        {
+          "start": 9679,
+          "end": 10272,
+          "insert_base64": "ICAgIFNOQVBTSE9UUy5zdGFydCgpCg=="
+        },
+        {
+          "start": 10345,
+          "end": 10345,
+          "insert_base64": "ICAgIFNOQVBTSE9UUy5zdG9wKCkK"
+        },
+        {
+          "start": 11960,
+          "end": 11960,
+          "insert_base64": "CiMgQWRkZWQgbGFzdCBzbyBhdXRoZW50aWNhdGlvbiB3cmFwcyBldmVyeSByb3V0ZSwgc3RhdGljIGZpbGUgYW5kIGVycm9yIHJlc3BvbnNlLgpmcm9tIC5vZmZsaW5lX3BvbGljeSBpbXBvcnQgT2ZmbGluZUFjY2Vzc01pZGRsZXdhcmUKYXBwLmFkZF9taWRkbGV3YXJlKE9mZmxpbmVBY2Nlc3NNaWRkbGV3YXJlKQo="
+        }
+      ]
+    },
+    {
+      "path": "src/wechat_decrypt_tool/cdn_image_service.py",
+      "base_sha256": "c118a662653046a96123e99703ed553c9160508f8a65242528ff763dc52eb5c3",
+      "target_sha256": "7be947d16f2e1824a044169e3a9ba994f699dc5e9f697f76a258e3a311ed33a1",
+      "edits": [
+        {
+          "start": 2691,
+          "end": 2845,
+          "insert_base64": "ICAgIGZyb20gLm9mZmxpbmVfcG9saWN5IGltcG9ydCBibG9ja2VkX2ZlYXR1cmUKICAgIGJsb2NrZWRfZmVhdHVyZSgpCg=="
+        },
+        {
+          "start": 10161,
+          "end": 10302,
+          "insert_base64": "ICAgIHJldHVybiBGYWxzZQo="
+        },
+        {
+          "start": 10357,
+          "end": 10459,
+          "insert_base64": "ICAgIGlmIGVuYWJsZWQ6CiAgICAgICAgZnJvbSAub2ZmbGluZV9wb2xpY3kgaW1wb3J0IGJsb2NrZWRfZmVhdHVyZQogICAgICAgIGJsb2NrZWRfZmVhdHVyZSgpCg=="
+        }
+      ]
+    },
+    {
+      "path": "src/wechat_decrypt_tool/chat_accounts.py",
+      "base_sha256": "58e0b06a41e7477ad5e4dfefb9b10189a88e3a881e7519f6131b5e793a7fe0ff",
+      "target_sha256": "63eb331ce17c7782433cbf6f573fadcb3653b2cca6ae66f12fdcdba0c5ae0380",
+      "edits": [
+        {
+          "start": 2848,
+          "end": 2905,
+          "insert_base64": "ICAgICAgICBmcm9tIC5vZmZsaW5lX3NlY3JldHMgaW1wb3J0IHJlYWRfc2VjcmV0X2pzb24KICAgICAgICBkYXRhID0gcmVhZF9zZWNyZXRfanNvbihwKQo="
+        },
+        {
+          "start": 4496,
+          "end": 4553,
+          "insert_base64": "ICAgICAgICBmcm9tIC5vZmZsaW5lX3NlY3JldHMgaW1wb3J0IHJlYWRfc2VjcmV0X2pzb24KICAgICAgICBkYXRhID0gcmVhZF9zZWNyZXRfanNvbihwKQo="
+        }
+      ]
+    },
+    {
+      "path": "src/wechat_decrypt_tool/chat_export_service.py",
+      "base_sha256": "fc17b0cdfe7fd513f6e8142c3ad784337f3b16ec36a89237a77b51a1380fe88a",
+      "target_sha256": "f096c6129461d561a0790bde2d3e9d0e315fe93aa21603e70ca92cb3a0e8d2b6",
+      "edits": [
+        {
+          "start": 30001,
+          "end": 38007,
+          "insert_base64": "ICAgIHJldHVybiBfaHRtbF9leHBvcnRfcnVudGltZV9qcyhuYXRpdmVfaW50ZWdyaXR5KQo="
+        }
+      ]
+    },
+    {
+      "path": "src/wechat_decrypt_tool/export_integrity.py",
+      "base_sha256": "cfef2e289e8751c890ddbf5bbeb3ae96c5de0da4ca210cb52fb3fe21ac436ec1",
+      "target_sha256": "090bef2aa63d75ecd35240e005930fbf002fddced97ec400b9e4fe94d6722d9b",
+      "edits": [
+        {
+          "start": 414,
+          "end": 3726,
+          "insert_base64": "ICAgIGZyb20gLm9mZmxpbmVfaW50ZWdyaXR5IGltcG9ydCBMb2NhbEludGVncml0eQogICAgcmV0dXJuIExvY2FsSW50ZWdyaXR5KCkK"
+        },
+        {
+          "start": 8685,
+          "end": 9944,
+          "insert_base64": "ICAgIGZyb20gLm9mZmxpbmVfaW50ZWdyaXR5IGltcG9ydCBzZWFsX2xvY2FsX2VudHJpZXMKICAgIHJldHVybiBzZWFsX2xvY2FsX2VudHJpZXMoZXhwb3J0X2lkLCBlbnRyaWVzLCBodG1sX2Fzc2V0cykK"
+        }
+      ]
+    },
+    {
+      "path": "src/wechat_decrypt_tool/key_service.py",
+      "base_sha256": "ec02384ba3b93142a67e5b7dda8972f09616049a2090e75382ca707d61a3f127",
+      "target_sha256": "c7d4975f6e502435f806c29731fe62afc8b6730547bab29721efcba4cd12911b",
+      "edits": [
+        {
+          "start": 84,
+          "end": 278,
+          "insert_base64": "d3hfa2V5ID0gTm9uZSAgIyBPcGFxdWUgdXBzdHJlYW0gc2Nhbm5lciBleGNsdWRlZCBmcm9tIHRoaXMgb2ZmbGluZSBmb3JrLgo="
+        },
+        {
+          "start": 26474,
+          "end": 30012,
+          "insert_base64": "ICAgIGZyb20gLmxvY2FsX2tleV9zY2FuIGltcG9ydCBnZXRfbG9jYWxfZGF0YWJhc2Vfa2V5CiAgICByZXR1cm4gZ2V0X2xvY2FsX2RhdGFiYXNlX2tleShkYl9zdG9yYWdlX3BhdGgsIGludGVybmFsX2RiX2tleT1pbnRlcm5hbF9kYl9rZXksIHdlY2hhdF9pbnN0YWxsX3BhdGg9d2VjaGF0X2luc3RhbGxfcGF0aCwgY2FuY2VsX2V2ZW50PWNhbmNlbF9ldmVudCwgdGltZW91dF9zZWNvbmRzPXRpbWVvdXRfc2Vjb25kcykK"
+        },
+        {
+          "start": 53738,
+          "end": 56710,
+          "insert_base64": "ICAgIGZyb20gLm9mZmxpbmVfcG9saWN5IGltcG9ydCBibG9ja2VkX2ZlYXR1cmUKICAgIGJsb2NrZWRfZmVhdHVyZSgpCg=="
+        }
+      ]
+    },
+    {
+      "path": "src/wechat_decrypt_tool/key_store.py",
+      "base_sha256": "1368f36e377a3a69654aaf7e9e8d27f90043a5cf26df2eba8fb51cc46da420a4",
+      "target_sha256": "d013715156cf7c15bee5d5df6eca933a9c85e17644eec5482f3e6335c1fe486b",
+      "edits": [
+        {
+          "start": 3668,
+          "end": 4327,
+          "insert_base64": "ICAgIGZyb20gLm9mZmxpbmVfc2VjcmV0cyBpbXBvcnQgd3JpdGVfc2VjcmV0X2pzb24KICAgIHdyaXRlX3NlY3JldF9qc29uKHBhdGgscGF5bG9hZCkK"
+        },
+        {
+          "start": 4480,
+          "end": 4555,
+          "insert_base64": "ICAgICAgICAgICAgZnJvbSAub2ZmbGluZV9zZWNyZXRzIGltcG9ydCByZWFkX3NlY3JldF9qc29uCiAgICAgICAgICAgIGRhdGEgPSByZWFkX3NlY3JldF9qc29uKF9LRVlfU1RPUkVfUEFUSCkK"
+        }
+      ]
+    },
+    {
+      "path": "src/wechat_decrypt_tool/logging_config.py",
+      "base_sha256": "705e6d9e2a339648faa9d4f0ea2306b0f1e28f57c3e6399f58616c9dcd873012",
+      "target_sha256": "fbd4e63c4ed829738171be5b1a388ae897a6a4a2837323566e0b1b6bd280856a",
+      "edits": [
+        {
+          "start": 13838,
+          "end": 13969,
+          "insert_base64": "ICAgIGltcG9ydCBsb2dnaW5nCiAgICBsb2dnaW5nLmRpc2FibGUobG9nZ2luZy5DUklUSUNBTCkKICAgIHJldHVybiBQYXRoKF9fZmlsZV9fKS5yZXNvbHZlKCkucGFyZW50c1syXSAvICdvdXRwdXQnIC8gJ2xvZ2dpbmctZGlzYWJsZWQnCg=="
+        },
+        {
+          "start": 14016,
+          "end": 14213,
+          "insert_base64": "ICAgIGxvZ2dlciA9IGxvZ2dpbmcuZ2V0TG9nZ2VyKG5hbWUpCiAgICBsb2dnZXIuZGlzYWJsZWQgPSBUcnVlCiAgICBsb2dnZXIucHJvcGFnYXRlID0gRmFsc2UKICAgIGxvZ2dlci5oYW5kbGVycy5jbGVhcigpCiAgICBsb2dnZXIuYWRkSGFuZGxlcihsb2dnaW5nLk51bGxIYW5kbGVyKCkpCiAgICByZXR1cm4gbG9nZ2VyCg=="
+        },
+        {
+          "start": 14248,
+          "end": 14463,
+          "insert_base64": "ICAgIHJldHVybiBQYXRoKF9fZmlsZV9fKS5yZXNvbHZlKCkucGFyZW50c1syXSAvICdvdXRwdXQnIC8gJ2xvZ2dpbmctZGlzYWJsZWQnCg=="
+        }
+      ]
+    },
+    {
+      "path": "src/wechat_decrypt_tool/media_helpers.py",
+      "base_sha256": "fc1af978d4cdd4477277e019849f036b876dc5f53c0f3cfbbdbb52d19aadfdb0",
+      "target_sha256": "4379e30a8d3023e3b8679751b29e5bfe278aa2c140538d9df36beb0903071217",
+      "edits": [
+        {
+          "start": 56261,
+          "end": 56324,
+          "insert_base64": "ICAgICAgICAgICAgZnJvbSAub2ZmbGluZV9zZWNyZXRzIGltcG9ydCByZWFkX3NlY3JldF9qc29uCiAgICAgICAgICAgIGxvYWRlZCA9IHJlYWRfc2VjcmV0X2pzb24ocCkK"
+        },
+        {
+          "start": 131349,
+          "end": 131477,
+          "insert_base64": "ICAgICAgICBmcm9tIC5vZmZsaW5lX3NlY3JldHMgaW1wb3J0IHdyaXRlX3NlY3JldF9qc29uCiAgICAgICAgd3JpdGVfc2VjcmV0X2pzb24ocGF0aCxwYXlsb2FkKQo="
+        },
+        {
+          "start": 134561,
+          "end": 134624,
+          "insert_base64": "ICAgICAgICAgICAgZnJvbSAub2ZmbGluZV9zZWNyZXRzIGltcG9ydCByZWFkX3NlY3JldF9qc29uCiAgICAgICAgICAgIGxvYWRlZCA9IHJlYWRfc2VjcmV0X2pzb24ocCkK"
+        }
+      ]
+    },
+    {
+      "path": "src/wechat_decrypt_tool/native_core_client.py",
+      "base_sha256": "9fa9daa1b4fd391201299bf5016e21c86aca66a8ec1369d1a42153250569a871",
+      "target_sha256": "42135d60af0c99e68070013843dda64c5b8cc387422e3580368688373da582cf",
+      "edits": [
+        {
+          "start": 60179,
+          "end": 61620,
+          "insert_base64": "ICAgIHJldHVybiBOb25lCg=="
+        },
+        {
+          "start": 142729,
+          "end": 143141,
+          "insert_base64": "ICAgIHJhaXNlIE5hdGl2ZUNvcmVVbmF2YWlsYWJsZUVycm9yKCfnprvnur/niYjmnKzkvb/nlKjmnKzlnLDlrp7njrDvvIzkuI3liqDovb3kuIrmuLjmjojmnYPljp/nlJ/moLjlv4PjgIInKQo="
+        }
+      ]
+    },
+    {
+      "path": "src/wechat_decrypt_tool/native_core_lease.py",
+      "base_sha256": "8e7dc6aa4b22db4de69de9c080d5f87759e51c6cf091e01ae30ff868465d8028",
+      "target_sha256": "5f15f7581b020de9a95c2e93cc11ddabb913d6453a9b366c0334834791de7597",
+      "edits": [
+        {
+          "start": 16336,
+          "end": 17871,
+          "insert_base64": "ICAgIGZyb20gLm9mZmxpbmVfcG9saWN5IGltcG9ydCBibG9ja2VkX2ZlYXR1cmUKICAgIGJsb2NrZWRfZmVhdHVyZSgpCg=="
+        },
+        {
+          "start": 21557,
+          "end": 26707,
+          "insert_base64": "ICAgIGZyb20gLm9mZmxpbmVfcG9saWN5IGltcG9ydCBibG9ja2VkX2ZlYXR1cmUKICAgIGJsb2NrZWRfZmVhdHVyZSgpCg=="
+        },
+        {
+          "start": 26840,
+          "end": 27881,
+          "insert_base64": "ICAgIGZyb20gLm9mZmxpbmVfcG9saWN5IGltcG9ydCBibG9ja2VkX2ZlYXR1cmUKICAgIGJsb2NrZWRfZmVhdHVyZSgpCg=="
+        },
+        {
+          "start": 42239,
+          "end": 43294,
+          "insert_base64": "ICAgIGZyb20gLm9mZmxpbmVfcG9saWN5IGltcG9ydCBibG9ja2VkX2ZlYXR1cmUKICAgIGJsb2NrZWRfZmVhdHVyZSgpCg=="
+        }
+      ]
+    },
+    {
+      "path": "src/wechat_decrypt_tool/native_core_telemetry.py",
+      "base_sha256": "bee93d62140e813a2d159c356b46ca30297de426e9a2bb339bbde0ccaf44f354",
+      "target_sha256": "2bcca53bcd5a56a036306c3f835689551d086e25f6a935a3b7b589bdbf65d747",
+      "edits": [
+        {
+          "start": 3477,
+          "end": 5502,
+          "insert_base64": "ICAgIGZyb20gLm9mZmxpbmVfcG9saWN5IGltcG9ydCBibG9ja2VkX2ZlYXR1cmUKICAgIGJsb2NrZWRfZmVhdHVyZSgpCg=="
+        },
+        {
+          "start": 11422,
+          "end": 11718,
+          "insert_base64": "ICAgIGZyb20gLm9mZmxpbmVfcG9saWN5IGltcG9ydCBibG9ja2VkX2ZlYXR1cmUKICAgIGJsb2NrZWRfZmVhdHVyZSgpCg=="
+        },
+        {
+          "start": 11974,
+          "end": 12127,
+          "insert_base64": "ICAgIHJldHVybiBOb25lCg=="
+        },
+        {
+          "start": 12171,
+          "end": 12309,
+          "insert_base64": "ICAgIHJldHVybiBOb25lCg=="
+        }
+      ]
+    },
+    {
+      "path": "src/wechat_decrypt_tool/platform_support.py",
+      "base_sha256": "34bb626abaab422d1099c2a19275950e8f32a137fb267f5eb304c161af983f0c",
+      "target_sha256": "4ee31aeb4919d156f6cd52bce3b5e95f9c3ab698eec6740f49f25bdaf46575ae",
+      "edits": [
+        {
+          "start": 5702,
+          "end": 7308,
+          "insert_base64": ""
+        },
+        {
+          "start": 7321,
+          "end": 9401,
+          "insert_base64": "ICAgICAgICAicGxhdGZvcm0iOiBjdXJyZW50X3BsYXRmb3JtKCksICJhcmNoaXRlY3R1cmUiOiBwbGF0Zm9ybS5tYWNoaW5lKCksICJvZmZsaW5lIjogVHJ1ZSwKICAgICAgICAiZGF0YWJhc2Vfa2V5X2F1dG8iOiBpc193aW5kb3dzKCksICJkYXRhYmFzZV9rZXlfbWFudWFsX2lucHV0IjogVHJ1ZSwKICAgICAgICAiZGF0YWJhc2VfZGVjcnlwdGlvbiI6IFRydWUsICJpbWFnZV9rZXlfbWVtb3J5X3NjYW4iOiBpc193aW5kb3dzKCksCiAgICAgICAgInJlYWx0aW1lX3djZGIiOiBGYWxzZSwgInJlYWx0aW1lX3djZGJfbm90ZSI6ICLlvZPliY3kvb/nlKjmnKzlnLDop6Plr4blv6vnhafvvIzmjojmnYPljp/nlJ8gV0NEQiDnu4Tku7blt7Lnp7vpmaTjgIIiLAogICAgICAgICJ3ZWNoYXRfcHJvY2Vzc19tZWRpYV9ob29rIjogRmFsc2UsICJhY2NvdW50X2FyY2hpdmVfZXhwb3J0IjogVHJ1ZSwKICAgICAgICAiYWNjb3VudF9hcmNoaXZlX2ltcG9ydCI6IFRydWUsICJhY2NvdW50X2FyY2hpdmVfY3Jvc3NfcGxhdGZvcm0iOiBUcnVlLAogICAgICAgICJkYXRhYmFzZV9rZXlfb25saW5lX2F1dGhvcml6YXRpb25fcmVxdWlyZWQiOiBGYWxzZSwgInN1Z2dlc3RlZF9rZXlfdG9vbHMiOiBbXSwKICAgICAgICAiZGF0YWJhc2Vfa2V5X2d1aWRhbmNlIjogIuacrOacuuWPquivu+aJq+aPj++8m+S4jeS8muaJp+ihjOS4jemAj+aYjiBETEwgSG9vayDmiJbov5znqIvlhZzlupXjgIIiCg=="
+        }
+      ]
+    },
+    {
+      "path": "src/wechat_decrypt_tool/runtime_settings.py",
+      "base_sha256": "cf3266707c279cb6541da403581187338a3abf91d5bd877020c239fd84d17236",
+      "target_sha256": "e446e38f8f52f693354b1c4aad6059697e0d18799ef4951ca89d627546a44418",
+      "edits": [
+        {
+          "start": 1005,
+          "end": 1394,
+          "insert_base64": "ICAgIHJldHVybiBGYWxzZQo="
+        },
+        {
+          "start": 4879,
+          "end": 5158,
+          "insert_base64": "ICAgIHJldHVybiBMT09QQkFDS19CQUNLRU5EX0hPU1QsICdvZmZsaW5lLXBvbGljeScK"
+        }
+      ]
+    },
+    {
+      "path": "src/wechat_decrypt_tool/sns_media.py",
+      "base_sha256": "46cb706467f8a49b6fdef571fea7a88fd59d5ccd18b8426adb761c4ccfcc4923",
+      "target_sha256": "0ae3bce32f9bd752c1535ef1a8a7202955fd3a768e4f41776bb247488860002b",
+      "edits": [
+        {
+          "start": 19276,
+          "end": 21694,
+          "insert_base64": "ICAgIGZyb20gLm9mZmxpbmVfcG9saWN5IGltcG9ydCBibG9ja2VkX2ZlYXR1cmUKICAgIGJsb2NrZWRfZmVhdHVyZSgpCg=="
+        },
+        {
+          "start": 31295,
+          "end": 32924,
+          "insert_base64": "ICAgIGZyb20gLm9mZmxpbmVfcG9saWN5IGltcG9ydCBibG9ja2VkX2ZlYXR1cmUKICAgIGJsb2NrZWRfZmVhdHVyZSgpCg=="
+        }
+      ]
+    },
+    {
+      "path": "src/wechat_decrypt_tool/voice_transcription.py",
+      "base_sha256": "3ed9362dd85385b3c21b80e96ab808db04421179367327d046295c6a4d48e91d",
+      "target_sha256": "bc07b8c6f4bb27c0efa8282d9ece790bfe97221bbd20369abdf549cae11e3780",
+      "edits": [
+        {
+          "start": 93518,
+          "end": 97981,
+          "insert_base64": "ICAgIGZyb20gLm9mZmxpbmVfcG9saWN5IGltcG9ydCBibG9ja2VkX2ZlYXR1cmUKICAgIGJsb2NrZWRfZmVhdHVyZSgpCg=="
+        }
+      ]
+    },
+    {
+      "path": "src/wechat_decrypt_tool/wechat_decrypt.py",
+      "base_sha256": "829007e32f0b52e138de755448fe786891e5a0f02010cab2fb2566d1470a3563",
+      "target_sha256": "8eee2b386e0464e4b205a5164111b7ca3cf60ae34cf191b75c82342696adf7ec",
+      "edits": [
+        {
+          "start": 1388,
+          "end": 1388,
+          "insert_base64": "ZnJvbSBmdW5jdG9vbHMgaW1wb3J0IGxydV9jYWNoZQoKQGxydV9jYWNoZShtYXhzaXplPTMyKQo="
+        },
+        {
+          "start": 10430,
+          "end": 10740,
+          "insert_base64": "ICAgIGZvciBtb2RlIGluICgicmF3X2VuY19rZXkiLCAic3FsY2lwaGVyX3Bhc3NwaHJhc2UiKToKICAgICAgICBlbmNfa2V5ID0ga2V5X21hdGVyaWFsIGlmIG1vZGUgPT0gInJhd19lbmNfa2V5IiBlbHNlIF9kZXJpdmVfc3FsY2lwaGVyX2VuY19rZXkoa2V5X21hdGVyaWFsLCBzYWx0KQogICAgICAgIG1hY19rZXkgPSBfZGVyaXZlX21hY19rZXkoZW5jX2tleSwgc2FsdCkK"
+        },
+        {
+          "start": 24109,
+          "end": 24147,
+          "insert_base64": "ICAgIGRlZiBfX2luaXRfXyhzZWxmLCBrZXlfaGV4OiBzdHIsICosIGNhcHR1cmVfY2lwaGVyX3NuYXBzaG90OiBib29sID0gRmFsc2UpOgo="
+        },
+        {
+          "start": 24571,
+          "end": 24571,
+          "insert_base64": "ICAgICAgICBzZWxmLmNhcHR1cmVfY2lwaGVyX3NuYXBzaG90ID0gY2FwdHVyZV9jaXBoZXJfc25hcHNob3QKICAgICAgICBzZWxmLm9mZmxpbmVfY2lwaGVyX3NuYXBzaG90ID0gTm9uZQo="
+        },
+        {
+          "start": 24915,
+          "end": 24915,
+          "insert_base64": "ICAgICAgICBzZWxmLm9mZmxpbmVfY2lwaGVyX3NuYXBzaG90ID0gTm9uZQo="
+        },
+        {
+          "start": 45650,
+          "end": 45650,
+          "insert_base64": "ICAgICAgICAgICAgaWYgc2VsZi5jYXB0dXJlX2NpcGhlcl9zbmFwc2hvdDoKICAgICAgICAgICAgICAgIHNlbGYub2ZmbGluZV9jaXBoZXJfc25hcHNob3QgPSBlbmNyeXB0ZWRfZGF0YQo="
+        }
+      ]
+    }
+  ],
+  "new_files": [
+    {
+      "path": "desktop/src/offline-main.cjs",
+      "sha256": "d4872e43da3fa7335bb071b9c92ac84c8c1fb0d64eb587f413792566f0c9e501"
+    },
+    {
+      "path": "desktop/src/offline-session.cjs",
+      "sha256": "b3c71ed77ea99b6bd2e6b890f72f72a7aaa4fb86730c221680b1decb45bc983c"
+    },
+    {
+      "path": "desktop/tests/live-chat-e2e.cjs",
+      "sha256": "2eb88b9174194eb4c3666f7cf923b84a6ab421516c33e8f8a9a149f2d2a51259"
+    },
+    {
+      "path": "desktop/tests/live-chat-fixture.py",
+      "sha256": "18638d81425e7593fe133c81be3be6d44b4a9de19bf8cf2d012a8f7b455e4dbd"
+    },
+    {
+      "path": "desktop/tests/offline-renderer-smoke.cjs",
+      "sha256": "5ebd9908e50feb427182da6c89a849460ce8293e9ada167db95d51a3e63d6a73"
+    },
+    {
+      "path": "desktop/tests/offline-session.test.cjs",
+      "sha256": "453ae20f1797c7c32cf7cf763f9a6064c9ca90144bad0192869549d490ccfa87"
+    },
+    {
+      "path": "frontend/components/OfflineAiPanel.vue",
+      "sha256": "adbf900bbddad70f78dc80126baaf6ae303a8c259dd1df275dbdf5b5e1fe7323"
+    },
+    {
+      "path": "frontend/components/chat/OfflineSnapshotBar.vue",
+      "sha256": "3bbb572c33f89d3a6aa8365a6f928302cbb46c237253237387654f78334b6739"
+    },
+    {
+      "path": "frontend/tests/offline-ai.test.js",
+      "sha256": "1c245afea3944efa9d9c01fbf84f011dcf1350601337edd76aeb523e00227bd4"
+    },
+    {
+      "path": "frontend/tests/offline-snapshot.test.js",
+      "sha256": "7585164126db9a63c0def66a6b1033d55052113733e6d79cc778579bb438e9c1"
+    },
+    {
+      "path": "offline-requirements.lock",
+      "sha256": "c96ae7e0201895bd48f3b7b312f3ad17e2e459b20c14f74b7aa1860f3bfbcfff"
+    },
+    {
+      "path": "offline_backend.py",
+      "sha256": "d07fc4f74e0381ee83096f1f7856d6c519313b660b485b638642b116c48415e4"
+    },
+    {
+      "path": "offline_context_mcp.py",
+      "sha256": "2901281c48a2e427c633815cda6a7c7d4f446ba20b7aab8ba0595dab2cbb91eb"
+    },
+    {
+      "path": "src/wechat_decrypt_tool/local_key_scan.py",
+      "sha256": "4c109a54434b6656b35206630c4654a1139b64fb74c70996f99883d002d79e8f"
+    },
+    {
+      "path": "src/wechat_decrypt_tool/offline_ai.py",
+      "sha256": "7496f5cd9036761018fd7a29e1e061f76b02b14692e1cfdf2f1479652f479835"
+    },
+    {
+      "path": "src/wechat_decrypt_tool/offline_context_protocol.py",
+      "sha256": "f3f31ef4f61de24a7cf90fcda73771f285e618c4cf2ce1e00d184416c8c8faa4"
+    },
+    {
+      "path": "src/wechat_decrypt_tool/offline_file_watch.py",
+      "sha256": "c24f5effe84c54f950900b16cbcf01ea4c0339802d38cbbaafa55679ac4bf9d0"
+    },
+    {
+      "path": "src/wechat_decrypt_tool/offline_incremental.py",
+      "sha256": "1e6e23c55b29aef45640887b86d565671c6b9bd774ce560111e32da5c69a1ac9"
+    },
+    {
+      "path": "src/wechat_decrypt_tool/offline_integrity.py",
+      "sha256": "ae49df314cfaacf251a0990b570d9f266e3b611bf78303d0b4d18cb404ffe7f7"
+    },
+    {
+      "path": "src/wechat_decrypt_tool/offline_policy.py",
+      "sha256": "820d74999ab671949b078db8d3f9d1c20b96d4ab888d1e0145a715a37561595e"
+    },
+    {
+      "path": "src/wechat_decrypt_tool/offline_secrets.py",
+      "sha256": "661921846336e12c021af33a5354cb028b752f3c1b5d2511aab9bb68eced6209"
+    },
+    {
+      "path": "src/wechat_decrypt_tool/offline_snapshot.py",
+      "sha256": "1c5f4022f4b22e04500e99e3bdf1593f5cca1346af7d98c0a5ea8ac8669fd098"
+    },
+    {
+      "path": "src/wechat_decrypt_tool/resources/offline_export_runtime.js",
+      "sha256": "20f0029688e2152c8908c550b39a3f70959b6be2668fab93b33ce87f03c4fdd7"
+    },
+    {
+      "path": "src/wechat_decrypt_tool/routers/offline_ai.py",
+      "sha256": "1c23a30d14148de4d6e2b93704dd544ff844ecc30809acc36599e6bd956dfc27"
+    },
+    {
+      "path": "src/wechat_decrypt_tool/routers/offline_snapshot.py",
+      "sha256": "60d1303c5ee8d68f09e3bbc03d10a68bca003ab87be6b36838bc4d0eddfd85bc"
+    },
+    {
+      "path": "src/wechat_decrypt_tool/routers/offline_wrapped.py",
+      "sha256": "7fe48b7708a868e4e2dc9c39e1ac169c423acf49a873f469b3da93ed58e0e4d1"
+    },
+    {
+      "path": "tests_offline/test_offline_ai.py",
+      "sha256": "acb6169a816425272f6ff9fcd635a4e632ea1798cad0110f4a0d45d9d26dc875"
+    },
+    {
+      "path": "tests_offline/test_offline_incremental.py",
+      "sha256": "e4f9fd95d75052101599fa2804f103c200f56b52360673cb43ab3a373f7e3911"
+    },
+    {
+      "path": "tests_offline/test_offline_policy.py",
+      "sha256": "26200dcba55cb901ffa02aabd7d8259df2e2ad24e0331624ecaaa845ca6fae96"
+    },
+    {
+      "path": "tests_offline/test_offline_snapshot.py",
+      "sha256": "4357230094894071c44b062cfdd3043839c02bd0a67ae79289685e0e5ab52967"
+    },
+    {
+      "path": "tests_offline/test_original_business.py",
+      "sha256": "cfe32034c1a334fdaa900b4ae4eef2584951d7517ae2cb6c50701d692bf0c507"
+    }
+  ]
+}

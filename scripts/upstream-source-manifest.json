@@ -1,0 +1,4272 @@
+{
+  "repository": "LifeArchiveProject/WeChatDataAnalysis",
+  "commit": "64664bef316897b0bca2d391be4a6d2c0c472062",
+  "files": [
+    {
+      "path": ".gitattributes",
+      "mode": "100644",
+      "sha": "c905b21f8f3d8cc89d5ee2ce2fc0dfd67c4d4d34",
+      "size": 132
+    },
+    {
+      "path": ".github/ISSUE_TEMPLATE/bug_report.yml",
+      "mode": "100644",
+      "sha": "0e2a99639d5684bfe7daec6b33ee29dcdda3af42",
+      "size": 3826
+    },
+    {
+      "path": ".github/workflows/chat-image-quality.yml",
+      "mode": "100644",
+      "sha": "64c3e036f69af2faed874fc7a1d472d82a787ca2",
+      "size": 2611
+    },
+    {
+      "path": ".github/workflows/installer-unicode.yml",
+      "mode": "100644",
+      "sha": "b744adcda915e2678616c2e239bdf6a2aead52aa",
+      "size": 2192
+    },
+    {
+      "path": ".github/workflows/macos-private-build.yml",
+      "mode": "100644",
+      "sha": "61526223a560139a541e7328356dcf481aecb2ba",
+      "size": 21946
+    },
+    {
+      "path": ".github/workflows/macos-source-runtime-consumer.yml",
+      "mode": "100644",
+      "sha": "1f30fdd8344e5532ed27cf5062eb679268b6b4b1",
+      "size": 6767
+    },
+    {
+      "path": ".github/workflows/macos-source-runtime-promotion.yml",
+      "mode": "100644",
+      "sha": "a619d7d4deda401cc050869bf535f430a9903b6a",
+      "size": 16267
+    },
+    {
+      "path": ".github/workflows/pages.yml",
+      "mode": "100644",
+      "sha": "df7f4b90a0f720348ee4095e2cdce8306916c0b1",
+      "size": 2349
+    },
+    {
+      "path": ".github/workflows/qwen-gpu-runtime.yml",
+      "mode": "100644",
+      "sha": "d17489dbe5d83c51025b6adf7e54f40e16ec6533",
+      "size": 1930
+    },
+    {
+      "path": ".github/workflows/release.yml",
+      "mode": "100644",
+      "sha": "c27c36c3984672769427cd7eec0637cf55518672",
+      "size": 1773
+    },
+    {
+      "path": ".github/workflows/sns-media-cross-platform.yml",
+      "mode": "100644",
+      "sha": "f2eaea4b245a45b274872e44c778b41f5d4dff2a",
+      "size": 3620
+    },
+    {
+      "path": ".github/workflows/windows-source-runtime-promotion.yml",
+      "mode": "100644",
+      "sha": "461585e0e41b740f426c2e1441eedbbb2ea95b36",
+      "size": 12105
+    },
+    {
+      "path": ".gitignore",
+      "mode": "100644",
+      "sha": "59b7d962e4fa206c7d7796a511d2a307fa0ff22c",
+      "size": 3115
+    },
+    {
+      "path": ".mailmap",
+      "mode": "100644",
+      "sha": "4e3728a5a30e54befb466d4642918808a71f3387",
+      "size": 88
+    },
+    {
+      "path": ".python-version",
+      "mode": "100644",
+      "sha": "2c0733315e415bfb5e5b353f9996ecd964d395b2",
+      "size": 5
+    },
+    {
+      "path": "README.md",
+      "mode": "100644",
+      "sha": "4e35019f87020384d657067ec68e40ceb509484d",
+      "size": 14528
+    },
+    {
+      "path": "THIRD_PARTY_NOTICES.md",
+      "mode": "100644",
+      "sha": "6f1a25dac243e79011fae1ada4037932b26412bf",
+      "size": 1380
+    },
+    {
+      "path": "desktop/entitlements.mac.plist",
+      "mode": "100644",
+      "sha": "f2eb2ecb0ad3040903520954aeb1fd5f1d1900bc",
+      "size": 393
+    },
+    {
+      "path": "desktop/package-lock.json",
+      "mode": "100644",
+      "sha": "5af2629f0cfcd585d046f13cce1a001337e80dce",
+      "size": 159855
+    },
+    {
+      "path": "desktop/package.json",
+      "mode": "100644",
+      "sha": "aa5de6611627fab93a2883b7b7fa79c767e99883",
+      "size": 5582
+    },
+    {
+      "path": "desktop/resources/backend/.gitkeep",
+      "mode": "100644",
+      "sha": "8b137891791fe96927ad78e64b0aad7bded08bdc",
+      "size": 1
+    },
+    {
+      "path": "desktop/resources/native-core-source-macos.json",
+      "mode": "100644",
+      "sha": "8c333a8f1f82be0104f062d53c2d74471e2d82f1",
+      "size": 481
+    },
+    {
+      "path": "desktop/resources/native-core-source-windows.json",
+      "mode": "100644",
+      "sha": "58c06af69415d1272201a04ea823d001c154ed32",
+      "size": 691
+    },
+    {
+      "path": "desktop/resources/signing/.gitkeep",
+      "mode": "100644",
+      "sha": "8b137891791fe96927ad78e64b0aad7bded08bdc",
+      "size": 1
+    },
+    {
+      "path": "desktop/resources/ui/.gitkeep",
+      "mode": "100644",
+      "sha": "8b137891791fe96927ad78e64b0aad7bded08bdc",
+      "size": 1
+    },
+    {
+      "path": "desktop/scripts/Import-WindowsCloudSigningIdentity.ps1",
+      "mode": "100644",
+      "sha": "3347c1cc99e7966d912ec10cd68438a3c70afcde",
+      "size": 12179
+    },
+    {
+      "path": "desktop/scripts/Remove-WindowsCloudSigningIdentity.ps1",
+      "mode": "100644",
+      "sha": "3d264d74cd225a6b91f8e24500850f352762a33d",
+      "size": 1922
+    },
+    {
+      "path": "desktop/scripts/after-pack.cjs",
+      "mode": "100644",
+      "sha": "0da31058531a08e320d14de9972c79e050cdba4e",
+      "size": 3046
+    },
+    {
+      "path": "desktop/scripts/after-sign.cjs",
+      "mode": "100644",
+      "sha": "a97bde26d852ab00beea52161082d832664bc146",
+      "size": 5928
+    },
+    {
+      "path": "desktop/scripts/build-backend.cjs",
+      "mode": "100644",
+      "sha": "e2efb1eb88db526a64f343011661f6fc82d816f3",
+      "size": 27412
+    },
+    {
+      "path": "desktop/scripts/build-icon.cjs",
+      "mode": "100644",
+      "sha": "7bef22a45b72dd1c9eeeefb4233fa37b4dbe3458",
+      "size": 2240
+    },
+    {
+      "path": "desktop/scripts/build-macos-image-helper.cjs",
+      "mode": "100644",
+      "sha": "d61ffe4d16f2219e4076655c93b7c3bbdeed5141",
+      "size": 3921
+    },
+    {
+      "path": "desktop/scripts/complete-windows-real-smoke-server-cleanup.ps1",
+      "mode": "100644",
+      "sha": "343db69259322011d2e2eeddc7b256d24721a9d6",
+      "size": 9043
+    },
+    {
+      "path": "desktop/scripts/copy-ui.cjs",
+      "mode": "100644",
+      "sha": "4457bea5e2ee52b204d70bdba921fa05a4ed5b2a",
+      "size": 845
+    },
+    {
+      "path": "desktop/scripts/dev.cjs",
+      "mode": "100644",
+      "sha": "46a0f19ef6a33220d2b5c1f1e3ff5853c79d7326",
+      "size": 6258
+    },
+    {
+      "path": "desktop/scripts/inspect-windows-privacy-export.ps1",
+      "mode": "100644",
+      "sha": "3920fbf8094f2c5d44ebd73ed61cfb71b325f328",
+      "size": 6240
+    },
+    {
+      "path": "desktop/scripts/inspect-windows-smoke-device-credential.ps1",
+      "mode": "100644",
+      "sha": "9eb6ecebfed6cc42a2228c745d4a1835527f25b4",
+      "size": 4892
+    },
+    {
+      "path": "desktop/scripts/installer-custom.nsh",
+      "mode": "100644",
+      "sha": "0e59621f4cf41e1a0015e98174777a162e562b82",
+      "size": 16168
+    },
+    {
+      "path": "desktop/scripts/installer-install-dir.ps1",
+      "mode": "100644",
+      "sha": "c47e0bfa7a6b3f8159a67ea2daf602665a0811b5",
+      "size": 5572
+    },
+    {
+      "path": "desktop/scripts/installer-output-dir.ps1",
+      "mode": "100644",
+      "sha": "0193e2481491238d7503fa7b2c0649a50c5c0a3d",
+      "size": 9438
+    },
+    {
+      "path": "desktop/scripts/integrity-native-packaging.cjs",
+      "mode": "100644",
+      "sha": "7e2b1844a7b2e7515fd6b9d00a69e445dd55f34a",
+      "size": 9226
+    },
+    {
+      "path": "desktop/scripts/macos-codesign-certificates.cjs",
+      "mode": "100644",
+      "sha": "f640fe974cd6a4a0473ceb031d7918000baf2503",
+      "size": 1854
+    },
+    {
+      "path": "desktop/scripts/macos-image-helper-manifest.json",
+      "mode": "100644",
+      "sha": "472832a3d5c1f7b36d92b8ea60055cd5d3d5896d",
+      "size": 671
+    },
+    {
+      "path": "desktop/scripts/macos-native-core-packaging.cjs",
+      "mode": "100644",
+      "sha": "bdf62a065c8d1d5872e2594d3f188245dcf568bf",
+      "size": 16278
+    },
+    {
+      "path": "desktop/scripts/macos-package-verifier.cjs",
+      "mode": "100644",
+      "sha": "ac304b9af8532d61b8fed4c2ba67223b9b08f71f",
+      "size": 17684
+    },
+    {
+      "path": "desktop/scripts/macos-source-runtime-promotion.cjs",
+      "mode": "100644",
+      "sha": "a14ce237e7056fd2e7bbf458b6af01a86f3faacc",
+      "size": 13857
+    },
+    {
+      "path": "desktop/scripts/macos-xkey-packaging.cjs",
+      "mode": "100644",
+      "sha": "2b0b9c7e30c0b726d60584c3b5ed876717ca2a43",
+      "size": 17079
+    },
+    {
+      "path": "desktop/scripts/native-core-before-pack.cjs",
+      "mode": "100644",
+      "sha": "0137f44ec15ce850760b6f8052306330f5113e96",
+      "size": 7634
+    },
+    {
+      "path": "desktop/scripts/remove-windows-private-pki-issuer.ps1",
+      "mode": "100644",
+      "sha": "4119e71722b249828bc9e0ec66fa1fc3a94c73dc",
+      "size": 2278
+    },
+    {
+      "path": "desktop/scripts/remove-windows-smoke-device-key.ps1",
+      "mode": "100644",
+      "sha": "ce49af3bc10c3213ca877d459307ed0bad0b3953",
+      "size": 2717
+    },
+    {
+      "path": "desktop/scripts/secure-windows-smoke-directory.ps1",
+      "mode": "100644",
+      "sha": "42153bc86f76b9f24a1b54a7fb7772b9ff1bd791",
+      "size": 3024
+    },
+    {
+      "path": "desktop/scripts/sign-macos.cjs",
+      "mode": "100644",
+      "sha": "af138aedce2a4616e1d0f8e60f27711c5f8abdd0",
+      "size": 15583
+    },
+    {
+      "path": "desktop/scripts/smoke-macos-package.cjs",
+      "mode": "100644",
+      "sha": "3891c5e9a75408b754a1d947616e11a1428581f8",
+      "size": 21828
+    },
+    {
+      "path": "desktop/scripts/smoke-windows-package.cjs",
+      "mode": "100644",
+      "sha": "62c6261329395a76b488fa3ab1a59a6b01f63674",
+      "size": 22785
+    },
+    {
+      "path": "desktop/scripts/smoke-windows-real-database.cjs",
+      "mode": "100644",
+      "sha": "0fe95cf54c372785f8adfc000e08545a6e3c2dc0",
+      "size": 63565
+    },
+    {
+      "path": "desktop/scripts/sns-wasm-smoke.cjs",
+      "mode": "100644",
+      "sha": "4797af524cf8744baa4a8ad2ac31b7b8baadcb3c",
+      "size": 4157
+    },
+    {
+      "path": "desktop/scripts/verify-macos-distribution.cjs",
+      "mode": "100644",
+      "sha": "c8aaedf63964bfc95167b9229cf7a53c48a5611d",
+      "size": 481
+    },
+    {
+      "path": "desktop/scripts/verify-macos-native.cjs",
+      "mode": "100644",
+      "sha": "3b0ccd00b086352bfddc14b8c8fbb5c368b4d03a",
+      "size": 7833
+    },
+    {
+      "path": "desktop/scripts/windows-private-pki-sign.cjs",
+      "mode": "100644",
+      "sha": "a529ef1d18fd5f5105161e1c305d70748a2c37db",
+      "size": 7524
+    },
+    {
+      "path": "desktop/scripts/windows-private-pki.ps1",
+      "mode": "100644",
+      "sha": "cabc019b4f72aea97169fc61cf8d06b2f3741b5b",
+      "size": 29735
+    },
+    {
+      "path": "desktop/scripts/windows-source-runtime-promotion.cjs",
+      "mode": "100644",
+      "sha": "e55a87b967b8ecacc3c2f245d254a20524310e04",
+      "size": 9976
+    },
+    {
+      "path": "desktop/src/backend-startup.cjs",
+      "mode": "100644",
+      "sha": "cca103853c707d42ba0763d4a4f73c8673927110",
+      "size": 1733
+    },
+    {
+      "path": "desktop/src/desktop-settings.cjs",
+      "mode": "100644",
+      "sha": "3dddbc8c15df042500ae7a9398cf1800a8d2652f",
+      "size": 1232
+    },
+    {
+      "path": "desktop/src/macos-private-pki-runtime.cjs",
+      "mode": "100644",
+      "sha": "b667b7255a036dd4e9c23eac86a6f0e6d90a852e",
+      "size": 9024
+    },
+    {
+      "path": "desktop/src/main.cjs",
+      "mode": "100644",
+      "sha": "e8a660d690fca5a0394135b8a4b77d77142fe97f",
+      "size": 113537
+    },
+    {
+      "path": "desktop/src/native-core-path.cjs",
+      "mode": "100644",
+      "sha": "3b3786a51fba4be1b9fa7e6a5e4ecba06892e9f3",
+      "size": 612
+    },
+    {
+      "path": "desktop/src/native-core-runtime.cjs",
+      "mode": "100644",
+      "sha": "b0f88179a25932f0f94fe91bfcb49cccdb7f143b",
+      "size": 12704
+    },
+    {
+      "path": "desktop/src/output-dir-worker.cjs",
+      "mode": "100644",
+      "sha": "878d03b75be07ff216255266f156d96e87d8243b",
+      "size": 2104
+    },
+    {
+      "path": "desktop/src/output-dir.cjs",
+      "mode": "100644",
+      "sha": "4dd8f327926eeda05139024a86be158e66970de6",
+      "size": 26876
+    },
+    {
+      "path": "desktop/src/preload.cjs",
+      "mode": "100644",
+      "sha": "0367bb82a03e37171338089af0bcc1d786a321d9",
+      "size": 7144
+    },
+    {
+      "path": "desktop/src/renderer-startup.cjs",
+      "mode": "100644",
+      "sha": "cd4df9fa419bf435bbea8ec5b4d50817786e003e",
+      "size": 2681
+    },
+    {
+      "path": "desktop/src/source-native-core-bootstrap.cjs",
+      "mode": "100644",
+      "sha": "150f0b89d0a3cb10b5a63171479672cc127f7641",
+      "size": 20375
+    },
+    {
+      "path": "desktop/src/windows-native-asr-capability.cjs",
+      "mode": "100644",
+      "sha": "0f2239d9569b720e9486edb81679b058a89ba7ee",
+      "size": 10496
+    },
+    {
+      "path": "desktop/src/windows-private-pki-runtime.cjs",
+      "mode": "100644",
+      "sha": "5c6baf5d0c88482d80b6fedef209f4ca1202021f",
+      "size": 5797
+    },
+    {
+      "path": "desktop/src/windows-source-native-core-bootstrap.cjs",
+      "mode": "100644",
+      "sha": "1cabbf9680a836e24a13968968515ae31fc694b6",
+      "size": 21097
+    },
+    {
+      "path": "desktop/tests/backend-startup.test.cjs",
+      "mode": "100644",
+      "sha": "f7052127bc6d88c77473e84503274643e4d80859",
+      "size": 2368
+    },
+    {
+      "path": "desktop/tests/desktop-settings.test.cjs",
+      "mode": "100644",
+      "sha": "6d7899030a27107ebcb53c689543663967a19a5e",
+      "size": 2565
+    },
+    {
+      "path": "desktop/tests/installer-output-dir.test.cjs",
+      "mode": "100644",
+      "sha": "90d0e854c7064fdc60f53346354bd2cf4eb6ac3a",
+      "size": 18168
+    },
+    {
+      "path": "desktop/tests/installer-safety.test.cjs",
+      "mode": "100644",
+      "sha": "f128306c4680043ba28deb70f03bbc489098242e",
+      "size": 7916
+    },
+    {
+      "path": "desktop/tests/installer-unicode-integration.test.cjs",
+      "mode": "100644",
+      "sha": "2d3e7c94ba5c519e2189032ad14ccfaf68b71532",
+      "size": 7757
+    },
+    {
+      "path": "desktop/tests/integrity-native-packaging.test.cjs",
+      "mode": "100644",
+      "sha": "8fd29681ea778ce53098038146edc915ee08f7e6",
+      "size": 6050
+    },
+    {
+      "path": "desktop/tests/macos-native-core-packaging.test.cjs",
+      "mode": "100644",
+      "sha": "1b7d1e4d7f717b54c7df8d6025eaf390bebaad5a",
+      "size": 7970
+    },
+    {
+      "path": "desktop/tests/macos-private-pki-runtime.test.cjs",
+      "mode": "100644",
+      "sha": "58b59d37f5a758d12b4c8ec71ebf8624c7659cee",
+      "size": 6612
+    },
+    {
+      "path": "desktop/tests/macos-source-runtime-consumer.test.cjs",
+      "mode": "100644",
+      "sha": "999e7233e08dd6cc241be830967cee38efb00b22",
+      "size": 1603
+    },
+    {
+      "path": "desktop/tests/macos-source-runtime-promotion.test.cjs",
+      "mode": "100644",
+      "sha": "1cdb24837b65cdbd4d739c6aeaafd494f72adeea",
+      "size": 6577
+    },
+    {
+      "path": "desktop/tests/macos-xkey-packaging.test.cjs",
+      "mode": "100644",
+      "sha": "623f55c99ca1497db20c1e08842e84364f229d04",
+      "size": 8999
+    },
+    {
+      "path": "desktop/tests/macos-xkey-signing.test.cjs",
+      "mode": "100644",
+      "sha": "c32206029e4e1c340e8c7e3d2131b0d652a62953",
+      "size": 9549
+    },
+    {
+      "path": "desktop/tests/native-core-before-pack.test.cjs",
+      "mode": "100644",
+      "sha": "c15ddd7cfaac67a5d275db7c7b3997d58aa4d778",
+      "size": 11678
+    },
+    {
+      "path": "desktop/tests/native-core-packaging.test.cjs",
+      "mode": "100644",
+      "sha": "082f64af3d1a4ca6eaa5ce20d56a1e93279e0080",
+      "size": 22283
+    },
+    {
+      "path": "desktop/tests/native-core-runtime.test.cjs",
+      "mode": "100644",
+      "sha": "4d75f9c23ec0ddf413cb48e3103f286a1d1db224",
+      "size": 19978
+    },
+    {
+      "path": "desktop/tests/output-dir-main.test.cjs",
+      "mode": "100644",
+      "sha": "b8c9779b2346fbfa0caa284fb647368da2525a6f",
+      "size": 1442
+    },
+    {
+      "path": "desktop/tests/output-dir.test.cjs",
+      "mode": "100644",
+      "sha": "179207b806e6b5482798ce57be90d6aaa0a1c373",
+      "size": 22654
+    },
+    {
+      "path": "desktop/tests/package-config.test.cjs",
+      "mode": "100644",
+      "sha": "93842b65b7e564f27c6014588d45049db4333e6d",
+      "size": 23235
+    },
+    {
+      "path": "desktop/tests/pe-export-fixture.cjs",
+      "mode": "100644",
+      "sha": "e4d859db45f971d63ec6f35d64631c6206dc7ced",
+      "size": 3342
+    },
+    {
+      "path": "desktop/tests/renderer-cache.test.cjs",
+      "mode": "100644",
+      "sha": "a842fa2ccc888b225fb41626422e0c30412c9a1e",
+      "size": 1972
+    },
+    {
+      "path": "desktop/tests/renderer-startup.test.cjs",
+      "mode": "100644",
+      "sha": "c8c407d9f28f2168e1d031fb452ca8b2ec7218b9",
+      "size": 4353
+    },
+    {
+      "path": "desktop/tests/sns-wasm-runtime.test.cjs",
+      "mode": "100644",
+      "sha": "0b905b174bcb81765956e9e204723f4b16c13e57",
+      "size": 1515
+    },
+    {
+      "path": "desktop/tests/source-native-core-bootstrap.test.cjs",
+      "mode": "100644",
+      "sha": "b5bbb57c13463261513f4b2de1ac0f437e9679b5",
+      "size": 13971
+    },
+    {
+      "path": "desktop/tests/windows-package-smoke.test.cjs",
+      "mode": "100644",
+      "sha": "a0c7996c653072b1204ce038b871b40bcaf9585d",
+      "size": 7535
+    },
+    {
+      "path": "desktop/tests/windows-private-pki-runtime.test.cjs",
+      "mode": "100644",
+      "sha": "1fa01d40d42cabb0111c99ad4c13d06ea3bd1a60",
+      "size": 5493
+    },
+    {
+      "path": "desktop/tests/windows-private-pki-sign.test.cjs",
+      "mode": "100644",
+      "sha": "3c629f1102705661b80d276833519db08dde8a09",
+      "size": 6918
+    },
+    {
+      "path": "desktop/tests/windows-real-database-smoke.test.cjs",
+      "mode": "100644",
+      "sha": "c5ceec3be0dc1ec13b76df022ab7742953b106ce",
+      "size": 34992
+    },
+    {
+      "path": "desktop/tests/windows-source-native-core-bootstrap.test.cjs",
+      "mode": "100644",
+      "sha": "c8649f65c194ffe53b417a2f16e20b6725aef1e2",
+      "size": 12271
+    },
+    {
+      "path": "desktop/tests/windows-source-runtime-promotion.test.cjs",
+      "mode": "100644",
+      "sha": "5db99d5594e0d0629e4fe759fe978ae19500c5f5",
+      "size": 7539
+    },
+    {
+      "path": "desktop/vendor/koffi/build/koffi/win32_x64/koffi.node",
+      "mode": "100644",
+      "sha": "4cb42f458023e430c69358487ac61e4ea03a744a",
+      "size": 3190272
+    },
+    {
+      "path": "docs/MACOS_KEY_CAPTURE.md",
+      "mode": "100644",
+      "sha": "892252c4c692afca848d1072bffff09032f6ffc3",
+      "size": 7313
+    },
+    {
+      "path": "docs/chat-calendar-performance.md",
+      "mode": "100644",
+      "sha": "11a9a56963c8599e11155d33d8275fb9c4fd50ed",
+      "size": 3432
+    },
+    {
+      "path": "docs/chat-calendar-ui-test.md",
+      "mode": "100644",
+      "sha": "44f3a543664fed682f1547381848f55e8ca9db62",
+      "size": 7424
+    },
+    {
+      "path": "docs/chat-image-quality-2026-10-06.md",
+      "mode": "100644",
+      "sha": "70756c3a0740c71c5c3fb3416dc4955fab1e707f",
+      "size": 3969
+    },
+    {
+      "path": "docs/export-broker-busy-investigation-20260909.md",
+      "mode": "100644",
+      "sha": "86fce18cf1fa248f0b58d5bbf32e56525e1d8de5",
+      "size": 5868
+    },
+    {
+      "path": "docs/friend-verifications.md",
+      "mode": "100644",
+      "sha": "ec1c4eba08bcec49559951d5e26c81f3ce9908a2",
+      "size": 2203
+    },
+    {
+      "path": "docs/issue-166-validation.md",
+      "mode": "100644",
+      "sha": "0864b085c40a34cf53f0879adcb7eb5d684638e3",
+      "size": 7410
+    },
+    {
+      "path": "docs/licenses/wcdb-key-tool-MIT.txt",
+      "mode": "100644",
+      "sha": "741c6f868bf3634c2c17d672eaab1cef9ca0b4ae",
+      "size": 1082
+    },
+    {
+      "path": "docs/macos-private-key-capture.md",
+      "mode": "100644",
+      "sha": "54d7e4a335924c413ff5e1675251874ba9d3bb9c",
+      "size": 3536
+    },
+    {
+      "path": "docs/macos-wcdb-key-capture-validation.md",
+      "mode": "100644",
+      "sha": "10fdaa010ce0fd8d922134ff7128303b23b19515",
+      "size": 5679
+    },
+    {
+      "path": "docs/macos-wcdb-key-capture.md",
+      "mode": "100644",
+      "sha": "7a05e96896dfbdca192edd34aaade35f9702aaef",
+      "size": 7561
+    },
+    {
+      "path": "docs/qwen-gpu-runtime-2026-10-05.md",
+      "mode": "100644",
+      "sha": "f11a403f40aba39ee631b0d67563816bfe2bb8ae",
+      "size": 6035
+    },
+    {
+      "path": "docs/release-native-build.md",
+      "mode": "100644",
+      "sha": "40738a727e2ff33025cc7134779a2c6e44e6d60f",
+      "size": 2429
+    },
+    {
+      "path": "docs/rtx5060-faster-whisper-gpu.md",
+      "mode": "100644",
+      "sha": "e4d56f68459078b20ae59b9a0dd688dcecb9cb41",
+      "size": 4453
+    },
+    {
+      "path": "docs/stt-benchmark-2026-09-21.md",
+      "mode": "100644",
+      "sha": "273e8ec68fb0c36f25637f41cc38dd53ed2b8a33",
+      "size": 7586
+    },
+    {
+      "path": "docs/stt-integration-2026-09-21.md",
+      "mode": "100644",
+      "sha": "55c0bd6617def20af659aad14c7fd5edaa645109",
+      "size": 8788
+    },
+    {
+      "path": "docs/stt-model-upgrade-plan-2026-09-21.md",
+      "mode": "100644",
+      "sha": "e93b168f0341f715829ea60f803369a8c87ea8c6",
+      "size": 11762
+    },
+    {
+      "path": "docs/windows-path-encoding.md",
+      "mode": "100644",
+      "sha": "93ae8562bfda16a0c5daaa9e8315f0deef08b29f",
+      "size": 1933
+    },
+    {
+      "path": "docs/wrapped-frames.md",
+      "mode": "100644",
+      "sha": "f41e84606cc01cc96adbc699a24ca888c5bb8d3b",
+      "size": 4308
+    },
+    {
+      "path": "frontend/.gitignore",
+      "mode": "100644",
+      "sha": "4a7f73a2ed0d9f99a182a5855b29846de7bad09c",
+      "size": 193
+    },
+    {
+      "path": "frontend/app.vue",
+      "mode": "100644",
+      "sha": "066092db01b5c2036a3a2e1c29622a2a4c3156b7",
+      "size": 12334
+    },
+    {
+      "path": "frontend/assets/css/chat.css",
+      "mode": "100644",
+      "sha": "cb35cda73b2d92bcaac923bb7c243ee25a74c334",
+      "size": 28396
+    },
+    {
+      "path": "frontend/assets/css/export-panels.css",
+      "mode": "100644",
+      "sha": "1f6a9032837f62b433a678c3164be90f06833e9b",
+      "size": 29837
+    },
+    {
+      "path": "frontend/assets/css/pro-demos.css",
+      "mode": "100644",
+      "sha": "d32084c5fb424ed259c578947e6a615103bc5d2b",
+      "size": 40633
+    },
+    {
+      "path": "frontend/assets/css/record-pages.css",
+      "mode": "100644",
+      "sha": "27b57d5382c93fd6a8969820d6cfd02ca8643f90",
+      "size": 22351
+    },
+    {
+      "path": "frontend/assets/css/tailwind.css",
+      "mode": "100644",
+      "sha": "83536fb098d6bbd8b67518677edef3c3e25ab9c2",
+      "size": 81663
+    },
+    {
+      "path": "frontend/assets/css/wxcdn-card.css",
+      "mode": "100644",
+      "sha": "5c978ac398d268df3b1ab368f36c970014737817",
+      "size": 6379
+    },
+    {
+      "path": "frontend/assets/images/wechat/WeChat-Icon-Logo.wine.svg",
+      "mode": "100644",
+      "sha": "d260f0e8e86c902eb61a3200877469261d930d65",
+      "size": 2233
+    },
+    {
+      "path": "frontend/assets/images/wechat/excel.png",
+      "mode": "100644",
+      "sha": "acf6fa1bd6bf112622846e25d8454746d8fc0ba5",
+      "size": 1101
+    },
+    {
+      "path": "frontend/assets/images/wechat/mini-program.svg",
+      "mode": "100644",
+      "sha": "e24435fb4c639aa7156d2e900e5e8a3da4dd7ca2",
+      "size": 1449
+    },
+    {
+      "path": "frontend/assets/images/wechat/pdf.png",
+      "mode": "100644",
+      "sha": "35dcd4a1f25040cae2a59e013778ef863a5f50ea",
+      "size": 1010
+    },
+    {
+      "path": "frontend/assets/images/wechat/wechat-audio-dark.png",
+      "mode": "100644",
+      "sha": "0fd8b05fa4c6df9af1ee02a80981c48851fb1c09",
+      "size": 3921
+    },
+    {
+      "path": "frontend/assets/images/wechat/wechat-audio-light.png",
+      "mode": "100644",
+      "sha": "25eea4774b28e38af4e080bd503a533e2a34220c",
+      "size": 4491
+    },
+    {
+      "path": "frontend/assets/images/wechat/wechat-redp-icon1.png",
+      "mode": "100644",
+      "sha": "1a7a4391ede1be6dc4df89838cda217f4720b406",
+      "size": 2100
+    },
+    {
+      "path": "frontend/assets/images/wechat/wechat-returned.png",
+      "mode": "100644",
+      "sha": "aadb473e77df2af5dd12afa5f9da3c2fffd4bdb4",
+      "size": 1592
+    },
+    {
+      "path": "frontend/assets/images/wechat/wechat-trans-icon1.png",
+      "mode": "100644",
+      "sha": "1a3cc3753d02b9cd4f336a0b3773b2e3d0e494e3",
+      "size": 7734
+    },
+    {
+      "path": "frontend/assets/images/wechat/wechat-trans-icon2.png",
+      "mode": "100644",
+      "sha": "6d500a2ed72c9eb37e0d74ab4b5f2dad10b9f45e",
+      "size": 1633
+    },
+    {
+      "path": "frontend/assets/images/wechat/wechat-trans-icon3.png",
+      "mode": "100644",
+      "sha": "ec91928cebb9a05e11046c6006f67c6457cb0c80",
+      "size": 3600
+    },
+    {
+      "path": "frontend/assets/images/wechat/wechat-trans-icon4.png",
+      "mode": "100644",
+      "sha": "e246f0ef87fd2deeec478c380d5b4d40cb88cbaf",
+      "size": 3878
+    },
+    {
+      "path": "frontend/assets/images/wechat/wechat-video-dark.png",
+      "mode": "100644",
+      "sha": "4cff09441ce74fa19cd6faa308992ce461997bd9",
+      "size": 2789
+    },
+    {
+      "path": "frontend/assets/images/wechat/wechat-video-light.png",
+      "mode": "100644",
+      "sha": "9be69dcfdd0f14f3867611e844f4de27faba7ca4",
+      "size": 2875
+    },
+    {
+      "path": "frontend/assets/images/wechat/wechat-voice-icon1-dark.png",
+      "mode": "100644",
+      "sha": "38580c2c701f6ea91dfbdc7d6e0b210c3e2d8bee",
+      "size": 2108
+    },
+    {
+      "path": "frontend/assets/images/wechat/wechat-voice-icon1-light.png",
+      "mode": "100644",
+      "sha": "fbe9afcc400ff8cf769e5f766832e5dc00b1e0a7",
+      "size": 773
+    },
+    {
+      "path": "frontend/assets/images/wechat/wechat-voice-icon2-dark.png",
+      "mode": "100644",
+      "sha": "2889574de766fb3dc1166f222b4514fa8b1ab90b",
+      "size": 4587
+    },
+    {
+      "path": "frontend/assets/images/wechat/wechat-voice-icon2-light.png",
+      "mode": "100644",
+      "sha": "1dd599642e01d598108c2448772755327448e730",
+      "size": 2761
+    },
+    {
+      "path": "frontend/assets/images/wechat/word.png",
+      "mode": "100644",
+      "sha": "5ef83dc6a2481a9ad70dd9e6bd22824eeda2878a",
+      "size": 1330
+    },
+    {
+      "path": "frontend/assets/images/wechat/zip.png",
+      "mode": "100644",
+      "sha": "4375d45459cd233677372c0da4ea9c7d05d3f97b",
+      "size": 829
+    },
+    {
+      "path": "frontend/components/AdvancedFeaturesDialog.vue",
+      "mode": "100644",
+      "sha": "79c95d605aa3bdc95b700aed7faa559ea74a4fb4",
+      "size": 14255
+    },
+    {
+      "path": "frontend/components/ApiStatus.vue",
+      "mode": "100644",
+      "sha": "ef78be496f65a96cee2c6f2e0c8fffedc294ed75",
+      "size": 930
+    },
+    {
+      "path": "frontend/components/BizMessages.vue",
+      "mode": "100644",
+      "sha": "7b5d7ad46650d0c16d4cec2b745c726fbaf6a692",
+      "size": 17828
+    },
+    {
+      "path": "frontend/components/ChatLocationCard.vue",
+      "mode": "100644",
+      "sha": "1b9c0d233da350a86a6484123c35026e8b728171",
+      "size": 7486
+    },
+    {
+      "path": "frontend/components/DataSourceFallbackBanner.vue",
+      "mode": "100644",
+      "sha": "344e9313f8bf231a916fb75ea15bc5f1a26862d6",
+      "size": 2047
+    },
+    {
+      "path": "frontend/components/DesktopTitleBar.vue",
+      "mode": "100644",
+      "sha": "60fa3da57b33664a48c1b5e798ed6ff45e966161",
+      "size": 3711
+    },
+    {
+      "path": "frontend/components/DesktopUpdateDialog.vue",
+      "mode": "100644",
+      "sha": "373e23551a0d7252e5697a6d9b7faeb135eb2bae",
+      "size": 8816
+    },
+    {
+      "path": "frontend/components/EditedMessagePreview.vue",
+      "mode": "100644",
+      "sha": "d9315aab93629b936127843339dffb586a538995",
+      "size": 4860
+    },
+    {
+      "path": "frontend/components/ErrorNotice.vue",
+      "mode": "100644",
+      "sha": "5e3c31eb8d9a03460399dfe5774f2090d27ba481",
+      "size": 2389
+    },
+    {
+      "path": "frontend/components/GlobalExportDialog.vue",
+      "mode": "100644",
+      "sha": "b839373b2d4d846dbc430d76a6c6eb5fe744eb5c",
+      "size": 26761
+    },
+    {
+      "path": "frontend/components/GuideDialog.vue",
+      "mode": "100644",
+      "sha": "1cfd9839706825d6262181fe678f28a3170d1cbd",
+      "size": 16415
+    },
+    {
+      "path": "frontend/components/LivePhotoIcon.vue",
+      "mode": "100644",
+      "sha": "79ae9038fa8d49d2ec104d2e29555dbb42518ebf",
+      "size": 761
+    },
+    {
+      "path": "frontend/components/PlanWindow.vue",
+      "mode": "100644",
+      "sha": "7ff7e4515e76deb44435005d6d03b7884e4d2088",
+      "size": 26455
+    },
+    {
+      "path": "frontend/components/RecordExportDialog.vue",
+      "mode": "100644",
+      "sha": "4a1d93b8d6a266e599fa4e74a058d07d5304c212",
+      "size": 14968
+    },
+    {
+      "path": "frontend/components/SettingsDialog.vue",
+      "mode": "100644",
+      "sha": "e2892565e3c94f88a2f5cff077c7d1641011b34c",
+      "size": 101407
+    },
+    {
+      "path": "frontend/components/SidebarRail.vue",
+      "mode": "100644",
+      "sha": "bafcb825397259396672bb470e2e53170a49365b",
+      "size": 42102
+    },
+    {
+      "path": "frontend/components/Stepper.vue",
+      "mode": "100644",
+      "sha": "7d273e0198151d23b13217c98683ff517494bf2a",
+      "size": 2602
+    },
+    {
+      "path": "frontend/components/UiSelect.vue",
+      "mode": "100644",
+      "sha": "cf27b71b5a1b759b68524b27c7db113293944c07",
+      "size": 12801
+    },
+    {
+      "path": "frontend/components/chat/ChatExportDialog.vue",
+      "mode": "100644",
+      "sha": "722584c412bda2b0ef10298ba54e739685d68c1f",
+      "size": 72623
+    },
+    {
+      "path": "frontend/components/chat/ChatHistoryFloatingWindows.vue",
+      "mode": "100644",
+      "sha": "a295d2c57a48e3b8adcbc42994315083fd7b81d8",
+      "size": 16596
+    },
+    {
+      "path": "frontend/components/chat/ChatOverlays.vue",
+      "mode": "100644",
+      "sha": "3eacaa4fc0bb1a273ac63382625418be8f17052a",
+      "size": 53199
+    },
+    {
+      "path": "frontend/components/chat/ContactProfileCard.vue",
+      "mode": "100644",
+      "sha": "9879a78ad8d105c5a9675ba26ce1daf160511427",
+      "size": 22332
+    },
+    {
+      "path": "frontend/components/chat/ConversationPane.vue",
+      "mode": "100644",
+      "sha": "163844966e064de436ea7cadea3f88a99f20ca0e",
+      "size": 11673
+    },
+    {
+      "path": "frontend/components/chat/FileTypeIcon.vue",
+      "mode": "100644",
+      "sha": "69f77328f80b52233c31df208946261b9c1c74af",
+      "size": 1454
+    },
+    {
+      "path": "frontend/components/chat/GroupMembersSidebar.vue",
+      "mode": "100644",
+      "sha": "9f271cb17535b8c66991cf2b9c102f530e4fd7df",
+      "size": 6076
+    },
+    {
+      "path": "frontend/components/chat/ImageGroupStack.vue",
+      "mode": "100644",
+      "sha": "d35f9a398c5db73c91cd7d8337fff3507eacc4be",
+      "size": 20970
+    },
+    {
+      "path": "frontend/components/chat/LinkCard.vue",
+      "mode": "100644",
+      "sha": "a5a1b59497ec17532bf2f10ada753f32cc26a3e2",
+      "size": 14660
+    },
+    {
+      "path": "frontend/components/chat/MessageContent.vue",
+      "mode": "100644",
+      "sha": "9d9e67fead24227a9b06e74e157d704c153cf572",
+      "size": 47682
+    },
+    {
+      "path": "frontend/components/chat/MessageItem.vue",
+      "mode": "100644",
+      "sha": "6729f8af89669b8405624c2df86f2c3b2f1baa79",
+      "size": 5589
+    },
+    {
+      "path": "frontend/components/chat/MessageList.vue",
+      "mode": "100644",
+      "sha": "6f5f86cc0df65a893ddaec98b43cf1326f7db566",
+      "size": 1343
+    },
+    {
+      "path": "frontend/components/chat/ResourceSidebar.vue",
+      "mode": "100644",
+      "sha": "77fb6fff7ad2beea90acd29cb3dc0e6f929a7e49",
+      "size": 9381
+    },
+    {
+      "path": "frontend/components/chat/SessionListPanel.vue",
+      "mode": "100644",
+      "sha": "73552649b5cfbad02330c0f29cb5d092c871c3d2",
+      "size": 25667
+    },
+    {
+      "path": "frontend/components/chat/VoiceTranscriptionSidebar.vue",
+      "mode": "100644",
+      "sha": "fe032e53f9886c1fdeb03add33be17fb600e071e",
+      "size": 25460
+    },
+    {
+      "path": "frontend/components/wrapped/cards/Card00GlobalOverview.vue",
+      "mode": "100644",
+      "sha": "287c4a60f449e418aebcbc4a77ba29999b88c255",
+      "size": 45432
+    },
+    {
+      "path": "frontend/components/wrapped/cards/Card01CyberSchedule.vue",
+      "mode": "100644",
+      "sha": "dae061e16670e707c41368b2731ba3792066c8dd",
+      "size": 98516
+    },
+    {
+      "path": "frontend/components/wrapped/cards/Card02MessageChars.vue",
+      "mode": "100644",
+      "sha": "164646bac99cb01d3e3606f0836e8097da37e3f2",
+      "size": 1049
+    },
+    {
+      "path": "frontend/components/wrapped/cards/Card03ReplySpeed.vue",
+      "mode": "100644",
+      "sha": "5d4d320a2b880bf6ce1eae8c0248e0dc9b06bd59",
+      "size": 130644
+    },
+    {
+      "path": "frontend/components/wrapped/cards/Card04EmojiUniverse.vue",
+      "mode": "100644",
+      "sha": "89b0fb0d0aa0910534bdc67413798cc72abb63c4",
+      "size": 7298
+    },
+    {
+      "path": "frontend/components/wrapped/cards/Card04MonthlyBestFriendsWall.vue",
+      "mode": "100644",
+      "sha": "350860717183cdf081a8298158dae28de0f7c414",
+      "size": 3051
+    },
+    {
+      "path": "frontend/components/wrapped/cards/Card06KeywordsWordCloud.vue",
+      "mode": "100644",
+      "sha": "cd858058ddb06ca6e38c059140219e82d68cfaa4",
+      "size": 65829
+    },
+    {
+      "path": "frontend/components/wrapped/cards/Card07BentoSummary.vue",
+      "mode": "100644",
+      "sha": "37a672f05a6b6773b746047a4bacc288fd37e60b",
+      "size": 199530
+    },
+    {
+      "path": "frontend/components/wrapped/shared/BitsGridMotion.vue",
+      "mode": "100644",
+      "sha": "003950516429ace6d062769f26ec41a60147a56c",
+      "size": 6097
+    },
+    {
+      "path": "frontend/components/wrapped/shared/VueBitsStack.vue",
+      "mode": "100644",
+      "sha": "c191c7eb443fe88b80e21f8b53163700c172a9d9",
+      "size": 7620
+    },
+    {
+      "path": "frontend/components/wrapped/shared/WrappedCardShell.vue",
+      "mode": "100644",
+      "sha": "f6a78684dea51c5f62d4ff0199e6e5c0671834d4",
+      "size": 10790
+    },
+    {
+      "path": "frontend/components/wrapped/shared/WrappedCinemaOverlay.vue",
+      "mode": "100644",
+      "sha": "1fbe2489db31e2d10980dfb1cab5c8fac6eb7bb2",
+      "size": 1749
+    },
+    {
+      "path": "frontend/components/wrapped/shared/WrappedDeckBackground.vue",
+      "mode": "100644",
+      "sha": "01d80ca9589adb1fbd6ac3d5e0cd33a85a632764",
+      "size": 1587
+    },
+    {
+      "path": "frontend/components/wrapped/shared/WrappedFitScale.vue",
+      "mode": "100644",
+      "sha": "b3cc854762eaca76b8b24dea8853d99fea6f5d99",
+      "size": 3285
+    },
+    {
+      "path": "frontend/components/wrapped/shared/WrappedFrameMenu.vue",
+      "mode": "100644",
+      "sha": "ddaf2c9888a267db0aebb65427ddcd640eee1c6f",
+      "size": 15068
+    },
+    {
+      "path": "frontend/components/wrapped/shared/WrappedHero.vue",
+      "mode": "100644",
+      "sha": "d3e0357694487874ff26757dd673272d5c2300cc",
+      "size": 26685
+    },
+    {
+      "path": "frontend/components/wrapped/shared/WrappedOdometer.vue",
+      "mode": "100644",
+      "sha": "85528c5de6bf9ecd211802fcc068b3a529f1a964",
+      "size": 6321
+    },
+    {
+      "path": "frontend/components/wrapped/shared/WrappedStage.vue",
+      "mode": "100644",
+      "sha": "ef25280acbbd4adb3a072c4e4cd48950b581a05b",
+      "size": 10452
+    },
+    {
+      "path": "frontend/components/wrapped/shared/WrappedYearSelector.vue",
+      "mode": "100644",
+      "sha": "3002359f43eeffc4d8af84c3c29d4cb15631de7f",
+      "size": 3237
+    },
+    {
+      "path": "frontend/components/wrapped/visualizations/AnnualCalendarHeatmap.vue",
+      "mode": "100644",
+      "sha": "5885fe550ac83dc9029c8b121870a887b043ebb9",
+      "size": 30337
+    },
+    {
+      "path": "frontend/components/wrapped/visualizations/ChatReplayAnimation.vue",
+      "mode": "100644",
+      "sha": "3ded96b5bbeeeb1e3bab0bc3c25c4bcec81d545c",
+      "size": 8036
+    },
+    {
+      "path": "frontend/components/wrapped/visualizations/EmojiHoloCards.vue",
+      "mode": "100644",
+      "sha": "8ed8523040b03a120c7f41415b77945429de2a99",
+      "size": 105299
+    },
+    {
+      "path": "frontend/components/wrapped/visualizations/EmojiPack3D.vue",
+      "mode": "100644",
+      "sha": "55330d8387b15172bd038b8fddbf85313def8e78",
+      "size": 32289
+    },
+    {
+      "path": "frontend/components/wrapped/visualizations/GlobalOverviewChart.vue",
+      "mode": "100644",
+      "sha": "3435ea9e2becbe5a38bd5d419f56c1b1d01703a4",
+      "size": 1479
+    },
+    {
+      "path": "frontend/components/wrapped/visualizations/KeywordDictionarySpread.vue",
+      "mode": "100644",
+      "sha": "1a8747fc1faffda692420789c9fb3ee76913fbcf",
+      "size": 66949
+    },
+    {
+      "path": "frontend/components/wrapped/visualizations/MessageCharsChart.vue",
+      "mode": "100644",
+      "sha": "0da1bbf4057567502b06926e9e44566791604169",
+      "size": 116773
+    },
+    {
+      "path": "frontend/components/wrapped/visualizations/MonthlyCompanionPosters.vue",
+      "mode": "100644",
+      "sha": "d9e7087a00032dc196a53998b939f96a8241f0df",
+      "size": 43452
+    },
+    {
+      "path": "frontend/components/wrapped/visualizations/OdometerNumber.vue",
+      "mode": "100644",
+      "sha": "e67eff7d9f9941ee484c8226673c9c4d6e7e3ecf",
+      "size": 2423
+    },
+    {
+      "path": "frontend/components/wrapped/visualizations/SplitFlapRow.vue",
+      "mode": "100644",
+      "sha": "a86ef2f8ad5771b48566e96927f48f924b65a9ca",
+      "size": 9090
+    },
+    {
+      "path": "frontend/components/wrapped/visualizations/WeekdayHourHeatmap.vue",
+      "mode": "100644",
+      "sha": "f0683d9d5d65b0cd2e76d279c9a848f1f55bd1ad",
+      "size": 12304
+    },
+    {
+      "path": "frontend/composables/chat/useChatEditing.js",
+      "mode": "100644",
+      "sha": "dbe22408db0f6693ce242d40c2382d097856ff36",
+      "size": 7412
+    },
+    {
+      "path": "frontend/composables/chat/useChatExport.js",
+      "mode": "100644",
+      "sha": "6cb6acf8633a9fc94744538e60ac938e7b9efb29",
+      "size": 42839
+    },
+    {
+      "path": "frontend/composables/chat/useChatHistoryWindows.js",
+      "mode": "100644",
+      "sha": "43568b078470fb8abc7d1ca84b5d7393b2af6045",
+      "size": 18920
+    },
+    {
+      "path": "frontend/composables/chat/useChatMessages.js",
+      "mode": "100644",
+      "sha": "96d18ad931d640d76920a2949cfc6a68cb916ff6",
+      "size": 129746
+    },
+    {
+      "path": "frontend/composables/chat/useChatSearch.js",
+      "mode": "100644",
+      "sha": "2191ac218bc9aac91d2c5f2fffa9fa0cbf060993",
+      "size": 71245
+    },
+    {
+      "path": "frontend/composables/chat/useChatSessions.js",
+      "mode": "100644",
+      "sha": "e8936bb357b480f5d51620544e281a8cb1483d4a",
+      "size": 14749
+    },
+    {
+      "path": "frontend/composables/useAdvancedFeaturesDialog.js",
+      "mode": "100644",
+      "sha": "87e5e85a81d5b39984be1822da367c0f0554c9e0",
+      "size": 266
+    },
+    {
+      "path": "frontend/composables/useAgentPanelResize.js",
+      "mode": "100644",
+      "sha": "35219e1509aa6c255fa5ca09cd828a94fd7f04c1",
+      "size": 4267
+    },
+    {
+      "path": "frontend/composables/useApi.js",
+      "mode": "100644",
+      "sha": "0f779a8a935e166e3b878c10f376bb5d62e418c2",
+      "size": 55012
+    },
+    {
+      "path": "frontend/composables/useApiBase.js",
+      "mode": "100644",
+      "sha": "3a3a7ddf1ea9497b412db718b11330aff8cccaa9",
+      "size": 1627
+    },
+    {
+      "path": "frontend/composables/useCountUp.js",
+      "mode": "100644",
+      "sha": "5e1d4a2930b09d47e7148c09e64e6833131a90a2",
+      "size": 2016
+    },
+    {
+      "path": "frontend/composables/useDesktopUpdate.js",
+      "mode": "100644",
+      "sha": "676682e558d445e68625db6baa5fb00dde5b44ab",
+      "size": 6941
+    },
+    {
+      "path": "frontend/composables/useEmojiUniverse.js",
+      "mode": "100644",
+      "sha": "266f75288eb61f03583a5f75a67d31c4c3c624df",
+      "size": 10792
+    },
+    {
+      "path": "frontend/composables/useErrorNotice.js",
+      "mode": "100644",
+      "sha": "dc40b8508f086279096db74198dfb3d45a297445",
+      "size": 794
+    },
+    {
+      "path": "frontend/composables/useMonthlyCompanions.js",
+      "mode": "100644",
+      "sha": "d1f9cc8ffe04752440360cf18ca0a706a2862745",
+      "size": 7212
+    },
+    {
+      "path": "frontend/composables/usePlanWindow.js",
+      "mode": "100644",
+      "sha": "3a97a628968297d3bcb046bd8e97dd16eabe6bd6",
+      "size": 484
+    },
+    {
+      "path": "frontend/composables/usePrivacyText.js",
+      "mode": "100644",
+      "sha": "825a6e612f144772e6c16a512906cb81ec107d6c",
+      "size": 1294
+    },
+    {
+      "path": "frontend/composables/useReducedMotion.js",
+      "mode": "100644",
+      "sha": "b5cf48d0830b11508d71e8fd8a5c8d9378c38ae1",
+      "size": 860
+    },
+    {
+      "path": "frontend/composables/useSettingsDialog.js",
+      "mode": "100644",
+      "sha": "17eebc05fea9cd9e9b70a45b625e8d74578a7f76",
+      "size": 457
+    },
+    {
+      "path": "frontend/composables/useWrappedStage.js",
+      "mode": "100644",
+      "sha": "24d937fe7129f3c4002d41af1b4b42efb7359f35",
+      "size": 5697
+    },
+    {
+      "path": "frontend/lib/account-avatar.js",
+      "mode": "100644",
+      "sha": "ddfd733ac377ffe164331e99953bfdce5b3eb568",
+      "size": 1250
+    },
+    {
+      "path": "frontend/lib/api-settings.js",
+      "mode": "100644",
+      "sha": "a333d5d214c95a718492e9f15edcac49c84a84f4",
+      "size": 858
+    },
+    {
+      "path": "frontend/lib/chat/chat-history.js",
+      "mode": "100644",
+      "sha": "3d57867d964bf62ed4a23fc31d9c151ffad596ef",
+      "size": 24154
+    },
+    {
+      "path": "frontend/lib/chat/file-icons.js",
+      "mode": "100644",
+      "sha": "090fc82f28ca60c69b0ced0f848d81f49541e0ea",
+      "size": 1094
+    },
+    {
+      "path": "frontend/lib/chat/formatters.js",
+      "mode": "100644",
+      "sha": "5ffc4b8091af670d8a81a8c2a4cf2a53dabee28a",
+      "size": 8664
+    },
+    {
+      "path": "frontend/lib/chat/image-groups.js",
+      "mode": "100644",
+      "sha": "a05ee591a9c2244105f5ea4f4843f3b8ebfcbd1c",
+      "size": 2660
+    },
+    {
+      "path": "frontend/lib/chat/message-links.js",
+      "mode": "100644",
+      "sha": "5fa2d551c6ec55965b26dde08087f7a4112f4a55",
+      "size": 1961
+    },
+    {
+      "path": "frontend/lib/chat/message-normalizer.js",
+      "mode": "100644",
+      "sha": "7105c24c7eeef9ec1c127c2421048e71e628c10c",
+      "size": 15877
+    },
+    {
+      "path": "frontend/lib/chat/perf-logger.js",
+      "mode": "100644",
+      "sha": "b641ff05d63c437cdda132b2e77805061eb62c8d",
+      "size": 3996
+    },
+    {
+      "path": "frontend/lib/desktop-settings.js",
+      "mode": "100644",
+      "sha": "81bf607a65e285ece2be68413d99a4cd6aae1319",
+      "size": 834
+    },
+    {
+      "path": "frontend/lib/developer-support.js",
+      "mode": "100644",
+      "sha": "79dacd51e0446f913503dfb773a37694bfe3d642",
+      "size": 686
+    },
+    {
+      "path": "frontend/lib/first-use-agreement.js",
+      "mode": "100644",
+      "sha": "b22b25a2a70464cf9c70d2f8b2173e707169142d",
+      "size": 1397
+    },
+    {
+      "path": "frontend/lib/first-use-bootstrap-script.js",
+      "mode": "100644",
+      "sha": "01c774841ae82b3566b7def16fb56f94497d0574",
+      "size": 4798
+    },
+    {
+      "path": "frontend/lib/macos-capture-progress.js",
+      "mode": "100644",
+      "sha": "5bfcbf23bfaf72cc16c9a8e206eaa694bea2348a",
+      "size": 2383
+    },
+    {
+      "path": "frontend/lib/native-path.js",
+      "mode": "100644",
+      "sha": "0dc7ddec62b80cf4dd7f8434520107a0d383b086",
+      "size": 394
+    },
+    {
+      "path": "frontend/lib/privacy-mode.js",
+      "mode": "100644",
+      "sha": "85c7ce7586b61e3e85b619d6fc02980724eab2a6",
+      "size": 565
+    },
+    {
+      "path": "frontend/lib/pro-demos/catalog.js",
+      "mode": "100644",
+      "sha": "2aa2ba5c887b69f38e6dfa9e7efa6b27df1e846d",
+      "size": 48612
+    },
+    {
+      "path": "frontend/lib/pro-demos/index.js",
+      "mode": "100644",
+      "sha": "6d00ba02c14acea1dea7eb200f77ae50382bc7ce",
+      "size": 4494
+    },
+    {
+      "path": "frontend/lib/pro-demos/kit.js",
+      "mode": "100644",
+      "sha": "59ba1c57ba7d10ec5f65e4504b271654ea0b29c5",
+      "size": 41336
+    },
+    {
+      "path": "frontend/lib/pro-demos/scenes/action.js",
+      "mode": "100644",
+      "sha": "86c7e07085bab51ea15bac4d9e50b8d95e7c7d1e",
+      "size": 45575
+    },
+    {
+      "path": "frontend/lib/pro-demos/scenes/add-a.js",
+      "mode": "100644",
+      "sha": "8919194bf271a29241722a2c74a42c4e71e356f6",
+      "size": 18372
+    },
+    {
+      "path": "frontend/lib/pro-demos/scenes/add-b.js",
+      "mode": "100644",
+      "sha": "8625c0bdf3713b8fe16e0718df82e916b32b6287",
+      "size": 18389
+    },
+    {
+      "path": "frontend/lib/pro-demos/scenes/automation.js",
+      "mode": "100644",
+      "sha": "68981e266b28d277a7d7cc83ff98207f2d63bd27",
+      "size": 41337
+    },
+    {
+      "path": "frontend/lib/pro-demos/scenes/contact.js",
+      "mode": "100644",
+      "sha": "5be30b269b802099e7e64a8953f164e4a178b114",
+      "size": 64921
+    },
+    {
+      "path": "frontend/lib/pro-demos/scenes/edit.js",
+      "mode": "100644",
+      "sha": "2719d055d47ba0e025cde9140f8ba1872a09cecb",
+      "size": 26013
+    },
+    {
+      "path": "frontend/lib/pro-demos/scenes/group.js",
+      "mode": "100644",
+      "sha": "205ed99d9e8604dc62fc39142613e92460d3ccdc",
+      "size": 46905
+    },
+    {
+      "path": "frontend/lib/pro-demos/scenes/moments.js",
+      "mode": "100644",
+      "sha": "c138342b9ad022f86c5d062b2ae4d4fec63b523e",
+      "size": 30240
+    },
+    {
+      "path": "frontend/lib/pro-demos/stage.js",
+      "mode": "100644",
+      "sha": "8c7760a9a3f7e5f24dcfd2c0c3834f7a83a169f1",
+      "size": 14804
+    },
+    {
+      "path": "frontend/lib/server-error-logging.js",
+      "mode": "100644",
+      "sha": "04c92768de356e226ea596c7451023d84a8c6412",
+      "size": 6125
+    },
+    {
+      "path": "frontend/lib/sns-media-source.js",
+      "mode": "100644",
+      "sha": "dee2b8b2e527e346405927fb56907c6aa6a807a3",
+      "size": 3140
+    },
+    {
+      "path": "frontend/lib/ui-theme.js",
+      "mode": "100644",
+      "sha": "fec1c777d8a7dbca0e9f2f1dd2152f241a1ad12e",
+      "size": 1319
+    },
+    {
+      "path": "frontend/lib/voice-transcript-invalidation.js",
+      "mode": "100644",
+      "sha": "db67256b38cf163c4ef52822fe5ae8a6dfa113ec",
+      "size": 447
+    },
+    {
+      "path": "frontend/lib/wechat-emojis.ts",
+      "mode": "100644",
+      "sha": "f9e59b2a29eb320b1fff9ac6e931ebf9f7a2ebcf",
+      "size": 26839
+    },
+    {
+      "path": "frontend/lib/wechat-install-path.js",
+      "mode": "100644",
+      "sha": "2d38ae4c964701fe549c7e66881aa84133dbe569",
+      "size": 1297
+    },
+    {
+      "path": "frontend/lib/wrapped-dictionary-layout.js",
+      "mode": "100644",
+      "sha": "abd6496dd7b7e3c6a8c08af40417106d7d79ecd1",
+      "size": 18471
+    },
+    {
+      "path": "frontend/lib/wrapped-stage.js",
+      "mode": "100644",
+      "sha": "189f9d7eff26a858e059d5ef5facaae29e84f9a7",
+      "size": 6228
+    },
+    {
+      "path": "frontend/lib/wrapped/heatmap.js",
+      "mode": "100644",
+      "sha": "d7dedd0e8e1a410f3ec2dc6f9b4a61a0cf68b98d",
+      "size": 1238
+    },
+    {
+      "path": "frontend/lib/wrapped/types.js",
+      "mode": "100644",
+      "sha": "57083ddb4132cbfb2994e37b180f874eb43668e8",
+      "size": 1181
+    },
+    {
+      "path": "frontend/lib/wxcdn-card/format.js",
+      "mode": "100644",
+      "sha": "8950952036afe0f07cb19f6fa02465d05682b30e",
+      "size": 3876
+    },
+    {
+      "path": "frontend/lib/wxcdn-card/glimm.js",
+      "mode": "100644",
+      "sha": "31a726a35b5ac0545a4f983f2d2e9b5a2a5278b7",
+      "size": 5490
+    },
+    {
+      "path": "frontend/lib/wxcdn-card/master.js",
+      "mode": "100644",
+      "sha": "d35c54af2d3bb3f3b10dc3bb3287cb9f4bf1cb11",
+      "size": 7685
+    },
+    {
+      "path": "frontend/lib/wxcdn-card/renderers.js",
+      "mode": "100644",
+      "sha": "cf03b45f32c2fc8ced78db10dc3550287c19d01e",
+      "size": 32275
+    },
+    {
+      "path": "frontend/lib/xlsx-export.js",
+      "mode": "100644",
+      "sha": "78539a89ca08254c1af110d4e5555835bb35fa84",
+      "size": 7379
+    },
+    {
+      "path": "frontend/middleware/first-use-agreement.global.js",
+      "mode": "100644",
+      "sha": "7c790c19efb637a807f2199b4557817092513340",
+      "size": 375
+    },
+    {
+      "path": "frontend/nuxt.config.ts",
+      "mode": "100644",
+      "sha": "85ebff15d98c629c827ac6f8f5882a6394db447c",
+      "size": 2960
+    },
+    {
+      "path": "frontend/package-lock.json",
+      "mode": "100644",
+      "sha": "77657169f9f6bbdf60081bfd66b15ed7d5c952e0",
+      "size": 413067
+    },
+    {
+      "path": "frontend/package.json",
+      "mode": "100644",
+      "sha": "20d03c9e82c24307568df2dba05138dc4cf64841",
+      "size": 858
+    },
+    {
+      "path": "frontend/pages/agreement.vue",
+      "mode": "100644",
+      "sha": "fb785b9ebd8f63dfe5cf373994cff50bd649995f",
+      "size": 28532
+    },
+    {
+      "path": "frontend/pages/ai.vue",
+      "mode": "100644",
+      "sha": "3f0ce923ae202a3cc253a1710edd54ac13757d12",
+      "size": 9357
+    },
+    {
+      "path": "frontend/pages/biz.vue",
+      "mode": "100644",
+      "sha": "98466d4d88289b69bb5e7ebd0856fc406a6ec589",
+      "size": 326
+    },
+    {
+      "path": "frontend/pages/chat/[[username]].vue",
+      "mode": "100644",
+      "sha": "e2d4a8b8a5e4f95ef9b632b0f9b9e72d2977a37e",
+      "size": 38815
+    },
+    {
+      "path": "frontend/pages/contacts.vue",
+      "mode": "100644",
+      "sha": "043afb71f2c7f5e2da495740e29dbfa064c541c2",
+      "size": 53228
+    },
+    {
+      "path": "frontend/pages/decrypt-result.vue",
+      "mode": "100644",
+      "sha": "4c861d006f6fc2b286d9e7901ec9241ef4dcb774",
+      "size": 8264
+    },
+    {
+      "path": "frontend/pages/decrypt.vue",
+      "mode": "100644",
+      "sha": "5d799ab399cbaa121f2aaf270188cb62767c1c7a",
+      "size": 169995
+    },
+    {
+      "path": "frontend/pages/detection-result.vue",
+      "mode": "100644",
+      "sha": "9dee10fdf5b6f93f0ba335918ef9ba226e951f2b",
+      "size": 29569
+    },
+    {
+      "path": "frontend/pages/favorites.vue",
+      "mode": "100644",
+      "sha": "259eea154daf6069428d458dfe433463e041b038",
+      "size": 29380
+    },
+    {
+      "path": "frontend/pages/finder.vue",
+      "mode": "100644",
+      "sha": "fb8e47479d28fdbf4cb0a53ccd336ad1ee7c7c62",
+      "size": 13462
+    },
+    {
+      "path": "frontend/pages/import.vue",
+      "mode": "100644",
+      "sha": "384b0a9d3482a962b1e962b198beeae1d936ee79",
+      "size": 26904
+    },
+    {
+      "path": "frontend/pages/index.vue",
+      "mode": "100644",
+      "sha": "ec5b91dce155f89cfccf5348167493623a8c8743",
+      "size": 10185
+    },
+    {
+      "path": "frontend/pages/mini-programs.vue",
+      "mode": "100644",
+      "sha": "43e465f7b673d87a717581d936c652478ae7f4fb",
+      "size": 9860
+    },
+    {
+      "path": "frontend/pages/payments.vue",
+      "mode": "100644",
+      "sha": "0ab7c95601052e1814863524582816f6d771aef5",
+      "size": 21817
+    },
+    {
+      "path": "frontend/pages/revokes.vue",
+      "mode": "100644",
+      "sha": "3f22656c8ee92f9b2b3fd4cb55d5839a7b0329a5",
+      "size": 12696
+    },
+    {
+      "path": "frontend/pages/sns.vue",
+      "mode": "100644",
+      "sha": "1da2269f61b1585eb4ffb97a9b35bd55474d7ce0",
+      "size": 184515
+    },
+    {
+      "path": "frontend/pages/wrapped/index.vue",
+      "mode": "100644",
+      "sha": "a548db5823086f1cab91f4c161b641660b1efb20",
+      "size": 68170
+    },
+    {
+      "path": "frontend/plugins/api-check.client.js",
+      "mode": "100644",
+      "sha": "5f8626922b2d6573b26b3a2d03ea5798e9ef64e5",
+      "size": 867
+    },
+    {
+      "path": "frontend/plugins/chat-media-perf.client.js",
+      "mode": "100644",
+      "sha": "37d90c583ac7bf08fbf5a4c8a030d6a926ac6c6d",
+      "size": 10954
+    },
+    {
+      "path": "frontend/plugins/desktop-debug.client.js",
+      "mode": "100644",
+      "sha": "065e94c21b6ee4fdb6239d87005df2145bdc9580",
+      "size": 2024
+    },
+    {
+      "path": "frontend/public/assets/images/LuckyBlock.png",
+      "mode": "100644",
+      "sha": "92d8a9843c0b2b8a609b0d8e0d21fdf8b5a85501",
+      "size": 6624
+    },
+    {
+      "path": "frontend/public/assets/images/wechat/channels-logo.svg",
+      "mode": "100644",
+      "sha": "17f96981b56bd46d9c6b5296e6c6856b7e33a804",
+      "size": 2021
+    },
+    {
+      "path": "frontend/public/assets/images/wechat/overdue.png",
+      "mode": "100644",
+      "sha": "9bf80167f05f117f0a41779df6a1661ae8d34995",
+      "size": 1580
+    },
+    {
+      "path": "frontend/public/assets/images/wechat/wechat-audio-call.svg",
+      "mode": "100644",
+      "sha": "8a75a3b4ffd748b03a4b27ed5038c20754fb56b0",
+      "size": 2018
+    },
+    {
+      "path": "frontend/public/assets/images/wechat/wechat-audio-dark.png",
+      "mode": "100644",
+      "sha": "0fd8b05fa4c6df9af1ee02a80981c48851fb1c09",
+      "size": 3921
+    },
+    {
+      "path": "frontend/public/assets/images/wechat/wechat-audio-light.png",
+      "mode": "100644",
+      "sha": "1c3a8d7e5a8c328708c38ca08ca8b1218966461e",
+      "size": 739
+    },
+    {
+      "path": "frontend/public/assets/images/wechat/wechat-redp-icon1.png",
+      "mode": "100644",
+      "sha": "1a7a4391ede1be6dc4df89838cda217f4720b406",
+      "size": 2100
+    },
+    {
+      "path": "frontend/public/assets/images/wechat/wechat-returned.png",
+      "mode": "100644",
+      "sha": "aadb473e77df2af5dd12afa5f9da3c2fffd4bdb4",
+      "size": 1592
+    },
+    {
+      "path": "frontend/public/assets/images/wechat/wechat-trans-icon1.png",
+      "mode": "100644",
+      "sha": "1a3cc3753d02b9cd4f336a0b3773b2e3d0e494e3",
+      "size": 7734
+    },
+    {
+      "path": "frontend/public/assets/images/wechat/wechat-trans-icon2.png",
+      "mode": "100644",
+      "sha": "6d500a2ed72c9eb37e0d74ab4b5f2dad10b9f45e",
+      "size": 1633
+    },
+    {
+      "path": "frontend/public/assets/images/wechat/wechat-trans-icon3.png",
+      "mode": "100644",
+      "sha": "ec91928cebb9a05e11046c6006f67c6457cb0c80",
+      "size": 3600
+    },
+    {
+      "path": "frontend/public/assets/images/wechat/wechat-trans-icon4.png",
+      "mode": "100644",
+      "sha": "e246f0ef87fd2deeec478c380d5b4d40cb88cbaf",
+      "size": 3878
+    },
+    {
+      "path": "frontend/public/assets/images/wechat/wechat-video-call.svg",
+      "mode": "100644",
+      "sha": "54735a1a8ea5b8de3af6cae7fb7f239a02c4ffe8",
+      "size": 696
+    },
+    {
+      "path": "frontend/public/assets/images/wechat/wechat-video-dark.png",
+      "mode": "100644",
+      "sha": "4cff09441ce74fa19cd6faa308992ce461997bd9",
+      "size": 2789
+    },
+    {
+      "path": "frontend/public/assets/images/wechat/wechat-video-light.png",
+      "mode": "100644",
+      "sha": "9be69dcfdd0f14f3867611e844f4de27faba7ca4",
+      "size": 2875
+    },
+    {
+      "path": "frontend/public/assets/images/wechat/wechat-voice-icon1-dark.png",
+      "mode": "100644",
+      "sha": "38580c2c701f6ea91dfbdc7d6e0b210c3e2d8bee",
+      "size": 2108
+    },
+    {
+      "path": "frontend/public/assets/images/wechat/wechat-voice-icon1-light.png",
+      "mode": "100644",
+      "sha": "508f173baf09873e3861a8b06044d5415bcecbbf",
+      "size": 2217
+    },
+    {
+      "path": "frontend/public/assets/images/wechat/wechat-voice-icon2-dark.png",
+      "mode": "100644",
+      "sha": "2889574de766fb3dc1166f222b4514fa8b1ab90b",
+      "size": 4587
+    },
+    {
+      "path": "frontend/public/assets/images/wechat/wechat-voice-icon2-light.png",
+      "mode": "100644",
+      "sha": "1dd599642e01d598108c2448772755327448e730",
+      "size": 2761
+    },
+    {
+      "path": "frontend/public/assets/images/wechat/wecom.png",
+      "mode": "100644",
+      "sha": "70743b938c9efa7249def06eb3c3ad2d799ca215",
+      "size": 1823
+    },
+    {
+      "path": "frontend/public/fonts/wxcdn/InstrumentSans-400.woff2",
+      "mode": "100644",
+      "sha": "665fa65c8c97c5c99581eaf6a0ab8d1b45e6060e",
+      "size": 29904
+    },
+    {
+      "path": "frontend/public/fonts/wxcdn/InstrumentSans-500.woff2",
+      "mode": "100644",
+      "sha": "665fa65c8c97c5c99581eaf6a0ab8d1b45e6060e",
+      "size": 29904
+    },
+    {
+      "path": "frontend/public/fonts/wxcdn/InstrumentSerif-400-italic.woff2",
+      "mode": "100644",
+      "sha": "ce3c417c8d0e9f012bb697d25a0874d148ea89e6",
+      "size": 15684
+    },
+    {
+      "path": "frontend/public/fonts/wxcdn/InstrumentSerif-400.woff2",
+      "mode": "100644",
+      "sha": "17653042acca7f87268c8c29dc8c0cc094c0b124",
+      "size": 15040
+    },
+    {
+      "path": "frontend/public/fonts/wxcdn/JetBrainsMono-400.woff2",
+      "mode": "100644",
+      "sha": "2ca6ac605954ee884442db8ea1d61093000bcc29",
+      "size": 31340
+    },
+    {
+      "path": "frontend/public/fonts/wxcdn/JetBrainsMono-600.woff2",
+      "mode": "100644",
+      "sha": "2ca6ac605954ee884442db8ea1d61093000bcc29",
+      "size": 31340
+    },
+    {
+      "path": "frontend/public/fonts/wxcdn/Silkscreen-400.woff2",
+      "mode": "100644",
+      "sha": "8669351587d0ee28dc31164a3aef088f1d3da04b",
+      "size": 3528
+    },
+    {
+      "path": "frontend/public/logo.png",
+      "mode": "100644",
+      "sha": "1efeb870e602cdf43ed161a15d957d4bbf48c382",
+      "size": 1342436
+    },
+    {
+      "path": "frontend/public/wxemoji/wechat-emojis.json",
+      "mode": "100644",
+      "sha": "16c37912022f34835d42fa994c16d644178a3b24",
+      "size": 25663
+    },
+    {
+      "path": "frontend/stores/app.js",
+      "mode": "100644",
+      "sha": "1de1bfc8b3d252061e2575f8a40b9b79a3b5d7d8",
+      "size": 1939
+    },
+    {
+      "path": "frontend/stores/cdnPlan.js",
+      "mode": "100644",
+      "sha": "630ed06d6479eb6146a95a02f4503d2be5b964b5",
+      "size": 2557
+    },
+    {
+      "path": "frontend/stores/chatAccounts.js",
+      "mode": "100644",
+      "sha": "9e716a03e54f1200cabdab1514b07ee5d9fac599",
+      "size": 9506
+    },
+    {
+      "path": "frontend/stores/chatRealtime.js",
+      "mode": "100644",
+      "sha": "47d35a77f7c91c8622d37b6b3312d608aca7cd37",
+      "size": 14795
+    },
+    {
+      "path": "frontend/stores/imgHelper.js",
+      "mode": "100644",
+      "sha": "b6a8ff9be4c9f379bad1975e858a16d08fdb1c57",
+      "size": 2164
+    },
+    {
+      "path": "frontend/stores/privacy.js",
+      "mode": "100644",
+      "sha": "d32a3319ee9fd4701cb08e77b586ebeba5d4a673",
+      "size": 609
+    },
+    {
+      "path": "frontend/stores/theme.js",
+      "mode": "100644",
+      "sha": "869f9a909a2664363fd813a4d050b08967e2dc4a",
+      "size": 1365
+    },
+    {
+      "path": "frontend/tailwind.config.js",
+      "mode": "100644",
+      "sha": "8433832378025c436f97247f1e2441d132c78d8e",
+      "size": 430
+    },
+    {
+      "path": "frontend/tests/account-avatar.test.mjs",
+      "mode": "100644",
+      "sha": "e70c32e8e8f7c7fff00f9a83e86bc6fa15c95ca9",
+      "size": 1831
+    },
+    {
+      "path": "frontend/tests/agent-panel-resize.test.js",
+      "mode": "100644",
+      "sha": "740c5e2bd002b8b9419c7e3b50db8cbf7b76d6d7",
+      "size": 2498
+    },
+    {
+      "path": "frontend/tests/chat-accounts-store-retry.test.mjs",
+      "mode": "100644",
+      "sha": "c4c4cf68fa5f39b989c6e46cf099c83417d71aaa",
+      "size": 1937
+    },
+    {
+      "path": "frontend/tests/chat-api-performance.test.js",
+      "mode": "100644",
+      "sha": "1086e7adc21f31279c0fdd0c0ef8895c7c451bac",
+      "size": 3598
+    },
+    {
+      "path": "frontend/tests/chat-calendar.test.js",
+      "mode": "100644",
+      "sha": "a8cc8a18434544b1aebf1d184beea4c703eb29fe",
+      "size": 10165
+    },
+    {
+      "path": "frontend/tests/chat-export-model-options.test.js",
+      "mode": "100644",
+      "sha": "1ff7f199e5a4f6b8b41c209aaadb6345731b4472",
+      "size": 3482
+    },
+    {
+      "path": "frontend/tests/chat-export-order.test.mjs",
+      "mode": "100644",
+      "sha": "668750638d726bf66c7cf19224e374f17855f8c7",
+      "size": 1338
+    },
+    {
+      "path": "frontend/tests/chat-image-quality.test.js",
+      "mode": "100644",
+      "sha": "38d0d7e7ce214edb0bdeefa55fe2c98c0106a13e",
+      "size": 1862
+    },
+    {
+      "path": "frontend/tests/decrypt-feedback.test.mjs",
+      "mode": "100644",
+      "sha": "b8f9a2f0d0993b5e4fdac19bb655a4481e3b2f16",
+      "size": 1465
+    },
+    {
+      "path": "frontend/tests/first-use-bootstrap.test.mjs",
+      "mode": "100644",
+      "sha": "1bd9615311a3fdec9e0f1c4425b9e98aebe3e8cd",
+      "size": 4947
+    },
+    {
+      "path": "frontend/tests/image-groups.test.mjs",
+      "mode": "100644",
+      "sha": "694189bb803cac3a618c681dee41af33da7dd61c",
+      "size": 3855
+    },
+    {
+      "path": "frontend/tests/native-voice-transcript-polling.test.js",
+      "mode": "100644",
+      "sha": "a4cc18bc11079e34e61627b6b6b7284d645a349f",
+      "size": 30235
+    },
+    {
+      "path": "frontend/tests/sns-media-source.test.mjs",
+      "mode": "100644",
+      "sha": "489c6c4706e2240808ce6cd0058731c1a351d106",
+      "size": 3399
+    },
+    {
+      "path": "frontend/tests/sns-page-initialization.test.mjs",
+      "mode": "100644",
+      "sha": "b7807ad5c917008686e5f8e05b177e4afa10dc40",
+      "size": 6745
+    },
+    {
+      "path": "frontend/tests/startup-navigation.test.mjs",
+      "mode": "100644",
+      "sha": "d8dbd8bad3af4b5223bbfd027181e276b079c1af",
+      "size": 2563
+    },
+    {
+      "path": "frontend/tests/ui-select.test.js",
+      "mode": "100644",
+      "sha": "96fccf30efaa6ecf50e476560aac1f11e80968f7",
+      "size": 5740
+    },
+    {
+      "path": "frontend/tests/voice-download-source.test.js",
+      "mode": "100644",
+      "sha": "eae79e9263821a0d9cb106f2827dd48bb5423d05",
+      "size": 878
+    },
+    {
+      "path": "frontend/tests/voice-model-settings.test.mjs",
+      "mode": "100644",
+      "sha": "4eda8a46d32197456003e33f89f97cd8c2f9044e",
+      "size": 9538
+    },
+    {
+      "path": "frontend/tests/voice-transcription-message.test.js",
+      "mode": "100644",
+      "sha": "e5b96c01c8345d1ce089c4bd4f25b70d2ecdf00a",
+      "size": 9694
+    },
+    {
+      "path": "frontend/tests/voice-transcription-sidebar.test.js",
+      "mode": "100644",
+      "sha": "a3c6b358f3faab02e04a9b32ef4cdb753a011f28",
+      "size": 32312
+    },
+    {
+      "path": "frontend/tests/wrapped-account-initialization.test.mjs",
+      "mode": "100644",
+      "sha": "61e514b2228b3538671c7e29c7d224cb063a9a6a",
+      "size": 587
+    },
+    {
+      "path": "frontend/tests/wrapped-dictionary-layout.test.mjs",
+      "mode": "100644",
+      "sha": "ae71f1873d5874fe32fd948ab4c0f09052251eab",
+      "size": 6740
+    },
+    {
+      "path": "frontend/tests/wrapped-stage.test.mjs",
+      "mode": "100644",
+      "sha": "cdb15c066ee9f87059459648f7683ca7861180a6",
+      "size": 5013
+    },
+    {
+      "path": "frontend/tests/wxcdn-format.test.mjs",
+      "mode": "100644",
+      "sha": "c46ec19337fd6567b91f997b7dee234dfbbe1dee",
+      "size": 2250
+    },
+    {
+      "path": "frontend/tsconfig.json",
+      "mode": "100644",
+      "sha": "307b2134b94b63c404ad3f3254b768ca337c7a37",
+      "size": 320
+    },
+    {
+      "path": "frontend/utils/chatExportOrder.js",
+      "mode": "100644",
+      "sha": "5ea6ccd816fb88315445693874333042a61f7e8b",
+      "size": 961
+    },
+    {
+      "path": "frontend/vitest.config.js",
+      "mode": "100644",
+      "sha": "8b19499cb32548c9e5d9d1b350dbf58be6e1061e",
+      "size": 459
+    },
+    {
+      "path": "macos-key-extractor/.gitignore",
+      "mode": "100644",
+      "sha": "86204d5f9c709587712c190b1cb34b399a5019f7",
+      "size": 59
+    },
+    {
+      "path": "macos-key-extractor/README.md",
+      "mode": "100644",
+      "sha": "78fb31b130fa6360e4921e2ac5c383c8cd0da4bb",
+      "size": 4014
+    },
+    {
+      "path": "macos-key-extractor/THIRD_PARTY_NOTICES.md",
+      "mode": "100644",
+      "sha": "a33d17d51c05fbea40a8efc0a8ce1a2a6c5f3a60",
+      "size": 376
+    },
+    {
+      "path": "macos-key-extractor/build-macos.sh",
+      "mode": "100755",
+      "sha": "b3d1502fa0f568f263ce57d6c7f22eb8136c9bb2",
+      "size": 4517
+    },
+    {
+      "path": "macos-key-extractor/entitlements.plist",
+      "mode": "100644",
+      "sha": "2f4ef70fdf749e6991e8e7fbfe2b117d02395ca2",
+      "size": 260
+    },
+    {
+      "path": "macos-key-extractor/key_extractor/__init__.py",
+      "mode": "100644",
+      "sha": "780c53fce70dca659e9e0c0fc3e336f4499fc27c",
+      "size": 77
+    },
+    {
+      "path": "macos-key-extractor/key_extractor/app.py",
+      "mode": "100644",
+      "sha": "a846b389abe86557628a88a1d4d9c2093985e6b4",
+      "size": 41793
+    },
+    {
+      "path": "macos-key-extractor/key_extractor/core.py",
+      "mode": "100644",
+      "sha": "a49a09e2947ae99ba3b286df34931beb237aa52b",
+      "size": 16875
+    },
+    {
+      "path": "macos-key-extractor/main.py",
+      "mode": "100644",
+      "sha": "066de6c84974fe8b1787e06eb18d75fec880b3d8",
+      "size": 75
+    },
+    {
+      "path": "macos-key-extractor/release_audit.py",
+      "mode": "100644",
+      "sha": "5e0ceefe56fbf5655a3da0ab7f84ad2abe680bb7",
+      "size": 4050
+    },
+    {
+      "path": "main.py",
+      "mode": "100644",
+      "sha": "80d10b87799b19fa6dc0975ce009c2ac381443d1",
+      "size": 3060
+    },
+    {
+      "path": "pyproject.toml",
+      "mode": "100644",
+      "sha": "0625587c691f70fb36b9280f1b8dbb9bca6a63a6",
+      "size": 2986
+    },
+    {
+      "path": "src/__init__.py",
+      "mode": "100644",
+      "sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "size": 0
+    },
+    {
+      "path": "src/wechat_decrypt_tool/__init__.py",
+      "mode": "100644",
+      "sha": "c36134497c350b226128455e48935a21bb80778f",
+      "size": 94
+    },
+    {
+      "path": "src/wechat_decrypt_tool/account_identity.py",
+      "mode": "100644",
+      "sha": "becda3e349ce5776116b1c512a67bef65eea2393",
+      "size": 5204
+    },
+    {
+      "path": "src/wechat_decrypt_tool/account_source_policy.py",
+      "mode": "100644",
+      "sha": "02d349cd4a6e0e9c991aab4a14b9876aa90288b8",
+      "size": 1403
+    },
+    {
+      "path": "src/wechat_decrypt_tool/api.py",
+      "mode": "100644",
+      "sha": "ae8bc9554994bbcff8c14b7b2f3830feb179d403",
+      "size": 11960
+    },
+    {
+      "path": "src/wechat_decrypt_tool/app_paths.py",
+      "mode": "100644",
+      "sha": "1da1fd26b1c2cc572d0295f1551dd9c73d7fe55f",
+      "size": 941
+    },
+    {
+      "path": "src/wechat_decrypt_tool/asr_backends.py",
+      "mode": "100644",
+      "sha": "aa41d6f43961ace7bc51b61f5a749cbc82892cdd",
+      "size": 8589
+    },
+    {
+      "path": "src/wechat_decrypt_tool/asr_models.py",
+      "mode": "100644",
+      "sha": "20795d64a05e7705d4a06841916888f23082f2bf",
+      "size": 3681
+    },
+    {
+      "path": "src/wechat_decrypt_tool/asr_worker.py",
+      "mode": "100644",
+      "sha": "20f8f77a64c82b9d69a49ce987428cf3ecbd2540",
+      "size": 9572
+    },
+    {
+      "path": "src/wechat_decrypt_tool/avatar_cache.py",
+      "mode": "100644",
+      "sha": "c37eaee434772d8fef5bc6a5d5e8f004514a7aff",
+      "size": 14652
+    },
+    {
+      "path": "src/wechat_decrypt_tool/backend_entry.py",
+      "mode": "100644",
+      "sha": "9905a1d51a30180ed5047de86f18d830c08ab1a9",
+      "size": 3663
+    },
+    {
+      "path": "src/wechat_decrypt_tool/cdn_image_service.py",
+      "mode": "100644",
+      "sha": "6295cfa91f07fda5da4269dba5232a9e3ed64b2b",
+      "size": 40972
+    },
+    {
+      "path": "src/wechat_decrypt_tool/chat_accounts.py",
+      "mode": "100644",
+      "sha": "214fe894759ab024263ebfee66ed61a03c1a9e42",
+      "size": 14368
+    },
+    {
+      "path": "src/wechat_decrypt_tool/chat_export_service.py",
+      "mode": "100644",
+      "sha": "fd41214e648d38e811523dbe5eb8279c7ab8b982",
+      "size": 398319
+    },
+    {
+      "path": "src/wechat_decrypt_tool/chat_helpers.py",
+      "mode": "100644",
+      "sha": "e0a0ca87c6dafdb54007101804b9527466ce2543",
+      "size": 105122
+    },
+    {
+      "path": "src/wechat_decrypt_tool/chat_incremental_export.py",
+      "mode": "100644",
+      "sha": "1238115b65010f1fef57277426a38813ddc65ba6",
+      "size": 40522
+    },
+    {
+      "path": "src/wechat_decrypt_tool/chat_realtime_autosync.py",
+      "mode": "100644",
+      "sha": "26f407ed4ca5b37afa9d97cf39f12c66b86e72eb",
+      "size": 14945
+    },
+    {
+      "path": "src/wechat_decrypt_tool/chat_realtime_reader.py",
+      "mode": "100644",
+      "sha": "df3a53bafb0bda843efc23f9c3fff92fc5f72900",
+      "size": 56228
+    },
+    {
+      "path": "src/wechat_decrypt_tool/chat_search_index.py",
+      "mode": "100644",
+      "sha": "4acc1d2deb515ed589a8e0d5fec888ef076dd790",
+      "size": 36074
+    },
+    {
+      "path": "src/wechat_decrypt_tool/database_filters.py",
+      "mode": "100644",
+      "sha": "f8fde0b43424329b2ad7cf2fac71939ada9116e2",
+      "size": 1804
+    },
+    {
+      "path": "src/wechat_decrypt_tool/desktop_parent_watchdog.py",
+      "mode": "100644",
+      "sha": "66141103da87fb0d2b62d98899547fdca99d5d20",
+      "size": 1771
+    },
+    {
+      "path": "src/wechat_decrypt_tool/dll_key_scan.py",
+      "mode": "100644",
+      "sha": "4f73bcf6e00febdbd38de24e7b60bcff1c2eec86",
+      "size": 4377
+    },
+    {
+      "path": "src/wechat_decrypt_tool/export_integrity.py",
+      "mode": "100644",
+      "sha": "abe51dbe47f0944857edd6cb86778b04e8f60475",
+      "size": 22721
+    },
+    {
+      "path": "src/wechat_decrypt_tool/image_key_memory_scan.py",
+      "mode": "100644",
+      "sha": "4f12fffc55e1ce81df222e43841d4f007034d824",
+      "size": 24761
+    },
+    {
+      "path": "src/wechat_decrypt_tool/image_key_resolver.py",
+      "mode": "100644",
+      "sha": "452a6192bfe79fe9e0c0b07f22c5a7fdc0b76a14",
+      "size": 17705
+    },
+    {
+      "path": "src/wechat_decrypt_tool/img_helper.py",
+      "mode": "100644",
+      "sha": "b893721e42d21fca1d6797e2b4eb0ab14d766b62",
+      "size": 3844
+    },
+    {
+      "path": "src/wechat_decrypt_tool/isaac64.py",
+      "mode": "100644",
+      "sha": "7e57b5bb0a8554fc1f4f42a878c5df056c109940",
+      "size": 7087
+    },
+    {
+      "path": "src/wechat_decrypt_tool/key_service.py",
+      "mode": "100644",
+      "sha": "d9e552147353f01f2db52dff4018b2594fc96f03",
+      "size": 56710
+    },
+    {
+      "path": "src/wechat_decrypt_tool/key_store.py",
+      "mode": "100644",
+      "sha": "dc9fd39c823ba99146d2a2c33ad1f2fcf0ef2e68",
+      "size": 11398
+    },
+    {
+      "path": "src/wechat_decrypt_tool/key_v4.py",
+      "mode": "100644",
+      "sha": "9f5b51413009b37683422db86110d7eeb26f62d8",
+      "size": 13570
+    },
+    {
+      "path": "src/wechat_decrypt_tool/logging_config.py",
+      "mode": "100644",
+      "sha": "d1b081c54bcf1bf4a17f4fead29eada336bf8621",
+      "size": 14463
+    },
+    {
+      "path": "src/wechat_decrypt_tool/macos_capture_validation.py",
+      "mode": "100644",
+      "sha": "ae116fb9e85bd57f9d6e07dcede6129bf7b99f7b",
+      "size": 6678
+    },
+    {
+      "path": "src/wechat_decrypt_tool/macos_clone_capture.py",
+      "mode": "100644",
+      "sha": "bbd08c19b2555b8f623de782ebf88ec96fb18e50",
+      "size": 61797
+    },
+    {
+      "path": "src/wechat_decrypt_tool/macos_db_key_capture.py",
+      "mode": "100644",
+      "sha": "5f2b06faa8a582c76890e3cf0ca9db1a7428e0ed",
+      "size": 59152
+    },
+    {
+      "path": "src/wechat_decrypt_tool/macos_db_key_discovery.py",
+      "mode": "100644",
+      "sha": "6488f364d08dc78587dc7bfef041102463f9e2ed",
+      "size": 7053
+    },
+    {
+      "path": "src/wechat_decrypt_tool/macos_db_key_helper.py",
+      "mode": "100644",
+      "sha": "6fe509931929633ce0af0b798de5d74da85d51cb",
+      "size": 51610
+    },
+    {
+      "path": "src/wechat_decrypt_tool/macos_inplace_capture.py",
+      "mode": "100644",
+      "sha": "c98ba0f63ce80329c105688b7d1fee31ba924db5",
+      "size": 51478
+    },
+    {
+      "path": "src/wechat_decrypt_tool/macos_native_capture.py",
+      "mode": "100644",
+      "sha": "0c79c1018b376fa8e3fb92ad16779590ee3c6c6d",
+      "size": 18064
+    },
+    {
+      "path": "src/wechat_decrypt_tool/media_helpers.py",
+      "mode": "100644",
+      "sha": "147d177d9d6f49cd78458698e7c496fcd02ecf9a",
+      "size": 158192
+    },
+    {
+      "path": "src/wechat_decrypt_tool/native_core_broker.py",
+      "mode": "100644",
+      "sha": "1a60ca3b18100e40cd43d876d6abcf39c241ac4b",
+      "size": 22544
+    },
+    {
+      "path": "src/wechat_decrypt_tool/native_core_client.py",
+      "mode": "100644",
+      "sha": "1c3234b89bf83601aa569868ac48517704e5dcfb",
+      "size": 145842
+    },
+    {
+      "path": "src/wechat_decrypt_tool/native_core_database.py",
+      "mode": "100644",
+      "sha": "b29812ef924dd69d10cd18f1c6ea0254956b9a24",
+      "size": 7554
+    },
+    {
+      "path": "src/wechat_decrypt_tool/native_core_dev_lease.py",
+      "mode": "100644",
+      "sha": "5c6bdc3b395053002d3aed208afe6c361201d79d",
+      "size": 5228
+    },
+    {
+      "path": "src/wechat_decrypt_tool/native_core_device_credential.py",
+      "mode": "100644",
+      "sha": "d7d2c53be826c4c7d1b7a0a13a83d698218b1b71",
+      "size": 17788
+    },
+    {
+      "path": "src/wechat_decrypt_tool/native_core_export.py",
+      "mode": "100644",
+      "sha": "43c52953604189f478e92cf4d2ac8d29eda7b4e9",
+      "size": 21722
+    },
+    {
+      "path": "src/wechat_decrypt_tool/native_core_lease.py",
+      "mode": "100644",
+      "sha": "ef8d20dffe2a45c6d681f73f7d1649599342de3b",
+      "size": 43618
+    },
+    {
+      "path": "src/wechat_decrypt_tool/native_core_raw_key_cache.py",
+      "mode": "100644",
+      "sha": "27f1452bc34105cb1f5669fa58b1fc7c68bc5939",
+      "size": 14912
+    },
+    {
+      "path": "src/wechat_decrypt_tool/native_core_realtime.py",
+      "mode": "100644",
+      "sha": "c5ed6bf6be0e5f31729a3256bdfaceb3e6f0a06b",
+      "size": 47836
+    },
+    {
+      "path": "src/wechat_decrypt_tool/native_core_telemetry.py",
+      "mode": "100644",
+      "sha": "7255ea9ed6c88bcc1869ebbf78fc84871eff963d",
+      "size": 12700
+    },
+    {
+      "path": "src/wechat_decrypt_tool/native_core_voice_asr.py",
+      "mode": "100644",
+      "sha": "bddc30535a9c2103dff9b8c3ce21dd55c147d611",
+      "size": 21545
+    },
+    {
+      "path": "src/wechat_decrypt_tool/native_voice_transcription.py",
+      "mode": "100644",
+      "sha": "381dcbea9248575588e0986de5ea0b7281fe5012",
+      "size": 42586
+    },
+    {
+      "path": "src/wechat_decrypt_tool/path_fix.py",
+      "mode": "100644",
+      "sha": "624b6f6cd4a5a5c66efe75e5557a6663e4887ca8",
+      "size": 10858
+    },
+    {
+      "path": "src/wechat_decrypt_tool/perf_trace.py",
+      "mode": "100644",
+      "sha": "3c4ec0d5bf30340d030417d390f07f6671d368ab",
+      "size": 4048
+    },
+    {
+      "path": "src/wechat_decrypt_tool/platform_support.py",
+      "mode": "100644",
+      "sha": "32c0d871ddf21cfb22ca2023545916b15b7decba",
+      "size": 9663
+    },
+    {
+      "path": "src/wechat_decrypt_tool/qwen_gpu_runtime.py",
+      "mode": "100644",
+      "sha": "c62aa123ca2116b0dafbcf2c28934ac62668eafa",
+      "size": 14753
+    },
+    {
+      "path": "src/wechat_decrypt_tool/request_logging.py",
+      "mode": "100644",
+      "sha": "6434f972eab331753aa6a1dc3a3ecf358d5e9bdf",
+      "size": 8371
+    },
+    {
+      "path": "src/wechat_decrypt_tool/resources/contact_region_lookup.json",
+      "mode": "100644",
+      "sha": "560f4c2af4336921d314b5f2e7cc917b90464efb",
+      "size": 314313
+    },
+    {
+      "path": "src/wechat_decrypt_tool/resources/macos_db_key_contract.json",
+      "mode": "100644",
+      "sha": "b00d6901212a6a37e4a14de08ee4313370284221",
+      "size": 699
+    },
+    {
+      "path": "src/wechat_decrypt_tool/resources/qwen_gpu_runtime.json",
+      "mode": "100644",
+      "sha": "05471ca4fbacb710733c946cf5f3a1458c435bc4",
+      "size": 41464
+    },
+    {
+      "path": "src/wechat_decrypt_tool/resources/voice_models.json",
+      "mode": "100644",
+      "sha": "aef7872440fe554bd7eca3800b3a1db1de4675b8",
+      "size": 3323
+    },
+    {
+      "path": "src/wechat_decrypt_tool/routers/__init__.py",
+      "mode": "100644",
+      "sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "size": 0
+    },
+    {
+      "path": "src/wechat_decrypt_tool/routers/account_archive_export.py",
+      "mode": "100644",
+      "sha": "331d6fceb39768729ab0c7254206764267ccb3df",
+      "size": 22421
+    },
+    {
+      "path": "src/wechat_decrypt_tool/routers/admin.py",
+      "mode": "100644",
+      "sha": "255fcec94dea768c63f24642f4803865a3660569",
+      "size": 9884
+    },
+    {
+      "path": "src/wechat_decrypt_tool/routers/biz.py",
+      "mode": "100644",
+      "sha": "e1abcea8551343c1f4864a32b9569adb01ca8ae5",
+      "size": 29299
+    },
+    {
+      "path": "src/wechat_decrypt_tool/routers/cdn.py",
+      "mode": "100644",
+      "sha": "095fefc34a7db1bbd813e57fa8304d80f313ce71",
+      "size": 4484
+    },
+    {
+      "path": "src/wechat_decrypt_tool/routers/chat.py",
+      "mode": "100644",
+      "sha": "1522b6dd8066db79f62794d2acefdb94d65d1fbe",
+      "size": 382369
+    },
+    {
+      "path": "src/wechat_decrypt_tool/routers/chat_contacts.py",
+      "mode": "100644",
+      "sha": "840b7930f42b36025b423e4911741bbff8157a08",
+      "size": 112871
+    },
+    {
+      "path": "src/wechat_decrypt_tool/routers/chat_export.py",
+      "mode": "100644",
+      "sha": "cd905e0dabd87a19dc4b4eba7eb75bdcd78e9bf2",
+      "size": 13340
+    },
+    {
+      "path": "src/wechat_decrypt_tool/routers/chat_media.py",
+      "mode": "100644",
+      "sha": "cfd85eea26b46c2d84d13a5efd0c786017e63b7c",
+      "size": 177670
+    },
+    {
+      "path": "src/wechat_decrypt_tool/routers/chat_realtime_sse.py",
+      "mode": "100644",
+      "sha": "2a31afbd5224468e4c56c9a00b23aff780c5f7b4",
+      "size": 15567
+    },
+    {
+      "path": "src/wechat_decrypt_tool/routers/decrypt.py",
+      "mode": "100644",
+      "sha": "59553967bfa0b6661a52814a36ec10dcf272776e",
+      "size": 33567
+    },
+    {
+      "path": "src/wechat_decrypt_tool/routers/favorites.py",
+      "mode": "100644",
+      "sha": "5f1b4c0859a0baa6885410ef8a472930bfe552ff",
+      "size": 34234
+    },
+    {
+      "path": "src/wechat_decrypt_tool/routers/general.py",
+      "mode": "100644",
+      "sha": "9f74f7abacf2a9225d503e756139cf1b7150a993",
+      "size": 82077
+    },
+    {
+      "path": "src/wechat_decrypt_tool/routers/health.py",
+      "mode": "100644",
+      "sha": "1a91ce20707182f9b494281138c29b49d5b77a3b",
+      "size": 594
+    },
+    {
+      "path": "src/wechat_decrypt_tool/routers/import_decrypted.py",
+      "mode": "100644",
+      "sha": "8e8fad0d056f25b7550d714cb56699bb21ace1a9",
+      "size": 41002
+    },
+    {
+      "path": "src/wechat_decrypt_tool/routers/keys.py",
+      "mode": "100644",
+      "sha": "3e9b1a4f59ba34c70907caa54607609d7c5c152e",
+      "size": 37893
+    },
+    {
+      "path": "src/wechat_decrypt_tool/routers/media.py",
+      "mode": "100644",
+      "sha": "a4c6deb03b7bb4c9e362361d9ecce9d34db1b929",
+      "size": 53779
+    },
+    {
+      "path": "src/wechat_decrypt_tool/routers/record_export.py",
+      "mode": "100644",
+      "sha": "19143c03eb47c82a71becfc680b2f8d7b2a8592a",
+      "size": 43590
+    },
+    {
+      "path": "src/wechat_decrypt_tool/routers/sns.py",
+      "mode": "100644",
+      "sha": "fcc5af190a110d403f006b5b00d8ac4bc980415a",
+      "size": 153049
+    },
+    {
+      "path": "src/wechat_decrypt_tool/routers/sns_export.py",
+      "mode": "100644",
+      "sha": "9d7d3091916d4fb5da23f98a58d1ea4d746872fd",
+      "size": 8227
+    },
+    {
+      "path": "src/wechat_decrypt_tool/routers/system.py",
+      "mode": "100644",
+      "sha": "db9b6b8354c907666bd03080c0686f3b7b355e31",
+      "size": 4220
+    },
+    {
+      "path": "src/wechat_decrypt_tool/routers/wechat_detection.py",
+      "mode": "100644",
+      "sha": "654030f9f075079348a7cab188e3dc0389f05c4f",
+      "size": 5649
+    },
+    {
+      "path": "src/wechat_decrypt_tool/routers/wrapped.py",
+      "mode": "100644",
+      "sha": "e95f3395ca18e19dd7be69d3f69e93338b091977",
+      "size": 2719
+    },
+    {
+      "path": "src/wechat_decrypt_tool/runtime_settings.py",
+      "mode": "100644",
+      "sha": "071f1229a9f4e0e3260db7175f6b624a233eae79",
+      "size": 10977
+    },
+    {
+      "path": "src/wechat_decrypt_tool/session_last_message.py",
+      "mode": "100644",
+      "sha": "4e12a87766f7334be1f34b5a952a5559aa2fbe81",
+      "size": 19022
+    },
+    {
+      "path": "src/wechat_decrypt_tool/sns_export_service.py",
+      "mode": "100644",
+      "sha": "a43736f7a7647b4e7dcf16a985d1b9382df560c9",
+      "size": 160424
+    },
+    {
+      "path": "src/wechat_decrypt_tool/sns_full_sync.py",
+      "mode": "100644",
+      "sha": "622f12ca5c61c67f2e9a951ec0289cd38d33dfa8",
+      "size": 21704
+    },
+    {
+      "path": "src/wechat_decrypt_tool/sns_media.py",
+      "mode": "100644",
+      "sha": "349866eba85aee756250229332f8ca33a0f6d3f7",
+      "size": 46232
+    },
+    {
+      "path": "src/wechat_decrypt_tool/sns_realtime_autosync.py",
+      "mode": "100644",
+      "sha": "727346c96ca15b0d45396e48a815f2e3fc242583",
+      "size": 25713
+    },
+    {
+      "path": "src/wechat_decrypt_tool/source_fallback.py",
+      "mode": "100644",
+      "sha": "72a606f4e0c68549511ebc23e939edca3352bb2c",
+      "size": 2758
+    },
+    {
+      "path": "src/wechat_decrypt_tool/sqlite_diagnostics.py",
+      "mode": "100644",
+      "sha": "872d136bc8a009d0cd51e073f39ce8d9fed0a51b",
+      "size": 7700
+    },
+    {
+      "path": "src/wechat_decrypt_tool/sqlite_wal.py",
+      "mode": "100644",
+      "sha": "5f65281d1a52a2893775464d40338fe5b3ff7705",
+      "size": 4040
+    },
+    {
+      "path": "src/wechat_decrypt_tool/voice_transcription.py",
+      "mode": "100644",
+      "sha": "ac88ed5886fd9f6db048c4a1edc3efd66bbe158e",
+      "size": 148837
+    },
+    {
+      "path": "src/wechat_decrypt_tool/wcdb_realtime.py",
+      "mode": "100644",
+      "sha": "64bde3ddbcd7dd10bcba3527858ca310f9a67316",
+      "size": 28718
+    },
+    {
+      "path": "src/wechat_decrypt_tool/wechat_decrypt.py",
+      "mode": "100644",
+      "sha": "510fce7e02adaa198ea1483bd51cb6e9fb06037b",
+      "size": 58340
+    },
+    {
+      "path": "src/wechat_decrypt_tool/wechat_detection.py",
+      "mode": "100644",
+      "sha": "356c3550fdef988463dcdd91aa1bda9df4e87add",
+      "size": 53386
+    },
+    {
+      "path": "src/wechat_decrypt_tool/wrapped/__init__.py",
+      "mode": "100644",
+      "sha": "2cf63d52e61e2b53a5ca60a42c43e90ccd736918",
+      "size": 678
+    },
+    {
+      "path": "src/wechat_decrypt_tool/wrapped/cards/__init__.py",
+      "mode": "100644",
+      "sha": "161b59e2f5aca3fdd9752627d12201a445376106",
+      "size": 63
+    },
+    {
+      "path": "src/wechat_decrypt_tool/wrapped/cards/card_00_global_overview.py",
+      "mode": "100644",
+      "sha": "2122a8fde28f4529c073f5e8e17a90dd3141c7eb",
+      "size": 51479
+    },
+    {
+      "path": "src/wechat_decrypt_tool/wrapped/cards/card_01_cyber_schedule.py",
+      "mode": "100644",
+      "sha": "85c4d67f7d33043d642d3be5282bf6fab2840825",
+      "size": 56059
+    },
+    {
+      "path": "src/wechat_decrypt_tool/wrapped/cards/card_02_message_chars.py",
+      "mode": "100644",
+      "sha": "81481924efa00c419f159b0d794aa1b42434346c",
+      "size": 48243
+    },
+    {
+      "path": "src/wechat_decrypt_tool/wrapped/cards/card_03_reply_speed.py",
+      "mode": "100644",
+      "sha": "b062626a3bfc3395423cb20a45cac3ca0acc174f",
+      "size": 37621
+    },
+    {
+      "path": "src/wechat_decrypt_tool/wrapped/cards/card_04_emoji_universe.py",
+      "mode": "100644",
+      "sha": "7504f784245f3d86bf9120611bf0b05c0d3b4d64",
+      "size": 49596
+    },
+    {
+      "path": "src/wechat_decrypt_tool/wrapped/cards/card_04_monthly_best_friends_wall.py",
+      "mode": "100644",
+      "sha": "ca92ce0b2f387ea6126862e41e21793a6baf29f2",
+      "size": 16930
+    },
+    {
+      "path": "src/wechat_decrypt_tool/wrapped/cards/card_05_keywords_wordcloud.py",
+      "mode": "100644",
+      "sha": "3f9a57aa46b0c695b86558c203e01312256da367",
+      "size": 25674
+    },
+    {
+      "path": "src/wechat_decrypt_tool/wrapped/cards/card_07_bento_summary.py",
+      "mode": "100644",
+      "sha": "95146375dde9cddcd6788644e689a83acf955641",
+      "size": 24823
+    },
+    {
+      "path": "src/wechat_decrypt_tool/wrapped/service.py",
+      "mode": "100644",
+      "sha": "96394dcad032c9643806a192cdb8d07421c63aeb",
+      "size": 26851
+    },
+    {
+      "path": "src/wechat_decrypt_tool/wrapped/storage.py",
+      "mode": "100644",
+      "sha": "f79651b218a78da5de54f210809bcab575dffc37",
+      "size": 986
+    },
+    {
+      "path": "src/wechat_decrypt_tool/xlsx_export.py",
+      "mode": "100644",
+      "sha": "d881c68d993d97025c81515ec772f1073cb1c4ec",
+      "size": 7826
+    },
+    {
+      "path": "tests/conftest.py",
+      "mode": "100644",
+      "sha": "a4734c7a3791d3c5c57069a0b30c86913a152f01",
+      "size": 1875
+    },
+    {
+      "path": "tests/macos-capture-progress.test.mjs",
+      "mode": "100644",
+      "sha": "33a11de881948d9fd002ae78e398b6fd65842cf5",
+      "size": 7533
+    },
+    {
+      "path": "tests/test_account_archive_cross_platform.py",
+      "mode": "100644",
+      "sha": "d203fce7751f2354bab54e840bab7103c769089c",
+      "size": 12242
+    },
+    {
+      "path": "tests/test_account_archive_export_download.py",
+      "mode": "100644",
+      "sha": "4cc5897813b0a358e6a4c8a9b22cd0f527d4cf46",
+      "size": 4231
+    },
+    {
+      "path": "tests/test_admin_server_error_logging.py",
+      "mode": "100644",
+      "sha": "6ffd669895db3a54f9dc7ef42c322a35030042ab",
+      "size": 5881
+    },
+    {
+      "path": "tests/test_asr_upgrade.py",
+      "mode": "100644",
+      "sha": "eb214f7c5f4cf17a3b6d50e658db164975344f84",
+      "size": 12362
+    },
+    {
+      "path": "tests/test_avatar_cache_chat_media.py",
+      "mode": "100644",
+      "sha": "5b703a94990803d972f1cc6d286e06c187427df4",
+      "size": 10922
+    },
+    {
+      "path": "tests/test_biz_source_auto.py",
+      "mode": "100644",
+      "sha": "e7c72ff9ff7d2ce3be6a08642e4973d37cf2c89c",
+      "size": 6347
+    },
+    {
+      "path": "tests/test_cdn_account_service.py",
+      "mode": "100644",
+      "sha": "ed8216beb34430d7b87b77f205387c5f6a4b200b",
+      "size": 36167
+    },
+    {
+      "path": "tests/test_cdn_image_settings.py",
+      "mode": "100644",
+      "sha": "35473a669d54d381f3ebd54401251aaca9165843",
+      "size": 1022
+    },
+    {
+      "path": "tests/test_cdn_router.py",
+      "mode": "100644",
+      "sha": "4889b87ffb57fe261999e2eae365a4c687d124f9",
+      "size": 13380
+    },
+    {
+      "path": "tests/test_chat_account_avatar_identity.py",
+      "mode": "100644",
+      "sha": "7d72ad96a62caa6e57813982fc9d2d18a2ef82ec",
+      "size": 19275
+    },
+    {
+      "path": "tests/test_chat_accounts_key_ready.py",
+      "mode": "100644",
+      "sha": "7f044e3a386302ffad0ad7182f3b51b819461f64",
+      "size": 12755
+    },
+    {
+      "path": "tests/test_chat_add_controls_frontend.py",
+      "mode": "100644",
+      "sha": "080db5455a2d28a921d9241b326c1c8d1f59d667",
+      "size": 1750
+    },
+    {
+      "path": "tests/test_chat_app_message_type4_patmsg_regression.py",
+      "mode": "100644",
+      "sha": "d5e77776f59973ec691fc1351c2c92c72dcbd4d2",
+      "size": 1960
+    },
+    {
+      "path": "tests/test_chat_calendar_queries.py",
+      "mode": "100644",
+      "sha": "33e3eb7cdb3f276a8bd41532de81a2ab34ae6511",
+      "size": 9666
+    },
+    {
+      "path": "tests/test_chat_edit_message_time_frontend.py",
+      "mode": "100644",
+      "sha": "21487b0bbb9b28002189b6d78c2789f54658b7a2",
+      "size": 7546
+    },
+    {
+      "path": "tests/test_chat_export_cancel_responsiveness.py",
+      "mode": "100644",
+      "sha": "4c81207d12c7e9b46d61c68440f2800f8c7358f5",
+      "size": 6343
+    },
+    {
+      "path": "tests/test_chat_export_chat_history_modal.py",
+      "mode": "100644",
+      "sha": "d073ad2e75be67004e260f2de8567364733b46ae",
+      "size": 11655
+    },
+    {
+      "path": "tests/test_chat_export_emoji_fast_miss.py",
+      "mode": "100644",
+      "sha": "e9df50410ecfdcc856c213cc0dbd0a309cb5b9d3",
+      "size": 5098
+    },
+    {
+      "path": "tests/test_chat_export_html_format.py",
+      "mode": "100644",
+      "sha": "1edb75cef7bfcc028c2f6e43884de02f0be89261",
+      "size": 33085
+    },
+    {
+      "path": "tests/test_chat_export_html_paging.py",
+      "mode": "100644",
+      "sha": "444a43a3cfcb0a6f6cd96b63c37bc46197836b15",
+      "size": 10211
+    },
+    {
+      "path": "tests/test_chat_export_image_md5_candidate_fallback.py",
+      "mode": "100644",
+      "sha": "79fd5874a619b8c2ddd8b3cf513fc9b546ac4a46",
+      "size": 7720
+    },
+    {
+      "path": "tests/test_chat_export_image_md5_prefers_message_resource.py",
+      "mode": "100644",
+      "sha": "da21870143e10b2f0aeb56bd06fb805f31093608",
+      "size": 9360
+    },
+    {
+      "path": "tests/test_chat_export_image_packed_info.py",
+      "mode": "100644",
+      "sha": "c952c0302d7bf9169fc0c9d78f06ae49535b807a",
+      "size": 6981
+    },
+    {
+      "path": "tests/test_chat_export_index_updates.py",
+      "mode": "100644",
+      "sha": "80a33d46ef23683667d296abdafa7ceebe7571f7",
+      "size": 1829
+    },
+    {
+      "path": "tests/test_chat_export_message_types_semantics.py",
+      "mode": "100644",
+      "sha": "de904c1ed9a1a285c5412b9ed23cb6c9df71d33b",
+      "size": 25916
+    },
+    {
+      "path": "tests/test_chat_export_mini_program_thumb.py",
+      "mode": "100644",
+      "sha": "dc0d12523915f7613ac24f817051ecd6f7393715",
+      "size": 3567
+    },
+    {
+      "path": "tests/test_chat_export_panel_frontend.py",
+      "mode": "100644",
+      "sha": "c6701ff6b01e157b36e12073d1faff9101066e46",
+      "size": 6359
+    },
+    {
+      "path": "tests/test_chat_export_remote_thumb_option.py",
+      "mode": "100644",
+      "sha": "e9cf4d0adc1f0e3706a415f00f8b5e4910833069",
+      "size": 11991
+    },
+    {
+      "path": "tests/test_chat_export_targets.py",
+      "mode": "100644",
+      "sha": "f902cc20f0c761153c1d74235e920f54435da96a",
+      "size": 25606
+    },
+    {
+      "path": "tests/test_chat_first_read_frontend.py",
+      "mode": "100644",
+      "sha": "c9abdd36691d9ecdc150cf6f5159c78306c294a4",
+      "size": 1933
+    },
+    {
+      "path": "tests/test_chat_image_group_info.py",
+      "mode": "100644",
+      "sha": "099c51f2b9115fc15823d4fd991e8a6a183cfd5e",
+      "size": 7467
+    },
+    {
+      "path": "tests/test_chat_image_local_quality.py",
+      "mode": "100644",
+      "sha": "6af84970ea7e9d8f0d1924c6c53a2ea359dde571",
+      "size": 12835
+    },
+    {
+      "path": "tests/test_chat_incremental_export.py",
+      "mode": "100644",
+      "sha": "9f92d3e4d30fb2fff3e3920a42f075d9ad9b9cd7",
+      "size": 88552
+    },
+    {
+      "path": "tests/test_chat_large_image_frontend.py",
+      "mode": "100644",
+      "sha": "21fc4d30864f677662ddedfad54645fbee491ff1",
+      "size": 557
+    },
+    {
+      "path": "tests/test_chat_list_messages_re_scope.py",
+      "mode": "100644",
+      "sha": "2941061ebf4fe877bc9eb3089e5ae6785ad0f817",
+      "size": 2458
+    },
+    {
+      "path": "tests/test_chat_media_favicon.py",
+      "mode": "100644",
+      "sha": "516ef8446e89af7e0c02dca8aad1cb7bbdb8302c",
+      "size": 5320
+    },
+    {
+      "path": "tests/test_chat_media_file_id_scope.py",
+      "mode": "100644",
+      "sha": "0bfa7a34016a6cd14c61e15dc3fe0ffc68e0075d",
+      "size": 3748
+    },
+    {
+      "path": "tests/test_chat_media_image_cache_upgrade.py",
+      "mode": "100644",
+      "sha": "9c8d65f124f6fb48baf54fbe2daa6513177ab4b0",
+      "size": 24232
+    },
+    {
+      "path": "tests/test_chat_media_record_video.py",
+      "mode": "100644",
+      "sha": "b9337500429d7882be368f19cb5b1412477ae429",
+      "size": 21277
+    },
+    {
+      "path": "tests/test_chat_message_calendar_heatmap.py",
+      "mode": "100644",
+      "sha": "4ebeb04693334cf8a2ab187f911a503bd2312d86",
+      "size": 25430
+    },
+    {
+      "path": "tests/test_chat_official_article_cover_style.py",
+      "mode": "100644",
+      "sha": "40f303ce6f6fb8d013db151dd0c14055060d4121",
+      "size": 2167
+    },
+    {
+      "path": "tests/test_chat_realtime_change_scan.py",
+      "mode": "100644",
+      "sha": "7ef9bc1f22b9ade3adea2f3ac922aecf56dd4c09",
+      "size": 3798
+    },
+    {
+      "path": "tests/test_chat_realtime_message_content_text.py",
+      "mode": "100644",
+      "sha": "32c93c8aee325883320696acdde23598d11c7285",
+      "size": 3705
+    },
+    {
+      "path": "tests/test_chat_realtime_name2id_sync.py",
+      "mode": "100644",
+      "sha": "87a15ad151f3280039e38c143c8459210b6a0bd8",
+      "size": 9782
+    },
+    {
+      "path": "tests/test_chat_realtime_scope_frontend.py",
+      "mode": "100644",
+      "sha": "95d94da38c2fe4080918e6d2fcf6e4c7bbf0cc77",
+      "size": 1172
+    },
+    {
+      "path": "tests/test_chat_realtime_status.py",
+      "mode": "100644",
+      "sha": "bf7c54b801829aadae3ef8169528c614ded821c2",
+      "size": 9988
+    },
+    {
+      "path": "tests/test_chat_realtime_sync_all_updates_sender_display_name.py",
+      "mode": "100644",
+      "sha": "db607709bb4f4a660b38399679d3889758e628ae",
+      "size": 3787
+    },
+    {
+      "path": "tests/test_chat_realtime_system_message_display_name.py",
+      "mode": "100644",
+      "sha": "74fbaef8869aa741cde2a1eb013693fd1fb0e716",
+      "size": 3307
+    },
+    {
+      "path": "tests/test_chat_realtime_video_thumb_md5_from_packed_info.py",
+      "mode": "100644",
+      "sha": "d35a547f21142de7d623217aee7efa7beb8b7b3a",
+      "size": 3388
+    },
+    {
+      "path": "tests/test_chat_request_perf.py",
+      "mode": "100644",
+      "sha": "34da33f225827ef429e851a1df903406f31d1e45",
+      "size": 1594
+    },
+    {
+      "path": "tests/test_chat_search_index_targets.py",
+      "mode": "100644",
+      "sha": "b1e7fde9976075850b28d69fc44bf17f02c8ac22",
+      "size": 19214
+    },
+    {
+      "path": "tests/test_chat_session_list_layout_frontend.py",
+      "mode": "100644",
+      "sha": "bb47afe0402f2ada3e3da688b54c79b4c1f79483",
+      "size": 2223
+    },
+    {
+      "path": "tests/test_chat_session_preview_formatting.py",
+      "mode": "100644",
+      "sha": "f28b183992778a94e26841fa656e9dbc882ac3e9",
+      "size": 2961
+    },
+    {
+      "path": "tests/test_chat_sessions_pinning.py",
+      "mode": "100644",
+      "sha": "f2da9f6b2bbbbfacc14bc8eb9719f11e176b5d92",
+      "size": 6453
+    },
+    {
+      "path": "tests/test_chat_sessions_realtime_sender_preview.py",
+      "mode": "100644",
+      "sha": "c19ce126a74d5f3daf64ce4503c463f656b2da37",
+      "size": 7732
+    },
+    {
+      "path": "tests/test_chat_source_auto.py",
+      "mode": "100644",
+      "sha": "f8cfe9b50c2c5459685d1b9f961a763ba4391e17",
+      "size": 25265
+    },
+    {
+      "path": "tests/test_chat_switch_performance_frontend.py",
+      "mode": "100644",
+      "sha": "fcb3f837b9b794f3156444cb9b3b9a827eb14f16",
+      "size": 4630
+    },
+    {
+      "path": "tests/test_chat_system_message_parsing.py",
+      "mode": "100644",
+      "sha": "c873463b2a7990ccac5c5c31cf04d0dac2ed6128",
+      "size": 5435
+    },
+    {
+      "path": "tests/test_chat_voice_native_transcript.py",
+      "mode": "100644",
+      "sha": "43ddb41cf4bcdd4eaf715634c81830c9f90cc1e2",
+      "size": 5607
+    },
+    {
+      "path": "tests/test_contact_profile_verification_frontend.py",
+      "mode": "100644",
+      "sha": "f315e3e2acce74146c193fac36c87ad89c26cffb",
+      "size": 3802
+    },
+    {
+      "path": "tests/test_contact_type_detection.py",
+      "mode": "100644",
+      "sha": "c9947a7a891ad9295a0e063dd9d11eade0b229e9",
+      "size": 11703
+    },
+    {
+      "path": "tests/test_contacts_export.py",
+      "mode": "100644",
+      "sha": "5f3e3b1ca79fe50f4723d7f34669ac18ea5cd5d1",
+      "size": 38112
+    },
+    {
+      "path": "tests/test_contacts_export_frontend.py",
+      "mode": "100644",
+      "sha": "903a7b35377f92390096ae3d9694b22edc643248",
+      "size": 861
+    },
+    {
+      "path": "tests/test_contacts_keyword_pinyin.py",
+      "mode": "100644",
+      "sha": "81590cf2a17216525a0966b8b9e0fe49b6d5535f",
+      "size": 16466
+    },
+    {
+      "path": "tests/test_contacts_query_fallback.py",
+      "mode": "100644",
+      "sha": "a659828425206811c16202c720de44338c217fbd",
+      "size": 4749
+    },
+    {
+      "path": "tests/test_database_filters.py",
+      "mode": "100644",
+      "sha": "a74601c23ec8a2fe088f4cac8e0ca7f2cbd9fc85",
+      "size": 4637
+    },
+    {
+      "path": "tests/test_decrypt_image_keys_frontend.py",
+      "mode": "100644",
+      "sha": "eeb4198c9698cb52fd604d72cc5f5010b2878f49",
+      "size": 12317
+    },
+    {
+      "path": "tests/test_decrypt_step_navigation_frontend.py",
+      "mode": "100644",
+      "sha": "87d098e5ae604f9c09eda6102f3812322e6ab380",
+      "size": 9643
+    },
+    {
+      "path": "tests/test_decrypt_stream_sse.py",
+      "mode": "100644",
+      "sha": "00b8e8e41826086ea7174b7c533cf8232a20c8b9",
+      "size": 22486
+    },
+    {
+      "path": "tests/test_decrypted_account_validation.py",
+      "mode": "100644",
+      "sha": "1bbb41499a2b37bccf724d6c9bc99e132192568c",
+      "size": 2246
+    },
+    {
+      "path": "tests/test_desktop_parent_watchdog.py",
+      "mode": "100644",
+      "sha": "17c53be43075477f83a5b4aa3dd3429d95a33991",
+      "size": 1873
+    },
+    {
+      "path": "tests/test_detection_result_layout_frontend.py",
+      "mode": "100644",
+      "sha": "c151ec88bf607967217ef95e7d63a91f379d460a",
+      "size": 674
+    },
+    {
+      "path": "tests/test_error_notice_frontend.py",
+      "mode": "100644",
+      "sha": "2b7f0aeb979e70ed5de4ab6018434b797c8f8fd7",
+      "size": 6241
+    },
+    {
+      "path": "tests/test_export_excel_format.py",
+      "mode": "100644",
+      "sha": "ad2364e5eed0afb0679b41ea424bfb06460b022c",
+      "size": 8919
+    },
+    {
+      "path": "tests/test_export_format_layout_frontend.py",
+      "mode": "100644",
+      "sha": "f0a4af0977af8911ad5e76dae2c2addabd8cb51b",
+      "size": 3348
+    },
+    {
+      "path": "tests/test_export_integrity.py",
+      "mode": "100644",
+      "sha": "7da7cd19e27a45975683c878e94591201d57ecb8",
+      "size": 8637
+    },
+    {
+      "path": "tests/test_export_panel_style_consistency_frontend.py",
+      "mode": "100644",
+      "sha": "6afbe360d62db63545e5af57aedbf5c1f9aa8f11",
+      "size": 1988
+    },
+    {
+      "path": "tests/test_favorites.py",
+      "mode": "100644",
+      "sha": "c6f4f0e40e7a66b342d327d695249de765c6d724",
+      "size": 19695
+    },
+    {
+      "path": "tests/test_favorites_frontend.py",
+      "mode": "100644",
+      "sha": "0acf97de69e51dbcc688bcfdca633ec7d0c54a84",
+      "size": 4997
+    },
+    {
+      "path": "tests/test_favorites_original_message_direction.py",
+      "mode": "100644",
+      "sha": "029d4260faac109e77f1d4983f16e89cca9be5af",
+      "size": 4690
+    },
+    {
+      "path": "tests/test_first_use_agreement_frontend.py",
+      "mode": "100644",
+      "sha": "e5b401a68c39f1377c376412a207264d54014e50",
+      "size": 7786
+    },
+    {
+      "path": "tests/test_general_friend_verifications.py",
+      "mode": "100644",
+      "sha": "c7210af7e74898a2ea0c7513b6dd668925aaf547",
+      "size": 7864
+    },
+    {
+      "path": "tests/test_general_payment_status.py",
+      "mode": "100644",
+      "sha": "d7eb81ce245243c96c932fa1724c036f47bef3c9",
+      "size": 3784
+    },
+    {
+      "path": "tests/test_group_nickname_ext_buffer_parsing.py",
+      "mode": "100644",
+      "sha": "2f9cef93f8790b25b82efa61098960fc56122cba",
+      "size": 8075
+    },
+    {
+      "path": "tests/test_group_xml_sender_extraction.py",
+      "mode": "100644",
+      "sha": "c719bdce92954c6025fea5546981b09463371cc9",
+      "size": 719
+    },
+    {
+      "path": "tests/test_guidance_dialog_frontend.py",
+      "mode": "100644",
+      "sha": "5fdd4b64cb93e82e5717820a873ebd12ebfe5e96",
+      "size": 2143
+    },
+    {
+      "path": "tests/test_image_key_memory_scan.py",
+      "mode": "100644",
+      "sha": "9077bc29611d3721fb1ce1ef28c843b858f24a02",
+      "size": 15777
+    },
+    {
+      "path": "tests/test_image_key_memory_workflow.py",
+      "mode": "100644",
+      "sha": "7baa40e76305ed028da0abee05083dafef3f4c37",
+      "size": 4039
+    },
+    {
+      "path": "tests/test_image_key_resolver.py",
+      "mode": "100644",
+      "sha": "ff2772d3a86f85b19201cde0ba2a99777cc64671",
+      "size": 14055
+    },
+    {
+      "path": "tests/test_image_key_router_metadata.py",
+      "mode": "100644",
+      "sha": "b2cbb89252dd8417acd33ac3d6758a0a44c82381",
+      "size": 3694
+    },
+    {
+      "path": "tests/test_image_key_verified_store.py",
+      "mode": "100644",
+      "sha": "88a9b32d2f7afd2c54f2482abbc078d249242c24",
+      "size": 13021
+    },
+    {
+      "path": "tests/test_image_key_workflow_weflow.py",
+      "mode": "100644",
+      "sha": "0a2a4d6b80e6d761a9468364009c5c9506c34a5f",
+      "size": 11723
+    },
+    {
+      "path": "tests/test_imported_account_isolation.py",
+      "mode": "100644",
+      "sha": "9c4882a13becf88b249179f8a69b6b7e792542c3",
+      "size": 17186
+    },
+    {
+      "path": "tests/test_key_file_permissions.py",
+      "mode": "100644",
+      "sha": "a13fcd0bf8bd82b2679d5a3336aac8c3ae76d421",
+      "size": 3718
+    },
+    {
+      "path": "tests/test_key_log_redaction.py",
+      "mode": "100644",
+      "sha": "890d2ae5f2590724ec5dfcad73067c2f3cad686f",
+      "size": 3932
+    },
+    {
+      "path": "tests/test_key_service_image_key_account_match.py",
+      "mode": "100644",
+      "sha": "519339745961a7e1b2cd433300540a5469ac5617",
+      "size": 16476
+    },
+    {
+      "path": "tests/test_key_service_manual_wechat_install_path.py",
+      "mode": "100644",
+      "sha": "670715f2d53dc0f7681ce79dd8e6165550e07b6b",
+      "size": 4088
+    },
+    {
+      "path": "tests/test_keys_saved_db_key_source_validation.py",
+      "mode": "100644",
+      "sha": "8d04a218ba7232b7963d823add04cc4b876fd583",
+      "size": 4317
+    },
+    {
+      "path": "tests/test_logging_config_data_dir.py",
+      "mode": "100644",
+      "sha": "a0a32fa5e0be504c39d8e33b484b2a3692bcedf9",
+      "size": 5315
+    },
+    {
+      "path": "tests/test_macos_capture_api_progress.py",
+      "mode": "100644",
+      "sha": "e03f550e1c6a7412cba3134c3592d41a934ed291",
+      "size": 7291
+    },
+    {
+      "path": "tests/test_macos_capture_backend_routing.py",
+      "mode": "100644",
+      "sha": "c63eb8b4990d5c78f705d6a51efd1076a2748098",
+      "size": 12344
+    },
+    {
+      "path": "tests/test_macos_capture_diagnostics.py",
+      "mode": "100644",
+      "sha": "84daf50791769d431d669d985b3a97ecbcc46b49",
+      "size": 15040
+    },
+    {
+      "path": "tests/test_macos_capture_phases.py",
+      "mode": "100644",
+      "sha": "2c59791796159b4c8e87d2230146f95ad8c9e747",
+      "size": 8226
+    },
+    {
+      "path": "tests/test_macos_capture_validation.py",
+      "mode": "100644",
+      "sha": "db5062eaea6aacf3220b671f357d7b7c1168b2df",
+      "size": 17817
+    },
+    {
+      "path": "tests/test_macos_clone_capture.py",
+      "mode": "100644",
+      "sha": "5eba50744377fa3240d4801ef7f3f0621b5dd131",
+      "size": 28985
+    },
+    {
+      "path": "tests/test_macos_db_key_capture.py",
+      "mode": "100644",
+      "sha": "5451ef7e650ce424767fd2c79d1895c643633560",
+      "size": 17898
+    },
+    {
+      "path": "tests/test_macos_db_key_discovery.py",
+      "mode": "100644",
+      "sha": "fa0c181792c5aca09e16fe665b58de84e32c35c8",
+      "size": 4947
+    },
+    {
+      "path": "tests/test_macos_db_key_helper.py",
+      "mode": "100644",
+      "sha": "baf2cdc8b9c8bf6acc4fcc6429cef52981680a2f",
+      "size": 25443
+    },
+    {
+      "path": "tests/test_macos_inplace_capture.py",
+      "mode": "100644",
+      "sha": "1e908d4d3af68ab547c27437767713fb36f828b2",
+      "size": 12429
+    },
+    {
+      "path": "tests/test_macos_key_capture_release_audit.py",
+      "mode": "100644",
+      "sha": "df966477f3d792d6863637608537789dfc52beb6",
+      "size": 1869
+    },
+    {
+      "path": "tests/test_macos_lldb_breakpoint_plan.py",
+      "mode": "100644",
+      "sha": "50a8fb379242a4e72617d75b4ebd35f52b1ec842",
+      "size": 13730
+    },
+    {
+      "path": "tests/test_macos_lldb_command_lifecycle.py",
+      "mode": "100644",
+      "sha": "7ca127e38490d0653cd171f091fd7615acd56b64",
+      "size": 5001
+    },
+    {
+      "path": "tests/test_macos_manual_launch.py",
+      "mode": "100644",
+      "sha": "9c174b301e1e4d80082843eb680c74754fcbccd6",
+      "size": 6108
+    },
+    {
+      "path": "tests/test_macos_native_capture_source.py",
+      "mode": "100644",
+      "sha": "7d97af2948a051e89365742456592e14f59da3d5",
+      "size": 1321
+    },
+    {
+      "path": "tests/test_macos_native_core_policy.py",
+      "mode": "100644",
+      "sha": "0acf380f47147a1477a2b8e921be95c92e8adc28",
+      "size": 6419
+    },
+    {
+      "path": "tests/test_macos_platform_support.py",
+      "mode": "100644",
+      "sha": "b4090e5309856f954644176f2057020555cfcc8d",
+      "size": 26187
+    },
+    {
+      "path": "tests/test_macos_prepared_lifecycle.py",
+      "mode": "100644",
+      "sha": "0d5c98d77e6537ad290b25df3c264b5f62a643a3",
+      "size": 7084
+    },
+    {
+      "path": "tests/test_macos_restore_identity.py",
+      "mode": "100644",
+      "sha": "6ecf99eec16e100e85fc3691955d7bd9c0817372",
+      "size": 18629
+    },
+    {
+      "path": "tests/test_main_source_bootstrap.py",
+      "mode": "100644",
+      "sha": "fb17dd7826e8b6143ca3a60534a406126705028e",
+      "size": 1665
+    },
+    {
+      "path": "tests/test_media_decrypt_stream_cancel.py",
+      "mode": "100644",
+      "sha": "ff6e2c27bf98a38aed3445c095339ef6c7d93222",
+      "size": 7113
+    },
+    {
+      "path": "tests/test_media_emoji_download_stream.py",
+      "mode": "100644",
+      "sha": "5696e5659898aa4170e8e01f7fdca623a1899193",
+      "size": 7451
+    },
+    {
+      "path": "tests/test_media_emoticon_catalog.py",
+      "mode": "100644",
+      "sha": "329ba0d3df8f8c8a46858d2cb54beda4177e0ec8",
+      "size": 4241
+    },
+    {
+      "path": "tests/test_media_wxgf_ffmpeg_fallback.py",
+      "mode": "100644",
+      "sha": "a71c3a7b6db6134657acebb31d8afc79eaab5d3b",
+      "size": 14495
+    },
+    {
+      "path": "tests/test_media_xor_decode.py",
+      "mode": "100644",
+      "sha": "d0df50c2141ea0e3edf9f6650bbeda44e69749b2",
+      "size": 3374
+    },
+    {
+      "path": "tests/test_message_links_frontend.py",
+      "mode": "100644",
+      "sha": "434936fb330784097d67386f14e76efb0e1b6f44",
+      "size": 1278
+    },
+    {
+      "path": "tests/test_native_core_broker_lifecycle.py",
+      "mode": "100644",
+      "sha": "3c4e07c311083bb26939c6ab90ab54595969f1f8",
+      "size": 7973
+    },
+    {
+      "path": "tests/test_native_core_client_asr.py",
+      "mode": "100644",
+      "sha": "be37c7c22c534ef69b97af78e22b8d134ff342d1",
+      "size": 19045
+    },
+    {
+      "path": "tests/test_native_core_dev_lease.py",
+      "mode": "100644",
+      "sha": "4264cf43a549fc6a2e458108bbb54a4096c08e22",
+      "size": 8394
+    },
+    {
+      "path": "tests/test_native_core_device_credential.py",
+      "mode": "100644",
+      "sha": "867cc0a6d6502a6f7661ea6c6df4facb46b0fc74",
+      "size": 13995
+    },
+    {
+      "path": "tests/test_native_core_export_decrypt.py",
+      "mode": "100644",
+      "sha": "1250dda055d1e6b2b1ab97df69438049bd5587b7",
+      "size": 8330
+    },
+    {
+      "path": "tests/test_native_core_export_integration.py",
+      "mode": "100644",
+      "sha": "4aa0477b63f9c603e87f77933ec07893160c0d64",
+      "size": 33508
+    },
+    {
+      "path": "tests/test_native_core_export_verification.py",
+      "mode": "100644",
+      "sha": "305e1972a5c60cac32d4258ccc1d25403141d5ea",
+      "size": 4132
+    },
+    {
+      "path": "tests/test_native_core_license_policy.py",
+      "mode": "100644",
+      "sha": "dbd9feb4be99613095674293c9a14a1fb49932ee",
+      "size": 59839
+    },
+    {
+      "path": "tests/test_native_core_raw_key_cache.py",
+      "mode": "100644",
+      "sha": "4d8ea8ad08a5dcfb8b2bf24df7bb61d3078bb672",
+      "size": 15143
+    },
+    {
+      "path": "tests/test_native_core_realtime.py",
+      "mode": "100644",
+      "sha": "9ae223721ce046c60651ea3a17c8e835b7fcf246",
+      "size": 49485
+    },
+    {
+      "path": "tests/test_native_core_telemetry.py",
+      "mode": "100644",
+      "sha": "48f1a6f901491aec4a23d3209262d65e927f2a44",
+      "size": 6025
+    },
+    {
+      "path": "tests/test_native_core_voice_asr.py",
+      "mode": "100644",
+      "sha": "a58224ac976c66ce211c8a262a82ae6be52e1059",
+      "size": 18714
+    },
+    {
+      "path": "tests/test_native_voice_batch.py",
+      "mode": "100644",
+      "sha": "f45a2bcf771b2c54d0546ded97d1c32844a4cffe",
+      "size": 2611
+    },
+    {
+      "path": "tests/test_native_voice_transcript_polling_api.py",
+      "mode": "100644",
+      "sha": "9d59ad250f3c28e03e005051bb125c60a99675c9",
+      "size": 17724
+    },
+    {
+      "path": "tests/test_native_voice_transcription_cache.py",
+      "mode": "100644",
+      "sha": "fdd5f1214eb9b897ff2e3d80c771ece7c257114a",
+      "size": 10244
+    },
+    {
+      "path": "tests/test_native_voice_transcription_trigger_api.py",
+      "mode": "100644",
+      "sha": "0fc8867843e91a88acd40463583f498ea36d577b",
+      "size": 18268
+    },
+    {
+      "path": "tests/test_offline_wal_recovery.py",
+      "mode": "100644",
+      "sha": "dcc39812f8b3887dba42a6061a5fefd7f7006a1d",
+      "size": 13548
+    },
+    {
+      "path": "tests/test_output_dir_override.py",
+      "mode": "100644",
+      "sha": "a9d0eaef708837b6dd5edfd168bfc4c43f6ec266",
+      "size": 3387
+    },
+    {
+      "path": "tests/test_parse_app_message.py",
+      "mode": "100644",
+      "sha": "ff06761023e7447f9339711ac0ca2f17e7b2922b",
+      "size": 10546
+    },
+    {
+      "path": "tests/test_qwen_gpu_runtime.py",
+      "mode": "100644",
+      "sha": "6f988292492ca4d50cc00937ba71c6cae97a00d5",
+      "size": 7652
+    },
+    {
+      "path": "tests/test_realtime_sync_table_creation.py",
+      "mode": "100644",
+      "sha": "3c33836db2e7f700b04d25efc2e80eb8b827030f",
+      "size": 3921
+    },
+    {
+      "path": "tests/test_record_export.py",
+      "mode": "100644",
+      "sha": "ef2a975b356c06bf9d4c3a5bea34b7327096e504",
+      "size": 31178
+    },
+    {
+      "path": "tests/test_remote_call_mode.py",
+      "mode": "100644",
+      "sha": "05ee29516e7484319f231957cb3c50f1cb9ac6e8",
+      "size": 1928
+    },
+    {
+      "path": "tests/test_request_log_redaction.py",
+      "mode": "100644",
+      "sha": "549e493d4519b49a891c23a50751eea1a103d45f",
+      "size": 6556
+    },
+    {
+      "path": "tests/test_runtime_settings_env_file.py",
+      "mode": "100644",
+      "sha": "bcf97097deb6eb2b9a7ed62c7771ffd32cc850dc",
+      "size": 1814
+    },
+    {
+      "path": "tests/test_smoke_native_core_real_database.py",
+      "mode": "100644",
+      "sha": "1634222439f546d9e3186a423f38305cd6b5506e",
+      "size": 4161
+    },
+    {
+      "path": "tests/test_sns_full_sync.py",
+      "mode": "100644",
+      "sha": "11bd3caa597e50b1033b796fd8ad752f6ac698e1",
+      "size": 16759
+    },
+    {
+      "path": "tests/test_sns_incremental_export.py",
+      "mode": "100644",
+      "sha": "fc0ec0a0e572ab3cf65c3be309798e7496434ab3",
+      "size": 17907
+    },
+    {
+      "path": "tests/test_sns_media.py",
+      "mode": "100644",
+      "sha": "f100116d92dbe2d7660aaf4283d084a4aae4e418",
+      "size": 54979
+    },
+    {
+      "path": "tests/test_sns_media_route_weflow_default.py",
+      "mode": "100644",
+      "sha": "2834da797420e783f7599c8c4a3b462fe28d9180",
+      "size": 25156
+    },
+    {
+      "path": "tests/test_sns_media_url.py",
+      "mode": "100644",
+      "sha": "efb53b72569d5549c60c6bd94e56a5b6a901ea5c",
+      "size": 801
+    },
+    {
+      "path": "tests/test_sns_page_decrypted_source.py",
+      "mode": "100644",
+      "sha": "3e37dd74cecbd337b8b80ed92cfc90b5a5a3d2a0",
+      "size": 24505
+    },
+    {
+      "path": "tests/test_sns_parse_timeline_xml_sanitization.py",
+      "mode": "100644",
+      "sha": "40e5b4870f82c39bf3c155d678ea4e89c76a63b1",
+      "size": 3180
+    },
+    {
+      "path": "tests/test_sns_performance_optimizations.py",
+      "mode": "100644",
+      "sha": "7bdac1107d648ae6b24b27cb675cba7f3a6c309d",
+      "size": 2643
+    },
+    {
+      "path": "tests/test_sns_realtime_autosync_wiring.py",
+      "mode": "100644",
+      "sha": "67a3a2ae419f0f6441090ad5e7b79a364ad3d46e",
+      "size": 35553
+    },
+    {
+      "path": "tests/test_sns_realtime_events.py",
+      "mode": "100644",
+      "sha": "2542eb60d72dba4e35ef26d7d265e68004ebdd24",
+      "size": 4177
+    },
+    {
+      "path": "tests/test_sns_video_thumbnail_proxy.py",
+      "mode": "100644",
+      "sha": "6aa83c4127f514596712bf693e8910188f52abe0",
+      "size": 1903
+    },
+    {
+      "path": "tests/test_spa_static_mime.py",
+      "mode": "100644",
+      "sha": "df545fb29c26362a21f255dd59985967eee538da",
+      "size": 1354
+    },
+    {
+      "path": "tests/test_standalone_macos_key_extractor.py",
+      "mode": "100644",
+      "sha": "91421cb6ed2ffdadb22c71c6ca9ff8cddea6b343",
+      "size": 29485
+    },
+    {
+      "path": "tests/test_transfer_postprocess.py",
+      "mode": "100644",
+      "sha": "3f6fea49494d899e368a5b120eb34d2c2c970421",
+      "size": 4352
+    },
+    {
+      "path": "tests/test_transfer_status_text.py",
+      "mode": "100644",
+      "sha": "477ac03f4e4aafdaa2a27c3452d87ab6d7ca8281",
+      "size": 1700
+    },
+    {
+      "path": "tests/test_voice_model_download_source.py",
+      "mode": "100644",
+      "sha": "8365920222ab8c809f6be2fae5434c1dc208d66f",
+      "size": 7542
+    },
+    {
+      "path": "tests/test_voice_transcription.py",
+      "mode": "100644",
+      "sha": "f1576ecda45d58d9dc0f271b6d7510fbc9a71d30",
+      "size": 61215
+    },
+    {
+      "path": "tests/test_voice_transcription_contract.py",
+      "mode": "100644",
+      "sha": "e788c34d4359ce60d48325a929f1bbb5d6cbfcae",
+      "size": 4667
+    },
+    {
+      "path": "tests/test_voice_transcription_management_api.py",
+      "mode": "100644",
+      "sha": "407bb40c35e1a5d37447089f9ec8a17a74e45319",
+      "size": 15004
+    },
+    {
+      "path": "tests/test_voice_transcription_manager.py",
+      "mode": "100644",
+      "sha": "63de740739e59fa4dc355b9c33b651002c772702",
+      "size": 71787
+    },
+    {
+      "path": "tests/test_voice_transcription_settings.py",
+      "mode": "100644",
+      "sha": "5eed805f9eafb8c54a06c6c52f9a44771e5d78e8",
+      "size": 7796
+    },
+    {
+      "path": "tests/test_voip_icons_frontend.py",
+      "mode": "100644",
+      "sha": "ab02ca400416cac2220359b2bc7001fc4aa0db59",
+      "size": 1358
+    },
+    {
+      "path": "tests/test_wcdb_decrypted_fallback.py",
+      "mode": "100644",
+      "sha": "b82e843df51a290c782bbd5282775ebcb2e0437f",
+      "size": 13231
+    },
+    {
+      "path": "tests/test_wcdb_fallback_frontend.py",
+      "mode": "100644",
+      "sha": "4fd0e99f33a1fdc6e39cdd00006435f8ffc25a17",
+      "size": 4962
+    },
+    {
+      "path": "tests/test_wcdb_realtime_dll_path_selection.py",
+      "mode": "100644",
+      "sha": "5cb17ec1e6517d2113bed5f8de1c67aae1ed49db",
+      "size": 4412
+    },
+    {
+      "path": "tests/test_wcdb_realtime_native_core_required.py",
+      "mode": "100644",
+      "sha": "307146c53259a41fe7701972efa3cfa71c7d6dc0",
+      "size": 29977
+    },
+    {
+      "path": "tests/test_wcdb_sidecar_watchdog_desktop.py",
+      "mode": "100644",
+      "sha": "d73745e55845a993e96576ada937f12f67ae71bd",
+      "size": 2144
+    },
+    {
+      "path": "tests/test_wechat_decrypt_key_modes.py",
+      "mode": "100644",
+      "sha": "ddb75f678c410a96d4acd96ba3d5dbacf6bb9474",
+      "size": 6696
+    },
+    {
+      "path": "tests/test_wechat_detection_auto_detect.py",
+      "mode": "100644",
+      "sha": "e253e676cc0e8aed0864971cef61d0fde13e7411",
+      "size": 19894
+    },
+    {
+      "path": "tests/test_windows_native_core_policy.py",
+      "mode": "100644",
+      "sha": "9a82099056e80a37f3fc778ddb1bad0857eab71d",
+      "size": 5223
+    },
+    {
+      "path": "tests/test_wrapped_bento_summary_top_emoji.py",
+      "mode": "100644",
+      "sha": "8876bc3649557cb8a14bcf3dd1e5276ec66ce231",
+      "size": 4977
+    },
+    {
+      "path": "tests/test_wrapped_cyber_schedule_night_companion.py",
+      "mode": "100644",
+      "sha": "40658622668e6f473a323bcf1718f409892e2277",
+      "size": 14158
+    },
+    {
+      "path": "tests/test_wrapped_emoji_universe.py",
+      "mode": "100644",
+      "sha": "867f0f6cb818eeed1dc446d53d004184e3808d3c",
+      "size": 33069
+    },
+    {
+      "path": "tests/test_wrapped_global_overview_peak_day.py",
+      "mode": "100644",
+      "sha": "97e3f51e9890d7cd080946440fdb6f7907bb28f2",
+      "size": 9407
+    },
+    {
+      "path": "tests/test_wrapped_keywords_wordcloud.py",
+      "mode": "100644",
+      "sha": "72fa62c519afca285cbcf65375b72c20eefc0568",
+      "size": 8078
+    },
+    {
+      "path": "tests/test_wrapped_manifest_bento_summary.py",
+      "mode": "100644",
+      "sha": "ef6d8c995bad99be2cf9a51826cef52da6b9bbeb",
+      "size": 1039
+    },
+    {
+      "path": "tests/test_wrapped_message_chars_typed_phrases.py",
+      "mode": "100644",
+      "sha": "6183e9050151f4e6f320b3a3f0ccc7e114270dad",
+      "size": 3273
+    },
+    {
+      "path": "tests/test_wrapped_message_chars_voice_calls.py",
+      "mode": "100644",
+      "sha": "2690dfe2c55cd5f12e1be767b7396abbdae7aae5",
+      "size": 20628
+    },
+    {
+      "path": "tests/test_wrapped_monthly_best_friends.py",
+      "mode": "100644",
+      "sha": "82067d6b761685a0fe19313e0245ee442689f19b",
+      "size": 10086
+    },
+    {
+      "path": "tests/test_wrapped_reply_speed.py",
+      "mode": "100644",
+      "sha": "5a64522ccbe24435c4d0d22e264f5d748ccfed3d",
+      "size": 11345
+    },
+    {
+      "path": "tests/test_wrapped_stale_search_index.py",
+      "mode": "100644",
+      "sha": "47fbbe9d955e3851b5ab7a990756c2a0c8ad72d7",
+      "size": 6037
+    },
+    {
+      "path": "tools/audit_macos_key_capture_release.py",
+      "mode": "100644",
+      "sha": "ca9d4e04123cd3a3f5c7a671f6308b47360604dd",
+      "size": 4373
+    },
+    {
+      "path": "tools/build_wce_integrity.ps1",
+      "mode": "100644",
+      "sha": "036c8b10572488ee530fca6e0fcd484796c60af8",
+      "size": 2340
+    },
+    {
+      "path": "tools/dev/snap.cjs",
+      "mode": "100644",
+      "sha": "43315fe110acb2c3089fe238c32ef39f15c919c4",
+      "size": 3902
+    },
+    {
+      "path": "tools/dev/sync-site-catalog.mjs",
+      "mode": "100644",
+      "sha": "e68ee0a47428a7b9343c60d1040d9e7c16b7977f",
+      "size": 15499
+    },
+    {
+      "path": "tools/dev/sync-site-changelog.mjs",
+      "mode": "100644",
+      "sha": "e1a02ada7fe5df87c1dcfedc26ea309b9e24bf20",
+      "size": 5985
+    },
+    {
+      "path": "tools/generate_qwen_gpu_manifest.py",
+      "mode": "100644",
+      "sha": "c51fbaf50644510887f7a8ec2217fca4cd5e021d",
+      "size": 3294
+    },
+    {
+      "path": "tools/publish-desktop-release.py",
+      "mode": "100644",
+      "sha": "bfa4182480bcffea0514bc3979dbbcda45e7e1bf",
+      "size": 5596
+    },
+    {
+      "path": "tools/qwen_runtime_stdlib.py",
+      "mode": "100644",
+      "sha": "19179aa94a483455d95b08567f7dee59e07a9440",
+      "size": 519
+    },
+    {
+      "path": "tools/rebuild_wcdb_release.py",
+      "mode": "100644",
+      "sha": "f777f89f1761851c51df2c9ea33479adfa33073e",
+      "size": 8631
+    },
+    {
+      "path": "tools/smoke_native_core_real_database.py",
+      "mode": "100644",
+      "sha": "a9213d1b597340751150a78c0f048b4436d1d4dd",
+      "size": 22624
+    },
+    {
+      "path": "uv.lock",
+      "mode": "100644",
+      "sha": "4ae9eb9c60cce0f67d0c31878ccdd2b413236d9a",
+      "size": 410225
+    },
+    {
+      "path": "website/.nojekyll",
+      "mode": "100644",
+      "sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "size": 0
+    },
+    {
+      "path": "website/assets/css/changelog.css",
+      "mode": "100644",
+      "sha": "b227f0642406384fa5cdd72ced21027b017b36fc",
+      "size": 8363
+    },
+    {
+      "path": "website/assets/css/main.css",
+      "mode": "100644",
+      "sha": "f8d7d7166534b51e5820d8e50d0bc23e1c24486d",
+      "size": 85654
+    },
+    {
+      "path": "website/assets/data/changelog-latest.json",
+      "mode": "100644",
+      "sha": "0e01c098ca782b2e0e61278cbc22af29bd06b3d9",
+      "size": 100
+    },
+    {
+      "path": "website/assets/data/changelog.json",
+      "mode": "100644",
+      "sha": "38d23d8f79cd482d218d32f6aecdd2bbdcf2704b",
+      "size": 90503
+    },
+    {
+      "path": "website/assets/fonts/OFL.txt",
+      "mode": "100644",
+      "sha": "98384d6bc8edd3039a723add56a3b95049378374",
+      "size": 4386
+    },
+    {
+      "path": "website/assets/img/logo.png",
+      "mode": "100644",
+      "sha": "1efeb870e602cdf43ed161a15d957d4bbf48c382",
+      "size": 1342436
+    },
+    {
+      "path": "website/assets/js/card.js",
+      "mode": "100644",
+      "sha": "47aaacfbe11a390a5bc7086e58fb894fbf90d8cf",
+      "size": 11723
+    },
+    {
+      "path": "website/assets/js/changelog.js",
+      "mode": "100644",
+      "sha": "901539daf00a88647c0c4f7ee476f516afa158a4",
+      "size": 6768
+    },
+    {
+      "path": "website/assets/js/compare.js",
+      "mode": "100644",
+      "sha": "08fcbcbe405893feb4f6d11fb6238c1197e430cf",
+      "size": 23147
+    },
+    {
+      "path": "website/assets/js/data.js",
+      "mode": "100644",
+      "sha": "aca58f2848d9f36b4c036194be162c2935d5a31c",
+      "size": 26275
+    },
+    {
+      "path": "website/assets/js/links.js",
+      "mode": "100644",
+      "sha": "d5d284f3343ef0d86f6d11de364ed3eba4bc1462",
+      "size": 299
+    },
+    {
+      "path": "website/assets/js/main.js",
+      "mode": "100644",
+      "sha": "ee9e4d7c928a5f15bb4987485c0a087ec0915fb5",
+      "size": 26532
+    },
+    {
+      "path": "website/assets/js/shell.js",
+      "mode": "100644",
+      "sha": "00cc5e146dd53db2bd3e1d0bead6476cd83bc38a",
+      "size": 7154
+    },
+    {
+      "path": "website/changelog.html",
+      "mode": "100644",
+      "sha": "a45b0ccfea080b3f12913179d7c7c8c713fb4ac3",
+      "size": 10759
+    },
+    {
+      "path": "website/index.html",
+      "mode": "100644",
+      "sha": "7df40589af9f134434d211dd1a7b6b3133690a2e",
+      "size": 45800
+    },
+    {
+      "path": "website/serve.py",
+      "mode": "100644",
+      "sha": "86d092b15d26a0cc54c272a43324b01e4dd5dfef",
+      "size": 1018
+    },
+    {
+      "path": "website/vendor/three.core.min.js",
+      "mode": "100644",
+      "sha": "fcf90d35125fb8032944f3211a57fb5f29433bae",
+      "size": 385386
+    },
+    {
+      "path": "website/vendor/three.module.min.js",
+      "mode": "100644",
+      "sha": "5ae623ca0c049185052dafc5ef764d236ec93bfe",
+      "size": 365552
+    }
+  ]
+}

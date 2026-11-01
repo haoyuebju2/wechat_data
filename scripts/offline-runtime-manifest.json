@@ -1,0 +1,12 @@
+{
+  "python": "3.14.10",
+  "electron": "45.2.1",
+  "electron_archive_sha256": "7c342aee45d5b4ccafe5dfe9037028796b082735a576e21e2b4e2d8422ebb727",
+  "artifacts": {
+    ".runtime/python.exe": "d718435b892db4ad5b547d12fec61be7baa7faf7a58d857ea58053be24c7a000",
+    ".runtime/python314.dll": "d8a06cc6ca3348925ea29e343e1c5c5895fe0bb433ff913e1cee44caf358aa6a",
+    ".upstream-runtime/Scripts/python.exe": "5988c9b9e055a9036d449c184bf5d78647b43148f94c912914d36a6efba4af1d",
+    "upstream_local/desktop/node_modules/electron/dist/electron.exe": "32e357fc856feadd1e51531f47811d2621483e5a58815eb4999154d7c9baea3b"
+  },
+  "note": "Artifact integrity record, not a source audit or zero-risk guarantee."
+}
