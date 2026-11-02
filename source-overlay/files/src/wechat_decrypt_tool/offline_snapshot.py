@@ -154,6 +154,8 @@ def refresh_account(account: str, *, on_publish=None) -> dict:
             records[name] = {"input": stamp, "output_mtime_ns": destination.stat().st_mtime_ns}
             updated += 1
             cache_dirty = True
+            from .offline_originals import AUTO_ORIGINALS
+            AUTO_ORIGINALS.notify(account)
             if on_publish is not None:
                 on_publish()
         except Exception:

@@ -23,6 +23,7 @@ NEW_FILES = {
     "frontend/lib/chat/local-image-preview.js", "frontend/tests/offline-image-preview.test.js",
     "src/wechat_decrypt_tool/local_key_scan.py", "src/wechat_decrypt_tool/offline_ai.py",
     "src/wechat_decrypt_tool/local_cdn.py", "src/wechat_decrypt_tool/local_cdn_profile.py",
+    "src/wechat_decrypt_tool/offline_originals.py",
     "src/wechat_decrypt_tool/routers/local_cdn.py",
     "src/wechat_decrypt_tool/offline_context_protocol.py", "src/wechat_decrypt_tool/offline_file_watch.py",
     "src/wechat_decrypt_tool/offline_incremental.py", "src/wechat_decrypt_tool/offline_integrity.py",

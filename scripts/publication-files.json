@@ -31,6 +31,8 @@
     "scripts/runtime_check.py",
     "scripts/upstream-source-manifest.json",
     "source-overlay/files/desktop/src/LICENSE-local-cdn.txt",
+    "source-overlay/files/src/wechat_decrypt_tool/offline_originals.py",
+    "source-overlay/files/tests_offline/test_offline_originals.py",
     "source-overlay/files/desktop/src/LocalCdnWorker.cs",
     "source-overlay/files/desktop/src/offline-main.cjs",
     "source-overlay/files/desktop/src/offline-session.cjs",

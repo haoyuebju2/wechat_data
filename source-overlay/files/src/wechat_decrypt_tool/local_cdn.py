@@ -19,28 +19,50 @@ from PIL import Image
 from .app_paths import get_data_dir
 from .offline_secrets import read_secret_json,write_secret_json
 from .chat_helpers import _decode_message_content,_extract_md5_from_packed_info
-from .media_helpers import _prefer_local_image_resource,_save_best_image_resource
+from .media_helpers import _prefer_local_image_resource,_save_best_image_resource,_try_find_decrypted_resource
 from .local_cdn_profile import discover,remember
 
 MAX_BYTES=25*1024*1024
 _DOWNLOAD=threading.Lock()
 _FAILED={}
+_SETTINGS_LOCK=threading.RLock()
+_CANCEL=threading.local()
 
 
 def settings():
     try:
-        value=json.loads((get_data_dir()/'local_cdn_settings.json').read_text(encoding='utf-8'))
+        with _SETTINGS_LOCK: value=read_secret_json(get_data_dir()/'local_cdn_settings.json')
         enabled=value.get('enabled') is True
-    except (OSError,ValueError,TypeError): enabled=False
-    return {'enabled':enabled,'trigger':'selected_image_preview','transport':'native_http','worker_ready':worker_ready()}
+    except Exception: value={};enabled=False
+    return {'enabled':enabled,'auto_mode':value.get('auto_mode','off') if value.get('auto_mode') in {'off','all','selected'} else 'off',
+            'conversations':value.get('conversations',{}) if isinstance(value.get('conversations'),dict) else {},
+            'auto_since':value.get('auto_since',0),'trigger':'preview_and_configured_new_messages',
+            'transport':'native_http','worker_ready':worker_ready()}
 
 
-def save_settings(enabled):
-    path=get_data_dir()/'local_cdn_settings.json'
-    temporary=path.with_suffix('.tmp')
-    temporary.write_text(json.dumps({'enabled':bool(enabled)}),encoding='utf-8')
-    os.replace(temporary,path)
+def save_settings(enabled,auto_mode=None,conversations=None):
+    with _SETTINGS_LOCK:
+        previous=settings()
+        mode=previous['auto_mode'] if auto_mode is None else auto_mode
+        selected=previous['conversations'] if conversations is None else conversations
+        if mode not in {'off','all','selected'} or not isinstance(selected,dict) or len(selected)>32:
+            raise ValueError('invalid_original_scope')
+        if any(not re.fullmatch(r'[\w@.-]{1,160}',account) or account in {'.','..'} or not isinstance(names,list)
+               or len(names)>10000 or any(not isinstance(name,str) or not 1<=len(name)<=256 for name in names)
+               for account,names in selected.items()): raise ValueError('invalid_original_scope')
+        active=bool(enabled) and mode!='off'
+        was_active=previous['enabled'] and previous['auto_mode']!='off'
+        since=int(time.time()) if active and not was_active else previous['auto_since']
+        write_secret_json(get_data_dir()/'local_cdn_settings.json',{'enabled':bool(enabled),'auto_mode':mode,
+                          'conversations':{account:sorted(set(names)) for account,names in selected.items()},'auto_since':since})
+    from .offline_originals import AUTO_ORIGINALS
+    AUTO_ORIGINALS.configuration_changed()
     return settings()
+
+
+def _check_cancelled():
+    allowed=getattr(_CANCEL,'allowed',None)
+    if allowed is not None and not allowed(): raise ValueError('disabled')
 
 
 def worker_ready():
@@ -103,6 +125,7 @@ def unpack(data):
 
 
 def _exchange(profile,address,fields,deadline):
+    _check_cancelled()
     if not worker_ready() or not settings()['enabled']: raise ValueError('worker_unavailable')
     directory=Path(os.environ['WECHAT_LOCAL_CDN_IPC']).resolve(strict=True)
     nonce=secrets.token_hex(16); request=directory/(nonce+'.request.dpapi.json'); response=directory/(nonce+'.response.dpapi.json')
@@ -112,6 +135,7 @@ def _exchange(profile,address,fields,deadline):
     try:
         write_secret_json(request,job)
         while time.monotonic()<deadline:
+            _check_cancelled()
             if response.is_file():
                 result=read_secret_json(response)
                 if result.get('ok') is not True: raise ValueError('cdn_transport_unavailable')
@@ -126,6 +150,7 @@ def _exchange(profile,address,fields,deadline):
 def _download(meta,profile,address,deadline):
     encrypted=bytearray();total=None
     for sequence in range(1,402):
+        _check_cancelled()
         if time.monotonic()>=deadline: raise TimeoutError('download_timeout')
         start=len(encrypted)
         fields={'ver':profile['version'],'weixinnum':profile['uin'],'seq':sequence,'clientversion':profile['clientversion'],
@@ -152,13 +177,26 @@ def _download(meta,profile,address,deadline):
     return plain
 
 
-def original(account_dir,server_id,username,resource_md5=''):
+def original(account_dir,server_id,username,resource_md5='',*,allowed=None):
     if not settings()['enabled']: return {'ok':False,'status':'disabled','message':'自动获取原图已关闭'}
     if not worker_ready(): return {'ok':False,'status':'unavailable','message':'原图下载组件未启动，请重新启动程序'}
     key=(str(account_dir),int(server_id),username)
     if time.monotonic()-_FAILED.get(key,-1000)<30: return {'ok':False,'status':'unavailable','message':'原图暂不可用，正在显示本地图片'}
-    if not _DOWNLOAD.acquire(blocking=False): return {'ok':False,'status':'busy','message':'正在获取另一张原图…'}
+    if not _DOWNLOAD.acquire(blocking=False):
+        # An automatic job may already have cached this picture while another
+        # image is downloading. Do not hold its preview behind the whole queue.
+        try:
+            meta=descriptor(account_dir,int(server_id),username)
+            if resource_md5 and resource_md5.lower() not in meta['aliases']:raise ValueError('resource_mismatch')
+            digest=resource_md5.lower() if resource_md5 else meta['md5']
+            cached=_try_find_decrypted_resource(account_dir,digest)
+            if cached and hashlib.md5(cached.read_bytes()).hexdigest()==meta['md5']:
+                return {'ok':True,'status':'local','message':''}
+        except Exception:pass
+        return {'ok':False,'status':'busy','message':'正在下载原图，请稍候…'}
+    _CANCEL.allowed=allowed
     try:
+        _check_cancelled()
         meta=descriptor(account_dir,int(server_id),username)
         if resource_md5 and resource_md5.lower() not in meta['aliases']: raise ValueError('resource_mismatch')
         md5=resource_md5.lower() if re.fullmatch(r'[0-9a-fA-F]{32}',resource_md5 or '') else meta['md5']
@@ -177,12 +215,17 @@ def original(account_dir,server_id,username,resource_md5=''):
                         remember(account_dir,[profile])
                         return {'ok':True,'status':'downloaded','message':'已获取原图'}
                     except (ValueError,OSError,TimeoutError) as error:
+                        _check_cancelled()
                         refresh=refresh or str(error)=='cdn_rejected'
                         if time.monotonic()>=deadline: break
                 if time.monotonic()>=deadline: break
         raise ValueError('original_unavailable')
     except Exception:
+        if allowed is not None and not allowed():
+            return {'ok':False,'status':'cancelled','message':'已停止自动获取原图'}
         _FAILED[key]=time.monotonic()
         if len(_FAILED)>256: _FAILED.clear()
         return {'ok':False,'status':'unavailable','message':'原图暂不可用：请确认微信已登录，图片未过期；继续显示本地图片'}
-    finally: _DOWNLOAD.release()
+    finally:
+        _CANCEL.allowed=None
+        _DOWNLOAD.release()

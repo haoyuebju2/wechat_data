@@ -97,3 +97,15 @@ def test_original_with_appended_metadata_reaches_real_cache_and_is_reused(fixtur
     before=len(calls)
     assert cdn.original(account,42,username,digest)['status']=='local'
     assert len(calls)==before
+
+
+def test_cached_image_is_available_while_background_download_lock_is_held(fixture,monkeypatch):
+    account,username,digest,plain,cache,save,calls=fixture
+    cache.write_bytes(plain)
+    monkeypatch.setattr(cdn,'_try_find_decrypted_resource',lambda *_:cache)
+    cdn._DOWNLOAD.acquire()
+    try:
+        assert cdn.original(account,42,username,digest)['status']=='local'
+        assert not cdn.original(account,42,username,'f'*32)['ok']
+        assert not calls
+    finally:cdn._DOWNLOAD.release()
