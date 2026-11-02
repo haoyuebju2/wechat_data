@@ -20,7 +20,7 @@ def build(payload,compiler,out):
         listing.append(f'Source: "{file}"; DestDir: "{destination}"; Flags: ignoreversion; BeforeInstall: SetStage(\'{stage}\')')
     files=out/'package-files.iss';files.write_text('\n'.join(listing)+'\n',encoding='utf-8-sig')
     subprocess.run([str(compiler),'/DPayload='+str(payload),'/DFileList='+str(files),'/DOutput='+str(out),str(ROOT/'scripts/OfflineSetup.iss')],check=True)
-    exe=out/'WeChatDataMonitor-0.1.5-Windows-x64-Offline-Setup.exe'
+    exe=out/'WeChatDataMonitor-0.1.6-Windows-x64-Offline-Setup.exe'
     (out/'SHA256SUMS.txt').write_text(hashlib.sha256(exe.read_bytes()).hexdigest()+'  '+exe.name+'\n',encoding='ascii')
     print('Complete offline wizard ready:',exe,'bytes:',exe.stat().st_size,'files:',len(listing))
 if __name__=='__main__':

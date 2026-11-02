@@ -20,6 +20,8 @@ class LocalCdnWorker {
     static readonly HashSet<string> Keys=new HashSet<string>("ver weixinnum seq clientversion clientostype authkey nettype acceptdupack safeproto filetype wxchattype lastretcode ipseq largesvideo sourceflag wxautostart downpicformat rangestart rangeend wxmsgflag fileid".Split(' '));
     static readonly AutoResetEvent Wake=new AutoResetEvent(false);
     static readonly Dictionary<string,HashSet<string>> PinnedProfiles=new Dictionary<string,HashSet<string>>();
+    static readonly HashSet<string> PinnedAccounts=new HashSet<string>();
+    class ProfileNotPinnedException : Exception {}
     static IntPtr Job;
     [StructLayout(LayoutKind.Sequential)] struct Basic {public long A,B;public uint Flags;public UIntPtr Min,Max;public uint Processes;public UIntPtr Affinity;public uint Priority,Schedule;}
     [StructLayout(LayoutKind.Sequential)] struct IO {public ulong A,B,C,D,E,F;}
@@ -101,12 +103,29 @@ class LocalCdnWorker {
             try {
                 var record=Open(file);double age=DateTimeOffset.UtcNow.ToUnixTimeSeconds()-Convert.ToDouble(record["created"]);
                 if(age<0||age>=86400)continue;
+                ulong uin=Convert.ToUInt64(record["uin"]);if(uin==0||uin>UInt32.MaxValue)continue;
+                string account=uin.ToString(System.Globalization.CultureInfo.InvariantCulture);
+                if(initial&&PinnedAccounts.Count<32)PinnedAccounts.Add(account);
+                if(!PinnedAccounts.Contains(account))continue;
+                int profiles=0;
                 foreach(Dictionary<string,object> profile in (IEnumerable)record["profiles"]) {
-                    string identity=Convert.ToString(profile["uin"])+":"+(string)profile["auth_key"];
+                    if(++profiles>4)break;
+                    if(Convert.ToUInt64(profile["uin"])!=uin)continue;
+                    string auth=Convert.ToString(profile["auth_key"]);
+                    if(!Regex.IsMatch(auth,"\\A[0-9a-f]{32,8192}\\z")||auth.Length%2!=0)continue;
+                    string identity=account+":"+auth;
+                    var addresses=new List<string>();bool valid=true;
                     foreach(string address in (IEnumerable)profile["addresses"]) {
-                        if(!PublicIPv4(address))continue;
-                        if(!PinnedProfiles.ContainsKey(address)){if(!initial)continue;PinnedProfiles[address]=new HashSet<string>();}
-                        if(initial||PinnedProfiles[address].Count<16)PinnedProfiles[address].Add(identity);
+                        if(addresses.Count>=16||!PublicIPv4(address)){valid=false;break;}
+                        addresses.Add(address);
+                    }
+                    if(!valid)continue;
+                    foreach(string address in addresses) {
+                        // Refresh from the fixed user-DPAPI account cache, never
+                        // from a request's address list. Only accounts registered
+                        // at startup can refresh their independently cached pins.
+                        if(!PinnedProfiles.ContainsKey(address)){if(PinnedProfiles.Count>=256)continue;PinnedProfiles[address]=new HashSet<string>();}
+                        if(PinnedProfiles[address].Count<16)PinnedProfiles[address].Add(identity);
                     }
                 }
             }catch{}
@@ -115,8 +134,8 @@ class LocalCdnWorker {
     static void AdmitProfile(string address,Dictionary<string,byte[]> fields) {
         if(PinnedProfiles.Count==0)LoadPins(true);
         string identity=Encoding.ASCII.GetString(fields["weixinnum"])+":"+BitConverter.ToString(fields["authkey"]).Replace("-","").ToLowerInvariant();
-        if(PinnedProfiles.ContainsKey(address)&&!PinnedProfiles[address].Contains(identity))LoadPins(false);
-        if(!PinnedProfiles.ContainsKey(address)||!PinnedProfiles[address].Contains(identity))throw new InvalidDataException();
+        if(!PinnedProfiles.ContainsKey(address)||!PinnedProfiles[address].Contains(identity))LoadPins(false);
+        if(!PinnedProfiles.ContainsKey(address)||!PinnedProfiles[address].Contains(identity))throw new ProfileNotPinnedException();
     }
     static byte[] Download(string address,byte[] body,int sequence) {
         var clock=Stopwatch.StartNew();
@@ -167,7 +186,9 @@ class LocalCdnWorker {
             byte[] bytes=Download(address,body,sequence);
             result["ok"]=true;result["response_b64"]=Convert.ToBase64String(bytes);
             Array.Clear(body,0,body.Length);Array.Clear(bytes,0,bytes.Length);
-        }catch{result=new Dictionary<string,object>{{"ok",false}};}
+        }catch(ProfileNotPinnedException){result=new Dictionary<string,object>{{"ok",false},{"error_code","profile_not_pinned"}};}
+        catch(WebException){result=new Dictionary<string,object>{{"ok",false},{"error_code","transport_unavailable"}};}
+        catch{result=new Dictionary<string,object>{{"ok",false},{"error_code","request_rejected"}};}
         try{if(File.Exists(file)){Seal(response,result);if(!File.Exists(file))File.Delete(response);}}catch{}
     }
     static int Main(string[] args) {

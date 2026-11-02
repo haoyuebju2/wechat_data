@@ -149,7 +149,9 @@ def _exchange(profile,address,fields,deadline):
             _check_cancelled()
             if response.is_file():
                 result=read_secret_json(response)
-                if result.get('ok') is not True: raise ValueError('cdn_transport_unavailable')
+                if result.get('ok') is not True:
+                    if result.get('error_code') == 'profile_not_pinned': raise ValueError('worker_profile_refresh_required')
+                    raise ValueError('cdn_transport_unavailable')
                 return unpack(base64.b64decode(result['response_b64'],validate=True))
             if not settings()['enabled']: raise ValueError('disabled')
             time.sleep(.04)
@@ -263,7 +265,6 @@ def original(account_dir,server_id,username,resource_md5='',*,allowed=None):
     if not settings()['enabled']: return {'ok':False,'status':'disabled','message':'自动获取原图已关闭'}
     if not worker_ready(): return {'ok':False,'status':'unavailable','message':'原图下载组件未启动，请重新启动程序'}
     key=(str(account_dir),int(server_id),username)
-    if time.monotonic()-_FAILED.get(key,-1000)<30: return {'ok':False,'status':'unavailable','message':'原图暂不可用，正在显示本地图片'}
     if not _DOWNLOAD.acquire(blocking=False):
         # An automatic job may already have cached this picture while another
         # image is downloading. Do not hold its preview behind the whole queue.
@@ -284,7 +285,12 @@ def original(account_dir,server_id,username,resource_md5='',*,allowed=None):
         md5=resource_md5.lower() if re.fullmatch(r'[0-9a-fA-F]{32}',resource_md5 or '') else meta['md5']
         local=_prefer_local_image_resource(account_dir,md5,username=username)
         result=_cached_result(account_dir,md5,local,meta)
-        if result:return result
+        if result:
+            _FAILED.pop(key,None)
+            return result
+        failed=_FAILED.get(key)
+        if failed and time.monotonic()-failed[0]<30:
+            return dict(failed[1],retry_after=max(1,int(30-(time.monotonic()-failed[0]))))
         thumbnail=local.read_bytes() if local and local.stat().st_size<=MAX_BYTES else None
         deadline=time.monotonic()+75
         refresh=False;last_error=None
@@ -305,25 +311,44 @@ def original(account_dir,server_id,username,resource_md5='',*,allowed=None):
                         saved=_save_best_image_resource(account_dir,md5,plain)
                         _save_proof(account_dir,md5,meta,plain,info,saved,source)
                         remember(account_dir,[profile])
+                        _FAILED.pop(key,None)
                         return _success('downloaded',info)
                     except (ValueError,OSError,TimeoutError) as error:
                         _check_cancelled()
                         last_error=error
-                        refresh=refresh or isinstance(error,CdnRejected) and error.code!=-5103017
+                        refresh=(refresh or isinstance(error,CdnRejected) and error.code!=-5103017
+                                 or str(error) in {'cdn_transport_unavailable','worker_profile_refresh_required'})
                         if time.monotonic()>=deadline: break
                 if time.monotonic()>=deadline: break
         raise last_error or ValueError('original_unavailable')
     except Exception as error:
         if allowed is not None and not allowed():
             return {'ok':False,'status':'cancelled','message':'已停止自动获取原图'}
-        _FAILED[key]=time.monotonic()
-        if len(_FAILED)>256: _FAILED.clear()
         if isinstance(error,CdnRejected) and error.code==-5103017:
             message='微信节点暂未提供这张图的可用版本，继续显示本地图片'
+            reason='node_resource_unavailable'
         elif str(error) in {'image_integrity','source_integrity','conversion_comparison','format_integrity'}:
             message='清晰图片校验未通过，继续显示本地图片'
-        else:message='图片获取未完成，继续显示本地图片；可稍后重试'
-        return {'ok':False,'status':'unavailable','message':message}
+            reason='integrity_failed'
+        elif str(error)=='worker_profile_refresh_required':
+            message='微信下载会话尚未载入，请重新打开本工具后重试'
+            reason='session_not_loaded'
+        elif str(error)=='cdn_transport_unavailable':
+            message='暂时无法连接微信下载节点，继续显示本地图片；可稍后重试'
+            reason='transport_unavailable'
+        elif str(error)=='cdn_bootstrap_unavailable':
+            message='未取得当前微信下载会话，请确认微信已登录后重试'
+            reason='session_unavailable'
+        elif str(error) in {'missing_download_metadata','message_not_found','invalid_message'}:
+            message='这条消息缺少可验证的下载信息，继续显示本地图片'
+            reason='message_metadata_missing'
+        else:
+            message='图片获取未完成，继续显示本地图片；可稍后重试'
+            reason='unavailable'
+        failure={'ok':False,'status':'unavailable','message':message,'reason':reason}
+        if len(_FAILED)>256: _FAILED.clear()
+        _FAILED[key]=(time.monotonic(),failure)
+        return failure
     finally:
         _CANCEL.allowed=None
         _DOWNLOAD.release()

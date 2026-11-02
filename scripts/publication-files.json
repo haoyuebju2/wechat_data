@@ -92,6 +92,8 @@
     "source-overlay/files/desktop/tests/offline-position.test.cjs",
     "docs/RELEASE_0.1.4.md",
     "docs/RELEASE_0.1.5.md",
-    "source-overlay/files/tests_offline/test_local_key_acquisition.py"
+    "source-overlay/files/tests_offline/test_local_key_acquisition.py",
+    "docs/RELEASE_0.1.6.md",
+    "source-overlay/files/desktop/tests/CdnPinRefreshTests.cs"
   ]
 }

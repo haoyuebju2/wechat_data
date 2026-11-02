@@ -6,7 +6,7 @@
 
 ## 安装与启动
 
-普通用户从 [v0.1.5 Release](https://github.com/haoyuebju2/wechat_data/releases/tag/v0.1.5) 下载 `WeChatDataMonitor-0.1.5-Windows-x64-Offline-Setup.exe`，核对 SHA-256 后运行。这是完整离线安装包，已经包含桌面程序、Python、依赖和界面，安装时不下载或编译组件。标准向导显示当前组件、百分比进度、详情和完成页；安装后直接使用快捷方式或 `WeChatDataMonitor.exe`，并提供卸载入口。首次配置本程序的防火墙规则需要管理员确认。未签名，使用新空目录安装；用户数据与程序分开保存。[更新内容与限制](docs/RELEASE_0.1.5.md)。旧 v0.1.0 联网安装器不再推荐。
+普通用户从 [v0.1.6 Release](https://github.com/haoyuebju2/wechat_data/releases/tag/v0.1.6) 下载 `WeChatDataMonitor-0.1.6-Windows-x64-Offline-Setup.exe`，核对 SHA-256 后运行。这是完整离线安装包，已经包含桌面程序、Python、依赖和界面，安装时不下载或编译组件。标准向导显示当前组件、百分比进度、详情和完成页；安装后直接使用快捷方式或 `WeChatDataMonitor.exe`，并提供卸载入口。首次配置本程序的防火墙规则需要管理员确认。未签名，使用新空目录安装；用户数据与程序分开保存。[更新内容与限制](docs/RELEASE_0.1.6.md)。旧 v0.1.0 联网安装器不再推荐。
 
 新用户先登录自己的 Windows 微信，检测并选择自己的账号，核对 `db_storage` 路径，再点“一键获取数据库密钥”→“开始只读获取”→“开始解密”。v0.1.5 已在微信 4.1.15.13 上用空密钥目录完成首次获取和解密验证；其他微信版本仍需实测。不需要开发者的密钥，安装包也不包含这些资料。
 

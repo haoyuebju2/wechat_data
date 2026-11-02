@@ -111,6 +111,42 @@ def test_cached_image_is_available_while_background_download_lock_is_held(fixtur
     finally:cdn._DOWNLOAD.release()
 
 
+def test_transport_failure_refreshes_verified_session_once(fixture,monkeypatch):
+    account,username,digest,plain,cache,save,calls=fixture
+    original=cdn._exchange;attempts=[];refreshes=[]
+    profile=cdn.discover(account)[0]
+    monkeypatch.setattr(cdn,'discover',lambda *_a,**kw:refreshes.append(kw.get('force',False)) or [profile])
+    def exchange(*args):
+        attempts.append(True)
+        if len(attempts)==1:raise ValueError('cdn_transport_unavailable')
+        return original(*args)
+    monkeypatch.setattr(cdn,'_exchange',exchange)
+    assert cdn.original(account,42,username,digest)['ok']
+    assert refreshes==[False,True] and len(attempts)==2
+
+
+def test_verified_cache_wins_over_recent_failure(fixture,monkeypatch):
+    account,username,digest,plain,cache,save,calls=fixture
+    monkeypatch.setattr(cdn,'_exchange',lambda *_:(_ for _ in ()).throw(ValueError('cdn_transport_unavailable')))
+    first=cdn.original(account,42,username,digest)
+    assert first['reason']=='transport_unavailable'
+    cache.write_bytes(plain)
+    monkeypatch.setattr(cdn,'_prefer_local_image_resource',lambda *_a,**_kw:cache)
+    monkeypatch.setattr(cdn,'_exchange',lambda *_:pytest.fail('Verified cache must not retry the network'))
+    assert cdn.original(account,42,username,digest)['status']=='local'
+    assert (str(account),42,username) not in cdn._FAILED
+
+
+def test_failure_cooldown_retains_safe_reason_and_does_not_retry(fixture,monkeypatch):
+    account,username,digest,plain,cache,save,calls=fixture
+    exchange=Mock(side_effect=ValueError('cdn_transport_unavailable'))
+    monkeypatch.setattr(cdn,'_exchange',exchange)
+    first=cdn.original(account,42,username,digest);attempts=exchange.call_count
+    second=cdn.original(account,42,username,digest)
+    assert second['message']==first['message'] and second['reason']=='transport_unavailable'
+    assert 1<=second['retry_after']<=30 and exchange.call_count==attempts
+
+
 def converted_fixture(fixture,monkeypatch,*,bad_source=False,bad_thumbnail=False,bad_flags=False):
     account,username,_,_,_,_,calls=fixture
     from wechat_decrypt_tool import media_helpers as media

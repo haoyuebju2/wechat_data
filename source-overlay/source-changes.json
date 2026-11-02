@@ -1251,11 +1251,11 @@
     },
     {
       "path": "desktop/src/LocalCdnWorker.cs",
-      "sha256": "b32a01bcf864d5ba6e97091a438e5e46684a015732564afdcf400e59e18ccb37"
+      "sha256": "5584a43b280dce5fb9b6f05ae969806bd4c3617100d4f6d1a84a6a22f0e04e31"
     },
     {
       "path": "desktop/src/offline-main.cjs",
-      "sha256": "83b5a47dd4c4d7cb819ced0a5d5c59982e86dbe8ccaddbe306c29641f179e39c"
+      "sha256": "feae06de4b5ac90d84f82e36353d6d8717e7a85014f23c39cb679fc42d7c7765"
     },
     {
       "path": "desktop/src/offline-position.cjs",
@@ -1264,6 +1264,10 @@
     {
       "path": "desktop/src/offline-session.cjs",
       "sha256": "b3c71ed77ea99b6bd2e6b890f72f72a7aaa4fb86730c221680b1decb45bc983c"
+    },
+    {
+      "path": "desktop/tests/CdnPinRefreshTests.cs",
+      "sha256": "6cbff35fb48834d347f7fe4111b3dc946a44017de0cfaf05a0da49f6e4880f68"
     },
     {
       "path": "desktop/tests/live-chat-e2e.cjs",
@@ -1331,7 +1335,7 @@
     },
     {
       "path": "src/wechat_decrypt_tool/local_cdn.py",
-      "sha256": "36b71323f74648449d22d798997512804988080752a55aeaf0792fa766b8429a"
+      "sha256": "a66ab65777501d0217a294b7d7f8890759c6161ef716859fe3bef2a9d5d8743c"
     },
     {
       "path": "src/wechat_decrypt_tool/local_cdn_profile.py",
@@ -1399,7 +1403,7 @@
     },
     {
       "path": "tests_offline/test_local_cdn.py",
-      "sha256": "db08af54da03d7686350c11f333d0d4823c565fcbbfc8c50d7d065ef60b959e5"
+      "sha256": "a33b4ea9fd40c56f9f347be30433ab4694777c8354663cfed380ea86b889aefe"
     },
     {
       "path": "tests_offline/test_local_key_acquisition.py",

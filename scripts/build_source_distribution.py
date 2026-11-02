@@ -17,7 +17,7 @@ NEW_FILES = {
     "desktop/src/offline-main.cjs", "desktop/src/offline-session.cjs", "desktop/src/offline-position.cjs",
     "desktop/src/LocalCdnWorker.cs", "desktop/src/LICENSE-local-cdn.txt",
     "desktop/tests/live-chat-e2e.cjs", "desktop/tests/live-chat-fixture.py",
-    "desktop/tests/offline-renderer-smoke.cjs", "desktop/tests/offline-session.test.cjs", "desktop/tests/offline-position.test.cjs",
+    "desktop/tests/offline-renderer-smoke.cjs", "desktop/tests/offline-session.test.cjs", "desktop/tests/offline-position.test.cjs", "desktop/tests/CdnPinRefreshTests.cs",
     "frontend/components/OfflineAiPanel.vue", "frontend/components/chat/OfflineSnapshotBar.vue",
     "frontend/components/OriginalDownloadHistory.vue", "frontend/tests/offline-original-history.test.js",
     "frontend/tests/offline-ai.test.js", "frontend/tests/offline-snapshot.test.js",
