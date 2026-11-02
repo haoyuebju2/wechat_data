@@ -878,8 +878,23 @@
     {
       "path": "src/wechat_decrypt_tool/media_helpers.py",
       "base_sha256": "fc1af978d4cdd4477277e019849f036b876dc5f53c0f3cfbbdbb52d19aadfdb0",
-      "target_sha256": "4379e30a8d3023e3b8679751b29e5bfe278aa2c140538d9df36beb0903071217",
+      "target_sha256": "67eba9596544f601174d74e3e2c89a0529dfcde5657fd134339a82925f007ff5",
       "edits": [
+        {
+          "start": 14479,
+          "end": 14479,
+          "insert_base64": "ZGVmIF9qcGVnX2hhc192YWxpZF90cmFpbGluZ19kYXRhKGRhdGE6IGJ5dGVzKSAtPiBib29sOgogICAgIiIiQWNjZXB0IGNvbXBsZXRlIEpQRUdzIHdpdGggYXBwZW5kZWQgbWV0YWRhdGEsIHdpdGhvdXQgYWx0ZXJpbmcgdGhlaXIgZGlnZXN0LgoKICAgIE1vc3QgaW1hZ2VzIHVzZSB0aGUgY2hlYXAgdHJhaWxlciBjaGVjayBiZWxvdy4gQW4gdW51c3VhbCBKUEVHIG11c3QgYWxzbwogICAgZnVsbHkgZGVjb2RlIHdpdGhpbiBib3VuZGVkIGlucHV0L3BpeGVsIGxpbWl0cyBiZWZvcmUgZW50ZXJpbmcgdGhlIGNhY2hlLgogICAgIiIiCiAgICBpZiBsZW4oZGF0YSkgPiAyNSAqIDEwMjQgKiAxMDI0OgogICAgICAgIHJldHVybiBGYWxzZQogICAgZW5kID0gZGF0YS5yZmluZChiIlx4ZmZceGQ5IikKICAgIGlmIGVuZCA8IDIgb3Igbm90IDAgPCBsZW4oZGF0YSkgLSBlbmQgLSAyIDw9IDEwMjQgKiAxMDI0OgogICAgICAgIHJldHVybiBGYWxzZQogICAgdHJ5OgogICAgICAgIGZyb20gUElMIGltcG9ydCBJbWFnZSwgSW1hZ2VGaWxlCgogICAgICAgIGlmIEltYWdlRmlsZS5MT0FEX1RSVU5DQVRFRF9JTUFHRVM6CiAgICAgICAgICAgIHJldHVybiBGYWxzZQogICAgICAgIHdpdGggSW1hZ2Uub3Blbihpby5CeXRlc0lPKGRhdGFbOmVuZCArIDJdKSkgYXMgaW1hZ2U6CiAgICAgICAgICAgIGlmIGltYWdlLmZvcm1hdCAhPSAiSlBFRyIgb3Igbm90IDAgPCBpbWFnZS53aWR0aCAqIGltYWdlLmhlaWdodCA8PSA2MF8wMDBfMDAwOgogICAgICAgICAgICAgICAgcmV0dXJuIEZhbHNlCiAgICAgICAgICAgIGltYWdlLmxvYWQoKQogICAgICAgIHJldHVybiBUcnVlCiAgICBleGNlcHQgRXhjZXB0aW9uOgogICAgICAgIHJldHVybiBGYWxzZQoKCg=="
+        },
+        {
+          "start": 14547,
+          "end": 14711,
+          "insert_base64": "ICAgICIiIkZhc3QgdHJhaWxlciBjaGVja3MsIHdpdGggYm91bmRlZCBkZWNvZGluZyBmb3IgSlBFRyB0cmFpbGluZyBtZXRhZGF0YS4iIiIK"
+        },
+        {
+          "start": 15276,
+          "end": 15326,
+          "insert_base64": "ICAgICAgICByZXR1cm4gKGkgPj0gMCBhbmQgaSA+PSBsZW4odGFpbCkgLSA2NCAtIDIpIG9yIF9qcGVnX2hhc192YWxpZF90cmFpbGluZ19kYXRhKGRhdGEpCg=="
+        },
         {
           "start": 56261,
           "end": 56324,
@@ -1221,7 +1236,7 @@
     },
     {
       "path": "tests_offline/test_local_cdn.py",
-      "sha256": "508f4a2e20a9139a6e1cded7681604e4fb53ab956ad48a6e4f3dd79562d8b381"
+      "sha256": "d1a436701a2693e65ada3004c0ca26a10f9213175b55cf8c374f7b864e97252b"
     },
     {
       "path": "tests_offline/test_offline_ai.py",
@@ -1229,7 +1244,7 @@
     },
     {
       "path": "tests_offline/test_offline_images.py",
-      "sha256": "059492f8a5684e7458aa16fa39c37455e0e74c8ebddf39ae6188d8ae75da55da"
+      "sha256": "5a325776ee7d51dfd041d8a9d922b220c9a9db0b8a801e138bf68a4abeca2930"
     },
     {
       "path": "tests_offline/test_offline_incremental.py",

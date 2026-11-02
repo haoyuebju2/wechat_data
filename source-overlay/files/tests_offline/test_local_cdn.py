@@ -15,9 +15,10 @@ from wechat_decrypt_tool import local_cdn as cdn
 
 
 @pytest.fixture
-def fixture(tmp_path,monkeypatch):
+def fixture(tmp_path,monkeypatch,request):
     account=tmp_path/'synthetic';account.mkdir()
-    image=io.BytesIO();Image.new('RGB',(686,343),'blue').save(image,'PNG');plain=image.getvalue()
+    image=io.BytesIO();Image.new('RGB',(686,343),'blue').save(image,'JPEG' if getattr(request,'param',None)=='jpeg_metadata' else 'PNG');plain=image.getvalue()
+    if getattr(request,'param',None)=='jpeg_metadata':plain+=b'synthetic appended metadata\n'*357
     digest=hashlib.md5(plain).hexdigest();key=b'0123456789abcdef';username='synthetic_friend'
     table='Msg_'+hashlib.md5(username.encode()).hexdigest()
     with sqlite3.connect(account/'message_0.db') as conn:
@@ -79,3 +80,20 @@ def test_other_message_resource_cannot_be_overwritten(fixture):
     account,username,digest,plain,cache,save,calls=fixture
     assert cdn.original(account,42,username,'f'*32)['ok'] is False
     assert not calls and not save.called
+
+
+@pytest.mark.parametrize('fixture',['jpeg_metadata'],indirect=True)
+def test_original_with_appended_metadata_reaches_real_cache_and_is_reused(fixture,monkeypatch):
+    account,username,digest,plain,cache,save,calls=fixture
+    from wechat_decrypt_tool import media_helpers as media
+    monkeypatch.setattr(cdn,'_save_best_image_resource',media._save_best_image_resource)
+    assert cdn.original(account,42,username,digest)['status']=='downloaded'
+    cached=media._try_find_decrypted_resource(account,digest)
+    assert cached and cached.read_bytes()==plain
+    with Image.open(cached) as image:
+        image.load()
+        assert image.size==(686,343)
+    monkeypatch.setattr(cdn,'_prefer_local_image_resource',lambda *_a,**_k:cached)
+    before=len(calls)
+    assert cdn.original(account,42,username,digest)['status']=='local'
+    assert len(calls)==before
