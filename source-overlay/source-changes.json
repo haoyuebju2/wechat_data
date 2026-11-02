@@ -1127,7 +1127,7 @@
     },
     {
       "path": "desktop/src/offline-main.cjs",
-      "sha256": "ab5891a4eec2d04be5da2040528264d61b0415d53c96b6d7bdeb37dbf76b6674"
+      "sha256": "571a99b9046dd9273fe94f6b65b4bf40614924251b2a84cafef1939341d766c8"
     },
     {
       "path": "desktop/src/offline-session.cjs",

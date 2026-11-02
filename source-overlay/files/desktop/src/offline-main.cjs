@@ -1,6 +1,6 @@
 "use strict";
 // Private offline desktop entry. It deliberately never imports upstream main.cjs.
-const {app, BrowserWindow, ipcMain, dialog, session} = require("electron");
+const {app, BrowserWindow, Menu, ipcMain, dialog, session} = require("electron");
 const {spawn} = require("node:child_process");
 const crypto = require("node:crypto");
 const fs = require("node:fs");
@@ -167,6 +167,7 @@ async function health() {
 }
 
 app.whenReady().then(async () => {
+  Menu.setApplicationMenu(null);
   if (process.env.WECHAT_OFFLINE_OS_POLICY !== "checked") throw new Error("Start using Start-Upstream-Offline.cmd after configuring OS isolation");
   if(!fs.existsSync(python) || !fs.existsSync(path.join(repo,"frontend/.output/public/index.html"))) throw new Error("Offline runtime or built UI missing");
   const privateSession = session.fromPartition("offline-private", {cache:false});
