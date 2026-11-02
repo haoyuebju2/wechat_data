@@ -9,6 +9,7 @@ $python = Join-Path $projectRoot '.runtime\python.exe'
 & $python -I -B (Join-Path $projectRoot 'scripts\prepare_sources.py')
 if ($LASTEXITCODE -ne 0) { throw 'Pinned source preparation failed.' }
 if ($SourcesOnly) { return }
+& (Join-Path $projectRoot 'scripts/Build-LocalCdnWorker.ps1')
 $venvPython = Join-Path $projectRoot '.upstream-runtime\Scripts\python.exe'
 if (-not (Test-Path -LiteralPath $venvPython)) {
     & $python -I -m venv (Join-Path $projectRoot '.upstream-runtime')

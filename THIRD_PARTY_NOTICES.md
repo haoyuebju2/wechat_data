@@ -11,5 +11,6 @@
 - CPython 随附 Tcl/Tk、SQLite、Zstandard、OpenSSL、Microsoft 运行库；Electron/Chromium 与 Python/npm 依赖各自受其许可证约束，保留随附 notices。
 - Python 依赖精确版本见 upstream_local/offline-requirements.lock，前端/桌面见各 package-lock.json。安装阶段使用过 PyPI/Electron 镜像，下载工具不在运行链路；未宣称完成全部第三方依赖源码审计。
 - Windows CNG、DPAPI、文件/进程接口来自本机系统。
+- 原图直连的 TLV/分片协议实现参考 thisnick/agent-wechat 的 wechat-protocol/src/media.rs，固定提交 bf0400a3b3cde46727e38952752642f718d7ea63，MIT 许可及版权声明保存在 desktop/src/LICENSE-local-cdn.txt。不使用其完整客户端、SILK 或现成二进制。下载组件由本机 Microsoft .NET 编译器从本仓库 C# 源码构建。
 
 以后若分发，应先解决上游授权和实际依赖的许可证及通知义务；本文件不对上游组件再许可。

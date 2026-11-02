@@ -16,7 +16,23 @@ const port = 10392;
 const origin = `http://127.0.0.1:${port}`;
 const output = path.join(repo, "output");
 const token = crypto.randomBytes(32).toString("hex");
-let backend, window;
+let backend, window, originalWorker;
+const originalCapability = crypto.randomBytes(32).toString('hex');
+const originalIpc = path.join(output, 'local-cdn-ipc', crypto.randomUUID());
+
+function startOriginalWorker() {
+  const directory = localPath(path.join(repo, 'desktop/cdn-worker'));
+  const executable = localPath(path.join(directory, 'LocalCdnWorker.exe'));
+  const source = localPath(path.join(__dirname, 'LocalCdnWorker.cs'));
+  const artifact = JSON.parse(fs.readFileSync(path.join(directory, 'artifact.json'), 'utf8'));
+  const digest = file => crypto.createHash('sha256').update(fs.readFileSync(file)).digest('hex');
+  if (artifact.format !== 'local-cdn-worker/1' || artifact.source_sha256 !== digest(source) || artifact.binary_sha256 !== digest(executable)) throw new Error('Original worker integrity mismatch');
+  fs.mkdirSync(localPath(originalIpc), {recursive:true});
+  originalWorker = spawn(executable, [originalIpc], {windowsHide:true, stdio:['pipe','ignore','ignore']});
+  originalWorker.on('error', () => {});
+  originalWorker.stdin.on('error', () => {});
+  originalWorker.stdin.end(originalCapability + '\n');
+}
 const batches = new Map();
 app.commandLine.appendSwitch("disable-background-networking");
 app.commandLine.appendSwitch("disable-component-update");
@@ -157,14 +173,16 @@ app.whenReady().then(async () => {
   await privateSession.setProxy({mode:"direct"});
   secureSession(privateSession, origin, token);
   fs.mkdirSync(output,{recursive:true});
+  startOriginalWorker();
   backend = spawn(python, ["-I", "-B", path.join(repo,"offline_backend.py")], {
     cwd:repo, windowsHide:true, stdio:"ignore",
     env:{...process.env, WECHAT_TOOL_OFFLINE_TOKEN:token, WECHAT_TOOL_PORT:String(port), WECHAT_TOOL_HOST:"127.0.0.1",
-         WECHAT_TOOL_DATA_DIR:repo, WECHAT_TOOL_OUTPUT_DIR:output, HF_HUB_OFFLINE:"1", TRANSFORMERS_OFFLINE:"1"}
+         WECHAT_TOOL_DATA_DIR:repo, WECHAT_TOOL_OUTPUT_DIR:output, HF_HUB_OFFLINE:"1", TRANSFORMERS_OFFLINE:"1",
+         WECHAT_LOCAL_CDN_CAPABILITY:originalCapability, WECHAT_LOCAL_CDN_IPC:originalIpc}
   });
   backend.on("error", () => app.exit(1));
   await health();
-  window = new BrowserWindow({width:1280,height:860,minWidth:960,minHeight:640,title:"微信数据分析 · 本机离线版",
+  window = new BrowserWindow({width:1280,height:860,minWidth:960,minHeight:640,title:"微信数据分析 · 本机版",
     webPreferences:{session:privateSession,preload:path.join(__dirname,"preload.cjs"),contextIsolation:true,nodeIntegration:false,sandbox:true,webSecurity:true,webviewTag:false}});
   window.webContents.setWindowOpenHandler(() => ({action:"deny"}));
   window.webContents.on("will-navigate", (event,url) => {if(!allowedUrl(url,origin)) event.preventDefault();});
@@ -178,4 +196,7 @@ app.whenReady().then(async () => {
   app.quit();
 });
 app.on("window-all-closed", () => app.quit());
-app.on("before-quit", () => { if(backend && backend.exitCode===null) backend.kill(); });
+app.on("before-quit", () => {
+  if(backend && backend.exitCode===null) backend.kill();
+  if(originalWorker && originalWorker.exitCode===null) originalWorker.kill();
+});

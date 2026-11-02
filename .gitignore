@@ -39,6 +39,7 @@ upstream_local/offline-profile/
 !/scripts/upstream-source-manifest.json
 !/scripts/offline-runtime-manifest.json
 !/scripts/Prepare-Runtime.ps1
+!/scripts/Build-LocalCdnWorker.ps1
 !/scripts/runtime_check.py
 !/scripts/configure_source_path.py
 !/scripts/Start-Upstream-Offline.ps1

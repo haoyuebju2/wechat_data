@@ -2,6 +2,8 @@
 
 要求：Windows x64、PowerShell、可用的 Node.js/npm。安装阶段需要访问 Python、npm、PyPI 和 GitHub 的公开源；正常运行不会调用安装下载脚本。
 
+原图下载组件使用本机 Microsoft .NET Framework 4.x C# 编译器构建，安装器与日常启动器会核对源文件和本机生成物摘要，源码变化时重新编译，不下载现成组件。新安装的原图按需下载默认关闭，可在“设置 → 聊天与媒体”开启；查看器与后端的断网规则保留，独立组件仅处理当前预览图片的直连请求。HTTP 请求元数据的传输限制见安全说明。
+
 1. 克隆此仓库，放在本机固定磁盘、非共享且非云同步目录。
 2. 运行 `powershell.exe -NoProfile -ExecutionPolicy Bypass -File .\Setup-Offline.ps1`。安装器下载并校验固定 Python 运行包，按固定 Git blob 获取上游源码，应用字节级变更与新增源码，安装锁定依赖并构建 UI。已有文件与声明的基线/目标都不相符时停止，不覆盖本地编辑。
 3. 以管理员身份运行 `Enable-Offline-Firewall.cmd`，安装专用程序的入站/出站阻断规则。

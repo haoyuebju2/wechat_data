@@ -40,7 +40,7 @@ def private_markers():
     def inspect(value):
         if isinstance(value, dict):
             for key, item in value.items():
-                if key in {"db_key", "api_key", "image_aes_key"} and isinstance(item, str) and len(item) >= 12:
+                if key in {"db_key", "api_key", "image_aes_key", "auth_key", "auth_key_hex", "aeskey", "capability", "fileid", "expected_md5", "reference_sha256"} and isinstance(item, str) and len(item) >= 12:
                     markers.add(item.encode())
                 elif key == "text" and isinstance(item, str) and len(item) >= 80:
                     markers.update(item[offset:offset + 80].encode() for offset in range(0, len(item) - 79, 80))
@@ -50,6 +50,11 @@ def private_markers():
     for name in ("account_keys.json", "ai_settings.json", "chatgpt_context_grant.json"):
         path = directory / name
         if path.exists(): inspect(decrypt_local(path))
+    if accounts.exists():
+        for path in accounts.glob('*/_local_cdn_profile.dpapi.json'): inspect(decrypt_local(path))
+    private = ROOT / 'private'
+    if private.exists():
+        for path in private.glob('cdn*.dpapi.json'): inspect(decrypt_local(path))
     return markers
 
 def audit(*, transport=False):
