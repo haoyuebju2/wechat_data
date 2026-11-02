@@ -361,27 +361,27 @@
     {
       "path": "frontend/app.vue",
       "base_sha256": "41f0b1bb946b016fb6c1213af9e59ee139e9a2efd5b6c0bf30269c5f60405e6b",
-      "target_sha256": "c42913e4bf503724ffbc423a864ef94dc9e9d58184b71c3d53c322d4aba2a0cb",
+      "target_sha256": "464e7918b939f783ddc99b8354d5e03622952635605d10082eb2a233922835d0",
       "edits": [
         {
           "start": 261,
           "end": 261,
-          "insert_base64": "ICAgICAgPGRpdiBzdHlsZT0icGFkZGluZzo2cHggMTZweDtiYWNrZ3JvdW5kOiNlOWY1ZWQ7Y29sb3I6IzIwNTkzYjtmb250LXNpemU6MTJweCIgcm9sZT0ic3RhdHVzIj7mnKzmnLrlt6Xlhbcgwrcg5Y6f5Zu+5oyJ6ZyA55u06L+e5b6u5L+h6IqC54K5IMK3IEFJIOS7heWkhOeQhuS9oOaYjuehruaPkOS6pOeahOWGheWuuTwvZGl2Pgo="
+          "insert_base64": "ICAgICAgPGRpdiBjbGFzcz0ib2ZmbGluZS1ub3RpY2UiPgogICAgICAgIDxzcGFuIHJvbGU9InN0YXR1cyI+5pys5py65bel5YW3IMK3IOWOn+WbvuaMiemcgOebtOi/nuW+ruS/oeiKgueCuSDCtyBBSSDku4XlpITnkIbkvaDmmI7noa7mj5DkuqTnmoTlhoXlrrk8L3NwYW4+CiAgICAgICAgPENsaWVudE9ubHkgdi1pZj0icm91dGUucGF0aCAhPT0gJy9hZ3JlZW1lbnQnIj4KICAgICAgICAgIDxPcmlnaW5hbERvd25sb2FkSGlzdG9yeSA6cHJpdmF0ZS1tb2RlPSJwcml2YWN5U3RvcmUucHJpdmFjeU1vZGUiIC8+CiAgICAgICAgPC9DbGllbnRPbmx5PgogICAgICA8L2Rpdj4K"
         },
         {
-          "start": 590,
-          "end": 755,
+          "start": 589,
+          "end": 846,
           "insert_base64": ""
-        },
-        {
-          "start": 807,
-          "end": 828,
-          "insert_base64": "ICAgICAgPE9yaWdpbmFsRG93bmxvYWRIaXN0b3J5IDpwcml2YXRlLW1vZGU9InByaXZhY3lTdG9yZS5wcml2YWN5TW9kZSIgLz4K"
         },
         {
           "start": 3320,
           "end": 3483,
           "insert_base64": ""
+        },
+        {
+          "start": 9995,
+          "end": 9995,
+          "insert_base64": "Lm9mZmxpbmUtbm90aWNle2Rpc3BsYXk6ZmxleDthbGlnbi1pdGVtczpjZW50ZXI7anVzdGlmeS1jb250ZW50OnNwYWNlLWJldHdlZW47Z2FwOjEycHg7ZmxleC1zaHJpbms6MDtwYWRkaW5nOjZweCAxNnB4O2JhY2tncm91bmQ6I2U5ZjVlZDtjb2xvcjojMjA1OTNiO2ZvbnQtc2l6ZToxMnB4O21pbi1oZWlnaHQ6NTJweH0KLm9mZmxpbmUtbm90aWNlPnNwYW57bWluLXdpZHRoOjB9Cg=="
         }
       ]
     },
@@ -1155,7 +1155,7 @@
     },
     {
       "path": "frontend/components/OriginalDownloadHistory.vue",
-      "sha256": "497d2e61523725ba241b0522f890e9d6f12c10504c9290c9c89ea0cd6a0e052e"
+      "sha256": "2843175ae4b102ca0c4edbe21c1da645d742d597743e4150428ba2dc7f2c8002"
     },
     {
       "path": "frontend/components/chat/OfflineSnapshotBar.vue",
