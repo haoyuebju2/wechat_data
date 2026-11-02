@@ -1123,11 +1123,11 @@
     },
     {
       "path": "desktop/src/LocalCdnWorker.cs",
-      "sha256": "89949a4cc83d6e2a9638b871575cd2e181034afafe098fc177358a26eda340c0"
+      "sha256": "b32a01bcf864d5ba6e97091a438e5e46684a015732564afdcf400e59e18ccb37"
     },
     {
       "path": "desktop/src/offline-main.cjs",
-      "sha256": "33256f43c4cfdd5b42c00c9ca93a719340d17a89273a92f480544e3a952831ee"
+      "sha256": "c1081584268f405cf6a90e92fd278df02ffeeba5f6737d1f7b4f1492b842b36e"
     },
     {
       "path": "desktop/src/offline-session.cjs",
@@ -1191,7 +1191,7 @@
     },
     {
       "path": "offline_context_mcp.py",
-      "sha256": "2901281c48a2e427c633815cda6a7c7d4f446ba20b7aab8ba0595dab2cbb91eb"
+      "sha256": "e09277af66171d2cb27b2d284c2ee5569bd7e9e051faed9583157fcd6d6cab18"
     },
     {
       "path": "src/wechat_decrypt_tool/local_cdn.py",

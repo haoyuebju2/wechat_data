@@ -1,29 +1,35 @@
 "use strict";
 // Private offline desktop entry. It deliberately never imports upstream main.cjs.
 const {app, BrowserWindow, Menu, ipcMain, dialog, session} = require("electron");
-const {spawn} = require("node:child_process");
+const {spawn, spawnSync} = require("node:child_process");
 const crypto = require("node:crypto");
 const fs = require("node:fs");
+const nativeFs = require("original-fs");
 const path = require("node:path");
 const http = require("node:http");
 const {allowedUrl, secureSession, CSP} = require("./offline-session.cjs");
 const {loadWithRedirect} = require("./renderer-startup.cjs");
 
-const repo = path.resolve(__dirname, "../..");
+const packaged = app.isPackaged;
+const programRoot = packaged ? path.dirname(process.execPath) : path.resolve(__dirname,"../../..");
+const repo = packaged ? path.join(process.resourcesPath,"backend") : path.resolve(__dirname, "../..");
 const workspace = path.dirname(repo);
-const python = path.join(workspace, ".upstream-runtime", "Scripts", "python.exe");
+const python = packaged ? path.join(process.resourcesPath,"python","python.exe") : path.join(workspace, ".upstream-runtime", "Scripts", "python.exe");
+const dataRoot = packaged ? path.join(app.getPath('appData'),'WeChatDataMonitor') : repo;
+const uiRoot = packaged ? path.join(process.resourcesPath,'ui') : path.join(repo,'frontend/.output/public');
 const port = 10392;
 const origin = `http://127.0.0.1:${port}`;
-const output = path.join(repo, "output");
+const output = path.join(dataRoot, "output");
 const token = crypto.randomBytes(32).toString("hex");
-let backend, window, originalWorker;
+let backend, window, originalWorker, splash;
+let startupStage='初始化';
 const originalCapability = crypto.randomBytes(32).toString('hex');
 const originalIpc = path.join(output, 'local-cdn-ipc', crypto.randomUUID());
 
 function startOriginalWorker() {
-  const directory = localPath(path.join(repo, 'desktop/cdn-worker'));
+  const directory = localPath(packaged ? path.join(process.resourcesPath,'cdn') : path.join(repo, 'desktop/cdn-worker'));
   const executable = localPath(path.join(directory, 'LocalCdnWorker.exe'));
-  const source = localPath(path.join(__dirname, 'LocalCdnWorker.cs'));
+  const source = localPath(packaged ? path.join(directory,'LocalCdnWorker.cs') : path.join(__dirname, 'LocalCdnWorker.cs'));
   const artifact = JSON.parse(fs.readFileSync(path.join(directory, 'artifact.json'), 'utf8'));
   const digest = file => crypto.createHash('sha256').update(fs.readFileSync(file)).digest('hex');
   if (artifact.format !== 'local-cdn-worker/1' || artifact.source_sha256 !== digest(source) || artifact.binary_sha256 !== digest(executable)) throw new Error('Original worker integrity mismatch');
@@ -42,7 +48,9 @@ app.commandLine.appendSwitch("disable-quic");
 app.commandLine.appendSwitch("disable-features", "DnsOverHttps,MediaRouter,OptimizationHints");
 app.commandLine.appendSwitch("force-webrtc-ip-handling-policy", "disable_non_proxied_udp");
 app.commandLine.appendSwitch("host-resolver-rules", "MAP * ~NOTFOUND, EXCLUDE 127.0.0.1");
-app.setPath("userData", path.join(repo, "offline-profile"));
+app.setPath("userData", path.join(dataRoot, "offline-profile"));
+if(packaged && !app.requestSingleInstanceLock())app.exit(0);
+app.on('second-instance',()=>{const active=window||splash;if(active&&!active.isDestroyed()){active.show();active.focus();}});
 process.on("uncaughtException", () => { app.exit(1); });
 
 function localPath(value) {
@@ -96,7 +104,7 @@ function configureIpc() {
   handle("window:isMaximized", () => window.isMaximized());
   handle("window:setTitleBarTheme", () => true);
   handle("app:isDebugEnabled", () => false);
-  handle("app:getVersion", () => "0.1.0");
+  handle("app:getVersion", () => packaged ? app.getVersion() : "0.1.3");
   handle("backend:getPort", () => ({port, source:"offline-policy"}));
   handle("backend:setPort", () => ({port, changed:false, offline:true}));
   handle("app:getAutoLaunch", () => false);
@@ -168,21 +176,43 @@ async function health() {
 
 app.whenReady().then(async () => {
   Menu.setApplicationMenu(null);
-  if (process.env.WECHAT_OFFLINE_OS_POLICY !== "checked") throw new Error("Start using Start-Upstream-Offline.cmd after configuring OS isolation");
-  if(!fs.existsSync(python) || !fs.existsSync(path.join(repo,"frontend/.output/public/index.html"))) throw new Error("Offline runtime or built UI missing");
+  if(packaged) {
+    splash=new BrowserWindow({width:500,height:240,resizable:false,autoHideMenuBar:true,title:'微信数据本机工具 · 正在启动',webPreferences:{sandbox:true,contextIsolation:true,nodeIntegration:false}});
+    splash.webContents.setWindowOpenHandler(()=>({action:'deny'}));
+    splash.webContents.on('will-navigate',event=>event.preventDefault());
+    await splash.loadURL('data:text/html;charset=utf-8,'+encodeURIComponent('<body style="font:16px Microsoft YaHei;padding:38px;color:#234237"><h2>正在启动本机工具</h2><p>正在检查运行文件和系统隔离，请稍候…</p><p style="font-size:12px;color:#64776b">首次启动检查可能需要几十秒。</p></body>'));
+    startupStage='运行文件校验';
+    const integrity=JSON.parse(fs.readFileSync(path.join(process.resourcesPath,'portable-integrity.json'),'utf8'));
+    for(const [relative,expected] of Object.entries(integrity.artifacts)) {
+      const file=localPath(path.join(programRoot,relative));
+      if(!file.startsWith(programRoot+path.sep)||crypto.createHash('sha256').update(nativeFs.readFileSync(file)).digest('hex')!==expected)throw new Error('Packaged runtime integrity mismatch');
+    }
+    const shell=path.join(process.env.SystemRoot,'System32/WindowsPowerShell/v1.0/powershell.exe');
+    const modules=path.join(process.env.SystemRoot,'System32/WindowsPowerShell/v1.0/Modules');
+    startupStage='系统隔离检查';
+    await new Promise((resolve,reject)=>{
+      const check=spawn(shell,['-NoProfile','-NonInteractive','-ExecutionPolicy','Bypass','-File',path.join(process.resourcesPath,'policy','Packaged-Firewall.ps1'),'-Mode','Check'],{windowsHide:true,stdio:'ignore',env:{...process.env,PSModulePath:modules}});
+      const timer=setTimeout(()=>{check.kill();reject(new Error('Packaged firewall check timed out'));},120000);
+      check.once('error',()=>{clearTimeout(timer);reject(new Error('Packaged firewall check failed'));});
+      check.once('exit',code=>{clearTimeout(timer);if(code===0)resolve();else reject(new Error('Packaged firewall check failed'));});
+    });
+  } else if (process.env.WECHAT_OFFLINE_OS_POLICY !== "checked") throw new Error("Start using Start-Upstream-Offline.cmd after configuring OS isolation");
+  if(!fs.existsSync(python) || !fs.existsSync(path.join(uiRoot,"index.html"))) throw new Error("Offline runtime or built UI missing");
   const privateSession = session.fromPartition("offline-private", {cache:false});
   await privateSession.setProxy({mode:"direct"});
   secureSession(privateSession, origin, token);
   fs.mkdirSync(output,{recursive:true});
   startOriginalWorker();
+  startupStage='本机服务启动';
   backend = spawn(python, ["-I", "-B", path.join(repo,"offline_backend.py")], {
     cwd:repo, windowsHide:true, stdio:"ignore",
     env:{...process.env, WECHAT_TOOL_OFFLINE_TOKEN:token, WECHAT_TOOL_PORT:String(port), WECHAT_TOOL_HOST:"127.0.0.1",
-         WECHAT_TOOL_DATA_DIR:repo, WECHAT_TOOL_OUTPUT_DIR:output, HF_HUB_OFFLINE:"1", TRANSFORMERS_OFFLINE:"1",
+         WECHAT_TOOL_DATA_DIR:dataRoot, WECHAT_TOOL_OUTPUT_DIR:output, WECHAT_TOOL_UI_DIR:uiRoot, HF_HUB_OFFLINE:"1", TRANSFORMERS_OFFLINE:"1",
          WECHAT_LOCAL_CDN_CAPABILITY:originalCapability, WECHAT_LOCAL_CDN_IPC:originalIpc}
   });
   backend.on("error", () => app.exit(1));
   await health();
+  startupStage='界面加载';
   window = new BrowserWindow({width:1280,height:860,minWidth:960,minHeight:640,title:"微信数据分析 · 本机版",
     webPreferences:{session:privateSession,preload:path.join(__dirname,"preload.cjs"),contextIsolation:true,nodeIntegration:false,sandbox:true,webSecurity:true,webviewTag:false}});
   window.webContents.setWindowOpenHandler(() => ({action:"deny"}));
@@ -192,8 +222,10 @@ app.whenReady().then(async () => {
   await loadWithRedirect(window, origin);
   window.show();
   window.focus();
+  if(splash&&!splash.isDestroyed())splash.destroy();
 }).catch(() => {
-  dialog.showErrorBox("离线版本未能启动", "请检查离线运行环境、前端构建和系统断网规则。不会自动降级为联网启动。");
+  if(splash&&!splash.isDestroyed())splash.destroy();
+  dialog.showErrorBox("离线版本未能启动", "未完成阶段："+startupStage+"。请检查本机运行环境和系统断网规则。不会自动降级为联网启动。");
   app.quit();
 });
 app.on("window-all-closed", () => app.quit());

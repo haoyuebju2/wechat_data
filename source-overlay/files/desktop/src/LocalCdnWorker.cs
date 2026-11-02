@@ -93,7 +93,7 @@ class LocalCdnWorker {
     static void LoadPins(bool initial) {
         // Snapshot destinations independently from the encrypted profile cache,
         // never admit a new destination merely because a request names it.
-        string accounts=Path.GetFullPath(Path.Combine(AppDomain.CurrentDomain.BaseDirectory,"../../output/databases"));
+        string accounts=Path.GetFullPath(Path.Combine(Root,"../../databases"));
         LocalPath(accounts);if(!Directory.Exists(accounts))return;
         foreach(string directory in Directory.EnumerateDirectories(accounts)) {
             string file=Path.Combine(directory,"_local_cdn_profile.dpapi.json");

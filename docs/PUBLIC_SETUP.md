@@ -1,6 +1,6 @@
 # 安装与维护
 
-普通用户：从项目 [Release](https://github.com/haoyuebju2/wechat_data/releases/tag/v0.1.0) 下载 Windows x64 Setup EXE，核对 SHA-256 后执行。安装器自动准备项目专用 Node.js / Python，不需要预装 Git、Node 或 Python，但需要联网获取固定公开源码与依赖，并在首次防火墙配置时确认管理员权限。安装后使用 `WeChatDataMonitor.exe` 或快捷方式；安装中的自动启动选项仅影响当前 Windows 用户。EXE 安装器未签名，只支持新建空目录，不提供原地升级、自动迁移和自动卸载。[v0.1.0 完整说明](RELEASE_0.1.0.md)。
+普通用户：从项目 [v0.1.3 Release](https://github.com/haoyuebju2/wechat_data/releases/tag/v0.1.3) 下载完整离线 Setup EXE，核对 SHA-256 后执行。安装时不下载运行环境或依赖，也不执行源码构建，不需要预装 Git、Node 或 Python。标准向导提供安装位置、可选自启、组件进度、完成页及卸载入口；首次防火墙配置需要管理员确认。安装后直接使用 `WeChatDataMonitor.exe` 或快捷方式。程序文件与 `%APPDATA%\WeChatDataMonitor` 数据分开，卸载保留该数据目录。安装器未签名，使用新的空目录，不承诺旧聊天数据的自动迁移。[完整说明](RELEASE_0.1.3.md)。
 
 下面的 Node.js、Git 命令和 CMD 启动步骤是直接从源码安装的方式。
 
@@ -20,6 +20,8 @@
 本仓库不包含上游完整源码、上游 Git 历史、运行时二进制或原生私有组件。`source-overlay/source-changes.json` 记录固定上游版本中被修改的范围和新增字节，不复制删除的原始源码；`source-overlay/files/` 为新增改造文件。`scripts/upstream-source-manifest.json` 固定公开源码路径及 Git blob 摘要。装配后的 `upstream_local/` 和公开源码缓存均不纳入本仓库。
 
 维护改造后，运行 `scripts/build_source_distribution.py` 重新生成分发内容；该开发脚本需要装配目录保留原固定版本的 Git 对象。随后运行 `scripts/audit_publication.py`，核对显式发布清单，排除本机账号标识、实际密钥和已授权资料。不要在整个工作区执行不加检查的 `git add .`。
+
+完整离线版的构建分三步：用 `scripts/build_offline_app.py --output <新应用目录> --prepared <干净的已安装源码环境>` 打包应用，再用 `scripts/build_inno_installer.py --payload <新应用目录>/application --compiler <ISCC.exe 路径> --output <新安装器目录>` 生成标准安装向导。审核并提交源码后，运行 `scripts/build_release.py --installer <该版本完整离线 Setup.exe> --output <新发布目录>` 生成审核源码包、说明、摘要和提交记录。构建机需要已准备好的固定依赖、Electron 和 Inno Setup；安装者无需这些工具。旧版 `ReleaseInstaller.cs` 仅为 v0.1.0 历史安装器源码，不用于当前完整离线版本。
 
 ChatGPT 连接可运行 `scripts/install_chatgpt_connection.py` 注册为 `wechat_local_context`，再用 `scripts/probe_context_mcp.py` 进行不读取资料的初始化/列工具握手。注册会修改客户端的 MCP 配置，操作前应保留自己的配置快照并核对差异；该脚本不登录、不复制令牌、不发起云端模型请求。授权与回答由用户在 AI 页和 ChatGPT/Codex 客户端操作。
 

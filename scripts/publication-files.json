@@ -82,6 +82,11 @@
     "scripts/Install-Release.ps1",
     "scripts/ReleaseInstaller.cs",
     "scripts/build_release.py",
-    "docs/RELEASE_0.1.0.md"
+    "docs/RELEASE_0.1.0.md",
+    "scripts/Packaged-Firewall.ps1",
+    "scripts/build_offline_app.py",
+    "scripts/build_inno_installer.py",
+    "scripts/OfflineSetup.iss",
+    "docs/RELEASE_0.1.3.md"
   ]
 }

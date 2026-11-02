@@ -1,12 +1,15 @@
-"""Build only explicitly audited public files; never package a working folder."""
+"""Assemble an offline installer and audited sources into release assets."""
 import argparse,hashlib,io,json,os,subprocess,sys,zipfile
 from pathlib import Path
 sys.path.insert(0,str(Path(__file__).resolve().parent))
 from audit_publication import audit
 ROOT=Path(__file__).resolve().parents[1]
-def build(destination,development=False):
+def build(destination,installer,development=False):
     report=audit(transport=True)
     version=json.loads((ROOT/'VERSION.json').read_text(encoding='utf8'))['version']
+    expected=f'WeChatDataMonitor-{version}-Windows-x64-Offline-Setup.exe'
+    if installer.name!=expected or installer.read_bytes()[:2]!=b'MZ':
+        raise ValueError('Expected the complete offline installer for this version')
     commit=subprocess.check_output(['git','rev-parse','HEAD'],cwd=ROOT).decode().strip()
     files=json.loads((ROOT/'validation-output/publication-tree.json').read_text(encoding='utf8'))
     if not development:
@@ -23,14 +26,12 @@ def build(destination,development=False):
     payload=buffer.getvalue();source=destination/f'WeChatDataMonitor-{version}-ReviewedSources.zip';source.write_bytes(payload)
     manifest={'version':version,'source_commit':commit,'development':development,'payload_sha256':hashlib.sha256(payload).hexdigest(),'files':hashes}
     record=destination/'payload-manifest.json';record.write_text(json.dumps(manifest,sort_keys=True),encoding='utf8')
-    binary=destination/f'WeChatDataMonitor-{version}-Windows-x64-Setup.exe'
-    compiler=Path(os.environ['WINDIR'])/'Microsoft.NET/Framework64/v4.0.30319/csc.exe'
-    result=subprocess.run([str(compiler),'/nologo','/target:winexe','/platform:x64','/optimize+','/r:System.Windows.Forms.dll','/r:System.Web.Extensions.dll','/r:System.IO.Compression.dll','/r:System.IO.Compression.FileSystem.dll',f'/resource:{source},release-payload.zip',f'/resource:{record},release-manifest.json',f'/out:{binary}',str(ROOT/'scripts/ReleaseInstaller.cs')],capture_output=True)
-    if result.returncode:raise RuntimeError(result.stdout.decode('utf8','replace'))
-    notes=destination/'RELEASE_NOTES.md';notes.write_bytes((ROOT/'docs/RELEASE_0.1.0.md').read_bytes())
+    binary=destination/expected
+    binary.write_bytes(installer.read_bytes())
+    notes=destination/'RELEASE_NOTES.md';notes.write_bytes((ROOT/f'docs/RELEASE_{version}.md').read_bytes())
     assets=[binary,source,notes]
     (destination/'SHA256SUMS.txt').write_text(''.join(hashlib.sha256(p.read_bytes()).hexdigest()+'  '+p.name+'\n' for p in assets),encoding='ascii')
     (destination/'BUILD_INFO.json').write_text(json.dumps({k:v for k,v in manifest.items() if k!='files'},indent=2),encoding='utf8')
     print(json.dumps({'version':version,'source_commit':commit,'source_files':report['files'],'private_markers_checked':report['private_markers_checked'],'installer_bytes':binary.stat().st_size,'development':development}))
 if __name__=='__main__':
-    parser=argparse.ArgumentParser();parser.add_argument('--output',type=Path,required=True);parser.add_argument('--development',action='store_true');args=parser.parse_args();build(args.output.resolve(),args.development)
+    parser=argparse.ArgumentParser();parser.add_argument('--output',type=Path,required=True);parser.add_argument('--installer',type=Path,required=True);parser.add_argument('--development',action='store_true');args=parser.parse_args();build(args.output.resolve(),args.installer.resolve(),args.development)
