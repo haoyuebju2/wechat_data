@@ -76,6 +76,36 @@ app.whenReady().then(async()=>{
   if(await win.webContents.executeJavaScript("/正在本地更新|校验完成后更新记录|更新最新记录/.test(document.body.innerText)"))throw new Error('Background update status remains visible');
   const historyDeadline=Date.now()+5000;
   while(Date.now()<historyDeadline){if(await win.webContents.executeJavaScript("!!document.querySelector('button[aria-label=\"原图下载记录，新获取 2 张\"]')"))break;await new Promise(resolve=>setTimeout(resolve,40));}
+  const floatResult = await win.webContents.executeJavaScript(`(async () => {
+    const wait = () => new Promise(resolve => setTimeout(resolve, 220));
+    const button = () => document.querySelector('.history-trigger');
+    const control = () => document.querySelector('.original-history');
+    function drag(x, y) {
+      const b = button(), r = b.getBoundingClientRect();
+      const sx = Math.max(2, Math.min(innerWidth - 2, r.x + r.width / 2));
+      const sy = Math.max(2, Math.min(innerHeight - 2, r.y + r.height / 2));
+      b.dispatchEvent(new PointerEvent('pointerdown', {pointerId: 17, isPrimary: true, button: 0, clientX: sx, clientY: sy, bubbles: true}));
+      window.dispatchEvent(new PointerEvent('pointermove', {pointerId: 17, clientX: x, clientY: y, cancelable: true}));
+      window.dispatchEvent(new PointerEvent('pointerup', {pointerId: 17, clientX: x, clientY: y}));
+      b.click();
+    }
+    for (const [edge, x, y] of [['left', 0, innerHeight / 2], ['right', innerWidth, innerHeight / 2], ['top', innerWidth / 2, 0], ['bottom', innerWidth / 2, innerHeight]]) {
+      drag(x, y); await wait();
+      if (control().dataset.dock !== edge || !control().classList.contains('collapsed') || document.querySelector('#original-history-panel')) throw Error('Dock or drag click failed: ' + edge);
+      const rect = control().getBoundingClientRect();
+      const visibleWidth = Math.min(innerWidth, rect.right) - Math.max(0, rect.left);
+      const visibleHeight = Math.min(innerHeight, rect.bottom) - Math.max(0, rect.top);
+      if (Math.round(edge === 'left' || edge === 'right' ? visibleWidth : visibleHeight) !== 24) throw Error('Dock is not a visible half-circle');
+      button().click(); await wait();
+      const panel = document.querySelector('#original-history-panel')?.getBoundingClientRect();
+      if (!panel || panel.left < 0 || panel.top < 0 || panel.right > innerWidth || panel.bottom > innerHeight) throw Error('Expanded history leaves viewport');
+      document.querySelector('button[aria-label="关闭原图下载历史"]').click(); await wait();
+      drag(innerWidth / 2, innerHeight / 2); await wait();
+      if (control().dataset.dock !== 'none' || control().classList.contains('collapsed')) throw Error('Drag did not undock');
+    }
+    return {edges: 4, visibleDockPixels: 24, dragDoesNotOpen: true};
+  })()`);
+  console.log('Floating history renderer: '+JSON.stringify(floatResult));
   await win.webContents.executeJavaScript("document.querySelector('button[aria-controls=\"original-history-panel\"]').click()");
   await new Promise(resolve=>setTimeout(resolve,200));
   if(!await win.webContents.executeJavaScript("document.querySelector('#original-history-panel')?.innerText.includes('Synthetic Group') && !!document.querySelector('button[aria-label=\"原图下载记录，新获取 0 张\"]')"))throw new Error('Built history did not display rows and reset the new count');

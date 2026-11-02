@@ -9,6 +9,7 @@ const path = require("node:path");
 const http = require("node:http");
 const {allowedUrl, secureSession, CSP} = require("./offline-session.cjs");
 const {loadWithRedirect} = require("./renderer-startup.cjs");
+const {positionStore} = require("./offline-position.cjs");
 
 const packaged = app.isPackaged;
 const programRoot = packaged ? path.dirname(process.execPath) : path.resolve(__dirname,"../../..");
@@ -98,13 +99,16 @@ async function capturePng(options={}) {
 }
 
 function configureIpc() {
+  const floatingPosition = () => positionStore(localPath(path.join(output, 'original-history-position.json')));
+  handle("ui:getOriginalHistoryPosition", () => floatingPosition().read());
+  handle("ui:setOriginalHistoryPosition", value => floatingPosition().write(value));
   handle("window:minimize", () => window.minimize());
   handle("window:toggleMaximize", () => { if(window.isMaximized()) window.unmaximize(); else window.maximize(); return window.isMaximized(); });
   handle("window:close", () => window.close());
   handle("window:isMaximized", () => window.isMaximized());
   handle("window:setTitleBarTheme", () => true);
   handle("app:isDebugEnabled", () => false);
-  handle("app:getVersion", () => packaged ? app.getVersion() : "0.1.3");
+  handle("app:getVersion", () => packaged ? app.getVersion() : "0.1.4");
   handle("backend:getPort", () => ({port, source:"offline-policy"}));
   handle("backend:setPort", () => ({port, changed:false, offline:true}));
   handle("app:getAutoLaunch", () => false);

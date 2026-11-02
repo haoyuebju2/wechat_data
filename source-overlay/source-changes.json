@@ -359,6 +359,18 @@
       ]
     },
     {
+      "path": "desktop/src/preload.cjs",
+      "base_sha256": "e36a768562f4a3cc34bcf9ed179a8ce2a2b77cc7fc2fce1a952b4a26d9ff4260",
+      "target_sha256": "59bcc0b09929d16dff79c4d838ae00ea153db8954d77d1c37cb550dbc8cbb416",
+      "edits": [
+        {
+          "start": 2000,
+          "end": 2000,
+          "insert_base64": "ICBnZXRPcmlnaW5hbEhpc3RvcnlQb3NpdGlvbjogKCkgPT4gaXBjUmVuZGVyZXIuaW52b2tlKCJ1aTpnZXRPcmlnaW5hbEhpc3RvcnlQb3NpdGlvbiIpLAogIHNldE9yaWdpbmFsSGlzdG9yeVBvc2l0aW9uOiAodmFsdWUpID0+IGlwY1JlbmRlcmVyLmludm9rZSgidWk6c2V0T3JpZ2luYWxIaXN0b3J5UG9zaXRpb24iLCB2YWx1ZSksCg=="
+        }
+      ]
+    },
+    {
       "path": "frontend/app.vue",
       "base_sha256": "41f0b1bb946b016fb6c1213af9e59ee139e9a2efd5b6c0bf30269c5f60405e6b",
       "target_sha256": "464e7918b939f783ddc99b8354d5e03622952635605d10082eb2a233922835d0",
@@ -1127,7 +1139,11 @@
     },
     {
       "path": "desktop/src/offline-main.cjs",
-      "sha256": "c1081584268f405cf6a90e92fd278df02ffeeba5f6737d1f7b4f1492b842b36e"
+      "sha256": "9891bb8ff293fcb5a3aa60fcbab9f86d4cf0763631dd912351de04c7001d3d2a"
+    },
+    {
+      "path": "desktop/src/offline-position.cjs",
+      "sha256": "09df31a2513263c969f3e117fd4e9c5745c71a347096f1e5e63b585dc1bacf7f"
     },
     {
       "path": "desktop/src/offline-session.cjs",
@@ -1142,8 +1158,12 @@
       "sha256": "18638d81425e7593fe133c81be3be6d44b4a9de19bf8cf2d012a8f7b455e4dbd"
     },
     {
+      "path": "desktop/tests/offline-position.test.cjs",
+      "sha256": "1a49dafc975cff596a5c597e432eb09f2b8d83f6a2e61a2503bab05728a7a64d"
+    },
+    {
       "path": "desktop/tests/offline-renderer-smoke.cjs",
-      "sha256": "ed4e7e45ae12dc320e3b9bd322a33d3e54e8cb604e8083f55259b5846598edee"
+      "sha256": "aebbf0eff546235b6881fc2315c3c4a21a1c2c028845e5c1f915d49aac4de056"
     },
     {
       "path": "desktop/tests/offline-session.test.cjs",
@@ -1155,7 +1175,7 @@
     },
     {
       "path": "frontend/components/OriginalDownloadHistory.vue",
-      "sha256": "2843175ae4b102ca0c4edbe21c1da645d742d597743e4150428ba2dc7f2c8002"
+      "sha256": "5f1672c28893e2079b6be5a09ae5fb2951a798b9e070baef91361c7979861c3f"
     },
     {
       "path": "frontend/components/chat/OfflineSnapshotBar.vue",
@@ -1175,7 +1195,7 @@
     },
     {
       "path": "frontend/tests/offline-original-history.test.js",
-      "sha256": "6630f6241f8a9c512d00cbce6f029791cdce5115aed3b63a65c7de2f12322611"
+      "sha256": "e5dfac89ed98dd2a9a2d95aac8fa9b81435addebb72400c6633ad36b03f0e36c"
     },
     {
       "path": "frontend/tests/offline-snapshot.test.js",

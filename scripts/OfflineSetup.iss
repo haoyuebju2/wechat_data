@@ -11,10 +11,10 @@
 [Setup]
 AppId={{5BF23255-6633-440E-A3BA-68600B273BC7}
 AppName=微信数据本机工具
-AppVersion=0.1.3
-AppVerName=微信数据本机工具 0.1.3
+AppVersion=0.1.4
+AppVerName=微信数据本机工具 0.1.4
 AppPublisher=WeChatDataMonitor
-DefaultDirName={localappdata}\Programs\WeChatDataMonitor\0.1.3
+DefaultDirName={localappdata}\Programs\WeChatDataMonitor\0.1.4
 DefaultGroupName=微信数据本机工具
 UsePreviousAppDir=no
 UsePreviousTasks=no
@@ -31,7 +31,7 @@ SolidCompression=yes
 SetupLogging=yes
 UninstallDisplayIcon={app}\WeChatDataMonitor.exe
 OutputDir={#Output}
-OutputBaseFilename=WeChatDataMonitor-0.1.3-Windows-x64-Offline-Setup
+OutputBaseFilename=WeChatDataMonitor-0.1.4-Windows-x64-Offline-Setup
 CloseApplications=yes
 RestartApplications=no
 
@@ -147,7 +147,7 @@ begin
     Args := '-NoProfile -ExecutionPolicy Bypass -File "' + ExpandConstant('{app}\resources\policy\Packaged-Firewall.ps1') + '" -Mode Configure';
     if not ShellExec('runas', ExpandConstant('{sys}\WindowsPowerShell\v1.0\powershell.exe'), Args, '', SW_HIDE, ewWaitUntilTerminated, Code) then RaiseException('安全配置未完成，安装尚未成功。请检查管理员确认。');
     if Code <> 0 then RaiseException('安全配置未通过，安装尚未成功。应用不会绕过系统隔离启动。');
-    SaveStringToFile(ExpandConstant('{app}\installed-version.json'), '{"version":"0.1.3","offline":true,"firewall_ready":true}', False);
+    SaveStringToFile(ExpandConstant('{app}\installed-version.json'), '{"version":"0.1.4","offline":true,"firewall_ready":true}', False);
     SetStage('安装完成');
     ProgressLabel.Caption := '100%';
     WizardForm.ProgressGauge.Position := 100;

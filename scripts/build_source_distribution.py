@@ -14,10 +14,10 @@ UPSTREAM = ROOT / "upstream_local"
 COMMIT = "64664bef316897b0bca2d391be4a6d2c0c472062"
 NEW_FILES = {
     "offline-requirements.lock", "offline_backend.py", "offline_context_mcp.py",
-    "desktop/src/offline-main.cjs", "desktop/src/offline-session.cjs",
+    "desktop/src/offline-main.cjs", "desktop/src/offline-session.cjs", "desktop/src/offline-position.cjs",
     "desktop/src/LocalCdnWorker.cs", "desktop/src/LICENSE-local-cdn.txt",
     "desktop/tests/live-chat-e2e.cjs", "desktop/tests/live-chat-fixture.py",
-    "desktop/tests/offline-renderer-smoke.cjs", "desktop/tests/offline-session.test.cjs",
+    "desktop/tests/offline-renderer-smoke.cjs", "desktop/tests/offline-session.test.cjs", "desktop/tests/offline-position.test.cjs",
     "frontend/components/OfflineAiPanel.vue", "frontend/components/chat/OfflineSnapshotBar.vue",
     "frontend/components/OriginalDownloadHistory.vue", "frontend/tests/offline-original-history.test.js",
     "frontend/tests/offline-ai.test.js", "frontend/tests/offline-snapshot.test.js",

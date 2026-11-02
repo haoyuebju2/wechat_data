@@ -6,7 +6,7 @@
 
 ## 安装与启动
 
-普通用户从 [v0.1.3 Release](https://github.com/haoyuebju2/wechat_data/releases/tag/v0.1.3) 下载 `WeChatDataMonitor-0.1.3-Windows-x64-Offline-Setup.exe`，核对 SHA-256 后运行。这是完整离线安装包，已经包含桌面程序、Python、依赖和界面，安装时不下载或编译组件。标准向导显示当前组件、百分比进度、详情和完成页；安装后直接使用快捷方式或 `WeChatDataMonitor.exe`，并提供卸载入口。首次配置本程序的防火墙规则需要管理员确认。未签名，使用新空目录安装；用户数据与程序分开保存。[更新内容与限制](docs/RELEASE_0.1.3.md)。旧 v0.1.0 联网安装器不再推荐。
+普通用户从 [v0.1.4 Release](https://github.com/haoyuebju2/wechat_data/releases/tag/v0.1.4) 下载 `WeChatDataMonitor-0.1.4-Windows-x64-Offline-Setup.exe`，核对 SHA-256 后运行。这是完整离线安装包，已经包含桌面程序、Python、依赖和界面，安装时不下载或编译组件。标准向导显示当前组件、百分比进度、详情和完成页；安装后直接使用快捷方式或 `WeChatDataMonitor.exe`，并提供卸载入口。首次配置本程序的防火墙规则需要管理员确认。未签名，使用新空目录安装；用户数据与程序分开保存。[更新内容与限制](docs/RELEASE_0.1.4.md)。旧 v0.1.0 联网安装器不再推荐。
 
 以下为直接源码安装方式：
 
@@ -23,6 +23,8 @@ powershell.exe -NoProfile -ExecutionPolicy Bypass -File .\Setup-Offline.ps1
 已有独立开发环境的行为测试和 UI 构建通过。完整首次依赖安装仍需在新的 Windows 环境验收；不要把既有环境验证等同于全新安装成功。[完整安装说明](docs/PUBLIC_SETUP.md)。
 
 ## 功能
+
+“原图记录”支持在窗口内拖动；拖到任意边缘后收成半圆，点击展开，拖离边缘恢复完整入口。程序重启后记住位置，拖动不会清零新获取数。
 
 - 原界面及本地数据库解密、聊天/联系人等解析、搜索和 JSON/TXT/HTML/Excel 导出。
 - 右上角显示自动原图下载记录入口及新获取数量；打开后清零新获取计数，可分页查看和清空历史。历史保存在本机，清空不删除图片、不改变下载队列。

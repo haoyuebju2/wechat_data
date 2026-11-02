@@ -2,13 +2,13 @@
 import argparse,hashlib,json,os,shutil,subprocess,zipfile
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1]
-VERSION='0.1.3'
+VERSION='0.1.4'
 def copytree(source,target):
     shutil.copytree(source,target,ignore=shutil.ignore_patterns('__pycache__','*.pyc','wechat_offline_source.pth'))
 def build(out,prepared,stage_only=False):
     out.mkdir(parents=True,exist_ok=False)
     app=out/'electron-app';app.mkdir();(app/'src').mkdir()
-    for name in ['offline-main.cjs','offline-session.cjs','preload.cjs','renderer-startup.cjs']:
+    for name in ['offline-main.cjs','offline-session.cjs','offline-position.cjs','preload.cjs','renderer-startup.cjs']:
         shutil.copyfile(ROOT/'upstream_local/desktop/src'/name,app/'src'/name)
     (app/'package.json').write_text(json.dumps({'name':'wechat-data-monitor','productName':'WeChatDataMonitor','version':VERSION,'main':'src/offline-main.cjs','description':'Local WeChat data viewer','author':'haoyuebju2','license':'SEE LICENSE IN THIRD_PARTY_NOTICES.md'}),encoding='utf8')
     assets=out/'assets';assets.mkdir()
@@ -24,7 +24,7 @@ def build(out,prepared,stage_only=False):
     for name in ['offline_backend.py','offline_context_mcp.py']:shutil.copyfile(ROOT/'upstream_local'/name,backend/name)
     (assets/'offline_wechat').mkdir()
     for name in ['__init__.py','security.py']:shutil.copyfile(ROOT/'offline_wechat'/name,assets/'offline_wechat'/name)
-    copytree(prepared/'upstream_local/frontend/.output/public',assets/'ui')
+    copytree(ROOT/'upstream_local/frontend/.output/public',assets/'ui')
     cdn=assets/'cdn';cdn.mkdir();source=ROOT/'upstream_local/desktop/src/LocalCdnWorker.cs';shutil.copyfile(source,cdn/source.name)
     compiler=Path(os.environ['WINDIR'])/'Microsoft.NET/Framework64/v4.0.30319/csc.exe'
     subprocess.run([str(compiler),'/nologo','/target:exe','/platform:x64','/optimize+','/r:System.Web.Extensions.dll','/r:System.Security.dll','/out:'+str(cdn/'LocalCdnWorker.exe'),str(source)],check=True)
