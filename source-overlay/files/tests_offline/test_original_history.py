@@ -108,3 +108,13 @@ def test_history_routes_require_auth_and_validate_boundaries(setup,monkeypatch):
     assert request(base+'/seen',method='POST',data={'through':{'synthetic':-1}}).status_code==400
     assert engine.history_summary()['total']==1
     assert request(base,method='DELETE').json()['total']==0
+
+
+def test_converted_download_is_counted_separately_from_an_original(setup,monkeypatch):
+    account,engine,_=setup
+    receive(account,'friend');engine.scan(account)
+    monkeypatch.setattr(cdn,'original',Mock(return_value={'status':'downloaded','quality':'converted'}))
+    assert engine.process_one(account)
+    result=engine.history()
+    assert result['summary']['converted']==1 and result['summary']['downloaded']==0
+    assert result['summary']['unread']==1 and result['items'][0]['status']=='converted'

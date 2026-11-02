@@ -15,7 +15,7 @@ import time
 
 from cryptography.hazmat.primitives.ciphers import Cipher,algorithms,modes
 from cryptography.hazmat.primitives import padding
-from PIL import Image
+from PIL import Image,ImageOps,ImageChops,ImageStat
 from .app_paths import get_data_dir
 from .offline_secrets import read_secret_json,write_secret_json
 from .chat_helpers import _decode_message_content,_extract_md5_from_packed_info
@@ -27,6 +27,12 @@ _DOWNLOAD=threading.Lock()
 _FAILED={}
 _SETTINGS_LOCK=threading.RLock()
 _CANCEL=threading.local()
+
+
+class CdnRejected(ValueError):
+    def __init__(self,code):
+        super().__init__('cdn_rejected')
+        self.code=code
 
 
 def settings():
@@ -96,7 +102,12 @@ def descriptor(account_dir,server_id,username):
             if not re.fullmatch(r'[0-9a-fA-F]{20,8192}',fileid) or not re.fullmatch(r'[0-9a-fA-F]{32}',aes) or not re.fullmatch(r'[0-9a-f]{32}',digest):
                 raise ValueError('missing_download_metadata')
             packed_md5=_extract_md5_from_packed_info(row[3]).lower()
-            return {'fileid':fileid,'aes':bytes.fromhex(aes),'md5':digest,'aliases':{digest,packed_md5}}
+            mid=attrs.get('cdnmidimgurl','')
+            mid=mid if re.fullmatch(r'[0-9a-fA-F]{20,8192}',mid) else ''
+            size=attrs.get('hevc_mid_size','')
+            size=int(size) if re.fullmatch(r'\d{1,9}',size) and int(size)<=MAX_BYTES else 0
+            return {'fileid':fileid,'mid_fileid':mid,'hevc_mid_size':size,
+                    'aes':bytes.fromhex(aes),'md5':digest,'aliases':{digest,packed_md5}}
     raise ValueError('message_not_found')
 
 
@@ -147,18 +158,73 @@ def _exchange(profile,address,fields,deadline):
         request.unlink(missing_ok=True);response.unlink(missing_ok=True)
 
 
-def _download(meta,profile,address,deadline):
-    encrypted=bytearray();total=None
+def _matching_thumbnail(plain,thumbnail):
+    if not thumbnail:raise ValueError('conversion_comparison')
+    with Image.open(io.BytesIO(thumbnail)) as reference,Image.open(io.BytesIO(plain)) as full:
+        if reference.width*reference.height>60_000_000 or full.width*full.height>60_000_000:raise ValueError('image_size')
+        reference=ImageOps.exif_transpose(reference).convert('RGB')
+        full=ImageOps.exif_transpose(full).convert('RGB')
+        ratio=(full.width/full.height)/(reference.width/reference.height)
+        if not .97<=ratio<=1.03 or full.width<reference.width or full.height<reference.height:raise ValueError('conversion_comparison')
+        score=ImageStat.Stat(ImageChops.difference(reference.resize((64,64)),full.resize((64,64))))
+        if sum(score.mean)/3>12:raise ValueError('conversion_comparison')
+
+
+def _proof_path(account_dir,md5):
+    return account_dir/'_local_cdn_proofs'/(md5+'.dpapi.json')
+
+
+def _cached_result(account_dir,md5,path,meta):
+    if not path:return None
+    data=path.read_bytes()
+    try:
+        proof=read_secret_json(_proof_path(account_dir,md5))
+        if (proof.get('message_md5')==meta['md5'] and proof.get('fileid_sha256')==hashlib.sha256(meta['fileid'].encode()).hexdigest()
+            and proof.get('preview_sha256')==hashlib.sha256(data).hexdigest()
+            and proof.get('quality') in {'original','standard','converted'}):
+            return _success('local',proof)
+    except Exception:pass
+    if hashlib.md5(data).hexdigest()==meta['md5']:
+        return {'ok':True,'status':'local','message':'正在显示本机图片','quality':'local'}
+    return None
+
+
+def _success(status,info):
+    quality=info['quality'];size=str(info['width'])+'×'+str(info['height'])
+    message={'original':'已获取原图 · '+size,'standard':'已获取清晰图 · '+size+'（非原图文件）',
+             'converted':'已获取清晰转换图 · '+size+'（非原图文件）'}[quality]
+    return {'ok':True,'status':status,'message':message,'quality':quality,'width':info['width'],'height':info['height']}
+
+
+def _save_proof(account_dir,md5,meta,data,info,saved,source=None):
+    if not isinstance(saved,Path) or saved.read_bytes()!=data:return
+    proof=dict(info,message_md5=meta['md5'],fileid_sha256=hashlib.sha256(meta['fileid'].encode()).hexdigest(),
+               preview_sha256=hashlib.sha256(data).hexdigest())
+    if source is not None:
+        # Retain the exact, message-MD5-verified source without an opaque codec.
+        write_secret_json(account_dir/'_local_cdn_sources'/(md5+'.dpapi.json'),{'source_b64':base64.b64encode(source).decode(),'md5':meta['md5']})
+        proof['source_md5']=hashlib.md5(source).hexdigest()
+    write_secret_json(_proof_path(account_dir,md5),proof)
+
+
+def _download(meta,profile,address,deadline,filetype=1,picture_format=1,*,verified_source=None,thumbnail=None):
+    encrypted=bytearray();total=None;flags={}
     for sequence in range(1,402):
         _check_cancelled()
         if time.monotonic()>=deadline: raise TimeoutError('download_timeout')
         start=len(encrypted)
         fields={'ver':profile['version'],'weixinnum':profile['uin'],'seq':sequence,'clientversion':profile['clientversion'],
             'clientostype':profile['clientostype'],'authkey':profile['auth_key'],'nettype':1,'acceptdupack':1,'safeproto':1,
-            'filetype':1,'wxchattype':0,'lastretcode':0,'ipseq':0,'largesvideo':0,'sourceflag':0,'wxautostart':0,
-            'downpicformat':1,'rangestart':start,'rangeend':start+65535,'wxmsgflag':b'','fileid':meta['fileid']}
+            'filetype':filetype,'wxchattype':0,'lastretcode':0,'ipseq':0,'largesvideo':0,'sourceflag':0,'wxautostart':0,
+            'downpicformat':picture_format,'rangestart':start,'rangeend':start+65535,'wxmsgflag':b'','fileid':meta['fileid']}
         reply=_exchange(profile,address,fields,deadline)
-        if int(reply.get('retcode',b'-1'))!=0: raise ValueError('cdn_rejected')
+        code=int(reply.get('retcode',b'-1'))
+        if code!=0:raise CdnRejected(code)
+        for name in ('rsppicformat','istrans','substituteftype'):
+            if name in reply:
+                value=int(reply[name])
+                if name in flags and flags[name]!=value:raise ValueError('format_integrity')
+                flags[name]=value
         current_total=int(reply.get('totalsize',b'0'));data=reply.get('filedata',b'')
         if not data or len(data)>65536 or int(reply.get('rangestart',b'-1'))!=start or int(reply.get('rangeend',b'-1'))!=start+len(data)-1:
             raise ValueError('range_integrity')
@@ -170,11 +236,27 @@ def _download(meta,profile,address,deadline):
     if total is None or len(encrypted)!=total or len(encrypted)%16: raise ValueError('incomplete_download')
     dec=Cipher(algorithms.AES(meta['aes']),modes.ECB()).decryptor();padded=dec.update(bytes(encrypted))+dec.finalize()
     unpad=padding.PKCS7(128).unpadder();plain=unpad.update(padded)+unpad.finalize()
-    if len(plain)>MAX_BYTES or hashlib.md5(plain).hexdigest()!=meta['md5']: raise ValueError('image_integrity')
+    if len(plain)>MAX_BYTES:raise ValueError('image_integrity')
+    matches=hashlib.md5(plain).hexdigest()==meta['md5']
+    if matches and plain.startswith(b'wxgf'):
+        if filetype!=2 or picture_format!=2 or len(plain)!=meta.get('hevc_mid_size') or flags.get('rsppicformat')!=2:
+            raise ValueError('source_integrity')
+        return plain,{'quality':'wxgf_source'}
+    quality='original' if filetype==1 else 'standard'
+    if not matches:
+        # A transformed JPEG is a separate representation, never an original.
+        # Require the exact WXGF source to have passed the local message MD5,
+        # plus known transform flags and a bounded local-thumbnail comparison.
+        if (filetype!=2 or picture_format!=1 or not verified_source or not verified_source.startswith(b'wxgf')
+            or len(verified_source)!=meta.get('hevc_mid_size') or hashlib.md5(verified_source).hexdigest()!=meta['md5']
+            or flags!={'rsppicformat':1,'istrans':999,'substituteftype':2}):raise ValueError('image_integrity')
+        _matching_thumbnail(plain,thumbnail)
+        quality='converted'
     with Image.open(io.BytesIO(plain)) as image:
         if image.width*image.height>60_000_000: raise ValueError('image_size')
+        width,height=image.size
         image.verify()
-    return plain
+    return plain,{'quality':quality,'width':width,'height':height}
 
 
 def original(account_dir,server_id,username,resource_md5='',*,allowed=None):
@@ -190,8 +272,8 @@ def original(account_dir,server_id,username,resource_md5='',*,allowed=None):
             if resource_md5 and resource_md5.lower() not in meta['aliases']:raise ValueError('resource_mismatch')
             digest=resource_md5.lower() if resource_md5 else meta['md5']
             cached=_try_find_decrypted_resource(account_dir,digest)
-            if cached and hashlib.md5(cached.read_bytes()).hexdigest()==meta['md5']:
-                return {'ok':True,'status':'local','message':''}
+            result=_cached_result(account_dir,digest,cached,meta)
+            if result:return result
         except Exception:pass
         return {'ok':False,'status':'busy','message':'正在下载原图，请稍候…'}
     _CANCEL.allowed=allowed
@@ -201,31 +283,47 @@ def original(account_dir,server_id,username,resource_md5='',*,allowed=None):
         if resource_md5 and resource_md5.lower() not in meta['aliases']: raise ValueError('resource_mismatch')
         md5=resource_md5.lower() if re.fullmatch(r'[0-9a-fA-F]{32}',resource_md5 or '') else meta['md5']
         local=_prefer_local_image_resource(account_dir,md5,username=username)
-        if local and hashlib.md5(local.read_bytes()).hexdigest()==meta['md5']:
-            return {'ok':True,'status':'local','message':''}
+        result=_cached_result(account_dir,md5,local,meta)
+        if result:return result
+        thumbnail=local.read_bytes() if local and local.stat().st_size<=MAX_BYTES else None
         deadline=time.monotonic()+75
-        refresh=False
+        refresh=False;last_error=None
         for fresh in (False,True):
             if fresh and (not refresh or time.monotonic()+5>=deadline): break
             for profile in discover(account_dir,force=fresh):
                 for address in profile['addresses'][:2]:
                     try:
-                        plain=_download(meta,profile,address,deadline)
-                        _save_best_image_resource(account_dir,md5,plain)
+                        source=None
+                        try:plain,info=_download(meta,profile,address,deadline)
+                        except CdnRejected as error:
+                            if error.code!=-5103017 or not meta['mid_fileid']:raise
+                            middle=dict(meta,fileid=meta['mid_fileid'])
+                            plain,info=_download(middle,profile,address,deadline,2,2)
+                            if info['quality']=='wxgf_source':
+                                source=plain
+                                plain,info=_download(middle,profile,address,deadline,2,1,verified_source=source,thumbnail=thumbnail)
+                        saved=_save_best_image_resource(account_dir,md5,plain)
+                        _save_proof(account_dir,md5,meta,plain,info,saved,source)
                         remember(account_dir,[profile])
-                        return {'ok':True,'status':'downloaded','message':'已获取原图'}
+                        return _success('downloaded',info)
                     except (ValueError,OSError,TimeoutError) as error:
                         _check_cancelled()
-                        refresh=refresh or str(error)=='cdn_rejected'
+                        last_error=error
+                        refresh=refresh or isinstance(error,CdnRejected) and error.code!=-5103017
                         if time.monotonic()>=deadline: break
                 if time.monotonic()>=deadline: break
-        raise ValueError('original_unavailable')
-    except Exception:
+        raise last_error or ValueError('original_unavailable')
+    except Exception as error:
         if allowed is not None and not allowed():
             return {'ok':False,'status':'cancelled','message':'已停止自动获取原图'}
         _FAILED[key]=time.monotonic()
         if len(_FAILED)>256: _FAILED.clear()
-        return {'ok':False,'status':'unavailable','message':'原图暂不可用：请确认微信已登录，图片未过期；继续显示本地图片'}
+        if isinstance(error,CdnRejected) and error.code==-5103017:
+            message='微信节点暂未提供这张图的可用版本，继续显示本地图片'
+        elif str(error) in {'image_integrity','source_integrity','conversion_comparison','format_integrity'}:
+            message='清晰图片校验未通过，继续显示本地图片'
+        else:message='图片获取未完成，继续显示本地图片；可稍后重试'
+        return {'ok':False,'status':'unavailable','message':message}
     finally:
         _CANCEL.allowed=None
         _DOWNLOAD.release()

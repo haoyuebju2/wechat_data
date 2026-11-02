@@ -2,7 +2,7 @@
   <aside class="original-history" aria-label="自动获取原图记录">
     <section v-if="open" id="original-history-panel" class="history-panel" aria-label="原图下载历史" @keydown.esc.stop="closePanel">
       <header>
-        <div><h2>原图下载记录</h2><p>已下载 {{ summary.downloaded }} · 本地已有 {{ summary.local }} · 失败 {{ summary.failed }}</p></div>
+        <div><h2>原图下载记录</h2><p>原图 {{ summary.downloaded }} · 清晰图 {{ summary.standard + summary.converted }} · 本地已有 {{ summary.local }} · 失败 {{ summary.failed }}</p></div>
         <button type="button" aria-label="关闭原图下载历史" @click="closePanel">×</button>
       </header>
       <div class="history-actions">
@@ -21,7 +21,7 @@
         </ol>
         <button v-if="nextCursor" type="button" class="load-more" :disabled="loading || clearing" @click="loadMore">加载更早记录</button>
       </div>
-      <footer>打开后清零“新获取”计数，历史仍保留。清空历史不删除图片，也不影响下载队列。旧版完成记录不计入新下载数量。</footer>
+      <footer>“新获取”包括原图和清晰转换图，打开后清零，历史仍保留。清空历史不删除图片或下载任务。转换图不等于原始文件，旧完成记录不计入新获取。</footer>
     </section>
     <button type="button" class="history-trigger" :aria-expanded="open" aria-controls="original-history-panel" :aria-label="`原图下载记录，新获取 ${summary.unread} 张`" @click="togglePanel">
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="4"/><path d="m7 17 4-5 3 3 3-4 4 5"/><circle cx="8" cy="8" r="1"/></svg>
@@ -33,13 +33,13 @@
 <script setup>
 import { ref, onMounted, onUnmounted } from 'vue'
 defineProps({ privateMode: { type: Boolean, default: false } })
-const emptySummary = () => ({ downloaded: 0, local: 0, failed: 0, completed: 0, cancelled: 0, total: 0, unread: 0 })
+const emptySummary = () => ({ downloaded: 0, standard: 0, converted: 0, local: 0, failed: 0, completed: 0, cancelled: 0, total: 0, unread: 0 })
 const summary = ref(emptySummary())
 const items = ref([]), nextCursor = ref(null), open = ref(false), loading = ref(false), clearing = ref(false), error = ref('')
 let alive = true, stream = null, fallback = null, requestEpoch = 0, summaryEpoch = 0, refreshQueued = false, hasLoaded = false
 let controller = null
 const base = '/api/offline/originals/history'
-const statusLabel = status => ({ downloaded: '已下载', local: '本地已有', failed: '获取失败', completed: '旧记录已完成', cancelled: '已停止' }[status] || '已处理')
+const statusLabel = status => ({ downloaded: '已下载原图', standard: '已下载清晰图', converted: '已下载转换图', local: '本地已有', failed: '获取失败', completed: '旧记录已完成', cancelled: '已停止' }[status] || '已处理')
 const dateTime = timestamp => new Date(Number(timestamp) * 1000).toISOString()
 const formatTime = timestamp => new Date(Number(timestamp) * 1000).toLocaleString()
 async function api(url, options = {}) {

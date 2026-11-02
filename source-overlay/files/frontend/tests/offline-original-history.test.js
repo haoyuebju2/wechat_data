@@ -11,7 +11,8 @@ function fixture() {
   }
   add(); add(); add('local')
   const summary = () => ({ downloaded: state.rows.filter(x => x.status === 'downloaded').length, local: state.rows.filter(x => x.status === 'local').length,
-    total: state.rows.length, unread: state.rows.filter(x => x.status === 'downloaded' && x.seq > state.seen).length })
+    standard: state.rows.filter(x => x.status === 'standard').length, converted: state.rows.filter(x => x.status === 'converted').length,
+    total: state.rows.length, unread: state.rows.filter(x => ['downloaded','standard','converted'].includes(x.status) && x.seq > state.seen).length })
   const streams = []
   vi.stubGlobal('EventSource', class { constructor() { this.close = vi.fn(); streams.push(this) } })
   const fetch = vi.fn(async (url, options = {}) => {
@@ -93,6 +94,14 @@ describe('original download history popover', () => {
     expect(wrapper.text()).toContain('已隐藏对话')
     expect(wrapper.text()).not.toContain('示例出游群')
     expect(wrapper.html()).not.toContain('synthetic')
+    wrapper.unmount()
+  })
+  it('shows converted previews separately from original files', async () => {
+    const { wrapper, add } = fixture(); add('converted')
+    await flushPromises(); await trigger(wrapper).trigger('click'); await flushPromises()
+    expect(wrapper.text()).toContain('原图 2 · 清晰图 1')
+    expect(wrapper.text()).toContain('已下载转换图')
+    expect(wrapper.text()).toContain('转换图不等于原始文件')
     wrapper.unmount()
   })
 })

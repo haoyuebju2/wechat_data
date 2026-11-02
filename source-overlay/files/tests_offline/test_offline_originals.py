@@ -200,7 +200,8 @@ def test_verified_wal_publication_automatically_downloads_without_opening_previe
         cached=None
         while time.monotonic()<deadline:
             cached=media_helpers._try_find_decrypted_resource(account,digest)
-            if cached:break
+            # Cache publication precedes protected provenance and job completion.
+            if cached and engine.summary()['done']==1:break
             time.sleep(.02)
         assert cached and cached.read_bytes()==plain
         assert exchanges and engine.summary()['done']==1

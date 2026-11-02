@@ -156,7 +156,7 @@ class AutoOriginals:
         with self._journal(account) as journal:
             journal.execute('UPDATE jobs SET status=?,attempts=?,due=? WHERE id=?',(state,attempts,due,identity))
             if state in {'done','failed','cancelled'}:
-                outcome=status if state=='done' else state
+                outcome=(result['quality'] if result.get('quality') in {'standard','converted'} else status) if state=='done' and status=='downloaded' else status if state=='done' else state
                 tries=attempts+1 if state=='done' else attempts
                 journal.execute('INSERT OR IGNORE INTO history(job_id,username,outcome,finished,attempts) VALUES(?,?,?,?,?)',
                                 (identity,username,outcome,time.time(),tries))
@@ -180,7 +180,7 @@ class AutoOriginals:
             return self._history_revision
 
     def history_summary(self):
-        counts={'downloaded':0,'local':0,'failed':0,'completed':0,'cancelled':0,'unread':0,'total':0}
+        counts={'downloaded':0,'standard':0,'converted':0,'local':0,'failed':0,'completed':0,'cancelled':0,'unread':0,'total':0}
         for account in self._accounts():
             if not (account/'_original_downloads.sqlite').is_file():continue
             with self._journal(account) as journal:
@@ -188,7 +188,7 @@ class AutoOriginals:
                 for outcome,count in journal.execute('SELECT outcome,count(*) FROM history GROUP BY outcome'):
                     if outcome in counts:counts[outcome]+=count
                     counts['total']+=count
-                counts['unread']+=journal.execute("SELECT count(*) FROM history WHERE outcome='downloaded' AND seq>?",(seen,)).fetchone()[0]
+                counts['unread']+=journal.execute("SELECT count(*) FROM history WHERE outcome IN ('downloaded','standard','converted') AND seq>?",(seen,)).fetchone()[0]
         return counts
 
     @staticmethod

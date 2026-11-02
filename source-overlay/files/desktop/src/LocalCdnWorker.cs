@@ -84,7 +84,8 @@ class LocalCdnWorker {
             n=Integer(body,pos);pos+=4;if(n<0||n>8192||pos+n>body.Length||!Keys.Contains(key)||fields.ContainsKey(key))throw new InvalidDataException();
             byte[] value=new byte[n];Buffer.BlockCopy(body,pos,value,0,n);pos+=n;fields.Add(key,value);
         }
-        if(fields.Count!=Keys.Count||fields["authkey"].Length<16||fields["authkey"].Length>4096||Encoding.ASCII.GetString(fields["seq"])!=sequence.ToString()||Encoding.ASCII.GetString(fields["filetype"])!="1"||!Regex.IsMatch(Encoding.ASCII.GetString(fields["fileid"]),"\\A[0-9a-fA-F]{20,8192}\\z"))throw new InvalidDataException();
+        string fileType=Encoding.ASCII.GetString(fields["filetype"]),pictureFormat=Encoding.ASCII.GetString(fields["downpicformat"]);
+        if(fields.Count!=Keys.Count||fields["authkey"].Length<16||fields["authkey"].Length>4096||Encoding.ASCII.GetString(fields["seq"])!=sequence.ToString()||(fileType!="1"&&fileType!="2")||(pictureFormat!="1"&&pictureFormat!="2")||!Regex.IsMatch(Encoding.ASCII.GetString(fields["fileid"]),"\\A[0-9a-fA-F]{20,8192}\\z"))throw new InvalidDataException();
         long start,end;
         if(!Int64.TryParse(Encoding.ASCII.GetString(fields["rangestart"]),out start)||!Int64.TryParse(Encoding.ASCII.GetString(fields["rangeend"]),out end)||start<0||start>25*1024*1024||end!=start+65535)throw new InvalidDataException();
         return fields;
@@ -125,8 +126,16 @@ class LocalCdnWorker {
         request.Headers["C-Seq"]=sequence.ToString();request.ContentLength=body.Length;
         try {
             using(var output=request.GetRequestStream())output.Write(body,0,body.Length);
-            using(var response=(HttpWebResponse)request.GetResponse()) {
-                if(response.StatusCode!=HttpStatusCode.OK||response.ContentLength>MaxReply)throw new InvalidDataException();
+            HttpWebResponse received;
+            try{received=(HttpWebResponse)request.GetResponse();}
+            catch(WebException error){
+                received=error.Response as HttpWebResponse;
+                // CDN application errors can be a bounded TLV body under HTTP
+                // 400. Let the backend inspect retcode instead of hiding it.
+                if(received==null||received.StatusCode!=HttpStatusCode.BadRequest){if(received!=null)received.Dispose();throw;}
+            }
+            using(var response=received) {
+                if((response.StatusCode!=HttpStatusCode.OK&&response.StatusCode!=HttpStatusCode.BadRequest)||response.ContentLength>MaxReply)throw new InvalidDataException();
                 using(var input=response.GetResponseStream())using(var result=new MemoryStream()) {
                     byte[] buffer=new byte[32768];
                     while(true) {

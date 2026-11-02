@@ -1123,7 +1123,7 @@
     },
     {
       "path": "desktop/src/LocalCdnWorker.cs",
-      "sha256": "eab83e2687871d48e1bde4045492e041e9e3c887c03dc1e9c3456bed521b3c12"
+      "sha256": "89949a4cc83d6e2a9638b871575cd2e181034afafe098fc177358a26eda340c0"
     },
     {
       "path": "desktop/src/offline-main.cjs",
@@ -1155,7 +1155,7 @@
     },
     {
       "path": "frontend/components/OriginalDownloadHistory.vue",
-      "sha256": "fba63aa2342f465f7ca5588b1fa685f455cd7681bd93c5c1d51324d94b484543"
+      "sha256": "497d2e61523725ba241b0522f890e9d6f12c10504c9290c9c89ea0cd6a0e052e"
     },
     {
       "path": "frontend/components/chat/OfflineSnapshotBar.vue",
@@ -1175,7 +1175,7 @@
     },
     {
       "path": "frontend/tests/offline-original-history.test.js",
-      "sha256": "3d617c6b52b8c31bf376502f11710934aaad28702470c79c50f5ccbcbdc5a175"
+      "sha256": "6630f6241f8a9c512d00cbce6f029791cdce5115aed3b63a65c7de2f12322611"
     },
     {
       "path": "frontend/tests/offline-snapshot.test.js",
@@ -1195,7 +1195,7 @@
     },
     {
       "path": "src/wechat_decrypt_tool/local_cdn.py",
-      "sha256": "b9e797e2f8ad7f62be24543a363e058218186a530ab8edbe7758f9424a37fb81"
+      "sha256": "36b71323f74648449d22d798997512804988080752a55aeaf0792fa766b8429a"
     },
     {
       "path": "src/wechat_decrypt_tool/local_cdn_profile.py",
@@ -1227,7 +1227,7 @@
     },
     {
       "path": "src/wechat_decrypt_tool/offline_originals.py",
-      "sha256": "a3dbe7b5c4b1aaa0cec9263892cc0df0fd4cfa3760bf1666974875de1699c2bd"
+      "sha256": "3096f10b158c1d9afbe4c6205bec0a5574067170e115358909b5acefdc9a37b7"
     },
     {
       "path": "src/wechat_decrypt_tool/offline_policy.py",
@@ -1263,7 +1263,7 @@
     },
     {
       "path": "tests_offline/test_local_cdn.py",
-      "sha256": "520f6ad10befe5c33261a5224579f782d9e8692f44656f0d16ebe034ab2b4c44"
+      "sha256": "db08af54da03d7686350c11f333d0d4823c565fcbbfc8c50d7d065ef60b959e5"
     },
     {
       "path": "tests_offline/test_offline_ai.py",
@@ -1279,7 +1279,7 @@
     },
     {
       "path": "tests_offline/test_offline_originals.py",
-      "sha256": "01ceda35dec57926f4d5981412763b5318927b505b6f6d0e06aa5cfe827cdb85"
+      "sha256": "8ff522060a811a16a1e5a7abffc0b7d4eae5c0dfa9a090a8be10384e92573145"
     },
     {
       "path": "tests_offline/test_offline_policy.py",
@@ -1295,7 +1295,7 @@
     },
     {
       "path": "tests_offline/test_original_history.py",
-      "sha256": "f5a77621aea8ec2a14aebf1d8eecdc2ddc0c1153ec0d963f5402a16fe6b14dac"
+      "sha256": "ff457c732134962a8ad65d72cf060f2af5796995c6eb6cdf64572d93a0924f74"
     }
   ]
 }
