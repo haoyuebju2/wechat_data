@@ -4,6 +4,9 @@ The private journal contains only local message identifiers, never image keys,
 CDN credentials, message bodies or media. No network calls or native binaries.
 """
 import hashlib
+import base64
+import json
+import math
 from contextlib import closing,contextmanager
 from pathlib import Path
 import re
@@ -28,6 +31,7 @@ class AutoOriginals:
         self._threads=[]
         self._known=set()
         self._signatures={}
+        self._history_revision=0
 
     def _accounts(self):
         root=get_output_databases_dir()
@@ -42,8 +46,21 @@ class AutoOriginals:
         conn.execute('CREATE TABLE IF NOT EXISTS cursors(db TEXT,tbl TEXT,position INTEGER,PRIMARY KEY(db,tbl))')
         conn.execute("CREATE TABLE IF NOT EXISTS jobs(id TEXT PRIMARY KEY,username TEXT,sid TEXT,md5 TEXT DEFAULT '',received REAL,attempts INTEGER DEFAULT 0,due REAL,status TEXT)")
         conn.execute('CREATE INDEX IF NOT EXISTS pending_jobs ON jobs(status,due)')
+        conn.execute('CREATE TABLE IF NOT EXISTS history(seq INTEGER PRIMARY KEY AUTOINCREMENT,job_id TEXT UNIQUE,username TEXT,outcome TEXT,finished REAL,attempts INTEGER)')
+        conn.execute('CREATE INDEX IF NOT EXISTS history_finished ON history(finished DESC,seq DESC)')
+        conn.execute('CREATE INDEX IF NOT EXISTS history_outcome ON history(outcome,seq)')
+        conn.execute('CREATE TABLE IF NOT EXISTS history_meta(key TEXT PRIMARY KEY,value INTEGER)')
         try:
-            with conn:yield conn
+            with conn:
+                if not conn.execute("SELECT 1 FROM history_meta WHERE key='initialized'").fetchone():
+                    # Old 'done' rows do not distinguish a download from a cache
+                    # hit. Import them as old completions, never as new images.
+                    claimed=conn.execute("INSERT OR IGNORE INTO history_meta VALUES('initialized',1)").rowcount
+                    if claimed:
+                        conn.execute("INSERT OR IGNORE INTO history(job_id,username,outcome,finished,attempts) SELECT id,username,CASE WHEN status='done' THEN 'completed' ELSE status END,due,attempts FROM jobs WHERE status IN ('done','failed','cancelled')")
+                        maximum=conn.execute('SELECT coalesce(max(seq),0) FROM history').fetchone()[0]
+                        conn.execute("INSERT OR REPLACE INTO history_meta VALUES('seen_through',?)",(maximum,))
+                yield conn
         finally:conn.close()
 
     def notify(self,account):
@@ -138,9 +155,109 @@ class AutoOriginals:
             attempts+=1;state='failed' if attempts>=3 else 'pending';due=time.time()+(30 if attempts==1 else 120)
         with self._journal(account) as journal:
             journal.execute('UPDATE jobs SET status=?,attempts=?,due=? WHERE id=?',(state,attempts,due,identity))
+            if state in {'done','failed','cancelled'}:
+                outcome=status if state=='done' else state
+                tries=attempts+1 if state=='done' else attempts
+                journal.execute('INSERT OR IGNORE INTO history(job_id,username,outcome,finished,attempts) VALUES(?,?,?,?,?)',
+                                (identity,username,outcome,time.time(),tries))
             journal.execute("DELETE FROM jobs WHERE status IN ('done','cancelled','failed') AND due<?",(time.time()-7*86400,))
-        if state in {'done','cancelled','failed'}:self.notify(account.name)
+        if state in {'done','cancelled','failed'}:
+            self._history_changed()
+            self.notify(account.name)
         return True
+
+    def _history_changed(self):
+        with self._condition:
+            self._history_revision+=1
+            self._condition.notify_all()
+
+    def history_revision(self):
+        with self._condition:return self._history_revision
+
+    def wait_history(self,revision,timeout=10):
+        with self._condition:
+            self._condition.wait_for(lambda:self._stop.is_set() or self._history_revision!=revision,timeout)
+            return self._history_revision
+
+    def history_summary(self):
+        counts={'downloaded':0,'local':0,'failed':0,'completed':0,'cancelled':0,'unread':0,'total':0}
+        for account in self._accounts():
+            if not (account/'_original_downloads.sqlite').is_file():continue
+            with self._journal(account) as journal:
+                seen=journal.execute("SELECT value FROM history_meta WHERE key='seen_through'").fetchone()[0]
+                for outcome,count in journal.execute('SELECT outcome,count(*) FROM history GROUP BY outcome'):
+                    if outcome in counts:counts[outcome]+=count
+                    counts['total']+=count
+                counts['unread']+=journal.execute("SELECT count(*) FROM history WHERE outcome='downloaded' AND seq>?",(seen,)).fetchone()[0]
+        return counts
+
+    @staticmethod
+    def _conversation_names(account,usernames):
+        names={name:name for name in usernames}
+        database=account/'contact.db'
+        if database.is_file() and names:
+            try:
+                with closing(sqlite3.connect(database.as_uri()+'?mode=ro',uri=True,timeout=1)) as source:
+                    params=','.join('?' for _ in names)
+                    for username,remark,nickname in source.execute('SELECT username,remark,nick_name FROM contact WHERE username IN ('+params+')',list(names)):
+                        names[username]=next((v.strip() for v in (remark,nickname,username) if isinstance(v,str) and v.strip()),username)
+            except sqlite3.Error:pass
+        return names
+
+    def history(self,limit=50,cursor=None):
+        boundary=None
+        if cursor:
+            try:
+                boundary=json.loads(base64.urlsafe_b64decode(cursor+'==='))
+                if (not isinstance(boundary,list) or len(boundary)!=3 or not isinstance(boundary[0],(int,float))
+                    or not math.isfinite(boundary[0]) or not isinstance(boundary[1],str)
+                    or not isinstance(boundary[2],int) or boundary[2]<0):raise ValueError()
+            except Exception:raise ValueError('invalid_history_cursor') from None
+        rows=[];through={}
+        for account in self._accounts():
+            if not (account/'_original_downloads.sqlite').is_file():continue
+            with self._journal(account) as journal:
+                through[account.name]=journal.execute('SELECT coalesce(max(seq),0) FROM history').fetchone()[0]
+                clause='';params=[]
+                if boundary:
+                    stamp,name,seq=boundary
+                    clause=' WHERE finished<? OR (finished=? AND (?<? OR (?=? AND seq<?)))'
+                    params=[stamp,stamp,account.name,name,account.name,name,seq]
+                records=journal.execute('SELECT seq,username,outcome,finished,attempts FROM history'+clause+' ORDER BY finished DESC,seq DESC LIMIT ?',params+[limit+1]).fetchall()
+                labels=self._conversation_names(account,{r[1] for r in records})
+                rows.extend({'id':account.name+':'+str(seq),'account':account.name,'conversation':labels.get(username,username),
+                             'status':outcome,'finished_at':finished,'attempts':tries,'_seq':seq}
+                            for seq,username,outcome,finished,tries in records)
+        rows.sort(key=lambda row:(row['finished_at'],row['account'],row['_seq']),reverse=True)
+        selected=rows[:limit];next_cursor=None
+        if len(rows)>limit and selected:
+            last=selected[-1]
+            next_cursor=base64.urlsafe_b64encode(json.dumps([last['finished_at'],last['account'],last['_seq']]).encode()).decode().rstrip('=')
+        for row in selected:row.pop('_seq')
+        return {'items':selected,'through':through,'next_cursor':next_cursor,'summary':self.history_summary()}
+
+    def mark_history_seen(self,through):
+        changed=False
+        for account in self._accounts():
+            if account.name not in through or not (account/'_original_downloads.sqlite').is_file():continue
+            with self._journal(account) as journal:
+                maximum=journal.execute('SELECT coalesce(max(seq),0) FROM history').fetchone()[0]
+                previous=journal.execute("SELECT value FROM history_meta WHERE key='seen_through'").fetchone()[0]
+                value=min(maximum,through[account.name])
+                if value>previous:
+                    journal.execute("UPDATE history_meta SET value=? WHERE key='seen_through'",(value,));changed=True
+        if changed:self._history_changed()
+        return self.history_summary()
+
+    def clear_history(self):
+        for account in self._accounts():
+            if not (account/'_original_downloads.sqlite').is_file():continue
+            with self._journal(account) as journal:
+                maximum=journal.execute('SELECT coalesce(max(seq),0) FROM history').fetchone()[0]
+                journal.execute("UPDATE history_meta SET value=max(value,?) WHERE key='seen_through'",(maximum,))
+                journal.execute('DELETE FROM history')
+        self._history_changed()
+        return self.history_summary()
 
     def summary(self):
         counts={'pending':0,'done':0,'failed':0}

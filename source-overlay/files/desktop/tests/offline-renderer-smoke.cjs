@@ -14,6 +14,9 @@ let server,win;
 const token='synthetic-renderer-only-token';
 let authenticated=0;
 let originals={enabled:true,auto_mode:'off',conversations:{},queue:{pending:0,done:0,failed:0}};
+let historyRows=[{id:'synthetic:2',account:'synthetic-account',conversation:'Synthetic Group',status:'downloaded',finished_at:1700000002,attempts:1},{id:'synthetic:1',account:'synthetic-account',conversation:'Synthetic Friend',status:'downloaded',finished_at:1700000001,attempts:1}];
+let historyUnread=2;
+const historySummary=()=>({downloaded:historyRows.length,local:0,failed:0,completed:0,cancelled:0,total:historyRows.length,unread:historyUnread});
 const timeout=setTimeout(()=>{console.error('Renderer test timed out');app.exit(1);},45000);
 app.whenReady().then(async()=>{
   server=http.createServer((req,res)=>{
@@ -22,6 +25,13 @@ app.whenReady().then(async()=>{
     const pathname=new URL(req.url,'http://127.0.0.1').pathname;
     if(pathname.startsWith('/api/')){
       res.setHeader('Content-Type','application/json');
+      if(pathname.startsWith('/api/offline/originals/history')){
+        if(pathname.endsWith('/events')){res.setHeader('Content-Type','text/event-stream');res.end('data: {"revision":1}\n\n');return;}
+        if(pathname.endsWith('/seen')){historyUnread=0;res.end(JSON.stringify(historySummary()));return;}
+        if(pathname.endsWith('/summary')){res.end(JSON.stringify(historySummary()));return;}
+        if(req.method==='DELETE'){historyRows=[];historyUnread=0;res.end(JSON.stringify(historySummary()));return;}
+        res.end(JSON.stringify({items:historyRows,summary:historySummary(),through:{'synthetic-account':2},next_cursor:null}));return;
+      }
       if(pathname==='/api/offline/originals/settings'){
         if(req.method==='PUT'){
           let body='';req.on('data',chunk=>body+=chunk);req.on('end',()=>{originals={...originals,...JSON.parse(body)};res.end(JSON.stringify(originals));});return;
@@ -43,7 +53,7 @@ app.whenReady().then(async()=>{
   const origin='http://127.0.0.1:'+server.address().port;
   const ses=session.fromPartition('offline-renderer-test',{cache:false});
   secureSession(ses,origin,token);
-  win=new BrowserWindow({show:false,webPreferences:{session:ses,sandbox:true,contextIsolation:true,nodeIntegration:false,webSecurity:true}});
+  win=new BrowserWindow({show:false,width:1280,height:860,webPreferences:{offscreen:true,backgroundThrottling:false,session:ses,sandbox:true,contextIsolation:true,nodeIntegration:false,webSecurity:true}});
   win.webContents.setWindowOpenHandler(()=>({action:'deny'}));
   await loadWithRedirect(win,origin);
   const readyDeadline=Date.now()+15000;
@@ -64,6 +74,17 @@ app.whenReady().then(async()=>{
   }
   if(!await win.webContents.executeJavaScript("!!document.querySelector('.chat-page-shell')"))throw new Error('Built chat did not mount');
   if(await win.webContents.executeJavaScript("/正在本地更新|校验完成后更新记录|更新最新记录/.test(document.body.innerText)"))throw new Error('Background update status remains visible');
+  const historyDeadline=Date.now()+5000;
+  while(Date.now()<historyDeadline){if(await win.webContents.executeJavaScript("!!document.querySelector('button[aria-label=\"原图下载记录，新获取 2 张\"]')"))break;await new Promise(resolve=>setTimeout(resolve,40));}
+  await win.webContents.executeJavaScript("document.querySelector('button[aria-controls=\"original-history-panel\"]').click()");
+  await new Promise(resolve=>setTimeout(resolve,200));
+  if(!await win.webContents.executeJavaScript("document.querySelector('#original-history-panel')?.innerText.includes('Synthetic Group') && !!document.querySelector('button[aria-label=\"原图下载记录，新获取 0 张\"]')"))throw new Error('Built history did not display rows and reset the new count');
+  await win.webContents.executeJavaScript('new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve)))');
+  fs.writeFileSync(path.resolve(__dirname,'../../../validation-output/original-history-renderer.png'),(await win.webContents.capturePage()).toPNG());
+  await win.webContents.executeJavaScript("[...document.querySelectorAll('#original-history-panel button')].find(b=>b.textContent==='清空历史').click()");
+  await new Promise(resolve=>setTimeout(resolve,100));
+  if(!await win.webContents.executeJavaScript("document.querySelector('#original-history-panel')?.innerText.includes('共 0 条历史')"))throw new Error('Built history clear failed');
+  await win.webContents.executeJavaScript("document.querySelector('button[aria-label=\"关闭原图下载历史\"]').click()");
   await win.webContents.executeJavaScript("document.querySelector('[title=\"设置\"]').click()");
   const scopeSelector='select[aria-label="自动下载范围"]';
   async function waitUI(expression){

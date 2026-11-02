@@ -1,4 +1,7 @@
-from fastapi import APIRouter
+from fastapi import APIRouter,Query,Request,HTTPException
+from fastapi.responses import StreamingResponse
+import asyncio
+import json
 from pydantic import BaseModel,Field
 from typing import Literal
 from .. import local_cdn
@@ -17,6 +20,41 @@ class Original(BaseModel):
     server_id:int=Field(ge=-(2**63),lt=2**64)
     username:str=Field(min_length=1,max_length=256)
     md5:str=Field(default='',max_length=32)
+
+class HistorySeen(BaseModel):
+    through:dict[str,int]=Field(max_length=32)
+
+@router.get('/history/summary')
+def history_summary():
+    return AUTO_ORIGINALS.history_summary()
+
+@router.get('/history')
+def history(limit:int=Query(default=50,ge=1,le=100),cursor:str|None=Query(default=None,max_length=2048)):
+    try:return AUTO_ORIGINALS.history(limit,cursor)
+    except ValueError:raise HTTPException(status_code=400,detail='Invalid history cursor') from None
+
+@router.post('/history/seen')
+def history_seen(request:HistorySeen):
+    if any(value<0 or value>2**63-1 for value in request.through.values()):
+        raise HTTPException(status_code=400,detail='Invalid history boundary')
+    return AUTO_ORIGINALS.mark_history_seen(request.through)
+
+@router.delete('/history')
+def clear_history():
+    return AUTO_ORIGINALS.clear_history()
+
+@router.get('/history/events')
+async def history_events(request:Request):
+    async def events():
+        revision=AUTO_ORIGINALS.history_revision()
+        yield 'data: '+json.dumps({'revision':revision})+'\n\n'
+        while not await request.is_disconnected() and not AUTO_ORIGINALS._stop.is_set():
+            changed=await asyncio.to_thread(AUTO_ORIGINALS.wait_history,revision,10)
+            if changed!=revision:
+                revision=changed
+                yield 'data: '+json.dumps({'revision':revision})+'\n\n'
+            else:yield ': keepalive\n\n'
+    return StreamingResponse(events(),media_type='text/event-stream',headers={'Cache-Control':'no-store','X-Accel-Buffering':'no'})
 
 @router.get('/settings')
 def settings():
