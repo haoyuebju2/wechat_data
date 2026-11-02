@@ -96,7 +96,7 @@ function configureIpc() {
   handle("window:isMaximized", () => window.isMaximized());
   handle("window:setTitleBarTheme", () => true);
   handle("app:isDebugEnabled", () => false);
-  handle("app:getVersion", () => "2.10.0-local.1");
+  handle("app:getVersion", () => "0.1.0");
   handle("backend:getPort", () => ({port, source:"offline-policy"}));
   handle("backend:setPort", () => ({port, changed:false, offline:true}));
   handle("app:getAutoLaunch", () => false);

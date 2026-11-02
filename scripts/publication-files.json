@@ -76,6 +76,12 @@
     "source-overlay/files/tests_offline/test_offline_snapshot.py",
     "source-overlay/files/tests_offline/test_original_business.py",
     "source-overlay/source-changes.json",
-    "tests/test_source_distribution.py"
+    "tests/test_source_distribution.py",
+    "VERSION.json",
+    "scripts/LocalLauncher.cs",
+    "scripts/Install-Release.ps1",
+    "scripts/ReleaseInstaller.cs",
+    "scripts/build_release.py",
+    "docs/RELEASE_0.1.0.md"
   ]
 }

@@ -66,3 +66,12 @@ upstream_local/offline-profile/
 *.log
 *.pcap
 *.pcapng
+
+# Reviewed release tooling and metadata
+!VERSION.json
+!/scripts/LocalLauncher.cs
+!/scripts/Install-Release.ps1
+!/scripts/ReleaseInstaller.cs
+!/scripts/build_release.py
+!/docs/RELEASE_0.1.0.md
+/.node-runtime/

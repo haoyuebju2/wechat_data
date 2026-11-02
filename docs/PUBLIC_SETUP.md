@@ -1,5 +1,9 @@
 # 安装与维护
 
+普通用户：从项目 [Release](https://github.com/haoyuebju2/wechat_data/releases/tag/v0.1.0) 下载 Windows x64 Setup EXE，核对 SHA-256 后执行。安装器自动准备项目专用 Node.js / Python，不需要预装 Git、Node 或 Python，但需要联网获取固定公开源码与依赖，并在首次防火墙配置时确认管理员权限。安装后使用 `WeChatDataMonitor.exe` 或快捷方式；安装中的自动启动选项仅影响当前 Windows 用户。EXE 安装器未签名，只支持新建空目录，不提供原地升级、自动迁移和自动卸载。[v0.1.0 完整说明](RELEASE_0.1.0.md)。
+
+下面的 Node.js、Git 命令和 CMD 启动步骤是直接从源码安装的方式。
+
 要求：Windows x64、PowerShell、可用的 Node.js/npm。安装阶段需要访问 Python、npm、PyPI 和 GitHub 的公开源；正常运行不会调用安装下载脚本。
 
 日常可点击右上角“原图记录”查看自动下载结果。入口上的“新获取”统计上次查看后首次获取成功的图片（原图或清晰图），打开后清零；历史继续保留，可加载更早记录或单独清空。清空不会删除缓存图片，也不会让已完成任务重新下载。旧版已完成任务单独标注为旧记录。

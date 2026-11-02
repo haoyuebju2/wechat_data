@@ -1,0 +1,8 @@
+{
+  "version": "0.1.0",
+  "tag": "v0.1.0",
+  "installer": "online-bootstrap",
+  "platform": "windows-x64",
+  "node_version": "24.16.0",
+  "node_zip_sha256": "edaca9bd58ec8e92037dac4e877d52f6b8f430b81c18b57e264b4e2fb111cd56"
+}

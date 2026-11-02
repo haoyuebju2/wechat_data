@@ -6,6 +6,10 @@
 
 ## 安装与启动
 
+普通用户可从 [v0.1.0 Release](https://github.com/haoyuebju2/wechat_data/releases/tag/v0.1.0) 下载 `WeChatDataMonitor-0.1.0-Windows-x64-Setup.exe`，按 `SHA256SUMS.txt` 校验后运行。它是联网安装器，会在新建空目录下载并校验专用 Node.js / Python 和固定依赖，首次防火墙配置需要管理员确认。安装后通过快捷方式或 `WeChatDataMonitor.exe` 启动，可在安装时选择登录 Windows 后自动启动。未做代码签名，不支持覆盖非空目录或自动迁移旧数据。[更新内容与限制](docs/RELEASE_0.1.0.md)。
+
+以下为直接源码安装方式：
+
 Windows x64，需预先安装 Node.js/npm。项目放在本机固定磁盘、非共享且非云同步目录。
 
 ```powershell
