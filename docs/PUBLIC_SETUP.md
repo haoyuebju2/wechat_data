@@ -1,6 +1,8 @@
 # 安装与维护
 
-普通用户：从项目 [v0.1.4 Release](https://github.com/haoyuebju2/wechat_data/releases/tag/v0.1.4) 下载完整离线 Setup EXE，核对 SHA-256 后执行。安装时不下载运行环境或依赖，也不执行源码构建，不需要预装 Git、Node 或 Python。标准向导提供安装位置、可选自启、组件进度、完成页及卸载入口；首次防火墙配置需要管理员确认。安装后直接使用 `WeChatDataMonitor.exe` 或快捷方式。程序文件与 `%APPDATA%\WeChatDataMonitor` 数据分开，卸载保留该数据目录。安装器未签名，使用新的空目录，不承诺旧聊天数据的自动迁移。[完整说明](RELEASE_0.1.4.md)。
+普通用户：从项目 [v0.1.5 Release](https://github.com/haoyuebju2/wechat_data/releases/tag/v0.1.5) 下载完整离线 Setup EXE，核对 SHA-256 后执行。安装时不下载运行环境或依赖，也不执行源码构建，不需要预装 Git、Node 或 Python。标准向导提供安装位置、可选自启、组件进度、完成页及卸载入口；首次防火墙配置需要管理员确认。安装后直接使用 `WeChatDataMonitor.exe` 或快捷方式。程序文件与 `%APPDATA%\WeChatDataMonitor` 数据分开，卸载保留该数据目录。安装器未签名，使用新的空目录，不承诺旧聊天数据的自动迁移。[完整说明](RELEASE_0.1.5.md)。
+
+第一次使用：先在自己的电脑登录 Windows 微信，检测并选择账号，核对数据库目录；点击“一键获取数据库密钥”→“开始只读获取”，取得认证密钥后点击“开始解密”。不需要开发者提供密钥。v0.1.5 已在微信 4.1.15.13 上用空密钥目录通过首次获取；其他版本需要实测。
 
 下面的 Node.js、Git 命令和 CMD 启动步骤是直接从源码安装的方式。
 

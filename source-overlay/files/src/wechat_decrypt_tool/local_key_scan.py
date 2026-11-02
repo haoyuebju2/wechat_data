@@ -30,6 +30,13 @@ def verify_candidate(candidate, first_page, masks, *, deadline=None, cancel_even
     return None
 
 
+def candidate_priority(candidate):
+    # Ordinary strings also have a 32-byte std::string representation. Test
+    # binary candidates first, as upstream key_v4's entropy filter does, but
+    # retain printable candidates as a fallback instead of rejecting them.
+    return sum(32 <= byte <= 126 for byte in candidate) > 24
+
+
 def get_local_database_key(db_storage_path, *, internal_db_key=None, wechat_install_path=None,
                            cancel_event=None, timeout_seconds=120.0):
     from .key_service import _resolve_v4_probe_db_file, _normalize_internal_db_key, _resolve_wechat_dll_path
@@ -63,6 +70,7 @@ def get_local_database_key(db_storage_path, *, internal_db_key=None, wechat_inst
         raise RuntimeError("未找到运行中的微信主进程，请先在本机登录微信。")
     deadline = time.monotonic() + max(1, min(float(timeout_seconds), 300))
     seen = set()
+    candidates = []
     for pid in pids:
         handle = api.open_process(pid)
         if not handle:
@@ -80,10 +88,16 @@ def get_local_database_key(db_storage_path, *, internal_db_key=None, wechat_inst
                         seen.add(candidate)
                         if len(seen) > 4096:
                             raise RuntimeError("候选数量超出安全上限，请检查微信版本是否需要适配。")
-                        key = verify_candidate(candidate, first_page, masks, deadline=deadline, cancel_event=cancel_event)
-                        if key is not None:
-                            return {"db_key": key.hex(), "method": "local_source_memory_scan",
-                                    "db_key_probe_path": str(probe), "verified": True}
+                        candidates.append(candidate)
         finally:
             api.close_handle(handle)
+    # Finish the cheap discovery phase across all WeChat processes before
+    # spending the deadline on PBKDF2. Text in a helper process must not starve
+    # the main process's real key. Keep the process boundary read-only.
+    candidates.sort(key=candidate_priority)
+    for candidate in candidates:
+        key = verify_candidate(candidate, first_page, masks, deadline=deadline, cancel_event=cancel_event)
+        if key is not None:
+            return {"db_key": key.hex(), "method": "local_source_memory_scan",
+                    "db_key_probe_path": str(probe), "verified": True}
     raise RuntimeError("未找到通过本账号数据库认证的密钥；未调用 DLL Hook 或任何远程兜底。")

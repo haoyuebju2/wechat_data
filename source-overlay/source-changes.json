@@ -613,6 +613,18 @@
       ]
     },
     {
+      "path": "frontend/composables/useApi.js",
+      "base_sha256": "138d9bd47088dac3b52ab107fffda868bfdb9be6069fe33362e515bec5b6a3dc",
+      "target_sha256": "e0a2781f0fa438c2687514372be3b8f24d23b61229881144d8c565f56f7ba479",
+      "edits": [
+        {
+          "start": 43813,
+          "end": 43892,
+          "insert_base64": "ICAgIHJldHVybiBhd2FpdCByZXF1ZXN0KHVybCwgeyByZXRyeTogMCwgLi4uKHBhcmFtcz8uc2lnbmFsID8geyBzaWduYWw6IHBhcmFtcy5zaWduYWwgfSA6IHt9KSB9KQo="
+        }
+      ]
+    },
+    {
       "path": "frontend/composables/useApiBase.js",
       "base_sha256": "4474703c0d4a89285ffc320e29b23863852165979c20076a3783ba7b59c07509",
       "target_sha256": "dea63adcea1fcb29a2779f4bb4ef7fdd535313e22541c7b31da29c9e553868ec",
@@ -699,6 +711,68 @@
           "start": 34185,
           "end": 34185,
           "insert_base64": "bGV0IG9mZmxpbmVSZWZyZXNoRnV0dXJlID0gbnVsbApsZXQgb2ZmbGluZVJlZnJlc2hRdWV1ZWQgPSBmYWxzZQpmdW5jdGlvbiBoYW5kbGVPZmZsaW5lU25hcHNob3RVcGRhdGVkKCkgewogIG9mZmxpbmVSZWZyZXNoUXVldWVkID0gdHJ1ZQogIGlmIChvZmZsaW5lUmVmcmVzaEZ1dHVyZSkgcmV0dXJuIG9mZmxpbmVSZWZyZXNoRnV0dXJlCiAgb2ZmbGluZVJlZnJlc2hGdXR1cmUgPSAoYXN5bmMgKCkgPT4gewogICAgd2hpbGUgKG9mZmxpbmVSZWZyZXNoUXVldWVkKSB7CiAgICAgIG9mZmxpbmVSZWZyZXNoUXVldWVkID0gZmFsc2UKICAgICAgYXdhaXQgUHJvbWlzZS5hbGxTZXR0bGVkKFsKICAgICAgICByZWZyZXNoT2ZmbGluZU1lc3NhZ2VzKCksCiAgICAgICAgcmVmcmVzaFNlc3Npb25zRm9yU2VsZWN0ZWRBY2NvdW50KHsgc291cmNlT3ZlcnJpZGU6ICdkZWNyeXB0ZWQnIH0pCiAgICAgIF0pCiAgICB9CiAgfSkoKS5maW5hbGx5KCgpID0+IHsgb2ZmbGluZVJlZnJlc2hGdXR1cmUgPSBudWxsIH0pCiAgcmV0dXJuIG9mZmxpbmVSZWZyZXNoRnV0dXJlCn0KCg=="
+        }
+      ]
+    },
+    {
+      "path": "frontend/pages/decrypt.vue",
+      "base_sha256": "7b09c8dfab0afc7b8cc00dc69f4516a2bb62573750ae18a352b02fcc3d24b475",
+      "target_sha256": "5fb7514344f62c1937b443147ac099e23a25721785872ddd88bbdf386eb99486",
+      "edits": [
+        {
+          "start": 5228,
+          "end": 5421,
+          "insert_base64": "ICAgICAgICAgICAgICAgICAgOiAn54K55Ye75oyJ6ZKu5LuO5pys5py65b6u5L+h5Y+q6K+76I635Y+W5pWw5o2u5bqT5a+G6ZKl77yM5bm255So5b2T5YmN6LSm5Y+35pWw5o2u5bqT6aqM6K+B44CC5oKo5Lmf5Y+v5Lul6L6T5YWl6Ieq5bex5bey5Y+W5b6X55qENjTkvY3lr4bpkqXjgIInIH19Cg=="
+        },
+        {
+          "start": 117919,
+          "end": 117919,
+          "insert_base64": "ICBjb25zdCBkYlN0b3JhZ2VQYXRoID0gU3RyaW5nKGZvcm1EYXRhLmRiX3N0b3JhZ2VfcGF0aCB8fCAnJykudHJpbSgpCiAgaWYgKCFkYlN0b3JhZ2VQYXRoKSB7CiAgICBmb3JtRXJyb3JzLmRiX3N0b3JhZ2VfcGF0aCA9ICfor7flhYjpgInmi6nlvZPliY3otKblj7fnmoQgZGJfc3RvcmFnZSDnm67lvZXvvIzlho3ojrflj5bmlbDmja7lupPlr4bpkqUnCiAgICByZXR1cm4KICB9Cg=="
+        },
+        {
+          "start": 117971,
+          "end": 118006,
+          "insert_base64": "ICAgIGV5ZWJyb3c6ICfmnKzmnLrlj6ror7vojrflj5YnLAo="
+        },
+        {
+          "start": 118054,
+          "end": 118204,
+          "insert_base64": "ICAgIGRlc2NyaXB0aW9uOiAn5bCG5Y+q6K+75omr5o+P5b2T5YmN5b6u5L+h6L+b56iL77yM55So5omA6YCJ6LSm5Y+355qE5pWw5o2u5bqT6K6k6K+B5YCZ6YCJ5a+G6ZKl44CCJywK"
+        },
+        {
+          "start": 118289,
+          "end": 118416,
+          "insert_base64": "ICAgICAgJ+ehruiupOaVsOaNruW6k+i3r+W+hOWxnuS6juWQjOS4gOS4quW+ruS/oei0puWPtycsCiAgICAgICfpgJrluLjpnIDopoHlh6DljYHnp5LvvJvmnJ/pl7Tlj6/lgZzmraLojrflj5bvvIzlhbbku5bpobXpnaLku43lj6/kvb/nlKgnCg=="
+        },
+        {
+          "start": 118423,
+          "end": 118564,
+          "insert_base64": "ICAgIG5vdGU6ICfkuI3kvJrlhbPpl63miJbph43lkK/lvq7kv6HvvJvlpLHotKXkvJrmmL7npLrljp/lm6DvvIzlj6/kvb/nlKjoh6rlt7Hlt7Llj5blvpfnmoTlr4bpkqXph43or5Xop6Plr4bjgIInLAogICAgcHJpbWFyeUxhYmVsOiAn5byA5aeL5Y+q6K+76I635Y+WJywK"
+        },
+        {
+          "start": 118653,
+          "end": 118654,
+          "insert_base64": ""
+        },
+        {
+          "start": 118828,
+          "end": 118892,
+          "insert_base64": "ICBlcnJvci52YWx1ZSA9ICcnOyB3YXJuaW5nLnZhbHVlID0gJyc7IGZvcm1FcnJvcnMua2V5ID0gJycK"
+        },
+        {
+          "start": 118900,
+          "end": 119223,
+          "insert_base64": "ICAgIHdhcm5pbmcudmFsdWUgPSAn5q2j5Zyo5pys5py65Y+q6K+75omr5o+P5bm26aqM6K+B5a+G6ZKl77yM6K+356iN5YCZ77yb6ZyA6KaB5pe25Y+v54K54oCc5YGc5q2i5bm25oGi5aSN4oCd44CCJwogICAgY29uc3QgcmVzdWx0ID0gYXdhaXQgZ2V0S2V5cyh7CiAgICAgIHdlY2hhdF9pbnN0YWxsX3BhdGg6IG5vcm1hbGl6ZVdlY2hhdEluc3RhbGxQYXRoKGZvcm1EYXRhLndlY2hhdF9pbnN0YWxsX3BhdGggfHwgcmVhZFN0b3JlZFdlY2hhdEluc3RhbGxQYXRoKCkpLAogICAgICBkYl9zdG9yYWdlX3BhdGg6IGRiU3RvcmFnZVBhdGgsCiAgICAgIGtleV9tb2RlOiAna2V5X3Y0JywKICAgICAgc2lnbmFsOiByZXF1ZXN0Q29udHJvbGxlci5zaWduYWwKICAgIH0pCg=="
+        },
+        {
+          "start": 119297,
+          "end": 119985,
+          "insert_base64": "ICAgIGNvbnN0IGtleSA9IFN0cmluZyhyZXN1bHQ/LmRhdGE/LmRiX2tleSB8fCAnJykudHJpbSgpLnRvTG93ZXJDYXNlKCkKICAgIGlmIChyZXN1bHQ/LnN0YXR1cyA9PT0gMCAmJiAvXlswLTlhLWZdezY0fSQvLnRlc3Qoa2V5KSkgewogICAgICBmb3JtRGF0YS5rZXkgPSBrZXkKICAgICAgd2FybmluZy52YWx1ZSA9ICfmlbDmja7lupPlr4bpkqXlt7LpgJrov4fmnKzmnLrlj6ror7vmiavmj4/ojrflj5bvvIzlubbpgJrov4fmiYDpgInmlbDmja7lupPorqTor4HjgILlj6/ku6XlvIDlp4vop6Plr4bjgIInCiAgICB9IGVsc2UgewogICAgICB3YXJuaW5nLnZhbHVlID0gJycKICAgICAgZXJyb3IudmFsdWUgPSByZXN1bHQ/LmVycm1zZyB8fCAn5pyq5Y+W5b6X6YCa6L+H6K6k6K+B55qE5a+G6ZKl44CC6K+35qC45a+56LSm5Y+344CB5b6u5L+h55m75b2V54q25oCB5ZKM5pWw5o2u5bqT6Lev5b6E5ZCO6YeN6K+V44CCJwo="
+        },
+        {
+          "start": 119991,
+          "end": 124235,
+          "insert_base64": "ICB9IGNhdGNoIChlcnJvclJlc3VsdCkgewogICAgaWYgKCFpc0RiS2V5UmVxdWVzdEFjdGl2ZShyZXF1ZXN0UmV2aXNpb24sIHJlcXVlc3RDb250cm9sbGVyKSB8fCBlcnJvclJlc3VsdD8ubmFtZSA9PT0gJ0Fib3J0RXJyb3InKSByZXR1cm4KICAgIGVycm9yLnZhbHVlID0gJ+acrOacuuWvhumSpeiOt+WPluWksei0pe+8micgKyAoZXJyb3JSZXN1bHQ/Lm1lc3NhZ2UgfHwgJ+ivt+ajgOafpeW+ruS/oeeZu+W9leeKtuaAgeWQjumHjeivlScpCg=="
         }
       ]
     },
@@ -844,7 +918,7 @@
     {
       "path": "src/wechat_decrypt_tool/key_service.py",
       "base_sha256": "ec02384ba3b93142a67e5b7dda8972f09616049a2090e75382ca707d61a3f127",
-      "target_sha256": "c7d4975f6e502435f806c29731fe62afc8b6730547bab29721efcba4cd12911b",
+      "target_sha256": "2aa8892e2a58be6821f6c5cf54552b11af632bed570f33168b981c09f4664900",
       "edits": [
         {
           "start": 84,
@@ -854,7 +928,7 @@
         {
           "start": 26474,
           "end": 30012,
-          "insert_base64": "ICAgIGZyb20gLmxvY2FsX2tleV9zY2FuIGltcG9ydCBnZXRfbG9jYWxfZGF0YWJhc2Vfa2V5CiAgICByZXR1cm4gZ2V0X2xvY2FsX2RhdGFiYXNlX2tleShkYl9zdG9yYWdlX3BhdGgsIGludGVybmFsX2RiX2tleT1pbnRlcm5hbF9kYl9rZXksIHdlY2hhdF9pbnN0YWxsX3BhdGg9d2VjaGF0X2luc3RhbGxfcGF0aCwgY2FuY2VsX2V2ZW50PWNhbmNlbF9ldmVudCwgdGltZW91dF9zZWNvbmRzPXRpbWVvdXRfc2Vjb25kcykK"
+          "insert_base64": "ICAgIGlmIHN0cihrZXlfbW9kZSBvciAiYXV0byIpLnN0cmlwKCkubG93ZXIoKSBub3QgaW4geyJhdXRvIiwgInY0IiwgImtleV92NCIsICJtZW1vcnkiLCAibWVtb3J5X3NjYW4ifToKICAgICAgICByYWlzZSBSdW50aW1lRXJyb3IoIuacrOacuueJiOacrOS7heaUr+aMgeWPquivu+WGheWtmOaJq+aPj+aIluaJi+WKqOi+k+WFpeWvhumSpe+8jOS4jeaPkOS+myBETEwgSG9va+OAgiIpCiAgICBmcm9tIC5sb2NhbF9rZXlfc2NhbiBpbXBvcnQgZ2V0X2xvY2FsX2RhdGFiYXNlX2tleQogICAgcmV0dXJuIGdldF9sb2NhbF9kYXRhYmFzZV9rZXkoZGJfc3RvcmFnZV9wYXRoLCBpbnRlcm5hbF9kYl9rZXk9aW50ZXJuYWxfZGJfa2V5LCB3ZWNoYXRfaW5zdGFsbF9wYXRoPXdlY2hhdF9pbnN0YWxsX3BhdGgsIGNhbmNlbF9ldmVudD1jYW5jZWxfZXZlbnQsIHRpbWVvdXRfc2Vjb25kcz10aW1lb3V0X3NlY29uZHMpCg=="
         },
         {
           "start": 53738,
@@ -1045,6 +1119,48 @@
       ]
     },
     {
+      "path": "src/wechat_decrypt_tool/routers/keys.py",
+      "base_sha256": "9a802d581da63a2adc9dc19219f648e0fc2b378d01f8b95bac2579e48c8ad3e6",
+      "target_sha256": "a6b782d4dbf59cbe3ff5922fc1712e804d7a9bf69c8e184849346775bf5f1862",
+      "edits": [
+        {
+          "start": 18718,
+          "end": 18888,
+          "insert_base64": "ICAgIOacrOacuuWPquivu+aJq+aPj+WcqOW3peS9nOe6v+eoi+aJp+ihjO+8m+WuouaIt+err+aWreW8gOaXtue7k+adn+aJq+aPj+OAggogICAg5q2k56a757q/54mI5pys5LiN5o+Q5L6bIERMTCBIb29rIOaIluWcqOe6v+WFnOW6leOAggo="
+        },
+        {
+          "start": 19182,
+          "end": 19524,
+          "insert_base64": "ICAgICAgICBjYW5jZWxfZXZlbnQgPSB0aHJlYWRpbmcuRXZlbnQoKQogICAgICAgIGFzeW5jIGRlZiB3YXRjaF9kaXNjb25uZWN0KCkgLT4gTm9uZToKICAgICAgICAgICAgd2hpbGUgbm90IGNhbmNlbF9ldmVudC5pc19zZXQoKToKICAgICAgICAgICAgICAgIGlmIGF3YWl0IHJlcXVlc3QuaXNfZGlzY29ubmVjdGVkKCk6CiAgICAgICAgICAgICAgICAgICAgY2FuY2VsX2V2ZW50LnNldCgpCiAgICAgICAgICAgICAgICAgICAgcmV0dXJuCiAgICAgICAgICAgICAgICBhd2FpdCBhc3luY2lvLnNsZWVwKDAuMikK"
+        },
+        {
+          "start": 19525,
+          "end": 20429,
+          "insert_base64": "ICAgICAgICB3b3JrZXIgPSBhc3luY2lvLmNyZWF0ZV90YXNrKAogICAgICAgICAgICBhc3luY2lvLnRvX3RocmVhZCgKICAgICAgICAgICAgICAgIGdldF9kYl9rZXlfd29ya2Zsb3csCg=="
+        },
+        {
+          "start": 20580,
+          "end": 20580,
+          "insert_base64": "ICAgICAgICAgICAgICAgIGNhbmNlbF9ldmVudD1jYW5jZWxfZXZlbnQsCg=="
+        },
+        {
+          "start": 20594,
+          "end": 20595,
+          "insert_base64": "ICAgICAgICApCiAgICAgICAgZGlzY29ubmVjdF93YXRjaGVyID0gYXN5bmNpby5jcmVhdGVfdGFzayh3YXRjaF9kaXNjb25uZWN0KCkpCiAgICAgICAgdHJ5OgogICAgICAgICAgICBrZXlzX2RhdGEgPSBhd2FpdCB3b3JrZXIKICAgICAgICBleGNlcHQgYXN5bmNpby5DYW5jZWxsZWRFcnJvcjoKICAgICAgICAgICAgY2FuY2VsX2V2ZW50LnNldCgpCiAgICAgICAgICAgIHJhaXNlCiAgICAgICAgZmluYWxseToKICAgICAgICAgICAgY2FuY2VsX2V2ZW50LnNldCgpCiAgICAgICAgICAgIGRpc2Nvbm5lY3Rfd2F0Y2hlci5jYW5jZWwoKQogICAgICAgICAgICB0cnk6CiAgICAgICAgICAgICAgICBhd2FpdCBkaXNjb25uZWN0X3dhdGNoZXIKICAgICAgICAgICAgZXhjZXB0IGFzeW5jaW8uQ2FuY2VsbGVkRXJyb3I6CiAgICAgICAgICAgICAgICBwYXNzCg=="
+        },
+        {
+          "start": 21961,
+          "end": 22011,
+          "insert_base64": "ICAgICAgICAgICAgICAgICAgICAiY2FuX2ZhbGxiYWNrX3RvX2hvb2siOiBGYWxzZSwK"
+        },
+        {
+          "start": 23575,
+          "end": 23625,
+          "insert_base64": "ICAgICAgICAgICAgICAgICAgICAiY2FuX2ZhbGxiYWNrX3RvX2hvb2siOiBGYWxzZSwK"
+        }
+      ]
+    },
+    {
       "path": "src/wechat_decrypt_tool/runtime_settings.py",
       "base_sha256": "cf3266707c279cb6541da403581187338a3abf91d5bd877020c239fd84d17236",
       "target_sha256": "e446e38f8f52f693354b1c4aad6059697e0d18799ef4951ca89d627546a44418",
@@ -1139,7 +1255,7 @@
     },
     {
       "path": "desktop/src/offline-main.cjs",
-      "sha256": "9891bb8ff293fcb5a3aa60fcbab9f86d4cf0763631dd912351de04c7001d3d2a"
+      "sha256": "83b5a47dd4c4d7cb819ced0a5d5c59982e86dbe8ccaddbe306c29641f179e39c"
     },
     {
       "path": "desktop/src/offline-position.cjs",
@@ -1163,7 +1279,7 @@
     },
     {
       "path": "desktop/tests/offline-renderer-smoke.cjs",
-      "sha256": "aebbf0eff546235b6881fc2315c3c4a21a1c2c028845e5c1f915d49aac4de056"
+      "sha256": "b1541bb582055639b5abd80e95c3b47508ca899135b8815951047838ba4f276c"
     },
     {
       "path": "desktop/tests/offline-session.test.cjs",
@@ -1223,7 +1339,7 @@
     },
     {
       "path": "src/wechat_decrypt_tool/local_key_scan.py",
-      "sha256": "4c109a54434b6656b35206630c4654a1139b64fb74c70996f99883d002d79e8f"
+      "sha256": "274ee48eb97cb95cedf48f9d0a65c71048dfa532de6b6a0c74645d070ce8849e"
     },
     {
       "path": "src/wechat_decrypt_tool/offline_ai.py",
@@ -1284,6 +1400,10 @@
     {
       "path": "tests_offline/test_local_cdn.py",
       "sha256": "db08af54da03d7686350c11f333d0d4823c565fcbbfc8c50d7d065ef60b959e5"
+    },
+    {
+      "path": "tests_offline/test_local_key_acquisition.py",
+      "sha256": "514581e78bd4be43335022cc992ef372330c731a2a27b273b6947fe6589e4de8"
     },
     {
       "path": "tests_offline/test_offline_ai.py",

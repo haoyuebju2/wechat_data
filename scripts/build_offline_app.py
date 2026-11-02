@@ -2,7 +2,7 @@
 import argparse,hashlib,json,os,shutil,subprocess,zipfile
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1]
-VERSION='0.1.4'
+VERSION='0.1.5'
 def copytree(source,target):
     shutil.copytree(source,target,ignore=shutil.ignore_patterns('__pycache__','*.pyc','wechat_offline_source.pth'))
 def build(out,prepared,stage_only=False):

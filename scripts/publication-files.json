@@ -90,6 +90,8 @@
     "docs/RELEASE_0.1.3.md",
     "source-overlay/files/desktop/src/offline-position.cjs",
     "source-overlay/files/desktop/tests/offline-position.test.cjs",
-    "docs/RELEASE_0.1.4.md"
+    "docs/RELEASE_0.1.4.md",
+    "docs/RELEASE_0.1.5.md",
+    "source-overlay/files/tests_offline/test_local_key_acquisition.py"
   ]
 }

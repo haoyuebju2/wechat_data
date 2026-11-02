@@ -16,6 +16,7 @@ let authenticated=0;
 let originals={enabled:true,auto_mode:'off',conversations:{},queue:{pending:0,done:0,failed:0}};
 let historyRows=[{id:'synthetic:2',account:'synthetic-account',conversation:'Synthetic Group',status:'downloaded',finished_at:1700000002,attempts:1},{id:'synthetic:1',account:'synthetic-account',conversation:'Synthetic Friend',status:'downloaded',finished_at:1700000001,attempts:1}];
 let historyUnread=2;
+let keyRequestModes=[];
 const historySummary=()=>({downloaded:historyRows.length,local:0,failed:0,completed:0,cancelled:0,total:historyRows.length,unread:historyUnread});
 const timeout=setTimeout(()=>{console.error('Renderer test timed out');app.exit(1);},45000);
 app.whenReady().then(async()=>{
@@ -25,6 +26,10 @@ app.whenReady().then(async()=>{
     const pathname=new URL(req.url,'http://127.0.0.1').pathname;
     if(pathname.startsWith('/api/')){
       res.setHeader('Content-Type','application/json');
+      if(pathname==='/api/get_keys'){
+        keyRequestModes.push(new URL(req.url,'http://127.0.0.1').searchParams.get('key_mode'));
+        res.end(JSON.stringify({status:0,data:{db_key:'ab'.repeat(32),method:'local_source_memory_scan',verified:true}}));return;
+      }
       if(pathname.startsWith('/api/offline/originals/history')){
         if(pathname.endsWith('/events')){res.setHeader('Content-Type','text/event-stream');res.end('data: {"revision":1}\n\n');return;}
         if(pathname.endsWith('/seen')){historyUnread=0;res.end(JSON.stringify(historySummary()));return;}
@@ -144,6 +149,15 @@ app.whenReady().then(async()=>{
   }
   if(!await win.webContents.executeJavaScript("document.body.innerText.includes('授权这份资料给 ChatGPT（一次）')"))throw new Error('Built private AI control did not mount');
   if(await win.webContents.executeJavaScript("[...document.querySelectorAll('button')].some(b=>/高级版|打开套餐|^Pro$/.test(b.textContent.trim())||b.title.includes('Pro ·'))"))throw new Error('Promotion UI remains');
+  await loadWithRedirect(win,origin+'/decrypt');
+  await waitUI("!!document.querySelector('#dbPath') && [...document.querySelectorAll('button')].some(b=>b.textContent.includes('一键获取数据库密钥') && !b.disabled)");
+  if(await win.webContents.executeJavaScript("!!document.querySelector('#key').value"))throw new Error('Fresh fixture unexpectedly has a saved database key');
+  await win.webContents.executeJavaScript("{ const field=document.querySelector('#dbPath');field.value='D:/synthetic/account/db_storage';field.dispatchEvent(new Event('input',{bubbles:true}));[...document.querySelectorAll('button')].find(b=>b.textContent.includes('一键获取数据库密钥')).click(); }");
+  await waitUI("[...document.querySelectorAll('button')].some(b=>b.textContent.trim()==='开始只读获取')");
+  await win.webContents.executeJavaScript("[...document.querySelectorAll('button')].find(b=>b.textContent.trim()==='开始只读获取').click()");
+  await waitUI("document.querySelector('#key')?.value==='ab'.repeat(32) && document.body.innerText.includes('数据库密钥已通过本机只读扫描获取')");
+  if(JSON.stringify(keyRequestModes)!==JSON.stringify(['key_v4']))throw new Error('Fresh UI used an unexpected acquisition method');
+  console.log('Fresh UI without a saved key filled the authenticated read-only acquisition result.');
   const denied=await win.webContents.executeJavaScript("fetch('https://example.invalid/synthetic-no-data').then(()=>false).catch(()=>true)");
   if(!denied||authenticated<2)throw new Error('Renderer network boundary/auth check failed');
   console.log('Built settings saved selected-group and all-conversation scopes and preserved choices. Original Nuxt chat and AI mounted; authenticated local access and external-fetch denial PASS. Synthetic-only hidden window.');
